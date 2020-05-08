@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react'
+import React, { useEffect } from 'react'
 
 import Header from './Header'
 import Footer from './Footer'
@@ -27,9 +27,8 @@ type SiteLayoutProps = {
 }
 
 function SiteLayout(props: SiteLayoutProps) {
-  useLayoutEffect(() => {
+  useEffect(() => {
     const check = vhCheck()
-    console.log(check)
   }, [])
 
   const { children } = props

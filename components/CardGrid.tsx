@@ -19,6 +19,7 @@ const CardWrapper = styled.div`
   scroll-snap-type: x proximity;
   grid-auto-flow: column;
   grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(1000, calc(var(--vh, 1vh) * 17));
   padding: calc(var(--vh, 1vh) * 8) 0 calc(var(--vh, 1vh) * 2) 5vw;
   &:focus {
     outline: none;
@@ -30,6 +31,23 @@ const CardWrapper = styled.div`
   }
 
 `
+
+const lazyLoad = target => {
+  const io = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target
+        const src = img.getAttribute('data-src')
+        img.classList.add('fade')
+        img.setAttribute('src', src)
+        img.removeAttribute('data-src')
+        observer.disconnect()
+
+      }
+    })
+  })
+  io.observe(target)
+}
 
 function CardGrid(props) {
   const containerRef = useRef()
@@ -58,6 +76,8 @@ function CardGrid(props) {
     const container: HTMLElement = containerRef.current
     if (container) {
       container.focus()
+      const targets = container.querySelectorAll('img[data-src]')
+      targets.forEach(lazyLoad)
     }
     document.addEventListener('mousewheel', handleHorizontalScroll, true)
     return () => {
@@ -67,7 +87,7 @@ function CardGrid(props) {
 
   return (
     <StyledContainer>
-      <CardWrapper {...props} ref={containerRef} tabIndex={0}/>
+      <CardWrapper {...props} ref={containerRef} tabIndex={0} />
     </StyledContainer>
   )
 }

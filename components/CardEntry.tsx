@@ -3,12 +3,17 @@ import { ThemeType } from '../theme'
 
 type GridCardProps = {
   fallback?: Function;
-  theme?: ThemeType
+  theme?: ThemeType,
+  image?: string
 }
 
 const getFallback = (props: GridCardProps) => props.fallback(props.theme.borderColor)
 
 const StyledCard = styled.div`
+user-select: none;
+display: flex;
+justify-content: center;
+align-items: center;
 height: calc(var(--vh, 1vh) * 10);
 width: calc(var(--vh, 1vh) * 15);
 padding: calc(var(--vh, 1vh));
@@ -19,6 +24,13 @@ background-size: 20%;
 background-position: center 55%;
 scroll-snap-align: end;
 cursor: pointer;
+
+img {
+  width: 10vmax;
+  max-width: 10vh;
+  will-change: opacity;
+  image-rendering: optimizeQuality;
+}
 
 &:focus {
   outline: none;
@@ -39,7 +51,7 @@ cursor: pointer;
   border-top-right-radius: 15px 225px;
   border-bottom-right-radius: 225px 15px;
   border-bottom-left-radius:15px 255px;
-  border: 3px solid ${props => props.theme.darkGrayAccent};
+  border: 2px solid ${props => props.theme.darkGrayAccent};
   display: block;
   top: 50%;
   left: 50%;
@@ -65,7 +77,7 @@ function CardEntry(props: GridCardProps) {
 
   return (
     <StyledCard {...props} tabIndex={0}>
-
+      <img data-src={props.image} loading='lazy' draggable={false} />
     </StyledCard>
   )
 

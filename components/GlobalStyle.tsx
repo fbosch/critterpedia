@@ -27,12 +27,27 @@ export default createGlobalStyle`
     background: linear-gradient(to right, rgb(234, 227, 169) 5%, #efe4b7 100%);
   }
 
+  .fade {
+    opacity: 0;
+    animation: fadeIn 250ms linear;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   .page-transition-enter {
 		opacity: 0;
 	}
 	.page-transition-enter-active {
 		opacity: 1;
-		transition: opacity 150ms ease-in;
+		transition: opacity 150ms ease-in 100ms;
 	}
 	.page-transition-exit {
 		opacity: 1;

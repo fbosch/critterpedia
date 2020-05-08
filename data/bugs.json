@@ -1,0 +1,634 @@
+[
+  {
+    "id": "commonbutterfly",
+    "name": "Common Butterfly",
+    "price": 160,
+    "location": "Above Flowers",
+    "time": "4am - 7pm",
+    "season": "April, December, Februrary, January, June, March, May, November, October, September"
+  },
+  {
+    "id": "yellowbutterfly",
+    "name": "Yellow Butterfly",
+    "price": 160,
+    "location": "Flying",
+    "time": "4am - 7pm",
+    "season": "April, June, March, May, October, September"
+  },
+  {
+    "id": "peacockbutterfly",
+    "name": "Peacock Butterfly",
+    "price": 2500,
+    "location": "Above Purple, Black and Blue Flowers",
+    "time": "4am - 7pm",
+    "season": "April, June, March, May"
+  },
+  {
+    "id": "commonbluebottle",
+    "name": "Common Bluebottle",
+    "price": 300,
+    "location": "Flying",
+    "time": "4am - 7pm",
+    "season": "April, July, June, May"
+  },
+  {
+    "id": "paperkitebutterfly",
+    "name": "Paper Kite Butterfly",
+    "price": 1000,
+    "location": "Flying",
+    "time": "8am - 7pm",
+    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+  },
+  {
+    "id": "greatpurpleemperor",
+    "name": "Great Purple Emperor",
+    "price": 3000,
+    "location": "Flying",
+    "time": "4am - 7pm",
+    "season": "August, July, June, May"
+  },
+  {
+    "id": "monarchbutterfly",
+    "name": "Monarch Buttefly",
+    "price": 140,
+    "location": "Flying",
+    "time": "4am - 7pm",
+    "season": "November, October, September"
+  },
+  {
+    "id": "emperorbutterfly",
+    "name": "Emperor Butterfly",
+    "price": 4000,
+    "location": "Flying",
+    "time": "5pm - 8am",
+    "season": "August, December, Februrary, January, July, June, March, September"
+  },
+  {
+    "id": "agriasbutterfly",
+    "name": "Agrias Buttefly",
+    "price": 3000,
+    "location": "Flying",
+    "time": "8am - 5pm",
+    "season": "April, August, July, June, May, September"
+  },
+  {
+    "id": "rajahbrookesbirdwing",
+    "name": "Rajah Brooke's Birdwing",
+    "price": 2500,
+    "location": "Above Flowers",
+    "time": "8am - 5pm",
+    "season": "April, August, December, Februrary, January, July, June, May, September"
+  },
+  {
+    "id": "queenalexandrasbirdwing",
+    "name": "Queen Alexandra's Birdwing",
+    "price": 4000,
+    "location": "Flying",
+    "time": "8am - 4pm",
+    "season": "August, July, June, May, September"
+  },
+  {
+    "id": "moth",
+    "name": "Moth",
+    "price": 130,
+    "location": "Flying Around Light",
+    "time": "7pm  - 4am",
+    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+  },
+  {
+    "id": "atlasmoth",
+    "name": "Atlas Moth",
+    "price": 3000,
+    "location": "On Trees",
+    "time": "7pm - 4am",
+    "season": "April, August, July, June, May, September"
+  },
+  {
+    "id": "madagascansunsetmoth",
+    "name": "Madagascan Sunset Moth",
+    "price": 2500,
+    "location": "Flying",
+    "time": "8am - 4pm",
+    "season": "April, August, July, June, May, September"
+  },
+  {
+    "id": "longlocust",
+    "name": "Long Locust",
+    "price": 200,
+    "location": "On The Ground",
+    "time": "8am - 7pm",
+    "season": "April, August, July, June, May, November, October, September"
+  },
+  {
+    "id": "migratorylocust",
+    "name": "Migratory Locust",
+    "price": 600,
+    "location": "On The Ground",
+    "time": "8am - 7pm",
+    "season": "August, November, October, September"
+  },
+  {
+    "id": "ricegrasshopper",
+    "name": "Rice Grasshopper",
+    "price": 160,
+    "location": "On The Ground",
+    "time": "8am - 7pm",
+    "season": "August, November, October, September"
+  },
+  {
+    "id": "grasshopper",
+    "name": "Grasshopper",
+    "price": 160,
+    "location": "On The Ground",
+    "time": "8am - 5pm",
+    "season": "August, July, September"
+  },
+  {
+    "id": "cricket",
+    "name": "Cricket",
+    "price": 130,
+    "location": "On The Ground",
+    "time": "5pm - 8am",
+    "season": "November, October, September"
+  },
+  {
+    "id": "bellcricket",
+    "name": "Bell Cricket",
+    "price": 430,
+    "location": "On The Ground",
+    "time": "5pm - 8am",
+    "season": "October, September"
+  },
+  {
+    "id": "mantis",
+    "name": "Mantis",
+    "price": 430,
+    "location": "On Flowers",
+    "time": "8am - 5pm",
+    "season": "April, August, July, June, March, May, November, October, September"
+  },
+  {
+    "id": "orchidmantis",
+    "name": "Orchid Mantis",
+    "price": 2400,
+    "location": "On Flowers (White)",
+    "time": "8am - 5pm",
+    "season": "April, August, July, June, March, May, November, October, September"
+  },
+  {
+    "id": "honeybee",
+    "name": "Honeybee",
+    "price": 200,
+    "location": "Above Flowers",
+    "time": "8am - 5pm",
+    "season": "April, July, June, March, May"
+  },
+  {
+    "id": "wasp",
+    "name": "Wasp",
+    "price": 2500,
+    "location": "Shaking Trees",
+    "time": "All Day",
+    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+  },
+  {
+    "id": "browncicada",
+    "name": "Brown Cicada",
+    "price": 250,
+    "location": "On Trees",
+    "time": "8am - 5pm",
+    "season": "August, July"
+  },
+  {
+    "id": "robustcicada",
+    "name": "Robust Cicada",
+    "price": 300,
+    "location": "On Trees",
+    "time": "8am - 5pm",
+    "season": "August, July"
+  },
+  {
+    "id": "giantcicada",
+    "name": "Giant Cicada",
+    "price": 500,
+    "location": "On Trees",
+    "time": "8am - 5pm",
+    "season": "August, July"
+  },
+  {
+    "id": "walkercicada",
+    "name": "Walker Cicada",
+    "price": 400,
+    "location": "On Trees",
+    "time": "8am - 4pm",
+    "season": "August, September"
+  },
+  {
+    "id": "eveningcicada",
+    "name": "Evening Cicada",
+    "price": 550,
+    "location": "On Trees",
+    "time": "4am - 8am & 4pm - 7pm",
+    "season": "August, July"
+  },
+  {
+    "id": "cicadashell",
+    "name": "Cicada Shell",
+    "price": 10,
+    "location": "On Trees",
+    "time": "All Day",
+    "season": "August, July"
+  },
+  {
+    "id": "reddragonfly",
+    "name": "Red Dragonfly",
+    "price": 180,
+    "location": "Flying",
+    "time": "8am - 7pm",
+    "season": "October, September"
+  },
+  {
+    "id": "darnerdragonfly",
+    "name": "Darner Dragonfly",
+    "price": 230,
+    "location": "Flying",
+    "time": "8am - 5pm",
+    "season": "April, August, July, June, May, October, September"
+  },
+  {
+    "id": "bandeddragonfly",
+    "name": "Banded Dragonfly",
+    "price": 4500,
+    "location": "Flying",
+    "time": "8am - 5pm",
+    "season": "August, July, June, May, September"
+  },
+  {
+    "id": "damselfly",
+    "name": "Damselfly",
+    "price": 500,
+    "location": "Flying",
+    "time": "All Day",
+    "season": "December, Februrary, January, November"
+  },
+  {
+    "id": "firefly",
+    "name": "Firefly",
+    "price": 300,
+    "location": "Flying",
+    "time": "7pm - 4pm",
+    "season": "June"
+  },
+  {
+    "id": "molecricket",
+    "name": "Mole Cricket",
+    "price": 500,
+    "location": "Undeground",
+    "time": "All Day",
+    "season": "December, Februrary, January, March, May, November"
+  },
+  {
+    "id": "pondskater",
+    "name": "Pondskater",
+    "price": 130,
+    "location": "On Ponds and Rivers",
+    "time": "8am - 7pm",
+    "season": "August, July, June, May, September"
+  },
+  {
+    "id": "divingbeetle",
+    "name": "Diving Beetle",
+    "price": 800,
+    "location": "On Ponds and Rivers",
+    "time": "8am - 7pm",
+    "season": "August, July, June, May, September"
+  },
+  {
+    "id": "giantwaterbug",
+    "name": "Giant Water Bug",
+    "price": 2000,
+    "location": "On Ponds and Rivers",
+    "time": "7pm - 8am",
+    "season": "April, August, July, June, May, September"
+  },
+  {
+    "id": "stinkbug",
+    "name": "Stinkbug",
+    "price": 120,
+    "location": "On Flowers",
+    "time": "All Day",
+    "season": "April, August, July, June, March, May, September"
+  },
+  {
+    "id": "manfacedstinkbug",
+    "name": "Man-faced Stink Bug",
+    "price": 1000,
+    "location": "On Flowers",
+    "time": "7pm - 8am",
+    "season": "April, August, July, June, March, May, September"
+  },
+  {
+    "id": "ladybug",
+    "name": "Ladybug",
+    "price": 200,
+    "location": "On Flowers",
+    "time": "8am - 5pm",
+    "season": "April, June, March, May, October"
+  },
+  {
+    "id": "tigerbeetle",
+    "name": "Tiger Beetle",
+    "price": 1500,
+    "location": "Flying",
+    "time": "All Day",
+    "season": "April, August, Februrary, July, June, March, May, September"
+  },
+  {
+    "id": "jewelbeetle",
+    "name": "Jewel Beetle",
+    "price": 2400,
+    "location": "On Tree Stumps",
+    "time": "All Day",
+    "season": "April, August, July, June, May"
+  },
+  {
+    "id": "citruslonghornedbeetle",
+    "name": "Citrus Long-horned Beetle",
+    "price": 350,
+    "location": "On Tree Stumps",
+    "time": "All Day",
+    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+  },
+  {
+    "id": "rosaliabatesibeetle",
+    "name": "Rosalia Batesi Beetle",
+    "price": 3000,
+    "location": "On Tree Stumps",
+    "time": "All Day",
+    "season": "August, July, June, May, September"
+  },
+  {
+    "id": "blueweevilbeetle",
+    "name": "Blue Weevil Beetle",
+    "price": 800,
+    "location": "On Trees",
+    "time": "All Day",
+    "season": "August, July"
+  },
+  {
+    "id": "violinbeetle",
+    "name": "Violin Beetle",
+    "price": 450,
+    "location": "On Trees",
+    "time": "All Day",
+    "season": "June, May, October, September"
+  },
+  {
+    "id": "dungbeetle",
+    "name": "Dung Beetle",
+    "price": 3000,
+    "location": "On The Ground (Rolling Snowballs)",
+    "time": "All Day",
+    "season": "December, Februrary, January"
+  },
+  {
+    "id": "earthboringdungbeetle",
+    "name": "Earth-boring Dung Beetle",
+    "price": 300,
+    "location": "On The Ground",
+    "time": "All Day",
+    "season": "August, July, September"
+  },
+  {
+    "id": "scarabbeetle",
+    "name": "Scarab Beetle",
+    "price": 10000,
+    "location": "On Trees",
+    "time": "11pm - 8am",
+    "season": "August, July"
+  },
+  {
+    "id": "dronebeetle",
+    "name": "Drone Beetle",
+    "price": 200,
+    "location": "On Trees",
+    "time": "All Day",
+    "season": "August, July, June"
+  },
+  {
+    "id": "goliathbeetle",
+    "name": "Goliath Beetle",
+    "price": 8000,
+    "location": "On Trees (Coconut)",
+    "time": "5pm - 8am",
+    "season": "August, July, June, September"
+  },
+  {
+    "id": "sawstag",
+    "name": "Saw Stag",
+    "price": 2000,
+    "location": "On Trees",
+    "time": "All Day",
+    "season": "August, July"
+  },
+  {
+    "id": "miyamastag",
+    "name": "Miyama Stag",
+    "price": 1000,
+    "location": "On Trees",
+    "time": "All Day",
+    "season": "August, July"
+  },
+  {
+    "id": "giantstag",
+    "name": "Giant Stag",
+    "price": 10000,
+    "location": "On Trees",
+    "time": "11pm - 8am",
+    "season": "August, July"
+  },
+  {
+    "id": "rainbowstag",
+    "name": "Rainbow Stag",
+    "price": 6000,
+    "location": "On Trees",
+    "time": "7pm - 8am",
+    "season": "August, July, June, September"
+  },
+  {
+    "id": "cyclommatusstag",
+    "name": "Cyclommatus Stag",
+    "price": 8000,
+    "location": "On Trees",
+    "time": "5pm - 8am",
+    "season": "August, July"
+  },
+  {
+    "id": "goldenstag",
+    "name": "Golden Stag",
+    "price": 12000,
+    "location": "On Trees",
+    "time": "5pm - 8am",
+    "season": "August, July"
+  },
+  {
+    "id": "giraffestag",
+    "name": "Giraffe Stag",
+    "price": 12000,
+    "location": "On Trees",
+    "time": "5pm - 8am",
+    "season": "August, July"
+  },
+  {
+    "id": "horneddynastid",
+    "name": "Horned Dynastid",
+    "price": 1350,
+    "location": "On Trees",
+    "time": "5pm - 8am",
+    "season": "August, July"
+  },
+  {
+    "id": "hornedatlas",
+    "name": "Horned Atlas",
+    "price": 8000,
+    "location": "On Trees",
+    "time": "5pm - 8am",
+    "season": "August, July"
+  },
+  {
+    "id": "hornedelephant",
+    "name": "Horned Elephant",
+    "price": 8000,
+    "location": "On Trees",
+    "time": "5pm - 8am",
+    "season": "August, July"
+  },
+  {
+    "id": "hornedhercules",
+    "name": "Horned Hercules",
+    "price": 12000,
+    "location": "On Trees",
+    "time": "5pm - 8am",
+    "season": "August, July"
+  },
+  {
+    "id": "walkingstick",
+    "name": "Walking Stick",
+    "price": 600,
+    "location": "On Trees",
+    "time": "4am - 8am & 5pm - 7pm",
+    "season": "August, July, November, October, September"
+  },
+  {
+    "id": "walkingleaf",
+    "name": "Walking Leaf",
+    "price": 600,
+    "location": "On The Ground (Beneath Trees)",
+    "time": "All Day",
+    "season": "August, July, September"
+  },
+  {
+    "id": "bagworm",
+    "name": "Bagworm",
+    "price": 600,
+    "location": "Shaking Trees",
+    "time": "All Day",
+    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+  },
+  {
+    "id": "ant",
+    "name": "Ant",
+    "price": 80,
+    "location": "On Rotten Turnips and Fruit",
+    "time": "All Day",
+    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+  },
+  {
+    "id": "hermitcrab",
+    "name": "Hermit Crab",
+    "price": 1000,
+    "location": "On Beach",
+    "time": "7pm - 8am",
+    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+  },
+  {
+    "id": "wharfroach",
+    "name": "Wharf Roach",
+    "price": 200,
+    "location": "On Beach (Rocks)",
+    "time": "All Day",
+    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+  },
+  {
+    "id": "fly",
+    "name": "Fly",
+    "price": 60,
+    "location": "On Rotten Food and Garbage",
+    "time": "All Day",
+    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+  },
+  {
+    "id": "mosquito",
+    "name": "Mosquito",
+    "price": 130,
+    "location": "Flying",
+    "time": "5pm - 4am",
+    "season": "August, July, June, September"
+  },
+  {
+    "id": "flea",
+    "name": "Flea",
+    "price": 70,
+    "location": "On Flea-infested Villager",
+    "time": "All Day",
+    "season": "April, August, July, June, May, November, October, September"
+  },
+  {
+    "id": "snail",
+    "name": "Snail",
+    "price": 250,
+    "location": "On Rocks (Rain)",
+    "time": "All Day",
+    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+  },
+  {
+    "id": "pillbug",
+    "name": "Pill Bug",
+    "price": 250,
+    "location": "Hitting Rocks",
+    "time": "11pm - 4pm",
+    "season": "April, December, Februrary, January, June, March, May, November, October, September"
+  },
+  {
+    "id": "centipede",
+    "name": "Centipede",
+    "price": 300,
+    "location": "Hitting Rocks",
+    "time": "5pm - 11pm",
+    "season": "April, December, Februrary, January, June, March, May, November, October, September"
+  },
+  {
+    "id": "spider",
+    "name": "Spider",
+    "price": 480,
+    "location": "Shaking Trees",
+    "time": "7pm - 8am",
+    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+  },
+  {
+    "id": "tarantula",
+    "name": "Tarantula",
+    "price": 8000,
+    "location": "On The Ground",
+    "time": "7pm - 4am",
+    "season": "April, December, Februrary, January, March, November"
+  },
+  {
+    "id": "scorpion",
+    "name": "Scorpion",
+    "price": 8000,
+    "location": "On The Ground",
+    "time": "7pm - 4am",
+    "season": "August, July, June, May, October, September"
+  }
+]

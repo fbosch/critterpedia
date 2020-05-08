@@ -33,6 +33,7 @@ const StyledNavItem = styled.li`
   border-radius: 100%;
   position: relative;
   z-index: 90;
+  user-select: none;
 
   &:hover {
     svg {
