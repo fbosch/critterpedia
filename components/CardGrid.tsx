@@ -40,12 +40,12 @@ const lazyLoad = target => {
         const src = img.getAttribute('data-src')
         const imageInBackground = new Image()
         imageInBackground.src = src
-        imageInBackground.onload = () => window.requestAnimationFrame(() => {
+        imageInBackground.onload = () => {
           observer.disconnect()
           img.removeAttribute('data-src')
           img.setAttribute('src', src)
           img.classList.add('fade')
-        })
+        }
       }
     })
   })
