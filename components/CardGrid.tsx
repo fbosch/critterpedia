@@ -40,13 +40,13 @@ const lazyLoad = target => {
         const src = img.getAttribute('data-src')
         img.removeAttribute('data-src')
         observer.disconnect()
-        window.requestAnimationFrame(() => {
-          const imageInBackground = new Image()
-          imageInBackground.src = src
-          imageInBackground.onload = () => {
+        const imageInBackground = new Image()
+        imageInBackground.src = src
+        imageInBackground.onload = () => {
+          window.requestAnimationFrame(() => {
             img.setAttribute('src', src)
-          }
-        })
+          })
+        }
       }
     })
   })
