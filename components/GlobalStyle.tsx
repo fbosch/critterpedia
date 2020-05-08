@@ -29,7 +29,7 @@ export default createGlobalStyle`
 
   .fade {
     opacity: 0;
-    animation: fadeIn 250ms linear;
+    animation: fadeIn 250ms linear 100ms;
     animation-fill-mode: forwards;
   }
 

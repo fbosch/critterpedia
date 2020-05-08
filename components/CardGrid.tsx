@@ -36,13 +36,14 @@ const lazyLoad = target => {
   const io = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        observer.disconnect()
         const img = entry.target
         const src = img.getAttribute('data-src')
-        img.classList.add('fade')
         img.setAttribute('src', src)
         img.removeAttribute('data-src')
-        observer.disconnect()
-
+        window.requestAnimationFrame(() => {
+          img.classList.add('fade')
+        })
       }
     })
   })
@@ -62,7 +63,7 @@ function CardGrid(props) {
           // container.scrollTo(0, container.scrollLeft - (e.deltaY * 20))
           window.requestAnimationFrame(() => container.scrollTo({
             top: 0,
-            left: container.scrollLeft + (e.deltaY * 4.5),
+            left: container.scrollLeft + (e.deltaY * 3),
             behavior: 'smooth'
           }))
         } else {
