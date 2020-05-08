@@ -17,8 +17,7 @@ export default createGlobalStyle`
     font-weight: normal;
     font-display: optional;
     src:
-      url("./assets/fonts/humming.otf") format("opentype"),
-      url("./assets/fonts/humming.ttf")  format("truetype");
+      url("./assets/fonts/humming.otf") format("opentype")
   }
 
   main {
