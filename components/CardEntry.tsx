@@ -88,7 +88,7 @@ function CardEntry(props: GridCardProps) {
 
   return (
     <StyledCard {...props} tabIndex={0}>
-      <img data-src={props.image} loading='lazy' draggable={false} />
+      <img data-src={props.image} loading='eager' draggable={false} />
     </StyledCard>
   )
 

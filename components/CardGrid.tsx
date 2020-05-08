@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { useRef, useCallback, useLayoutEffect } from 'react'
+import { useRef, useCallback, useEffect } from 'react'
+import debounce from 'lodash.debounce'
 
 const StyledContainer = styled.div`
   font-size: 3rem;
@@ -11,7 +12,7 @@ const StyledContainer = styled.div`
 
 `
 
-const CardWrapper = styled.div`
+const CardWrapper = styled.ol`
   display: grid;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -19,8 +20,8 @@ const CardWrapper = styled.div`
   scroll-snap-type: x proximity;
   grid-auto-flow: column;
   grid-template-rows: repeat(5, 1fr);
-  grid-template-columns: repeat(1000, calc(var(--vh, 1vh) * 17));
-  padding: calc(var(--vh, 1vh) * 8) 0 calc(var(--vh, 1vh) * 2) 5vw;
+  grid-template-columns: repeat(2000, calc(var(--vh, 1vh) * 17));
+  padding: 3px 4vw;
   &:focus {
     outline: none;
   }
@@ -32,7 +33,7 @@ const CardWrapper = styled.div`
 
 `
 
-const lazyLoad = target => {
+function lazyLoad(target) {
   const io = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -57,6 +58,7 @@ const lazyLoad = target => {
 function CardGrid(props) {
   const containerRef = useRef()
 
+
   const handleHorizontalScroll = useCallback(e => {
     const container: HTMLElement = containerRef.current
     if (container) {
@@ -64,11 +66,12 @@ function CardGrid(props) {
         const target = e.target as HTMLElement
         if (e.deltaX) return
         if (container.contains(target)) {
-          window.requestAnimationFrame(() => container.scrollTo({
+          console.log(e.deltaY)
+           container.scrollTo({
             top: 0,
-            left: container.scrollLeft + (e.deltaY * 3),
+            left: container.scrollLeft + (e.deltaY * 3.5),
             behavior: 'smooth'
-          }))
+          })
         } else {
           return
         }
@@ -76,21 +79,24 @@ function CardGrid(props) {
     }
   }, [containerRef])
 
-  useLayoutEffect(() => {
+  const debouncedScrollHandler = useRef(debounce(handleHorizontalScroll, 500, { leading: true }))
+
+  useEffect(() => {
     const container: HTMLElement = containerRef.current
-    document.addEventListener('mousewheel', handleHorizontalScroll, true)
+    const handler = debouncedScrollHandler.current
+    document.addEventListener('mousewheel', handler, true)
     if (container) {
-      container.focus()
+      document.body.focus()
       const targets = container.querySelectorAll('img[data-src]')
       const imageObservers = Array.from(targets).map(lazyLoad)
       console.log('lazyLoad!')
       return () => {
         imageObservers.forEach(io => io.disconnect())
-        document.removeEventListener('mousewheel', handleHorizontalScroll, true)
+        document.removeEventListener('mousewheel', handler)
       }
     }
     return () => {
-      document.removeEventListener('mousewheel', handleHorizontalScroll, true)
+      document.removeEventListener('mousewheel', handler)
     }
   }, [containerRef])
 
