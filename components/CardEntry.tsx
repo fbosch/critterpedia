@@ -30,8 +30,13 @@ img {
   max-width: 10vh;
   will-change: opacity;
   image-rendering: optimizeQuality;
-  image-rendering: smooth;;
+  image-rendering: smooth;
+  opacity: 0;
   background: radial-gradient(rgba(233, 227, 169, 1) 30%,rgba(233, 227, 169, 0) 70%);
+  &[src] {
+    animation: fadeIn 200ms linear;
+    animation-fill-mode: forwards;
+  }
   &:not([src]) {
     width: 20%;
     content: url("data:image/svg+xml;base64,${getFallback}");

@@ -38,18 +38,20 @@ const lazyLoad = target => {
       if (entry.isIntersecting) {
         const img = entry.target
         const src = img.getAttribute('data-src')
-        const imageInBackground = new Image()
-        imageInBackground.src = src
-        imageInBackground.onload = () => {
-          observer.disconnect()
-          img.removeAttribute('data-src')
-          img.setAttribute('src', src)
-          img.classList.add('fade')
-        }
+        img.removeAttribute('data-src')
+        observer.disconnect()
+        window.requestAnimationFrame(() => {
+          const imageInBackground = new Image()
+          imageInBackground.src = src
+          imageInBackground.onload = () => {
+            img.setAttribute('src', src)
+          }
+        })
       }
     })
   })
   io.observe(target)
+  return io
 }
 
 function CardGrid(props) {
@@ -76,12 +78,17 @@ function CardGrid(props) {
 
   useLayoutEffect(() => {
     const container: HTMLElement = containerRef.current
+    document.addEventListener('mousewheel', handleHorizontalScroll, true)
     if (container) {
       container.focus()
       const targets = container.querySelectorAll('img[data-src]')
-      targets.forEach(lazyLoad)
+      const imageObservers = Array.from(targets).map(lazyLoad)
+      console.log('lazyLoad!')
+      return () => {
+        imageObservers.forEach(io => io.disconnect())
+        document.removeEventListener('mousewheel', handleHorizontalScroll, true)
+      }
     }
-    document.addEventListener('mousewheel', handleHorizontalScroll, true)
     return () => {
       document.removeEventListener('mousewheel', handleHorizontalScroll, true)
     }
