@@ -4,7 +4,7 @@ import Link from './ActiveLink'
 import border from '../public/assets/images/border.png'
 
 const StyledHeader = styled.header`
-  height: 10vh;
+  height: calc(var(--vh, 1vh) * 10);
   width: 100%;
   position: relative;
   grid-area: header;
@@ -26,7 +26,7 @@ const StyledNavItem = styled.li`
   justify-content: center;
   align-items: center;
   height: 100px;
-  font-size: 1.5vh;
+  font-size: calc(var(--vh, 1vh) * 1.5);
   width: 6em;
   height: 6em;
   padding: 5px;

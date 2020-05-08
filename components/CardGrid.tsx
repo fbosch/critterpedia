@@ -3,8 +3,8 @@ import { useRef, useCallback, useLayoutEffect } from 'react'
 
 const StyledContainer = styled.div`
   font-size: 3rem;
-  height: 70vh;
-  padding: 5vh 0;
+  height: calc(var(--vh, 1vh) * 70);
+  padding: calc(var(--vh, 1vh) * 5) 0;
   overflow-x: scroll;
   overflow-y: hidden;
   position: relative;
@@ -17,10 +17,9 @@ const CardWrapper = styled.div`
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x proximity;
-  scroll-padding: 10px;
   grid-auto-flow: column;
   grid-template-rows: repeat(5, 1fr);
-  padding: 10px 0 10px 4vw;
+  padding: calc(var(--vh, 1vh) * 3) 0 calc(var(--vh, 1vh) * 3) 4vw;
   &:focus {
     outline: none;
   }
@@ -28,6 +27,7 @@ const CardWrapper = styled.div`
     content: '';
     display: block;
     width: 4vw;
+    height: calc(var(--vh, 1vh) * 4);
   }
 
 `

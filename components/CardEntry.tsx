@@ -9,9 +9,9 @@ type GridCardProps = {
 const getFallback = (props: GridCardProps) => props.fallback(props.theme.borderColor)
 
 const StyledCard = styled.div`
-height: 12vh;
-width: 16vh;
-padding: 1vh;
+height: calc(var(--vh, 1vh) * 12);
+width: calc(var(--vh, 1vh) * 16);
+padding: calc(var(--vh, 1vh));
 position: relative;
 background-image: url("data:image/svg+xml;base64,${getFallback}");
 background-repeat: no-repeat;

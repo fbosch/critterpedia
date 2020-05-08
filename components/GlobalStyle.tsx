@@ -2,11 +2,13 @@ import { createGlobalStyle } from 'styled-components'
 import { getFontFamily, getBodyBackground } from '../theme'
 
 export default createGlobalStyle`
-  body, html {
-    background: ${getBodyBackground};
+  html {
+    background-color: ${getBodyBackground};
+  }
+  body {
     font-family: ${getFontFamily};
     text-rendering: optimizeLegibility;
-    background-color: #f7f3d0;
+    background-color: ${getBodyBackground};
     background: linear-gradient(to right, rgb(239, 233, 188) 70%, #f7f3d0 100%);
   }
 
