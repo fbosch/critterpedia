@@ -36,12 +36,14 @@ const lazyLoad = target => {
   const io = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        observer.disconnect()
         const img = entry.target
         const src = img.getAttribute('data-src')
-        img.setAttribute('src', src)
-        img.removeAttribute('data-src')
-        window.requestAnimationFrame(() => {
+        const imageInBackground = new Image()
+        imageInBackground.src = src
+        imageInBackground.onload = () => window.requestAnimationFrame(() => {
+          observer.disconnect()
+          img.removeAttribute('data-src')
+          img.setAttribute('src', src)
           img.classList.add('fade')
         })
       }
