@@ -47,7 +47,7 @@ export default createGlobalStyle`
 	}
 	.page-transition-enter-active {
 		opacity: 1;
-		transition: opacity 250ms linear 150ms;
+		transition: opacity 250ms linear;
 	}
 	.page-transition-exit {
 		opacity: 1;
