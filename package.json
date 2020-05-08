@@ -1,0 +1,46 @@
+{
+  "name": "critterpedia",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/fbosch/critterpedia.git",
+  "author": "Frederik Bosch <frede.bosch@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=dev netlify dev",
+    "build": "next build",
+    "start": "next",
+    "export": "next build && next export"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.15",
+    "next-page-transitions": "^1.0.0-beta.2",
+    "normalize.css": "^8.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@next/bundle-analyzer": "^9.3.6",
+    "@types/next": "^9.0.0",
+    "@types/node": "^13.13.5",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.7",
+    "@types/styled-components": "^5.1.0",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-plugin-styled-components": "^1.10.7",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "file-loader": "^6.0.0",
+    "netlify-cli": "^2.50.0",
+    "netlify-plugin-cache-nextjs": "^1.4.0",
+    "next": "^9.3.6",
+    "next-offline": "^5.0.2",
+    "npm-run-all": "^4.1.5",
+    "svg-url-loader": "^5.0.0",
+    "typescript": "^3.8.3",
+    "url-loader": "^4.1.0"
+  }
+}
