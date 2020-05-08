@@ -15,7 +15,7 @@ function Card(props) {
 
 // const insectCollection = Array.from(Array(100)).map((item, index) => <Card key={index} image={butterfly} />)
 
-const insectCollection = bugs.map(insect => <Card key={insect.id} id={insect.id} title={insect.name} image={`./assets/images/bugs/${insect.id}.png`} />)
+const insectCollection = bugs.map(insect => <Card key={insect.id} id={insect.id} title={insect.name} image={`./assets/images/bugs/icons/${insect.id}.png`} />)
 
 function HomePage(props) {
 
