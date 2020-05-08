@@ -15,7 +15,7 @@ export default createGlobalStyle`
   @font-face {
     font-family: Humming;
     font-weight: normal;
-    font-display: swap;
+    font-display: optional;
     src:
       url("./assets/fonts/humming.otf") format("opentype"),
       url("./assets/fonts/humming.ttf")  format("truetype");
