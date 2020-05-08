@@ -30,6 +30,7 @@ img {
   max-width: 10vh;
   will-change: opacity;
   image-rendering: optimizeQuality;
+  image-rendering: smooth;
 }
 
 &:focus {
