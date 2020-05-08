@@ -19,15 +19,14 @@ const CardWrapper = styled.div`
   scroll-snap-type: x proximity;
   grid-auto-flow: column;
   grid-template-rows: repeat(5, 1fr);
-  padding: calc(var(--vh, 1vh) * 8) 0 calc(var(--vh, 1vh) * 8) 4vw;
+  padding: calc(var(--vh, 1vh) * 8) 0 calc(var(--vh, 1vh) * 2) 5vw;
   &:focus {
     outline: none;
   }
   :after {
     content: '';
     display: block;
-    width: 4vw;
-    height: calc(var(--vh, 1vh) * 4);
+    width: 5vw;
   }
 
 `
@@ -45,7 +44,7 @@ function CardGrid(props) {
           // container.scrollTo(0, container.scrollLeft - (e.deltaY * 20))
           window.requestAnimationFrame(() => container.scrollTo({
             top: 0,
-            left: container.scrollLeft + (e.deltaY * 3),
+            left: container.scrollLeft + (e.deltaY * 4.5),
             behavior: 'smooth'
           }))
         } else {
