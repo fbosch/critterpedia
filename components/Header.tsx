@@ -72,6 +72,7 @@ const StyledNavItem = styled.li`
     align-items: center;
     justify-content: center;
     position: relative;
+    -webkit-tap-highlight-color: transparent;
     &:after {
       content: '';
         position: absolute;

@@ -8,7 +8,7 @@ import vhCheck from 'vh-check'
 const StyledContainer = styled.div`
   display: grid;
   min-height: calc(var(--vh, 1vh) * 100);
-	grid-template-rows: auto repeat(1, 1fr) 80px;
+	grid-template-rows: auto repeat(1, 1fr) calc(var(--vh, 1vh) * 15);
 	grid-column-gap: 0px;
 	grid-row-gap: 0px;
 	grid-template-areas:
