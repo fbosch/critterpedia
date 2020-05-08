@@ -26,11 +26,16 @@ scroll-snap-align: end;
 cursor: pointer;
 
 img {
-  width: 10vmax;
+  width: 8vmax;
   max-width: 10vh;
   will-change: opacity;
   image-rendering: optimizeQuality;
-  image-rendering: smooth;
+  image-rendering: smooth;;
+  background: radial-gradient(#e9e3a9, rgba(0,0,0,0) 70%);
+  &:not([src]) {
+    width: 20%;
+    content: url("data:image/svg+xml;base64,${getFallback}");
+  }
 }
 
 &:focus {
