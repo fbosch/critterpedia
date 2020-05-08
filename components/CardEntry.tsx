@@ -31,7 +31,7 @@ img {
   will-change: opacity;
   image-rendering: optimizeQuality;
   image-rendering: smooth;;
-  background: radial-gradient(#e9e3a9 30%, rgba(0,0,0,0) 70%);
+  background: radial-gradient(rgba(233, 227, 169, 1) 30%,rgba(233, 227, 169, 0) 70%);
   &:not([src]) {
     width: 20%;
     content: url("data:image/svg+xml;base64,${getFallback}");
