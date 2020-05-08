@@ -21,17 +21,17 @@ position: relative;
 background-image: url("data:image/svg+xml;base64,${getFallback}");
 background-repeat: no-repeat;
 background-size: 20%;
-background-position: center 55%;
+background-position: center;
 scroll-snap-align: end;
 cursor: pointer;
 
 img {
-  width: 8vmax;
+  width: 7vmax;
   max-width: 10vh;
   will-change: opacity;
   image-rendering: optimizeQuality;
   image-rendering: smooth;;
-  background: radial-gradient(#e9e3a9, rgba(0,0,0,0) 70%);
+  background: radial-gradient(#e9e3a9 30%, rgba(0,0,0,0) 70%);
   &:not([src]) {
     width: 20%;
     content: url("data:image/svg+xml;base64,${getFallback}");
