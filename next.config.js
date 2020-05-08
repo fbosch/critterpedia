@@ -1,13 +1,11 @@
 const withOffline = require('next-offline')
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true'
-})
+const withBundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.env.ANALYZE === 'true' })
 
 module.exports = withBundleAnalyzer(withOffline({
   workboxOpts: {
     runtimeCaching: [
       {
-        urlPattern: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        urlPattern: /\.(png|jpg|gif|svg|eot|ttf|otf|woff|woff2)$/,
         handler: 'CacheFirst'
       },
     ]

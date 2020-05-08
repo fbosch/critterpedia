@@ -47,13 +47,13 @@ export default createGlobalStyle`
 	}
 	.page-transition-enter-active {
 		opacity: 1;
-		transition: opacity 150ms ease-in 100ms;
+		transition: opacity 250ms linear 150ms;
 	}
 	.page-transition-exit {
 		opacity: 1;
 	}
 	.page-transition-exit-active {
 		opacity: 0;
-		transition: opacity 200ms ease-out;
+		transition: opacity 200ms linear;
 	}
 `
