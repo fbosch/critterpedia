@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 
 import Header from './Header'
 import Footer from './Footer'
@@ -25,8 +25,27 @@ type SiteLayoutProps = {
   route?: string
 }
 
+// function loadBrowserPlugins() {
+//   console.log('Loaded Browser Plugins')
+//   require('vh-check')
+//   const attachFastClick = require('fastclick')
+//   require('inobounce')
+//   attachFastClick(document.body)
+// }
+
 function SiteLayout(props: SiteLayoutProps) {
   const { children } = props
+
+  // useLayoutEffect(() => {
+  //   if (process.browser) {
+  //     if (document.readyState === 'complete') {
+  //       loadBrowserPlugins()
+  //     } else {
+  //       document.addEventListener('DOMContentLoaded', loadBrowserPlugins)
+  //     }
+  //   }
+  // }, [])
+
   return (
     <StyledContainer>
       <Header />

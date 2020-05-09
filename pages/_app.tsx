@@ -10,12 +10,25 @@ import { PageTransition } from 'next-page-transitions'
 import theme from '../theme'
 import GlobalStyle from '../components/GlobalStyle'
 import SiteLayout from '../components/SiteLayout'
-import vhCheck from 'vh-check'
+
+function loadBrowserPlugins() {
+  console.log('Loaded Browser Plugins')
+  require('vh-check')
+  const attachFastClick = require('fastclick')
+  require('inobounce')
+  attachFastClick(document.body)
+}
 
 export default class extends App {
 
   componentDidMount() {
-    vhCheck()
+    if (process.browser) {
+      if (document.readyState === 'complete') {
+        loadBrowserPlugins()
+      } else {
+        document.addEventListener('DOMContentLoaded', loadBrowserPlugins)
+      }
+    }
   }
 
   static async getInitialProps({ Component, router, ctx }) {

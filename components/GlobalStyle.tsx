@@ -9,11 +9,19 @@ export default createGlobalStyle`
     height: 100%;
     max-height: 100%;
     background-color: ${getBodyBackground};
+    .js {
+      background-color: ${props => props.theme.orangeAccent};
+    }
+    .js.loaded {
+      background-color: ${getBodyBackground};
+    }
   }
   body {
     font-family: ${getFontFamily};
     text-rendering: optimizeLegibility;
     background-color: ${getBodyBackground};
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   @font-face {
@@ -46,14 +54,12 @@ export default createGlobalStyle`
   } */
 
   .js {
-    background: ${props => props.theme.orangeAccent};
     @media ${device.laptop} {
       main:before {
         display: none;
       }
     }
     &.loaded {
-      background: ${getBodyBackground};
       main:before {
         opacity: 0;
         background-size: 7vh;
