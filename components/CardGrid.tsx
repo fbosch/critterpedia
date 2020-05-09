@@ -5,7 +5,7 @@ import debounce from 'lodash.debounce'
 const StyledContainer = styled.div`
   font-size: 3rem;
   height: calc(var(--vh, 1vh) * 60);
-  top: calc(var(--vh, 1vh) * 7);
+  top: calc(var(--vh, 1vh) * 5);
   overflow-x: scroll;
   overflow-y: hidden;
   position: relative;
@@ -23,7 +23,7 @@ const CardWrapper = styled.ol`
   grid-auto-flow: column;
   grid-template-rows: repeat(5, 1fr);
   grid-template-columns: repeat(2000, calc(var(--vh, 1vh) * 17));
-  padding: calc(var(--vh, 1vh) * 3) 0 5px 4vw;
+  padding: calc(var(--vh, 1vh) * 5) 0 5px 4vw;
   &:focus {
     outline: none;
   }

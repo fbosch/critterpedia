@@ -56,7 +56,7 @@ const StyledCard = styled.li`
     }
     label {
         visibility: visible;
-        top: -20%;
+        top: -30%;
         color: #3D392D;
         font-style: italic;
         font-size: 1.2rem;
@@ -71,13 +71,13 @@ const StyledCard = styled.li`
           content: '';
           display: block;
           height: 65%;
-          width: calc(90% - 6px);
+          width: calc(90% - 10px);
           border: 1px solid #D2CFBE;
           outline: 3px solid #ECEAD3;
           position: absolute;
           z-index: 3;
-          top: calc(50% + 1px);
-          left: calc(50% + 1px);
+          top: 50%;
+          left: 50%;
           transform: translate(-50%, -50%);
           box-shadow:
             0 0 0 4px #D2CFBE;
@@ -89,10 +89,11 @@ const StyledCard = styled.li`
           justify-content: center;
           align-items: center;
           position: absolute;
-          top: 0;
-          left: 0;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
           background: #ECEAD3;
-          width: 100%;
+          width: calc(100% - 5px);
           height: 100%;
           z-index: 2;
         }

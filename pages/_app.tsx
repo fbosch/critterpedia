@@ -1,4 +1,5 @@
 import 'normalize.css'
+import 'intersection-observer'
 
 import * as React from 'react'
 
