@@ -4,9 +4,9 @@ import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/do
 import { ServerStyleSheet } from 'styled-components'
 
 const loadedScript = `
-document.body.classList.remove("no-js")
-document.body.classList.add("js")
-window.addEventListener("load", function(){ document.body.classList.add("loaded") })
+document.documentElement.classList.remove("no-js")
+document.documentElement.classList.add("js")
+window.addEventListener("load", function(){ document.documentElement.classList.add("loaded") })
 `
 
 const PageLoadScript = () => <script dangerouslySetInnerHTML={{ __html: loadedScript }} />
@@ -36,7 +36,7 @@ export default class extends Document {
   }
   render() {
     return (
-      <Html lang="en">
+      <Html lang="en" className={'no-js'}>
         <Head>
           <link rel="dns-prefetch" href="https://fonts.gstatic.com/" />
           <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin='' />
@@ -54,7 +54,7 @@ export default class extends Document {
           <meta name="theme-color" content="#F8CC63" />
           <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         </Head>
-        <body className={'no-js'}>
+        <body>
           <PageLoadScript />
 					<Main />
           <NextScript />

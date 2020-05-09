@@ -46,15 +46,19 @@ export default createGlobalStyle`
   } */
 
   .js {
+    background: ${props => props.theme.orangeAccent};
     @media ${device.laptop} {
       main:before {
         display: none;
       }
     }
-    &.loaded main:before {
-      opacity: 0;
-      background-size: 7vh;
-      z-index: -1;
+    &.loaded {
+      background: ${getBodyBackground};
+      main:before {
+        opacity: 0;
+        background-size: 7vh;
+        z-index: -1;
+      }
     }
     main:before {
       content: '';
