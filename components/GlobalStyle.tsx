@@ -53,9 +53,9 @@ export default createGlobalStyle`
     }
     main:before {
       content: '';
-      position: absolute;
-      height: 100vh;
-      width: 100vw;
+      position: fixed;
+      height: 100%;
+      width: 100%;
       background: ${props => props.theme.orangeAccent};
       z-index: 99;
       top: 0;
