@@ -75,11 +75,20 @@ export default createGlobalStyle`
       z-index: 99;
       top: calc(0% - env(safe-area-inset-top));
       opacity: 1;
-      transition: opacity 300ms cubic-bezier(0,.5,.5,1) 200ms, z-index 0ms linear 600ms, background-size 600ms cubic-bezier(0,.5,.5,1);
+      transition: opacity 800ms cubic-bezier(0,.5,.5,1) 200ms, z-index 0ms linear 1s, background-size 600ms ease;
       background-image: url(${logo});
       background-size: 10vh;
       background-repeat: no-repeat;
       background-position: center;
+    }
+  }
+
+  @keyframes splashScreenFadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
     }
   }
 
