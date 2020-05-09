@@ -154,7 +154,7 @@ const StyledNavigation = styled.nav`
     &:after {
       top: auto;
       bottom: 0;
-      transform: rotate(180deg) translate(39%, 80%);
+      transform: rotate(180deg) translate(38%, 80%);
       left: 0;
     }
   }
