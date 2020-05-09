@@ -54,11 +54,11 @@ export default createGlobalStyle`
     main:before {
       content: '';
       position: fixed;
-      height: 100%;
+      height: calc(100% + env(safe-area-inset-top));
       width: 100%;
       background: ${props => props.theme.orangeAccent};
       z-index: 99;
-      top: 0;
+      top: calc(0% - env(safe-area-inset-top));
       opacity: 1;
       transition: opacity 300ms cubic-bezier(0,.5,.5,1), z-index 0ms linear 600ms, background-size 500ms cubic-bezier(0,.5,.5,1);
       background-image: url(${logo});
