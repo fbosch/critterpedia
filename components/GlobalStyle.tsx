@@ -4,13 +4,13 @@ import { getFontFamily, getBodyBackground } from '../theme'
 export default createGlobalStyle`
   html {
     background-color: ${getBodyBackground};
-    background: linear-gradient(to right, rgb(239, 233, 188) 70%, #f7f3d0 100%);
+    background-image: linear-gradient(to right, rgb(239, 233, 188) 70%, #f7f3d0 100%);
   }
   body {
     font-family: ${getFontFamily};
     text-rendering: optimizeLegibility;
     background-color: ${getBodyBackground};
-    background: linear-gradient(to right, rgb(239, 233, 188) 70%, #f7f3d0 100%);
+    background-image: linear-gradient(to right, rgb(239, 233, 188) 70%, #f7f3d0 100%);
   }
 
   @font-face {
