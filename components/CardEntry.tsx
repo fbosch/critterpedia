@@ -5,29 +5,30 @@ type GridCardProps = {
   fallback?: Function;
   theme?: ThemeType,
   image?: string,
-  title?: string
+  title?: string,
+  id?: string,
 }
 
 const getFallback = (props: GridCardProps) => props.fallback(props.theme.borderColor)
 
 const Shadow = styled.span`
-    &:before, &:after {
-      position: absolute;
-      height: 0.5rem;
-      width: 28%;
-      content: ' ';
-      left: 20px;
-      top: 0%;
-      transform-origin: top right;
-      transform: skew(-7deg) rotate(-7deg);
-      box-shadow: 0 30px 7px 10px rgba(173, 165, 118, 0.7);
-    }
-    &:after {
-      left: auto;
-      right: 20px;
-      transform-origin: left top;
-      transform: skew(7deg) rotate(7deg);
-    }
+  &:before, &:after {
+    position: absolute;
+    height: 0.5rem;
+    width: 28%;
+    content: ' ';
+    left: 20px;
+    top: 0%;
+    transform-origin: top right;
+    transform: skew(-7deg) rotate(-7deg);
+    box-shadow: 0 30px 7px 10px rgba(173, 165, 118, 0.7);
+  }
+  &:after {
+    left: auto;
+    right: 20px;
+    transform-origin: left top;
+    transform: skew(7deg) rotate(7deg);
+  }
 `
 
 const StyledCard = styled.li`
@@ -55,7 +56,7 @@ position: relative;
   }
  label {
     visibility: visible;
-    top: -15%;
+    top: -20%;
     color: #3D392D;
     font-style: italic;
     font-size: 1.2rem;
@@ -152,7 +153,7 @@ function CardEntry(props: GridCardProps) {
 
   return (
     <StyledCard {...props} tabIndex={0}>
-      <label data-name={props.title}>
+      <label data-name={props.title} htmlFor={props.id}>
         {props.title}
         <Shadow />
       </label>
