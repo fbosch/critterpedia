@@ -82,8 +82,6 @@ function CardGrid(props) {
     const handler = debouncedScrollHandler.current
     document.addEventListener('mousewheel', handler, true)
     if (container) {
-      const firstChild = Array.from(container.childNodes)[0] as HTMLElement
-      if (firstChild) window.requestAnimationFrame(() => firstChild.focus())
       const targets = container.querySelectorAll('img[data-src]')
       const imageObservers = Array.from(targets).map(lazyLoad)
       return () => {
