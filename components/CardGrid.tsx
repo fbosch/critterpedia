@@ -5,7 +5,7 @@ import debounce from 'lodash.debounce'
 
 const StyledContainer = styled.div`
   font-size: 3rem;
-  height: calc(var(--vh, 1vh) * 70);
+  height: 100%;
   top: calc(var(--vh, 1vh) * 5);
   overflow-x: scroll;
   overflow-y: hidden;
