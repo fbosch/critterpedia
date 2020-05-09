@@ -3,7 +3,6 @@ import React, { useEffect } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import styled from 'styled-components'
-import vhCheck from 'vh-check'
 
 const StyledContainer = styled.div`
   display: grid;
@@ -27,10 +26,6 @@ type SiteLayoutProps = {
 }
 
 function SiteLayout(props: SiteLayoutProps) {
-  useEffect(() => {
-    const check = vhCheck()
-  }, [])
-
   const { children } = props
   return (
     <StyledContainer>

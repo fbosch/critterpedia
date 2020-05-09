@@ -9,8 +9,13 @@ import { PageTransition } from 'next-page-transitions'
 import theme from '../theme'
 import GlobalStyle from '../components/GlobalStyle'
 import SiteLayout from '../components/SiteLayout'
+import vhCheck from 'vh-check'
 
 export default class extends App {
+
+  componentDidMount() {
+    vhCheck()
+  }
 
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {}

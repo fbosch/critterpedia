@@ -13,7 +13,7 @@ function Card(props) {
 
 const fishCollection = Array.from(Array(100)).map((item, index) => <Card key={index} />)
 
-function Fish(props) {
+function FishPage(props) {
 
   return (
     <CardGrid>
@@ -22,4 +22,4 @@ function Fish(props) {
   )
 }
 
-export default Fish
+export default FishPage

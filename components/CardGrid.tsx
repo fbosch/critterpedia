@@ -5,14 +5,16 @@ import debounce from 'lodash.debounce'
 const StyledContainer = styled.div`
   font-size: 3rem;
   height: calc(var(--vh, 1vh) * 60);
-  padding: calc(var(--vh, 1vh) * 5) 0;
+  top: calc(var(--vh, 1vh) * 7);
   overflow-x: scroll;
   overflow-y: hidden;
   position: relative;
+  padding-bottom: calc(var(--vh, 1vh) * 7);
 
 `
 
 const CardWrapper = styled.ol`
+  margin: 0;
   display: grid;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -21,7 +23,7 @@ const CardWrapper = styled.ol`
   grid-auto-flow: column;
   grid-template-rows: repeat(5, 1fr);
   grid-template-columns: repeat(2000, calc(var(--vh, 1vh) * 17));
-  padding: 3px 4vw;
+  padding: 30px 4vw;
   &:focus {
     outline: none;
   }
@@ -29,6 +31,14 @@ const CardWrapper = styled.ol`
     content: '';
     display: block;
     width: 5vw;
+  }
+
+  > li:last-of-type {
+    &:after {
+      content: '';
+      display: block;
+      background: red;
+    }
   }
 
 `
@@ -65,8 +75,8 @@ function CardGrid(props) {
       document.body.addEventListener('wheel', e => {
         const target = e.target as HTMLElement
         if (e.deltaX) return
+        e.preventDefault()
         if (container.contains(target)) {
-          console.log(e.deltaY)
            container.scrollTo({
             top: 0,
             left: container.scrollLeft + (e.deltaY * 3.5),
@@ -89,7 +99,6 @@ function CardGrid(props) {
       document.body.focus()
       const targets = container.querySelectorAll('img[data-src]')
       const imageObservers = Array.from(targets).map(lazyLoad)
-      console.log('lazyLoad!')
       return () => {
         imageObservers.forEach(io => io.disconnect())
         document.removeEventListener('mousewheel', handler)

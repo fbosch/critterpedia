@@ -2,7 +2,6 @@ import * as React from 'react'
 
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import theme from '../theme'
 
 const loadedScript = `
 document.body.classList.remove("no-js")

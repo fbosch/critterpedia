@@ -15,7 +15,7 @@ export default createGlobalStyle`
   @font-face {
     font-family: Humming;
     font-weight: normal;
-    font-display: optional;
+    font-display: swap;
     src:
       url("./assets/fonts/humming.otf") format("opentype"),
       url("./assets/fonts/humming.ttf")  format("truetype");
@@ -55,13 +55,13 @@ export default createGlobalStyle`
 	}
 	.page-transition-enter-active {
 		opacity: 1;
-		transition: opacity 250ms linear;
+		transition: opacity 100ms linear;
 	}
 	.page-transition-exit {
 		opacity: 1;
 	}
 	.page-transition-exit-active {
 		opacity: 0;
-		transition: opacity 200ms linear;
+		transition: opacity 100ms linear;
 	}
 `
