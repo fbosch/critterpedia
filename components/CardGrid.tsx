@@ -27,19 +27,6 @@ const CardWrapper = styled.ol`
   &:focus {
     outline: none;
   }
-  :after {
-    content: '';
-    display: block;
-    width: 5vw;
-  }
-
-  > li:last-of-type {
-    &:after {
-      content: '';
-      display: block;
-      background: red;
-    }
-  }
 
 `
 
@@ -75,7 +62,6 @@ function CardGrid(props) {
       document.body.addEventListener('wheel', e => {
         const target = e.target as HTMLElement
         if (e.deltaX) return
-        e.preventDefault()
         if (container.contains(target)) {
            container.scrollTo({
             top: 0,
@@ -96,7 +82,8 @@ function CardGrid(props) {
     const handler = debouncedScrollHandler.current
     document.addEventListener('mousewheel', handler, true)
     if (container) {
-      document.body.focus()
+      const firstChild = Array.from(container.childNodes)[0] as HTMLElement
+      if (firstChild) window.requestAnimationFrame(() => firstChild.focus())
       const targets = container.querySelectorAll('img[data-src]')
       const imageObservers = Array.from(targets).map(lazyLoad)
       return () => {

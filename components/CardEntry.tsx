@@ -54,35 +54,49 @@ const StyledCard = styled.li`
     img {
       transform: scale(1.05);
     }
-  label {
-      visibility: visible;
-      top: -20%;
-      color: #3D392D;
-      font-style: italic;
-      font-size: 1.2rem;
-      z-index: 10;
-      white-space: nowrap;
-      display: block;
-      padding: 1rem 2.2rem;
-      transform: rotate(-2deg) translateY(0%);
-      z-index: 5;
-      opacity: 1;
-      &:after {
-        content: attr(data-name);
-        display: flex;
-        border: 1px solid #d6d2a0;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: #ECEAD3;
-        width: 100%;
-        height: 100%;
-        z-index: 9;
+    label {
+        visibility: visible;
+        top: -20%;
+        color: #3D392D;
+        font-style: italic;
+        font-size: 1.2rem;
+        z-index: 10;
+        white-space: nowrap;
+        display: block;
+        padding: 1.3rem 2.2rem;
+        transform: rotate(-2deg) translateY(0%);
+        z-index: 5;
+        opacity: 1;
+        &:before {
+          content: '';
+          display: block;
+          height: 65%;
+          width: calc(90% - 6px);
+          border: 1px solid #D2CFBE;
+          outline: 3px solid #ECEAD3;
+          position: absolute;
+          z-index: 3;
+          top: calc(50% + 1px);
+          left: calc(50% + 1px);
+          transform: translate(-50%, -50%);
+          box-shadow:
+            0 0 0 4px #D2CFBE;
+        }
+        &:after {
+          content: attr(data-name);
+          display: flex;
+          border: 1px solid #d6d2a0;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: #ECEAD3;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+        }
       }
-    }
-
   }
 
   label {
@@ -100,7 +114,7 @@ const StyledCard = styled.li`
     image-rendering: optimizeQuality;
     image-rendering: smooth;
     opacity: 0;
-    transition: transform 250ms cubic-bezier(0,.5,.5,1);
+    transition: transform 250ms cubic-bezier(0,.5,.5,1), background 300ms linear;
     background: radial-gradient(rgba(233, 227, 169, 1) 30%,rgba(233, 227, 169, 0) 70%);
     &[src] {
       animation: fadeIn 200ms linear;
