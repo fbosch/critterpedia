@@ -52,7 +52,7 @@ export default class extends Document {
           <meta name="apple-mobile-web-app-status-bar-style" content="translucent" />
           <meta name="msapplication-TileColor" content="#f1f0dc" />
           <meta name="theme-color" content="#EEEBC7" />
-          <meta name = "viewport" content = "width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no" />
+          <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
         </Head>
         <body className={'no-js'}>
           <PageLoadScript />
