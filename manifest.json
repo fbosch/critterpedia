@@ -1,9 +1,0 @@
-{
-  "name": "Critterpedia",
-  "short_name": "Critterpedia",
-  "theme_color": "#EEEBC7",
-  "background_color": "#EEEBC7",
-  "display": "standalone",
-  "scope": "/",
-  "start_url": "/"
-}
