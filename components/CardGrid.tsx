@@ -63,11 +63,11 @@ function CardGrid(props) {
         const target = e.target as HTMLElement
         if (e.deltaX) return
         if (container.contains(target)) {
-           container.scrollTo({
+           window.requestAnimationFrame(() => container.scrollTo({
             top: 0,
             left: container.scrollLeft + (e.deltaY * 3.5),
             behavior: 'smooth'
-          })
+          }))
         } else {
           return
         }
