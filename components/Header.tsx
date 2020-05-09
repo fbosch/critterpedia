@@ -1,7 +1,10 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import Link from './ActiveLink'
+import btoa from '../utils/btoa'
 import border from '../public/assets/images/border.png'
+
+const getMenuDetail = props => btoa('<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 12"><path d="M24.5 0c3 3.558-1.007 12-11.5 12S-1 2.93 2 0c4 0 3 4 11 4 7.5-.668 7.5-4 11.5-4z" fill="' + props.theme.lightYellow + '"/></svg>')
 
 const StyledHeader = styled.header`
   height: calc(var(--vh, 1vh) * 10);
@@ -102,6 +105,7 @@ const StyledNavItem = styled.li`
         transform: scale(0.9);
       }
       label {
+        z-index: 10;
         opacity: 1;
         transform: translate(-50%, -100%) scale(1);
       }
@@ -123,8 +127,36 @@ const StyledNavigation = styled.nav`
     top: 45%;
     left: 3%;
   }
+
+  li {
+    position: relative;
+    &:not(:first-of-type) {
+      transform: translateX(-10%);
+    }
+  }
+
+
   li + li {
-    transform: translateX(-10%);
+    &:before, &:after {
+      content: '';
+      display: block;
+      height: 1em;
+      width: 2.3em;
+      top: 0;
+      left: 0;
+      transform: translate(-34%, 80%);
+      position: absolute;
+      /* border: 1px solid red; */
+      background-image: url("data:image/svg+xml;base64,${getMenuDetail}");
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    &:after {
+      top: auto;
+      bottom: 0;
+      transform: rotate(180deg) translate(39%, 80%);
+      left: 0;
+    }
   }
 `
 
