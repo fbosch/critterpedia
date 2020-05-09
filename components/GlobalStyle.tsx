@@ -17,7 +17,8 @@ export default createGlobalStyle`
     font-weight: normal;
     font-display: optional;
     src:
-      url("./assets/fonts/humming.otf") format("opentype")
+      url("./assets/fonts/humming.otf") format("opentype"),
+      url("./assets/fonts/humming.ttf")  format("truetype");
   }
 
   main {
@@ -31,6 +32,14 @@ export default createGlobalStyle`
     animation: fadeIn 250ms linear 100ms;
     animation-fill-mode: forwards;
   }
+
+  /* .js {
+    opacity: 0;
+    &.loaded {
+      animation: fadeIn 800ms cubic-bezier(0,.5,.5,1);
+      animation-fill-mode: forwards;
+    }
+  } */
 
   @keyframes fadeIn {
     0% {

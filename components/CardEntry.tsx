@@ -4,7 +4,8 @@ import { ThemeType } from '../theme'
 type GridCardProps = {
   fallback?: Function;
   theme?: ThemeType,
-  image?: string
+  image?: string,
+  title?: string
 }
 
 const getFallback = (props: GridCardProps) => props.fallback(props.theme.borderColor)
@@ -88,7 +89,7 @@ function CardEntry(props: GridCardProps) {
 
   return (
     <StyledCard {...props} tabIndex={0}>
-      <img data-src={props.image} loading='eager' draggable={false} />
+      <img data-src={props.image} loading='eager' draggable={false} alt={props.title} />
     </StyledCard>
   )
 

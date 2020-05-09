@@ -43,6 +43,8 @@ export default class extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin='' />
           <link rel="dns-prefetch" href="https://res.cloudinary.com" />
           <link rel="preconnect" href='https://res.cloudinary.com' crossOrigin='' />
+          <title>Crittepedia</title>
+          <meta name="description" content="An overview of all fish and bugs" />
         </Head>
         <body className={'no-js'}>
           <PageLoadScript />
