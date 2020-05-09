@@ -13,7 +13,7 @@ export const getFontFamily = ({ theme: ThemeType }) => theme.fontFamily
 export const getBodyBackground = ({ theme: ThemeType }) => theme.bodyBackground
 
 const theme: ThemeType = {
-  bodyBackground: '#EEEBC7',
+  bodyBackground: '#EFE9BC',
   orangeAccent: '#F8CC63',
   grayAccent: '#90837A',
   darkGrayAccent: '#757261',
