@@ -8,6 +8,16 @@ module.exports = withBundleAnalyzer(withOffline({
         urlPattern: /\.(png|jpg|gif|svg|eot|ttf|otf|woff|woff2)$/,
         handler: 'CacheFirst'
       },
+      {
+        urlPattern: /^https?.*/,
+        handler: 'NetworkFirst',
+        options: {
+          cacheName: 'offlineCache',
+          expiration: {
+            maxEntries: 200
+          }
+        }
+      }
     ]
   },
   webpack (config, options) {
