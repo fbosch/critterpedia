@@ -50,9 +50,9 @@ export default class extends Document {
           <link rel="manifest" href="/site.webmanifest" />
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#74735f" />
           <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-          <meta name="msapplication-TileColor" content="#f1f0dc" />
-          <meta name="theme-color" content="#EEEBC7" />
-          <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+          <meta name="msapplication-TileColor" content="#F8CC63" />
+          <meta name="theme-color" content="#F8CC63" />
+          <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         </Head>
         <body className={'no-js'}>
           <PageLoadScript />

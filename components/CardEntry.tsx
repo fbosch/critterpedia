@@ -36,11 +36,8 @@ const StyledCard = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(var(--vh, 1vh) * 7);
+  height: calc(var(--vh, 1vh) * 10);
   width: calc(var(--vh, 1vh) * 15);
-  @media ${device.mobileL} {
-    height: calc(var(--vh, 1vh) * 10);
-  }
   padding: calc(var(--vh, 1vh));
   position: relative;
   background-image: url("data:image/svg+xml;base64,${getFallback}");

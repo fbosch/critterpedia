@@ -59,7 +59,7 @@ const StyledNavItem = styled.li`
     text-align: center;
     border-radius: 22% 22% 22% 22% / 40% 40% 40% 40%;
     font-weight: bold;
-    letter-spacing: .05em;
+    letter-spacing: .03em;
     font-size: 1.1em;
     color: ${props => props.theme.grayAccent};
     position: absolute;

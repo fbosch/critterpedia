@@ -55,7 +55,6 @@ function lazyLoad(target) {
 function CardGrid(props) {
   const containerRef = useRef()
 
-
   const handleHorizontalScroll = useCallback(e => {
     const container: HTMLElement = containerRef.current
     if (container) {
@@ -82,8 +81,6 @@ function CardGrid(props) {
     const handler = debouncedScrollHandler.current
     document.addEventListener('mousewheel', handler, true)
     if (container) {
-      const activeElement: HTMLElement = document.activeElement as HTMLElement
-      window.requestAnimationFrame(() => activeElement.blur())
       const targets = container.querySelectorAll('img[data-src]')
       const imageObservers = Array.from(targets).map(lazyLoad)
       return () => {

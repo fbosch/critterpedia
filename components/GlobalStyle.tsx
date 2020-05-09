@@ -3,6 +3,10 @@ import { getFontFamily, getBodyBackground } from '../theme'
 
 export default createGlobalStyle`
   html {
+    position: static;
+    overflow-y: hidden;
+    height: 100%;
+    max-height: 100%;
     background-color: ${getBodyBackground};
   }
   body {
