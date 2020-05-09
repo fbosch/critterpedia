@@ -42,7 +42,7 @@ export default class extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin='' />
           <link rel="dns-prefetch" href="https://res.cloudinary.com" />
           <link rel="preconnect" href='https://res.cloudinary.com' crossOrigin='' />
-          <title>Crittepedia</title>
+          <title>Critterpedia</title>
           <meta name="description" content="An overview of all fish and bugs" />
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

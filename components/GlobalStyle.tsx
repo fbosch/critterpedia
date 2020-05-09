@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { getFontFamily, getBodyBackground } from '../theme'
+import { getFontFamily, getBodyBackground, device } from '../theme'
 import logo from '../public/assets/images/logo.svg'
 
 export default createGlobalStyle`
@@ -46,6 +46,11 @@ export default createGlobalStyle`
   } */
 
   .js {
+    @media ${device.laptop} {
+      main:before {
+        display: none;
+      }
+    }
     &.loaded main:before {
       opacity: 0;
       background-size: 7vh;
