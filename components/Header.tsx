@@ -168,7 +168,7 @@ function Header(props) {
         <ol role='navigation'>
           <StyledNavItem>
             <Link href='/insects' activeClassName='active'>
-              <a id='insects'>
+              <a id='insects' draggable="false">
                 <label htmlFor='insects'>
                   Insects
                 </label>
@@ -178,7 +178,7 @@ function Header(props) {
           </StyledNavItem>
           <StyledNavItem>
             <Link href='/fish' activeClassName='active'>
-              <a id='fish'>
+              <a id='fish' draggable="false">
                 <label htmlFor='fish'>
                   Fish
                 </label>

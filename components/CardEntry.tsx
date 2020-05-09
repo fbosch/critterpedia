@@ -110,6 +110,7 @@ const StyledCard = styled.li`
   }
 
   img {
+    user-select: none;
     z-index: 2;
     width: 7vmax;
     max-width: 10vh;
@@ -174,7 +175,7 @@ function CardEntry(props: GridCardProps) {
         {props.title}
         <Shadow />
       </label>}
-      <img data-src={props.image} loading='eager' draggable={false} alt={props.title} />
+      <img data-src={props.image} loading='eager' draggable="false" alt={props.title} />
     </StyledCard>
   )
 
