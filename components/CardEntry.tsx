@@ -57,7 +57,7 @@ const StyledCard = styled.li`
         min-height: 0.7em;
         min-width: 2.5em;
         visibility: visible;
-        top: -30%;
+        top: -37%;
         color: #3D392D;
         font-style: italic;
         font-size: 1.2em;
@@ -110,6 +110,7 @@ const StyledCard = styled.li`
   }
 
   img {
+    z-index: 2;
     width: 7vmax;
     max-width: 10vh;
     will-change: opacity;
@@ -169,10 +170,10 @@ function CardEntry(props: GridCardProps) {
 
   return (
     <StyledCard {...props} tabIndex={0}>
-      <label data-name={props.title} htmlFor={props.id}>
+      {props.title && <label data-name={props.title} htmlFor={props.id}>
         {props.title}
         <Shadow />
-      </label>
+      </label>}
       <img data-src={props.image} loading='eager' draggable={false} alt={props.title} />
     </StyledCard>
   )
