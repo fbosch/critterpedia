@@ -36,7 +36,7 @@ export default class extends Document {
   }
   render() {
     return (
-      <Html lang="en">
+      <Html lang="en" className="no-js">
         <Head>
           <link rel="dns-prefetch" href="https://fonts.gstatic.com/" />
           <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin='' />
@@ -54,7 +54,7 @@ export default class extends Document {
           <meta name="theme-color" content="#F8CC63" />
           <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         </Head>
-        <body className={'no-js'}>
+        <body>
           <PageLoadScript />
 					<Main />
           <NextScript />
