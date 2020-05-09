@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import { getFontFamily, getBodyBackground } from '../theme'
+import logo from '../public/assets/images/logo.svg'
 
 export default createGlobalStyle`
   html {
@@ -43,6 +44,29 @@ export default createGlobalStyle`
       animation-fill-mode: forwards;
     }
   } */
+
+  .js {
+    &.loaded main:before {
+      opacity: 0;
+      background-size: 7vh;
+      z-index: -1;
+    }
+    main:before {
+      content: '';
+      position: absolute;
+      height: 100vh;
+      width: 100vw;
+      background: ${props => props.theme.orangeAccent};
+      z-index: 99;
+      top: 0;
+      opacity: 1;
+      transition: opacity 300ms cubic-bezier(0,.5,.5,1), z-index 0ms linear 600ms, background-size 500ms cubic-bezier(0,.5,.5,1);
+      background-image: url(${logo});
+      background-size: 10vh;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
 
   @keyframes fadeIn {
     0% {
