@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { useRef, useCallback, useEffect } from 'react'
+import { device } from '../theme'
 import debounce from 'lodash.debounce'
 
 const StyledContainer = styled.div`
