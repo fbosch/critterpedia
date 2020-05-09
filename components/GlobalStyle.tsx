@@ -62,7 +62,7 @@ export default createGlobalStyle`
     &.loaded {
       main:before {
         opacity: 0;
-        background-size: 7vh;
+        background-size: 12vh;
         z-index: -1;
       }
     }
@@ -75,7 +75,7 @@ export default createGlobalStyle`
       z-index: 99;
       top: calc(0% - env(safe-area-inset-top));
       opacity: 1;
-      transition: opacity 300ms cubic-bezier(0,.5,.5,1), z-index 0ms linear 600ms, background-size 500ms cubic-bezier(0,.5,.5,1);
+      transition: opacity 300ms cubic-bezier(0,.5,.5,1) 200ms, z-index 0ms linear 600ms, background-size 600ms cubic-bezier(0,.5,.5,1);
       background-image: url(${logo});
       background-size: 10vh;
       background-repeat: no-repeat;

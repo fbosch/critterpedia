@@ -1,5 +1,4 @@
 import 'normalize.css'
-import 'intersection-observer'
 
 import * as React from 'react'
 
@@ -14,9 +13,8 @@ import SiteLayout from '../components/SiteLayout'
 function loadBrowserPlugins() {
   console.log('Loaded Browser Plugins')
   require('vh-check')
-  const attachFastClick = require('fastclick')
-  require('inobounce')
-  attachFastClick(document.body)
+  require('fastclick')
+  require('intersection-observer')
 }
 
 export default class extends App {
