@@ -4,12 +4,11 @@ import debounce from 'lodash.debounce'
 
 const StyledContainer = styled.div`
   font-size: 3rem;
-  height: calc(var(--vh, 1vh) * 60);
+  height: calc(var(--vh, 1vh) * 70);
   top: calc(var(--vh, 1vh) * 5);
   overflow-x: scroll;
   overflow-y: hidden;
   position: relative;
-  padding-bottom: calc(var(--vh, 1vh) * 7);
 
 `
 
@@ -23,7 +22,7 @@ const CardWrapper = styled.ol`
   grid-auto-flow: column;
   grid-template-rows: repeat(5, 1fr);
   grid-template-columns: repeat(2000, calc(var(--vh, 1vh) * 17));
-  padding: calc(var(--vh, 1vh) * 5) 0 5px 4vw;
+  padding: calc(var(--vh, 1vh) * 5) 0 calc(var(--vh, 1vh) * 3.5) 4vw;
   &:focus {
     outline: none;
   }
@@ -82,6 +81,8 @@ function CardGrid(props) {
     const handler = debouncedScrollHandler.current
     document.addEventListener('mousewheel', handler, true)
     if (container) {
+      const firstChild = Array.from(container.childNodes)[0] as HTMLElement
+      if (firstChild) window.requestAnimationFrame(() => firstChild.focus())
       const targets = container.querySelectorAll('img[data-src]')
       const imageObservers = Array.from(targets).map(lazyLoad)
       return () => {

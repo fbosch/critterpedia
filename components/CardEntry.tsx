@@ -14,24 +14,23 @@ const getFallback = (props: GridCardProps) => props.fallback(props.theme.borderC
 const Shadow = styled.span`
   &:before, &:after {
     position: absolute;
-    height: 0.5rem;
-    width: 28%;
+    width: 30%;
     content: ' ';
-    left: 20px;
-    top: 0%;
+    left: 10%;
     transform-origin: top right;
-    transform: skew(-7deg) rotate(-7deg);
-    box-shadow: 0 30px 7px 10px rgba(173, 165, 118, 0.7);
+    transform: skew(-4deg) rotate(-8deg);
+    box-shadow: 0 1.6em 5px 10px rgba(173, 165, 118, 0.5);
   }
   &:after {
     left: auto;
-    right: 20px;
+    right: 10%;
     transform-origin: left top;
-    transform: skew(7deg) rotate(7deg);
+    transform: skew(4deg) rotate(8deg);
   }
 `
 
 const StyledCard = styled.li`
+  font-size: 1.2vh;
   margin: 0;
   user-select: none;
   display: flex;
@@ -55,15 +54,17 @@ const StyledCard = styled.li`
       transform: scale(1.05);
     }
     label {
+        min-height: 0.7em;
+        min-width: 2.5em;
         visibility: visible;
         top: -30%;
         color: #3D392D;
         font-style: italic;
-        font-size: 1.2rem;
+        font-size: 1.2em;
         z-index: 10;
         white-space: nowrap;
         display: block;
-        padding: 1.3rem 2.2rem;
+        padding: 1.3em 2.2em;
         transform: rotate(-2deg) translateY(0%);
         z-index: 5;
         opacity: 1;
