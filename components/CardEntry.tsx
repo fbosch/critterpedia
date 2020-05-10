@@ -1,5 +1,6 @@
+
 import styled from 'styled-components'
-import { ThemeType, device } from '../theme'
+import { ThemeType } from '../theme'
 
 type GridCardProps = {
   fallback?: Function;
@@ -180,11 +181,14 @@ const StyledCard = styled.li`
   }
 `
 
+function handleFocus(event) {
+
+}
 
 function CardEntry(props: GridCardProps) {
 
   return (
-    <StyledCard {...props} tabIndex={0}>
+    <StyledCard {...props} tabIndex={0} onFocus={handleFocus}>
       {props.title && <label data-name={props.title} htmlFor={props.id}>
         {props.title}
         <Shadow />

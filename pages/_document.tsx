@@ -38,10 +38,7 @@ export default class extends Document {
     return (
       <Html lang="en" className="no-js">
         <Head>
-          <link rel="dns-prefetch" href="https://fonts.gstatic.com/" />
-          <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin='' />
-          <link rel="dns-prefetch" href="https://res.cloudinary.com" />
-          <link rel="preconnect" href='https://res.cloudinary.com' crossOrigin='' />
+          <link rel="preload" href="assets/fonts/humming.otf" as="font" />
           <title>Critterpedia</title>
           <meta name="description" content="An overview of all fish and bugs" />
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

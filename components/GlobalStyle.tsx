@@ -27,11 +27,16 @@ export default createGlobalStyle`
   @font-face {
     font-family: Humming;
     font-weight: normal;
-    font-display: swap;
-    src:
-      url("./assets/fonts/humming.otf") format("opentype"),
-      url("./assets/fonts/humming.ttf")  format("truetype");
-  }
+    font-display: optional;
+    src: url(".assets/fonts/humming.eot"); /* IE9 Compat Modes */
+    src: url("assets/fonts/humming.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+      url("assets/fonts/humming.otf") format("opentype"), /* Open Type Font */
+      url("asssets/fonts/humming.svg") format("svg"), /* Legacy iOS */
+      url("assets/fonts/humming.ttf") format("truetype"), /* Safari, Android, iOS */
+      url("assets/fonts/humming.woff") format("woff"), /* Modern Browsers */
+      url("assets/fonts/humming.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
 
   main {
     overflow: hidden;
