@@ -105,6 +105,7 @@ const StyledCard = styled.li`
           justify-content: center;
           align-items: center;
           position: absolute;
+          font-weight: bold;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
