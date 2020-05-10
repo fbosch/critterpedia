@@ -20,8 +20,8 @@ const CardWrapper = styled.ol`
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x proximity;
   grid-auto-flow: column;
-  grid-template-rows: repeat(5, 1fr);
-  grid-template-columns: repeat(2000, calc(var(--vh, 1vh) * 17));
+  grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 12));
+  grid-template-columns: repeat(50, calc(var(--vh, 1vh) * 17));
   padding: calc(var(--vh, 1vh) * 5) 0 calc(var(--vh, 1vh) * 3.5) 4vw;
   &:focus {
     outline: none;
