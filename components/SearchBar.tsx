@@ -21,6 +21,7 @@ const StyledButton = styled.button`
   border-radius: 100%;
   background-color: transparent;
   -webkit-tap-highlight-color: transparent;
+  will-change: transform, background-color, color, padding, width;
   transition: transform 400ms ${timingFunction}, background-color 200ms ${timingFunction} 100ms, color 200ms ${timingFunction} 100ms;
   &:focus {
     outline: none;
@@ -70,8 +71,8 @@ function SearchBar(props) {
 
   const handleSearchButtonClick = useCallback(e => {
     const searchInput = searchRef.current as HTMLElement
+    e.preventDefault()
     if (document.activeElement === searchInput) {
-      e.preventDefault()
     } else {
       window.requestAnimationFrame(() => searchInput.focus())
     }
