@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { getFontFamily, getBodyBackground, device } from '../theme'
+import { getFontFamily, getBodyBackground } from '../theme'
 import logo from '../public/assets/images/logo.svg'
 
 export default createGlobalStyle`

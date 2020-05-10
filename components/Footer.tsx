@@ -1,9 +1,18 @@
 import styled from 'styled-components'
 import border from '../public/assets/images/border.png'
+import SearchBar from './SearchBar'
+
+const StyledContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 const StyledFooter = styled.footer`
   grid-area: footer;
-  &:after {
+  &:before {
     content: '';
     position: absolute;
     width: 100%;
@@ -16,7 +25,13 @@ const StyledFooter = styled.footer`
 `
 
 function Footer(props) {
-  return <StyledFooter />
+  return (
+    <StyledFooter>
+      <StyledContainer>
+        <SearchBar />
+      </StyledContainer>
+    </StyledFooter>
+  )
 }
 
 export default Footer

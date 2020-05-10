@@ -1,0 +1,87 @@
+import React, { useRef, useCallback } from 'react'
+import { timingFunction } from '../theme'
+import styled from 'styled-components'
+
+const StyledContainer = styled.div`
+  width: auto;
+  height: auto;
+  position: relative;
+`
+
+const StyledButton = styled.button`
+  cursor: pointer;
+  color: ${props => props.theme.grayAccent};
+  border-style: none;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-.8vh, -50%);
+  padding: .9vh;
+  height: 4.2vh;
+  width: 4.2vh;
+  border-radius: 100%;
+  background-color: transparent;
+  transition: transform 400ms ${timingFunction}, background-color 300ms ${timingFunction} 100ms, color 300ms ${timingFunction} 100ms;
+  &:focus {
+    outline: none;
+  }
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+`
+
+const StyledInput = styled.input`
+  background-color: ${props => props.theme.lightYellow};
+  border: none;
+  width: 1.1vh;
+  height: 1.1vh;
+  max-width: 450px;
+  padding: 2.7vh;
+  border-radius: 10vh;
+  font-size: 1.4em;
+  letter-spacing: .05em;
+  color: ${props => props.theme.darkGrayAccent};
+  border: 2px solid transparent;
+  transition: border 250ms ${timingFunction}, width 400ms ${timingFunction};
+  box-shadow: 0px 11px 20px -20px rgba(185, 177, 127, 0.5), 0 6px 6px rgba(237, 227, 179, 0.6);
+  &:focus, &:valid {
+    width: 70vw;
+    outline: none;
+    padding: 2.7vh 5.5vh 2.7vh 2.7vh;
+    border-color: ${props => props.theme.borderColor};
+    + label button {
+      color: white;
+      background-color: ${props => props.theme.orangeAccent};
+      transform: translate(-20%, -50%);
+    }
+  }
+`
+
+
+function SearchBar(props) {
+  const searchRef = useRef()
+  const handleSearchButtonClick = useCallback(e => {
+    e.preventDefault()
+    const searchInput = searchRef.current as HTMLElement
+    if (document.activeElement === searchInput) {
+
+    } else {
+      searchInput.focus()
+    }
+    console.log('click!')
+  }, [searchRef])
+
+  return (
+    <StyledContainer>
+      <StyledInput type='search' id='search-critterpedia' name='search-critterpedia' ref={searchRef} minLength={1} required />
+      <label htmlFor='search-critterpedia'>
+        <StyledButton onClick={handleSearchButtonClick}>
+          <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71 71"><path fillRule="evenodd" clipRule="evenodd" d="M30 60c16.569 0 30-13.431 30-30C60 13.431 46.569 0 30 0 13.431 0 0 13.431 0 30c0 16.569 13.431 30 30 30zm0-7c12.703 0 23-10.297 23-23S42.703 7 30 7 7 17.297 7 30s10.297 23 23 23z" fill="currentColor"/><path d="M51 43.5l19.991 16.178L59.678 70.99 43 51.5l8-8zM23 43c-1.757 1.757-3.5 2-6.818.511C14.23 41.56 13.5 39.5 15 37c1.757-1.757 3.5-2 6.646.612C23.6 39.565 25 41 23 43zM20.5 24c0 5 0 8.5-4 10-3.866 0-5-4-4.5-10 0-4.694 7-12 11.5-10.5 6.5 3.5-3 5.806-3 10.5z" fill="currentColor"/></svg>
+        </StyledButton>
+      </label>
+    </StyledContainer>
+  )
+}
+
+export default SearchBar

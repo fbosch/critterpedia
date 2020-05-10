@@ -30,6 +30,7 @@ export const device = {
   desktopL: `(min-width: ${size.desktop})`
 }
 
+export const timingFunction = `cubic-bezier(0,.5,.5,1)`
 export const getFontFamily = ({ theme: ThemeType }) => theme.fontFamily
 export const getBodyBackground = ({ theme: ThemeType }) => theme.bodyBackground
 

@@ -82,7 +82,7 @@ const StyledNavItem = styled.li`
       content: '';
         position: absolute;
         display: block;
-        border: 3px dotted ${props => props.theme.grayAccent};
+        border: 3px dotted ${props => props.theme.borderColor};
         border-radius: 100%;
         z-index: 5;
         height: 74%;
@@ -96,7 +96,7 @@ const StyledNavItem = styled.li`
         opacity: 0.3;
       }
       svg {
-        transform: scale(0.7);
+        transform: scale(0.8);
       }
     }
     &.active {
@@ -113,20 +113,14 @@ const StyledNavItem = styled.li`
   }
 `
 
-const StyledNavigation = styled.nav`
-  position: relative;
-  height: 100%;
-  width: 100%;
-
-  ol {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    position: absolute;
-    top: 45%;
-    left: 3%;
-  }
+const StyledList = styled.ol`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  position: absolute;
+  top: 45%;
+  left: 3%;
 
   li {
     position: relative;
@@ -160,12 +154,18 @@ const StyledNavigation = styled.nav`
   }
 `
 
+const StyledNavigation = styled.nav`
+  position: relative;
+  height: 100%;
+  width: 100%;
+`
+
 function Header(props) {
 
   return (
     <StyledHeader>
       <StyledNavigation>
-        <ol role='navigation'>
+        <StyledList role='navigation'>
           <StyledNavItem>
             <Link href='/insects' activeClassName='active'>
               <a id='insects' draggable="false">
@@ -186,7 +186,7 @@ function Header(props) {
               </a>
             </Link>
           </StyledNavItem>
-        </ol>
+        </StyledList>
       </StyledNavigation>
     </StyledHeader>
   )

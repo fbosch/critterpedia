@@ -16,6 +16,14 @@
     "season": "April, June, March, May, October, September"
   },
   {
+    "id": "tigerbutterfly",
+    "name": "Tiger Buttefly",
+    "price": 240,
+    "location": "Flying",
+    "time": "4am - 7pm",
+    "season": "March, April, May, June, July, August, September"
+  },
+  {
     "id": "peacockbutterfly",
     "name": "Peacock Butterfly",
     "price": 2500,
