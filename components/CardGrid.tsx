@@ -9,7 +9,6 @@ const StyledContainer = styled.div`
   overflow-x: scroll;
   overflow-y: hidden;
   position: relative;
-
 `
 
 const CardWrapper = styled.ol`
@@ -21,12 +20,8 @@ const CardWrapper = styled.ol`
   scroll-snap-type: x proximity;
   grid-auto-flow: column;
   grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 12));
-  grid-template-columns: repeat(50, calc(var(--vh, 1vh) * 17));
-  padding: calc(var(--vh, 1vh) * 5) 0 calc(var(--vh, 1vh) * 3.5) 4vw;
-  &:focus {
-    outline: none;
-  }
-
+  grid-template-columns: auto;
+  padding: calc(var(--vh, 1vh) * 5) 5vw calc(var(--vh, 1vh) * 3.5) 5vw;
 `
 
 function lazyLoad(target) {

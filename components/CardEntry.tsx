@@ -11,6 +11,17 @@ type GridCardProps = {
 
 const getFallback = (props: GridCardProps) => props.fallback(props.theme.borderColor)
 
+const Spacer = styled.span`
+  display: none;
+  height: 100%;
+  width: 70%;
+  position: absolute;
+  scroll-snap-align: start;
+  left: 100%;
+  z-index: -1;
+  pointer-events: none;
+`
+
 const Shadow = styled.span`
   &:before, &:after {
     position: absolute;
@@ -31,7 +42,6 @@ const Shadow = styled.span`
 
 const StyledCard = styled.li`
   font-size: 1.2vh;
-  margin: 0;
   user-select: none;
   display: flex;
   justify-content: center;
@@ -48,6 +58,10 @@ const StyledCard = styled.li`
   cursor: pointer;
   position: relative;
   -webkit-tap-highlight-color: transparent;
+
+  &:last-of-type img+span {
+    display: block;
+  }
 
   &:focus {
     img {
@@ -176,6 +190,7 @@ function CardEntry(props: GridCardProps) {
         <Shadow />
       </label>}
       <img data-src={props.image} loading='eager' draggable="false" alt={props.title} />
+      <Spacer />
     </StyledCard>
   )
 

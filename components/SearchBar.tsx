@@ -15,13 +15,13 @@ const StyledButton = styled.button`
   position: absolute;
   top: 50%;
   right: 0;
-  transform: translate(-1vh, -50%);
+  transform: translate(-1.3vh, -50%);
   padding: 1vh;
   height: 4.3vh;
   width: 4.3vh;
   border-radius: 100%;
   background-color: transparent;
-  transition: transform 400ms ${timingFunction}, background-color 300ms ${timingFunction} 100ms, color 300ms ${timingFunction} 100ms;
+  transition: transform 400ms ${timingFunction}, background-color 200ms ${timingFunction} 100ms, color 200ms ${timingFunction} 100ms;
   &:focus {
     outline: none;
   }
@@ -34,10 +34,10 @@ const StyledButton = styled.button`
 const StyledInput = styled.input`
   background-color: ${props => props.theme.lightYellow};
   border: none;
-  width: 1.4vh;
-  height: 1.4vh;
+  width: 1.5vh;
+  height: 1.5vh;
   max-width: 450px;
-  padding: 3vh;
+  padding: 3.3vh;
   border-radius: 10vh;
   font-size: 1.4em;
   letter-spacing: .05em;
