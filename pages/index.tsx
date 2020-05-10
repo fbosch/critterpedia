@@ -5,7 +5,7 @@ function HomePage() {
   const router = useRouter()
   useEffect(() => {
     if (router.pathname === '/') {
-      router.push('/insects')
+      router.replace('/insects')
     }
   }, [router])
   return null
