@@ -15,9 +15,9 @@ const StyledButton = styled.button`
   position: absolute;
   top: 50%;
   right: 0;
-  transform: translate(-1.5vh, -50%);
-  height: 4.4vh;
-  width: 4.4vh;
+  transform: translate(-32%, -50%);
+  height: calc(var(--vh, 1vh) * 4.5);
+  width: calc(var(--vh, 1vh) * 4.5);
   border-radius: 100%;
   background-color: transparent;
   -webkit-tap-highlight-color: transparent;
@@ -27,9 +27,11 @@ const StyledButton = styled.button`
     outline: none;
   }
   svg {
-    height: 90%;
-    width: 90%;
-    transform: translateY(5%);
+    height: 100%;
+    width: 100%;
+    image-rendering: smooth;
+    transform: translateY(0%) scale(1);
+    transition: transform 200ms ${timingFunction};
   }
 `
 
@@ -55,7 +57,11 @@ const StyledInput = styled.input`
     + label button {
       color: white;
       background-color: ${props => props.theme.orangeAccent};
-      transform: translate(-30%, -50%);
+      transform: translate(-35%, -50%);
+
+      svg {
+        transform: translateY(0%) scale(0.8);
+      }
     }
   }
 `
