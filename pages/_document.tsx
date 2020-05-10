@@ -38,7 +38,7 @@ export default class extends Document {
     return (
       <Html lang="en" className="no-js">
         <Head>
-          <link rel="preload" href="assets/fonts/humming.otf" as="font" />
+          <link rel="preload" href="assets/fonts/humming.otf" as="font" type='font/otf' />
           <title>Critterpedia</title>
           <meta name="description" content="An overview of all fish and bugs" />
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

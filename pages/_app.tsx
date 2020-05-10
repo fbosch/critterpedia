@@ -11,8 +11,7 @@ import GlobalStyle from '../components/GlobalStyle'
 import SiteLayout from '../components/SiteLayout'
 
 function loadBrowserPlugins() {
-  // console.log('Loaded Browser Plugins')
-  // require('vh-check')
+  require('vh-check')
   require('fastclick')
   require('intersection-observer')
 }
