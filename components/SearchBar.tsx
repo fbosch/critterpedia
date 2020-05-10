@@ -15,28 +15,29 @@ const StyledButton = styled.button`
   position: absolute;
   top: 50%;
   right: 0;
-  transform: translate(-32%, -50%);
-  height: calc(var(--vh, 1vh) * 4.5);
-  width: calc(var(--vh, 1vh) * 4.5);
+  transform: translate(-35%, -50%);
+  height: calc(var(--vh, 1vh) * 4.3);
+  width: calc(var(--vh, 1vh) * 4.3);
   border-radius: 100%;
   background-color: transparent;
   -webkit-tap-highlight-color: transparent;
   will-change: transform, background-color, color, padding, width;
-  transition: transform 400ms ${timingFunction}, background-color 200ms ${timingFunction} 100ms, color 200ms ${timingFunction} 100ms;
+  transition: transform 500ms ${timingFunction}, background-color 300ms ${timingFunction} 100ms, color 200ms ${timingFunction} 100ms;
   &:focus {
     outline: none;
   }
   svg {
-    height: 100%;
-    width: 100%;
+    height: calc(var(--vh, 1vh) * 4);
+    width: calc(var(--vh, 1vh) * 3);
     image-rendering: smooth;
-    transform: translateY(0%) scale(1);
-    transition: transform 200ms ${timingFunction};
+    transform: scale(1);
+    transition: transform 400ms ${timingFunction};
   }
 `
 
 const StyledInput = styled.input`
   background-color: ${props => props.theme.lightYellow};
+  -webkit-appearance: none;
   border: none;
   width: 1.4vh;
   height: 1.4vh;
@@ -47,7 +48,7 @@ const StyledInput = styled.input`
   letter-spacing: .05em;
   color: ${props => props.theme.darkGrayAccent};
   border: 2px solid transparent;
-  transition: border 250ms ${timingFunction}, width 400ms ${timingFunction}, padding 400ms ${timingFunction};
+  transition: border 250ms ${timingFunction}, width 500ms ${timingFunction}, padding 350ms ${timingFunction} 50ms;
   box-shadow: 0px 11px 20px -20px rgba(185, 177, 127, 0.5), 0 6px 6px rgba(237, 227, 179, 0.6);
   &:focus, &:valid {
     width: 70vw;
@@ -57,10 +58,9 @@ const StyledInput = styled.input`
     + label button {
       color: white;
       background-color: ${props => props.theme.orangeAccent};
-      transform: translate(-35%, -50%);
 
       svg {
-        transform: translateY(0%) scale(0.8);
+        transform: scale(0.7);
       }
     }
   }
