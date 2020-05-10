@@ -15,7 +15,7 @@ const getFallback = (props: GridCardProps) => props.fallback(props.theme.borderC
 const Spacer = styled.span`
   display: none;
   height: 100%;
-  width: 70%;
+  width: calc(70% + env(safe-area-inset-left));
   position: absolute;
   scroll-snap-align: start;
   left: 100%;

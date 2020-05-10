@@ -90,7 +90,7 @@ function SearchBar(props) {
     e.preventDefault()
     if (document.activeElement === searchInput) {
     } else {
-      window.requestAnimationFrame(() => searchInput.focus())
+      searchInput.focus()
     }
   }, [searchRef])
 

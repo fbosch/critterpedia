@@ -21,7 +21,7 @@ const CardWrapper = styled.ol`
   grid-auto-flow: column;
   grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 12));
   grid-template-columns: auto;
-  padding: calc(var(--vh, 1vh) * 5) 5vw calc(var(--vh, 1vh) * 3.5) 5vw;
+  padding: calc(var(--vh, 1vh) * 5) calc(5vw + env(safe-area-inset-right)) calc(var(--vh, 1vh) * 3.5) calc(5vw + env(safe-area-inset-left));
 `
 
 function lazyLoad(target) {

@@ -50,7 +50,7 @@ export default class extends Document {
           <meta name="msapplication-TileColor" content="#F8CC63" />
           <meta name="theme-color" content="#F8CC63" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
-          <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+          <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
           <link rel="apple-touch-startup-image" href="/launch.png" />
           <link href="splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
           <link href="splashscreens/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
