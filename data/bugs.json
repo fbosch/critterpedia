@@ -17,7 +17,7 @@
   },
   {
     "id": "tigerbutterfly",
-    "name": "Tiger Buttefly",
+    "name": "Tiger Butterfly",
     "price": 240,
     "location": "Flying",
     "time": "4am - 7pm",
@@ -57,7 +57,7 @@
   },
   {
     "id": "monarchbutterfly",
-    "name": "Monarch Buttefly",
+    "name": "Monarch Butterfly",
     "price": 140,
     "location": "Flying",
     "time": "4am - 7pm",
@@ -73,7 +73,7 @@
   },
   {
     "id": "agriasbutterfly",
-    "name": "Agrias Buttefly",
+    "name": "Agrias Butterfly",
     "price": 3000,
     "location": "Flying",
     "time": "8am - 5pm",

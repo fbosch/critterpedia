@@ -35,7 +35,7 @@ const StyledButton = styled.button`
     position: absolute;
     transform: scale(1) translate(-30%, -50%);
     transform-origin: center center;
-    transition: transform 300ms ${timingFunction} 100ms;
+    transition: transform 200ms ${timingFunction} 50ms;
   }
 `
 
