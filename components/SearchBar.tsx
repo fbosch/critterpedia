@@ -15,10 +15,10 @@ const StyledButton = styled.button`
   position: absolute;
   top: 50%;
   right: 0;
-  transform: translate(-.8vh, -50%);
-  padding: .9vh;
-  height: 4.2vh;
-  width: 4.2vh;
+  transform: translate(-1vh, -50%);
+  padding: 1vh;
+  height: 4.3vh;
+  width: 4.3vh;
   border-radius: 100%;
   background-color: transparent;
   transition: transform 400ms ${timingFunction}, background-color 300ms ${timingFunction} 100ms, color 300ms ${timingFunction} 100ms;
@@ -34,10 +34,10 @@ const StyledButton = styled.button`
 const StyledInput = styled.input`
   background-color: ${props => props.theme.lightYellow};
   border: none;
-  width: 1.1vh;
-  height: 1.1vh;
+  width: 1.4vh;
+  height: 1.4vh;
   max-width: 450px;
-  padding: 2.7vh;
+  padding: 3vh;
   border-radius: 10vh;
   font-size: 1.4em;
   letter-spacing: .05em;
@@ -48,7 +48,7 @@ const StyledInput = styled.input`
   &:focus, &:valid {
     width: 70vw;
     outline: none;
-    padding: 2.7vh 5.5vh 2.7vh 2.7vh;
+    padding: 3vh 5.5vh 3vh 3vh;
     border-color: ${props => props.theme.borderColor};
     + label button {
       color: white;
