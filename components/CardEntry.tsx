@@ -193,7 +193,7 @@ function CardEntry(props: GridCardProps) {
         {props.title}
         <Shadow />
       </label>}
-      <img data-src={props.image} loading='eager' draggable="false" alt={props.title} />
+      <img data-src={props.image} loading='lazy' draggable="false" alt={props.title} />
       <Spacer />
     </StyledCard>
   )
