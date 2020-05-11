@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { useRef, useCallback, useEffect } from 'react'
 import debounce from 'lodash.debounce'
+import lazyLoad from '../utils/lazyLoad'
 
 const StyledContainer = styled.div`
   font-size: 3rem;
@@ -9,42 +10,20 @@ const StyledContainer = styled.div`
   overflow-x: scroll;
   overflow-y: hidden;
   position: relative;
-`
 
-const CardWrapper = styled.ol`
-  margin: 0;
-  display: grid;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x proximity;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 12));
-  grid-template-columns: auto;
-  padding: calc(var(--vh, 1vh) * 5) calc(5vw + env(safe-area-inset-right)) calc(var(--vh, 1vh) * 3.5) calc(6vw + env(safe-area-inset-left));
+  ol {
+    margin: 0;
+    display: grid;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 12));
+    grid-template-columns: auto;
+    padding: calc(var(--vh, 1vh) * 5) calc(5vw + env(safe-area-inset-right)) calc(var(--vh, 1vh) * 3.5) calc(6vw + env(safe-area-inset-left));
+  }
 `
-
-function lazyLoad(target) {
-  const io = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target
-        const src = img.getAttribute('data-src')
-        img.removeAttribute('data-src')
-        observer.disconnect()
-        const imageInBackground = new Image()
-        imageInBackground.src = src
-        imageInBackground.onload = () => {
-          window.requestAnimationFrame(() => {
-            img.setAttribute('src', src)
-          })
-        }
-      }
-    })
-  })
-  io.observe(target)
-  return io
-}
 
 function CardGrid(props) {
   const containerRef = useRef()
@@ -89,7 +68,7 @@ function CardGrid(props) {
 
   return (
     <StyledContainer>
-      <CardWrapper {...props} ref={containerRef} />
+      <ol {...props} ref={containerRef} />
     </StyledContainer>
   )
 }
