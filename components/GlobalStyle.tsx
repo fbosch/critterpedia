@@ -17,6 +17,8 @@ export default createGlobalStyle`
     }
   }
   body {
+    margin: 0;
+    padding: 0;
     font-family: ${getFontFamily};
     text-rendering: optimizeLegibility;
     background-color: ${getBodyBackground};

@@ -1,5 +1,5 @@
 import React, { useRef, useCallback } from 'react'
-import { timingFunction } from '../theme'
+import { timingFunction, device } from '../theme'
 import styled from 'styled-components'
 
 const StyledForm = styled.form`
@@ -10,31 +10,42 @@ const StyledForm = styled.form`
 
 const StyledButton = styled.button`
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: ${props => props.theme.grayAccent};
   border-style: none;
   position: absolute;
+  right: 50%;
   top: 50%;
-  right: 0;
-  transform: translate(-50%, -50%);
-  height: calc(var(--vh, 1vh) * 4.4);
-  width: calc(var(--vh, 1vh) * 4.4);
+  transform: translate(50%, -50%);
+  height: calc(var(--vh, 1vh) * 4);
+  width: calc(var(--vh, 1vh) * 4);
+  max-width: 55px;
+  max-height: 55px;
+  min-height: 40px;
+  min-width: 40px;
   border-radius: 100%;
   background-color: transparent;
   -webkit-tap-highlight-color: transparent;
   will-change: transform, background-color, color, padding, width;
-  transition: transform 500ms ${timingFunction}, background-color 250ms ${timingFunction} 100ms, color 200ms ${timingFunction} 50ms;
+  transition: transform 250ms ${timingFunction} 50ms, background-color 150ms ${timingFunction} 30ms, color 250ms ${timingFunction}, right 200ms ${timingFunction};
   &:focus {
     outline: none;
   }
+  @media ${device.laptop} {
+    max-height: 80px;
+    max-width: 80px;
+  }
   svg {
-    height: calc(var(--vh, 1vh) * 3);
-    width: calc(var(--vh, 1vh) * 3);
-    image-rendering: smooth;
-    left: 50%;
-    top: 50%;
-    position: absolute;
-    transform: scale(1) translate(-25%, -50%);
-    transform-origin: center center;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    min-height: 40px;
+    min-width: 40px;
+    top: -5%;
+    position: relative;
+    transform: scale(1);
     transition: transform 200ms ${timingFunction} 50ms;
   }
 `
@@ -45,6 +56,8 @@ const StyledInput = styled.input`
   border: none;
   width: 1.4vh;
   height: 1.4vh;
+  min-height: 50px;
+  min-width: 50px;
   max-width: 450px;
   padding: 3.5vh;
   border-radius: 10vh;
@@ -52,8 +65,12 @@ const StyledInput = styled.input`
   letter-spacing: .05em;
   color: ${props => props.theme.darkGrayAccent};
   border: 2px solid transparent;
-  transition: border 250ms ${timingFunction}, width 500ms ${timingFunction}, padding 250ms ${timingFunction} 20ms;
+  transition: border 250ms ${timingFunction}, width 250ms ${timingFunction}, padding 300ms ${timingFunction} 50ms;
   box-shadow: 0px 11px 20px -20px rgba(185, 177, 127, 0.5), 0 6px 6px rgba(237, 227, 179, 0.6);
+  @media ${device.desktop} {
+    min-height: unset;
+    min-width: unset;
+  }
 
   &::-ms-clear, &::-webkit-clear-button {
     display: none;
@@ -68,9 +85,11 @@ const StyledInput = styled.input`
       color: white;
       background-color: ${props => props.theme.orangeAccent};
       transform: translate(-25%, -50%);
+      right: 0%;
+      top: 50%;
 
       svg {
-        transform: scale(0.7) translate(-70%, -70%);
+        transform: scale(0.7);
       }
     }
   }

@@ -29,7 +29,6 @@ function SiteLayout(props: SiteLayoutProps) {
   const { children } = props
 
   return (
-    <>
     <StyledContainer>
       <Header />
       <StyledMain>
@@ -37,16 +36,6 @@ function SiteLayout(props: SiteLayoutProps) {
       </StyledMain>
       <Footer />
     </StyledContainer>
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" display="none">
-      <defs>
-        <filter id="goo">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
-          <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -10" result="goo" />
-          <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
-        </filter>
-      </defs>
-    </svg>
-    </>
   )
 }
 
