@@ -26,10 +26,10 @@ const StyledContainer = styled.div`
 `
 
 function CardGrid(props) {
-  const containerRef = useRef()
+  const listRef = useRef()
 
   const handleHorizontalScroll = useCallback(e => {
-    const container: HTMLElement = containerRef.current
+    const container: HTMLElement = listRef.current
     if (container) {
       document.body.addEventListener('wheel', e => {
         const target = e.target as HTMLElement
@@ -45,12 +45,12 @@ function CardGrid(props) {
         }
       })
     }
-  }, [containerRef])
+  }, [listRef])
 
   const debouncedScrollHandler = useRef(debounce(handleHorizontalScroll, 500, { leading: true }))
 
   useEffect(() => {
-    const container: HTMLElement = containerRef.current
+    const container: HTMLElement = listRef.current
     const handler = debouncedScrollHandler.current
     document.addEventListener('mousewheel', handler, true)
     if (container) {
@@ -64,11 +64,11 @@ function CardGrid(props) {
     return () => {
       document.removeEventListener('mousewheel', handler)
     }
-  }, [containerRef])
+  }, [listRef])
 
   return (
     <StyledContainer>
-      <ol {...props} ref={containerRef} />
+      <ol {...props} ref={listRef} />
     </StyledContainer>
   )
 }
