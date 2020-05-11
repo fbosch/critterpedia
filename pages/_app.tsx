@@ -14,6 +14,7 @@ function loadBrowserPlugins() {
   require('vh-check')
   require('fastclick')
   require('intersection-observer')
+  require('../utils/rAF')
 }
 
 export default class extends App {

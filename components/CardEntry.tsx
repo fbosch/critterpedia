@@ -15,10 +15,10 @@ const getFallback = (props: GridCardProps) => props.fallback(props.theme.borderC
 const StyledSpacer = styled.span`
   display: none;
   height: 100%;
+  left: 100%;
   width: calc(70% + env(safe-area-inset-left));
   position: absolute;
   scroll-snap-align: start;
-  left: 100%;
   z-index: -1;
   pointer-events: none;
 `
@@ -42,6 +42,7 @@ const StyledShadow = styled.span`
 `
 
 const StyledCard = styled.li`
+  touch-action: manipulation;
   font-size: 1.2vh;
   user-select: none;
   display: flex;
@@ -186,11 +187,11 @@ function handleFocus(event) {
   const parent = target.parentElement
   console.log(target.offsetLeft, target.offsetWidth)
   console.log(target.offsetWidth)
-  window.requestAnimationFrame(() => target.scrollIntoView({
+  console.log(target.scrollIntoView)
+  target.scrollIntoView({
     behavior: "smooth",
-    block: "nearest",
     inline: "center"
-  }))
+  })
 }
 
 function CardEntry(props: GridCardProps) {

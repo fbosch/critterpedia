@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { useRef, useCallback, useEffect } from 'react'
+import { device } from '../theme'
 import debounce from 'lodash.debounce'
 import lazyLoad from '../utils/lazyLoad'
 
@@ -21,7 +22,7 @@ const StyledContainer = styled.div`
     grid-auto-flow: column;
     grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 12));
     grid-template-columns: auto;
-    padding: calc(var(--vh, 1vh) * 5) calc(5vw + env(safe-area-inset-right)) calc(var(--vh, 1vh) * 3.5) calc(6vw + env(safe-area-inset-left));
+    padding: calc(var(--vh, 1vh) * 5) 0 calc(var(--vh, 1vh) * 3.5) calc(6vw + env(safe-area-inset-left));
   }
 `
 
@@ -37,7 +38,7 @@ function CardGrid(props) {
         if (container.contains(target)) {
            window.requestAnimationFrame(() => container.scrollTo({
             top: 0,
-            left: container.scrollLeft + (e.deltaY * 3.5),
+            left: container.scrollLeft + (e.deltaY * 4),
             behavior: 'smooth'
           }))
         } else {
@@ -58,11 +59,11 @@ function CardGrid(props) {
       const imageObservers = Array.from(targets).map(lazyLoad)
       return () => {
         imageObservers.forEach(io => io.disconnect())
-        document.removeEventListener('mousewheel', handler)
+        document.removeEventListener('mousewheel', handler, true)
       }
     }
     return () => {
-      document.removeEventListener('mousewheel', handler)
+      document.removeEventListener('mousewheel', handler, true)
     }
   }, [listRef])
 
