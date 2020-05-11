@@ -135,7 +135,7 @@ const StyledCard = styled.li`
     opacity: 0;
     transition: transform 250ms cubic-bezier(0,.5,.5,1), background 300ms linear;
     background: radial-gradient(rgba(233, 227, 169, 1) 30%,rgba(233, 227, 169, 0) 70%);
-    &[src] {
+    &[src]:not([data-src]) {
       animation: fadeIn 200ms linear;
       animation-fill-mode: forwards;
     }
@@ -193,7 +193,7 @@ function CardEntry(props: GridCardProps) {
         {props.title}
         <Shadow />
       </label>}
-      <img data-src={props.image} loading='lazy' draggable="false" alt={props.title} />
+      {props.image && <img data-src={props.image} loading='lazy' draggable="false" alt={props.title} />}
       <Spacer />
     </StyledCard>
   )
