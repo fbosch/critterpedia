@@ -47,7 +47,7 @@ const StyledCard = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(var(--vh, 1vh) * 10);
+  height: 100%;
   width: calc(var(--vh, 1vh) * 15);
   padding: calc(var(--vh, 1vh));
   position: relative;
@@ -171,8 +171,8 @@ const StyledCard = styled.li`
 
   &:before {
     content: '';
-    width: calc(100% + -2px);
-    height: calc(100% + -2px);
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
@@ -186,11 +186,11 @@ function handleFocus(event) {
   const parent = target.parentElement
   console.log(target.offsetLeft, target.offsetWidth)
   console.log(target.offsetWidth)
-  target.scrollIntoView({
+  window.requestAnimationFrame(() => target.scrollIntoView({
     behavior: "smooth",
     block: "nearest",
     inline: "center"
-  })
+  }))
 }
 
 function CardEntry(props: GridCardProps) {
