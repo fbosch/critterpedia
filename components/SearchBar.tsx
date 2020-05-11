@@ -23,8 +23,8 @@ const StyledButton = styled.button`
   width: calc(var(--vh, 1vh) * 4);
   max-width: 55px;
   max-height: 55px;
-  min-height: 40px;
-  min-width: 40px;
+  min-height: 35px;
+  min-width: 35px;
   border-radius: 100%;
   background-color: transparent;
   -webkit-tap-highlight-color: transparent;
@@ -34,8 +34,12 @@ const StyledButton = styled.button`
     outline: none;
   }
   @media ${device.laptop} {
-    max-height: 80px;
-    max-width: 80px;
+    svg {
+      max-height: 65px;
+      max-width: 65px;
+      min-height: 50px;
+      min-width: 50px;
+    }
   }
   svg {
     padding: 10px;
@@ -43,9 +47,11 @@ const StyledButton = styled.button`
     width: 100%;
     min-height: 40px;
     min-width: 40px;
-    top: -5%;
-    position: relative;
-    transform: scale(1);
+    top: 50%;
+    left: 50%;
+    position:absolute;
+    transform-origin: 0 0;
+    transform: scale(1) translate(-50%, -50%);
     transition: transform 200ms ${timingFunction} 50ms;
   }
 `
@@ -84,12 +90,12 @@ const StyledInput = styled.input`
     + button {
       color: white;
       background-color: ${props => props.theme.orangeAccent};
-      transform: translate(-25%, -50%);
+      transform: translate(-30%, -50%);
       right: 0%;
       top: 50%;
 
       svg {
-        transform: scale(0.7);
+        transform: scale(0.8) translate(-50%, -50%);
       }
     }
   }
