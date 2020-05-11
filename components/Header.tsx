@@ -85,8 +85,8 @@ const StyledNavItem = styled.li`
         border: 3px dotted ${props => props.theme.borderColor};
         border-radius: 100%;
         z-index: 5;
-        height: 74%;
-        width: 74%;
+        height: 85%;
+        width: 85%;
         opacity: 0;
         transition: opacity 200ms linear;
     }
