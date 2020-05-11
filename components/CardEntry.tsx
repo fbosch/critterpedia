@@ -181,24 +181,20 @@ const StyledCard = styled.li`
     position: absolute;
   }
 `
+const isSmoothScrollSupported = process.browser && 'scrollBehavior' in document.documentElement.style;
 
 function handleFocus(event) {
   const target = event.currentTarget
-  var isSmoothScrollSupported = 'scrollBehavior' in document.documentElement.style;
-
-  if (isSmoothScrollSupported) {
-    window.requestAnimationFrame(() => target.scrollIntoView({
-      behavior: "smooth",
-      inline: "center"
-    }))
-  }
-
+  window.requestAnimationFrame(() => target.scrollIntoView({
+    behavior: "smooth",
+    inline: "center"
+  }))
 }
 
 function CardEntry(props: GridCardProps) {
 
   return (
-    <StyledCard {...props} tabIndex={0} onFocus={handleFocus}>
+    <StyledCard {...props} tabIndex={0} onFocus={isSmoothScrollSupported ? handleFocus : null}>
       {props.title && <label data-name={props.title} htmlFor={props.id}>
         {props.title}
         <StyledShadow />
