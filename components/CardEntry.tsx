@@ -128,8 +128,8 @@ const StyledCard = styled.li`
   img {
     user-select: none;
     z-index: 2;
-    width: 7vmax;
-    max-width: 10vh;
+    width: 8vmax;
+    max-width: 60%;
     will-change: opacity;
     image-rendering: optimizeQuality;
     image-rendering: smooth;
@@ -184,14 +184,15 @@ const StyledCard = styled.li`
 
 function handleFocus(event) {
   const target = event.currentTarget
-  const parent = target.parentElement
-  console.log(target.offsetLeft, target.offsetWidth)
-  console.log(target.offsetWidth)
-  console.log(target.scrollIntoView)
-  target.scrollIntoView({
-    behavior: "smooth",
-    inline: "center"
-  })
+  var isSmoothScrollSupported = 'scrollBehavior' in document.documentElement.style;
+
+  if (isSmoothScrollSupported) {
+    window.requestAnimationFrame(() => target.scrollIntoView({
+      behavior: "smooth",
+      inline: "center"
+    }))
+  }
+
 }
 
 function CardEntry(props: GridCardProps) {
