@@ -126,13 +126,14 @@ const StyledNavigation = styled.nav`
   height: 100%;
   width: 100%;
   top: 45%;
-  left: 4vw;
+  /* left: 4vw; */
+  padding-left: 4vw;
 `
 
 const StyledBackground = styled.div`
   position: absolute;
   display: flex;
-  left: 0;
+  left: 4vw;
   z-index: 2;
   padding: 10px;
   transform: translate(-10px, -10px);
