@@ -27,13 +27,13 @@ const StyledButton = styled.button`
     outline: none;
   }
   svg {
-    height: calc(var(--vh, 1vh) * 4);
-    width: calc(var(--vh, 1vh) * 4);
+    height: calc(var(--vh, 1vh) * 3);
+    width: calc(var(--vh, 1vh) * 3);
     image-rendering: smooth;
     left: 50%;
     top: 50%;
     position: absolute;
-    transform: scale(1) translate(-30%, -50%);
+    transform: scale(1) translate(-25%, -50%);
     transform-origin: center center;
     transition: transform 200ms ${timingFunction} 50ms;
   }

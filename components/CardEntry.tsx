@@ -67,7 +67,7 @@ const StyledCard = styled.li`
 
   &:focus {
     img {
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
     label {
         min-height: 0.7em;
