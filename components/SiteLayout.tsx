@@ -16,7 +16,7 @@ const StyledContainer = styled.div`
 		"footer footer footer";
 `
 
-const Main = styled.main`
+const StyledMain = styled.main`
   grid-area: content;
 `
 
@@ -31,9 +31,9 @@ function SiteLayout(props: SiteLayoutProps) {
   return (
     <StyledContainer>
       <Header />
-      <Main>
+      <StyledMain>
         {children}
-      </Main>
+      </StyledMain>
       <Footer />
     </StyledContainer>
   )

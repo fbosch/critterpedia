@@ -12,7 +12,7 @@ type GridCardProps = {
 
 const getFallback = (props: GridCardProps) => props.fallback(props.theme.borderColor)
 
-const Spacer = styled.span`
+const StyledSpacer = styled.span`
   display: none;
   height: 100%;
   width: calc(70% + env(safe-area-inset-left));
@@ -23,7 +23,7 @@ const Spacer = styled.span`
   pointer-events: none;
 `
 
-const Shadow = styled.span`
+const StyledShadow = styled.span`
   &:before, &:after {
     position: absolute;
     width: 30%;
@@ -182,7 +182,15 @@ const StyledCard = styled.li`
 `
 
 function handleFocus(event) {
-
+  const target = event.currentTarget
+  const parent = target.parentElement
+  console.log(target.offsetLeft, target.offsetWidth)
+  console.log(target.offsetWidth)
+  target.scrollIntoView({
+    behavior: "smooth",
+    block: "nearest",
+    inline: "center"
+  })
 }
 
 function CardEntry(props: GridCardProps) {
@@ -191,10 +199,10 @@ function CardEntry(props: GridCardProps) {
     <StyledCard {...props} tabIndex={0} onFocus={handleFocus}>
       {props.title && <label data-name={props.title} htmlFor={props.id}>
         {props.title}
-        <Shadow />
+        <StyledShadow />
       </label>}
       {props.image && <img data-src={props.image} loading='lazy' draggable="false" alt={props.title} />}
-      <Spacer />
+      {/* <StyledSpacer /> */}
     </StyledCard>
   )
 
