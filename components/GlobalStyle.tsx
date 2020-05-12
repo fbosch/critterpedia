@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { getFontFamily, getBodyBackground } from '../theme'
-import logo from '../public/assets/images/logo.svg'
+import { getFontFamily, getBodyBackground, ios, standalone } from '../theme'
 
 export default createGlobalStyle`
   html {
@@ -24,6 +23,11 @@ export default createGlobalStyle`
     background-color: ${getBodyBackground};
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+    ${ios} {
+      ${standalone} {
+        position: fixed;
+      }
+    }
   }
 
   @font-face {

@@ -17,9 +17,9 @@ const StyledContainer = styled.div`
 		"footer footer footer";
   ${ios} {
     min-height: calc(var(--vh, 1vh) * 87);
-    grid-template-rows: auto repeat(1, 1fr) calc(var(--vh, 1vh) * 10);
+    grid-template-rows: auto repeat(1, 1fr) calc(var(--vh, 1vh) * 13);
     ${standalone} {
-      grid-template-rows: auto repeat(1, 1fr) calc(var(--vh, 1vh) * 10);
+      min-height: calc(var(--vh, 1vh) * 99);
     }
   }
 `

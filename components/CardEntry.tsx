@@ -103,7 +103,7 @@ const StyledCard = styled.li`
   img {
     user-select: none;
     z-index: 2;
-    width: 8vmax;
+    width: 6vmax;
     max-width: 60%;
     will-change: opacity;
     image-rendering: optimizeQuality;
