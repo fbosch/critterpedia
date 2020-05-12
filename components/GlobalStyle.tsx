@@ -16,6 +16,7 @@ export default createGlobalStyle`
     }
   }
   body {
+    min-width: 100vw;
     margin: 0;
     padding: 0;
     font-family: ${getFontFamily};

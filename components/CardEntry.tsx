@@ -2,7 +2,6 @@ import React, { useRef, useCallback } from 'react'
 import styled from 'styled-components'
 import { ThemeType } from '../theme'
 import CardLabel from './CardLabel'
-import debounce from 'lodash.debounce'
 
 type GridCardProps = {
   fallback?: Function;

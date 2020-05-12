@@ -113,7 +113,7 @@ function SearchBar(props) {
     const searchInput = searchRef.current as HTMLElement
     e.preventDefault()
     if (document.activeElement !== searchInput) {
-      searchInput.focus()
+      window.requestAnimationFrame(() => searchInput.focus())
     }
   }, [searchRef])
 
