@@ -1,7 +1,8 @@
-import React, { useRef } from 'react'
+import React, { useRef, useCallback } from 'react'
 import styled from 'styled-components'
 import { ThemeType } from '../theme'
 import CardLabel from './CardLabel'
+import debounce from 'lodash.debounce'
 
 type GridCardProps = {
   fallback?: Function;
@@ -126,29 +127,9 @@ const StyledCard = styled.li`
   }
 `
 
-const isSmoothScrollSupported = process.browser && 'scrollBehavior' in document.documentElement.style;
-
-function handleFocus(event) {
-  event.preventDefault()
-  const target = event.currentTarget
-  const id = target.getAttribute('id')
-  target.removeAttribute('id')
-  window.location.hash = id
-  window.requestAnimationFrame(() => {
-    target.scrollIntoView({
-      behavior: "smooth",
-      inline: "center"
-    })
-    window.requestAnimationFrame(() => {
-      target.setAttribute('id', id)
-      target.focus()
-    })
-  })
-}
-
 function CardEntry(props: GridCardProps) {
   return (
-    <StyledCard {...props} id={props.id} onFocus={isSmoothScrollSupported ? handleFocus : null} tabIndex={0}>
+    <StyledCard {...props} id={props.id} tabIndex={0}>
       <a href={'#' + props.id}>
         {props.title && (
           <CardLabel title={props.title}>

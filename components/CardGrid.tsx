@@ -31,9 +31,31 @@ const StyledContainer = styled.div`
     }
   }
 `
+const isSmoothScrollSupported = process.browser && 'scrollBehavior' in document.documentElement.style;
 
 function CardGrid(props) {
   const listRef = useRef()
+
+  const handleCardFocus = useCallback(event => {
+    const target: HTMLElement = event.target as HTMLElement
+    if (!target) return
+    const node = target.tagName === 'A' ? target.parentElement : target
+    if (node.hasAttribute('id')) {
+      const id = node.getAttribute('id')
+      node.removeAttribute('id')
+      window.location.hash = id
+      window.requestAnimationFrame(() => {
+        node.scrollIntoView({
+          behavior: "smooth",
+          inline: "center"
+        })
+      })
+      node.focus()
+      node.setAttribute('id', id)
+    }
+  }, [])
+
+  const debouncedCardFocus = useRef(debounce(handleCardFocus, 300, { leading: true }))
 
   const handleHorizontalScroll = useCallback(e => {
     const container: HTMLElement = listRef.current
@@ -61,7 +83,8 @@ function CardGrid(props) {
     const handler = debouncedScrollHandler.current
     document.addEventListener('mousewheel', handler, true)
     if (window.location.hash) {
-      document.getElementById(window.location.hash.replace('#', '')).focus()
+      const focusTarget = document.getElementById(window.location.hash.replace('#', ''))
+      if (focusTarget) focusTarget.focus()
     }
     if (container) {
       const targets = container.querySelectorAll('img[data-src]')
@@ -77,7 +100,7 @@ function CardGrid(props) {
   }, [listRef])
 
   return (
-    <StyledContainer>
+    <StyledContainer onFocus={debouncedCardFocus.current}>
       <ol {...props} ref={listRef} />
     </StyledContainer>
   )
