@@ -130,7 +130,7 @@ const StyledCard = styled.li`
 function CardEntry(props: GridCardProps) {
   return (
     <StyledCard {...props} id={props.id} tabIndex={0}>
-      <a href={'#' + props.id}>
+      <a href={'#' + props.id} draggable={false}>
         {props.title && (
           <CardLabel title={props.title}>
             {props.title}

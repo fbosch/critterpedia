@@ -33,29 +33,34 @@ const StyledContainer = styled.div`
 `
 const isSmoothScrollSupported = process.browser && 'scrollBehavior' in document.documentElement.style;
 
+function focusCard(event) {
+  const target: HTMLElement = event.target as HTMLElement
+  if (!target) return
+  const node = target.closest('li')
+  const id = node.getAttribute('id')
+  if (node && window.location.hash !== id) {
+    node.removeAttribute('id')
+    window.requestAnimationFrame(() => {
+      node.scrollIntoView({
+        behavior: "smooth",
+        inline: "center"
+      })
+      node.focus()
+      node.setAttribute('id', id)
+    })
+  }
+}
+
+const debouncedCardFocus = debounce(focusCard, 50, { leading: true, trailing: false })
+
 function CardGrid(props) {
   const listRef = useRef()
 
   const handleCardFocus = useCallback(event => {
-    const target: HTMLElement = event.target as HTMLElement
-    if (!target) return
-    const node = target.tagName === 'A' ? target.parentElement : target
-    if (node.hasAttribute('id')) {
-      const id = node.getAttribute('id')
-      node.removeAttribute('id')
-      window.location.hash = id
-      window.requestAnimationFrame(() => {
-        node.scrollIntoView({
-          behavior: "smooth",
-          inline: "center"
-        })
-      })
-      node.focus()
-      node.setAttribute('id', id)
-    }
+    event.persist()
+    debouncedCardFocus(event)
   }, [])
 
-  const debouncedCardFocus = useRef(debounce(handleCardFocus, 300, { leading: true }))
 
   const handleHorizontalScroll = useCallback(e => {
     const container: HTMLElement = listRef.current
@@ -76,7 +81,7 @@ function CardGrid(props) {
     }
   }, [listRef])
 
-  const debouncedScrollHandler = useRef(debounce(handleHorizontalScroll, 500, { leading: true }))
+  const debouncedScrollHandler = useRef(debounce(handleHorizontalScroll, 500, { leading: true,  }))
 
   useEffect(() => {
     const container: HTMLElement = listRef.current
@@ -100,7 +105,7 @@ function CardGrid(props) {
   }, [listRef])
 
   return (
-    <StyledContainer onFocus={debouncedCardFocus.current}>
+    <StyledContainer onFocus={handleCardFocus}>
       <ol {...props} ref={listRef} />
     </StyledContainer>
   )
