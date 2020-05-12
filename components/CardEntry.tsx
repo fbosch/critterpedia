@@ -137,11 +137,7 @@ function handleFocus(event) {
   if (target) {
     window.requestAnimationFrame(() => {
       const id = target.getAttribute('href')
-      console.log(target)
-      console.log(id)
-      if (window.location.hash !== id) {
-        window.location.hash = id
-      }
+      if (window.location.hash !== id) window.location.hash = id
     })
   }
 }

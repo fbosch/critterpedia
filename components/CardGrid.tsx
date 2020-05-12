@@ -54,7 +54,7 @@ function CardGrid(props) {
     }
   }, [])
 
-  const debouncedCardFocus = useRef(debounce(focusCard, 250, { leading: true, maxWait: 500 }))
+  const debouncedCardFocus = useRef(debounce(focusCard, 250, { leading: true }))
   const handleCardFocus = useCallback(event => {
     event.persist()
     debouncedCardFocus.current(event)
