@@ -8,7 +8,7 @@ import lazyLoad from '../utils/lazyLoad'
 const StyledContainer = styled.div`
   font-size: 3rem;
   height: auto;
-  top: calc(var(--vh, 1vh) * 5);
+  top: calc(var(--vh, 1vh) * 3);
   overflow-x: scroll;
   overflow-y: hidden;
   position: relative;

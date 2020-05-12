@@ -8,11 +8,41 @@ export default createGlobalStyle`
     height: 100%;
     max-height: 100%;
     background-color: ${getBodyBackground};
-    .js {
-      background-color: ${props => props.theme.orangeAccent};
-    }
-    .js.loaded {
-      background-color: ${getBodyBackground};
+    ${standalone} {
+
+    &.js {
+        body {
+          transition: background 500ms linear;
+          background-color: ${props => props.theme.orangeAccent};
+        }
+        &:after {
+          content: '';
+          display: block;
+          height: 100%;
+          width: 100%;
+          background: ${props => props.theme.orangeAccent};
+          background-image: url('/assets/images/logo.svg');
+          background-repeat: no-repeat;
+          background-position: center calc(50% - 2.5vh);
+          background-size: 22%;
+          z-index: 99;
+          position: fixed;
+          top: 0;
+          left: 0;
+          transition: opacity 300ms ease-out 500ms, background-color 500ms linear, background-size 350ms ${props => props.theme.timingFunction};
+        }
+
+        &.loaded {
+          body {
+            background-color: ${getBodyBackground};
+          }
+          &:after {
+            background-color: ${getBodyBackground};
+            background-size: 25%;
+            opacity: 0;
+          }
+        }
+      }
     }
   }
   body {
@@ -21,7 +51,6 @@ export default createGlobalStyle`
     padding: 0;
     font-family: ${getFontFamily};
     text-rendering: optimizeLegibility;
-    background-color: ${getBodyBackground};
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     ${ios} {

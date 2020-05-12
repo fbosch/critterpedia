@@ -16,10 +16,10 @@ const StyledContainer = styled.div`
 		"content content content"
 		"footer footer footer";
   ${ios} {
-    min-height: calc(var(--vh, 1vh) * 89);
+    min-height: calc(var(--vh, 1vh) * 86);
     grid-template-rows: auto repeat(1, 1fr) calc(var(--vh, 1vh) * 11);
     ${standalone} {
-      min-height: calc(var(--vh, 1vh) * 99);
+      min-height: calc(var(--vh, 1vh) * 98);
     }
   }
 `

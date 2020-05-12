@@ -1,6 +1,6 @@
 import React, { useRef, useCallback } from 'react'
 import styled from 'styled-components'
-import { ThemeType, device } from '../theme'
+import { ThemeType, device, standalone } from '../theme'
 import CardLabel from './CardLabel'
 
 type GridCardProps = {
@@ -155,7 +155,7 @@ const StyledCard = styled.li`
     transform-origin: center;
     user-select: none;
     z-index: 2;
-    width: 7vmax;
+    width: 5vmax;
     max-width: 60%;
     will-change: opacity;
     image-rendering: optimizeQuality;
@@ -163,6 +163,10 @@ const StyledCard = styled.li`
     opacity: 0;
     transition: transform 250ms cubic-bezier(0,.5,.5,1), background 300ms linear;
     background: radial-gradient(rgba(233, 227, 169, 1) 30%,rgba(233, 227, 169, 0) 70%);
+
+    ${standalone} {
+      width: 7vmax;
+    }
 
     @media ${device.tablet} {
       width: 6vmax;
