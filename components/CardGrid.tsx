@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { useRef, useCallback, useEffect } from 'react'
+import { useRef, useCallback, useEffect, useLayoutEffect } from 'react'
 import { ios, standalone } from '../theme'
 import debounce from 'lodash.debounce'
 import throttle from 'lodash.throttle'
@@ -75,14 +75,20 @@ function CardGrid(props) {
 
   const throttleScrollHandler = useRef(throttle(handleHorizontalScroll, 100, { leading: true }))
 
+  useLayoutEffect(() => {
+    if (window.location.hash) {
+      const focusInitial = window.setInterval(() => {
+        const focusTarget = document.getElementById(window.location.hash.replace('#', ''))
+        if (focusTarget) window.requestAnimationFrame(() => focusTarget.focus())
+        window.clearInterval(focusInitial)
+      }, 300)
+    }
+  }, [])
+
   useEffect(() => {
     const container: HTMLElement = listRef.current
     const handler = throttleScrollHandler.current
     document.addEventListener('mousewheel', handler, true)
-    if (window.location.hash) {
-      const focusTarget = document.getElementById(window.location.hash.replace('#', ''))
-      if (focusTarget) focusTarget.focus()
-    }
     if (container) {
       const targets = container.querySelectorAll('img[data-src]')
       const imageObservers = Array.from(targets).map(lazyLoad)
