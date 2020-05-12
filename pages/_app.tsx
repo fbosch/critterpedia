@@ -12,7 +12,6 @@ import SiteLayout from '../components/SiteLayout'
 
 function loadBrowserPlugins() {
   require('vh-check')
-  require('fastclick')
   require('intersection-observer')
   require('../polyfills')
 }
