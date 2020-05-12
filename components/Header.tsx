@@ -51,7 +51,6 @@ const StyledNavItem = styled.li`
     min-width: 3em;
     text-align: center;
     border-radius: 22% 22% 22% 22% / 40% 40% 40% 40%;
-    font-weight: bold;
     letter-spacing: .03em;
     font-size: 1.1em;
     color: ${props => props.theme.grayAccent};
@@ -131,13 +130,15 @@ const StyledNavigation = styled.nav`
   padding-left: 4vw;
 `
 
+const filterPadding = 15
+
 const StyledBackground = styled.div`
   position: absolute;
   display: flex;
   left: 4vw;
   z-index: 2;
-  padding: 10px;
-  transform: translate(-10px, -10px);
+  padding: ${filterPadding}px;
+  transform: translate(-${filterPadding}px, -${filterPadding}px);
   filter:url("#goo");
 
   > div {
@@ -188,7 +189,7 @@ function Header(props) {
           </StyledBackground>
         </StyledNavigation>
       </StyledHeader>
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" display="none">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style={{ position: 'absolute' }}>
         <defs>
           <filter id="goo">
             <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />

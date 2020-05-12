@@ -29,7 +29,7 @@ const StyledCardLabel = styled.label`
     top: -37%;
     color: #3D392D;
     font-style: italic;
-    font-size: 1.3em;
+    font-size: 1.5em;
     z-index: 10;
     white-space: nowrap;
     display: block;
@@ -39,7 +39,7 @@ const StyledCardLabel = styled.label`
     opacity: 1;
 
     @media ${device.tablet} {
-      font-size: 1.5em;
+      font-size: 1.2em;
     }
 
     &:before {

@@ -44,10 +44,7 @@ const StyledCard = styled.li`
   position: relative;
   -webkit-tap-highlight-color: transparent;
 
-  label {
-    opacity: 0;
-    z-index: -1;
-  }
+ 
 
   a {
     display: flex;
@@ -88,6 +85,13 @@ const StyledCard = styled.li`
     display: block;
   }
 
+  label {
+    opacity: 0;
+    z-index: -1;
+    transform: rotate(1deg) translateY(-5%);
+    transition: opacity 150ms linear, transform 200ms linear 30ms, z-index 0ms linear 400ms;
+  }
+
   a:focus {
     img {
       transform: scale(1.1);
@@ -96,6 +100,7 @@ const StyledCard = styled.li`
       opacity: 1;
       z-index: 3;
       transform: rotate(-2deg) translateY(0%);
+      transition: opacity 250ms linear, transform 300ms linear 0ms, z-index 0ms linear 0ms;
     }
   }
 
