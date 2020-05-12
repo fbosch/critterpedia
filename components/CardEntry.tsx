@@ -9,6 +9,7 @@ type GridCardProps = {
   image?: string,
   title?: string,
   id?: string,
+  price?: number,
   showSpacer?: boolean
 }
 
@@ -23,6 +24,32 @@ const StyledSpacer = styled.span`
   scroll-snap-align: start;
   z-index: -1;
   pointer-events: none;
+`
+
+const StyledPrice = styled.span`
+  color: ${props => props.theme.darkGrayAccent};
+  font-size: .7em;
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  opacity: 0;
+  background-color: ${props => props.theme.lightYellow};
+  padding: .55em .9em;
+  border-radius: ${props => props.theme.detailBorderRadius};
+  transition: opacity 200ms linear;
+  z-index: 5;
+  &:before {
+    content: "";
+    display: block;
+    float: left;
+    width: 1em;
+    height: 1em;
+    margin-right: .35em;
+    opacity: 0.8;
+    background-image: url('/assets/images/bells.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 `
 
 const StyledCard = styled.li`
@@ -45,6 +72,7 @@ const StyledCard = styled.li`
   -webkit-tap-highlight-color: transparent;
 
   a {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,7 +128,10 @@ const StyledCard = styled.li`
 
   a:focus {
     img {
-      transform: scale(1.15);
+      transform: scale(1.1) translateY(-10%);
+      + span {
+        opacity: 1;
+      }
     }
     label {
       opacity: 1;
@@ -111,10 +142,11 @@ const StyledCard = styled.li`
   }
 
   img {
+    transform-origin: center;
     user-select: none;
     z-index: 2;
     width: 5vmax;
-    max-width: 55%;
+    max-width: 60%;
     will-change: opacity;
     image-rendering: optimizeQuality;
     image-rendering: smooth;
@@ -158,12 +190,14 @@ function handleFocus(event) {
 }
 
 function CardEntry(props: GridCardProps) {
-  const { id, title, image, showSpacer, ...rest } = props
+  const { id, title, image, showSpacer, price, ...rest } = props
+  console.log(props)
   return (
     <StyledCard {...rest}>
       <a href={'#' + id} draggable={false} id={id} tabIndex={0} onClick={e => e.preventDefault()} onFocus={handleFocus}>
         <CardLabel title={props.title} />
         {image && <img data-src={image} loading='eager' draggable="false" alt={title} />}
+        {price && <StyledPrice>{price}</StyledPrice>}
         {showSpacer && <StyledSpacer />}
       </a>
     </StyledCard>

@@ -32,9 +32,9 @@ const StyledContainer = styled.div`
     }
   }
 `
-const isSmoothScrollSupported = process.browser && 'scrollBehavior' in document.documentElement.style;
 const isFirefox = process.browser && /^((?!chrome|android).)*firefox/i.test(navigator.userAgent)
 const isSafari = process.browser && /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+const isSmoothScrollSupported = process.browser && 'scrollBehavior' in document.documentElement.style;
 
 function CardGrid(props) {
   const listRef = useRef<HTMLElement>()
@@ -56,7 +56,7 @@ function CardGrid(props) {
     }
   }, [])
 
-  const debouncedCardFocus = useRef(debounce(focusCard, 100, { leading: true }))
+  const debouncedCardFocus = useRef(debounce(focusCard, 100))
   const handleCardFocus = useCallback(event => {
     event.persist()
     debouncedCardFocus.current(event)

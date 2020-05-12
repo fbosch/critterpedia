@@ -7,6 +7,7 @@ export type ThemeType = {
   lightYellow: string;
   borderColor: string;
   fontFamily: string;
+  detailBorderRadius: string;
 }
 
 const size = {
@@ -44,7 +45,8 @@ const theme: ThemeType = {
   darkGrayAccent: '#757261',
   lightYellow: '#F7F6E1',
   borderColor: '#D9D1A1',
-  fontFamily: 'Humming, Calibri, arial'
+  fontFamily: 'Humming, Calibri, arial',
+  detailBorderRadius: '22% 22% 22% 22% / 40% 40% 40% 40%'
 }
 
 export default theme

@@ -28,7 +28,6 @@ const StyledButton = styled.button`
   border-radius: 100%;
   background-color: transparent;
   -webkit-tap-highlight-color: transparent;
-  will-change: transform, background-color, color, padding, width;
   transition: transform 250ms ${timingFunction} 50ms, background-color 150ms ${timingFunction} 30ms, color 250ms ${timingFunction}, right 200ms ${timingFunction};
   &:focus {
     outline: none;
@@ -115,11 +114,11 @@ function SearchBar(props) {
     if (document.activeElement !== searchInput) {
       searchInput.focus()
     }
-  }, [searchRef])
+  }, [])
 
   return (
     <StyledForm onSubmit={handleSubmit} noValidate>
-      <StyledInput type='search' id='search-critterpedia' name='search-critterpedia' ref={searchRef} minLength={1} required autoComplete="off" />
+      <StyledInput type='search' id='search-critterpedia' name='search-critterpedia' ref={searchRef} minLength={1} required autoComplete="off" tabIndex={0} />
       <StyledButton onClick={handleSearchButtonClick} type='submit' onFocus={handleSearchButtonClick}>
         <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71 71"><path fillRule="evenodd" clipRule="evenodd" d="M30 60c16.569 0 30-13.431 30-30C60 13.431 46.569 0 30 0 13.431 0 0 13.431 0 30c0 16.569 13.431 30 30 30zm0-7c12.703 0 23-10.297 23-23S42.703 7 30 7 7 17.297 7 30s10.297 23 23 23z" fill="currentColor"/><path d="M51 43.5l19.991 16.178L59.678 70.99 43 51.5l8-8zM23 43c-1.757 1.757-3.5 2-6.818.511C14.23 41.56 13.5 39.5 15 37c1.757-1.757 3.5-2 6.646.612C23.6 39.565 25 41 23 43zM20.5 24c0 5 0 8.5-4 10-3.866 0-5-4-4.5-10 0-4.694 7-12 11.5-10.5 6.5 3.5-3 5.806-3 10.5z" fill="currentColor"/></svg>
       </StyledButton>

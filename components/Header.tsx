@@ -50,7 +50,7 @@ const StyledNavItem = styled.li`
     padding: .35em .75em;
     min-width: 3em;
     text-align: center;
-    border-radius: 22% 22% 22% 22% / 40% 40% 40% 40%;
+    border-radius: ${props => props.theme.detailBorderRadius};
     letter-spacing: .03em;
     font-size: 1.1em;
     color: ${props => props.theme.grayAccent};
