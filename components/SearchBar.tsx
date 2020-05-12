@@ -67,7 +67,7 @@ const StyledInput = styled.input`
   max-width: 450px;
   padding: 3.5vh;
   border-radius: 10vh;
-  font-size: 1.4em;
+  font-size: 1.2em;
   letter-spacing: .05em;
   color: ${props => props.theme.darkGrayAccent};
   border: 2px solid transparent;

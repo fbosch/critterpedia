@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { useRef, useCallback, useEffect } from 'react'
-import { device } from '../theme'
+import { ios, standalone } from '../theme'
 import debounce from 'lodash.debounce'
 import lazyLoad from '../utils/lazyLoad'
 
@@ -23,6 +23,12 @@ const StyledContainer = styled.div`
     grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 12));
     grid-template-columns: auto;
     padding: calc(var(--vh, 1vh) * 5) 0 calc(var(--vh, 1vh) * 3.5) calc(6vw + env(safe-area-inset-left));
+    ${ios} {
+      grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 10));
+      ${standalone} {
+        grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 12));
+      }
+    }
   }
 `
 
@@ -54,6 +60,9 @@ function CardGrid(props) {
     const container: HTMLElement = listRef.current
     const handler = debouncedScrollHandler.current
     document.addEventListener('mousewheel', handler, true)
+    if (window.location.hash) {
+      document.getElementById(window.location.hash.replace('#', '')).focus()
+    }
     if (container) {
       const targets = container.querySelectorAll('img[data-src]')
       const imageObservers = Array.from(targets).map(lazyLoad)

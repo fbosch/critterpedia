@@ -2,6 +2,7 @@ import React, { useEffect, useLayoutEffect } from 'react'
 
 import Header from './Header'
 import Footer from './Footer'
+import { ios, standalone } from '../theme'
 import styled from 'styled-components'
 
 const StyledContainer = styled.div`
@@ -14,6 +15,13 @@ const StyledContainer = styled.div`
     "header header header"
 		"content content content"
 		"footer footer footer";
+  ${ios} {
+    min-height: calc(var(--vh, 1vh) * 87);
+    grid-template-rows: auto repeat(1, 1fr) calc(var(--vh, 1vh) * 10);
+    ${standalone} {
+      grid-template-rows: auto repeat(1, 1fr) calc(var(--vh, 1vh) * 10);
+    }
+  }
 `
 
 const StyledMain = styled.main`

@@ -11,7 +11,9 @@ function Card(props) {
   )
 }
 
-const fishCollection = Array.from(Array(100)).map((item, index) => <Card key={index} />)
+const fishCollection = Array.from(Array(100)).map(
+  (item, index) => <Card key={index} />
+)
 
 function FishPage(props) {
 

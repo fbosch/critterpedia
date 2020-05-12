@@ -20,7 +20,7 @@ const size = {
 }
 
 export const device = {
-  mobileS: `(max-width: ${size.mobileS})`,
+  mobileS: `(min-width: ${size.mobileS})`,
   mobileM: `(min-width: ${size.mobileM})`,
   mobileL: `(min-width: ${size.mobileL})`,
   tablet: `(min-width: ${size.tablet})`,
@@ -30,7 +30,10 @@ export const device = {
   desktopL: `(min-width: ${size.desktop})`
 }
 
+export const ios = `@supports (-webkit-touch-callout: none)`
+export const standalone = `@media all and (display-mode: standalone)`
 export const timingFunction = `cubic-bezier(0,.5,.5,1)`
+
 export const getFontFamily = ({ theme: ThemeType }) => theme.fontFamily
 export const getBodyBackground = ({ theme: ThemeType }) => theme.bodyBackground
 

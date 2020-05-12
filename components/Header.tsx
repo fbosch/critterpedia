@@ -1,8 +1,9 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import Link from './ActiveLink'
-import btoa from '../utils/btoa'
 import border from '../public/assets/images/border.png'
+
+const overlap = '-20%'
 
 const StyledHeader = styled.header`
   height: calc(var(--vh, 1vh) * 10);
@@ -116,7 +117,7 @@ const StyledList = styled.ol`
   li {
     position: relative;
     &:not(:first-of-type) {
-      transform: translateX(-15%);
+      transform: translateX(${overlap});
     }
   }
 `
@@ -147,7 +148,7 @@ const StyledBackground = styled.div`
     padding: 5px;
     border-radius: 100%;
     + div {
-      transform: translateX(-15%);
+      transform: translateX(${overlap});
     }
   }
 
