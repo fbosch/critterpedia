@@ -131,19 +131,25 @@ const isSmoothScrollSupported = process.browser && 'scrollBehavior' in document.
 function handleFocus(event) {
   event.preventDefault()
   const target = event.currentTarget
+  const id = target.getAttribute('id')
+  target.removeAttribute('id')
+  window.location.hash = id
   window.requestAnimationFrame(() => {
     target.scrollIntoView({
       behavior: "smooth",
       inline: "center"
     })
-    window.location.hash = target.getAttribute('id')
+    window.requestAnimationFrame(() => {
+      target.setAttribute('id', id)
+      target.focus()
+    })
   })
 }
 
 function CardEntry(props: GridCardProps) {
   return (
     <StyledCard {...props} id={props.id} onFocus={isSmoothScrollSupported ? handleFocus : null} tabIndex={0}>
-      <a href={'#' + props.id} onClick={e => e.preventDefault()}>
+      <a href={'#' + props.id}>
         {props.title && (
           <CardLabel title={props.title}>
             {props.title}
