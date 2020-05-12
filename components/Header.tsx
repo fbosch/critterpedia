@@ -40,26 +40,26 @@ const StyledNavItem = styled.li`
   svg {
     width: 4em;
     color: ${props => props.theme.darkGrayAccent};
-    transform: scale(0.6);
-    transition: color 100ms linear, transform 200ms ease;
+    transform: scale(0.7);
+    transition: color 300ms ${props => props.theme.timingFunction}, transform 300ms ${props => props.theme.timingFunction};
   }
 
   span {
     cursor: pointer;
     background: ${props => props.theme.orangeAccent};
-    padding: .35em .75em;
+    padding: .45em .9em;
     min-width: 3em;
     text-align: center;
     border-radius: ${props => props.theme.detailBorderRadius};
-    letter-spacing: .03em;
+    letter-spacing: .02em;
     font-size: 1.1em;
-    color: ${props => props.theme.grayAccent};
+    color: ${props => props.theme.grayAccent};  
     position: absolute;
     top: 7%;
     left: 50%;
     transform: translate(-50%, -100%) scale(0.5);
     opacity: 0;
-    transition: opacity 100ms linear, transform 100ms linear 30ms;
+    transition: opacity 100ms ${props => props.theme.timingFunction}, transform 100ms ${props => props.theme.timingFunction} 30ms;
   }
 
   a {
@@ -94,7 +94,7 @@ const StyledNavItem = styled.li`
     &.active {
       svg {
         color: ${props => props.theme.orangeAccent};
-        transform: scale(0.75);
+        transform: scale(0.85);
       }
       span {
         z-index: 10;

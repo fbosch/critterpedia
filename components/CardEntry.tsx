@@ -28,27 +28,34 @@ const StyledSpacer = styled.span`
 
 const StyledPrice = styled.span`
   color: ${props => props.theme.darkGrayAccent};
-  font-size: .7em;
+  font-size: 1.1em;
   position: absolute;
   bottom: 10%;
-  left: 10%;
+  width: auto;
   opacity: 0;
-  background-color: ${props => props.theme.lightYellow};
-  padding: .55em .9em;
+  display: flex;
+  background-color: rgba(247, 246, 225, 0.7);
+  padding: .5em .8em;
   border-radius: ${props => props.theme.detailBorderRadius};
   transition: opacity 200ms linear;
-  z-index: 5;
+  text-shadow: 0px 0px 0.3em rgba(247, 246, 225, 1);
+  overflow: hidden;
+  letter-spacing: .06em;
+  z-index: 4;
   &:before {
     content: "";
-    display: block;
-    float: left;
+    display: inline-block;
     width: 1em;
     height: 1em;
-    margin-right: .35em;
+    margin-right: 0.25em;
     opacity: 0.8;
     background-image: url('/assets/images/bells.svg');
     background-size: contain;
     background-repeat: no-repeat;
+  }
+  @media ${device.tablet} {
+    left: 10%;
+    font-size: .8em;
   }
 `
 
@@ -128,7 +135,10 @@ const StyledCard = styled.li`
 
   a:focus {
     img {
-      transform: scale(1.1) translateY(-10%);
+      transform: scale(1.1) translateY(-20%);
+      @media ${device.tablet} {
+        transform: scale(1.1) translateY(-10%);
+      }
       + span {
         opacity: 1;
       }
@@ -145,7 +155,7 @@ const StyledCard = styled.li`
     transform-origin: center;
     user-select: none;
     z-index: 2;
-    width: 5vmax;
+    width: 7vmax;
     max-width: 60%;
     will-change: opacity;
     image-rendering: optimizeQuality;
@@ -194,7 +204,7 @@ function CardEntry(props: GridCardProps) {
   console.log(props)
   return (
     <StyledCard {...rest}>
-      <a href={'#' + id} draggable={false} id={id} tabIndex={0} onClick={e => e.preventDefault()} onFocus={handleFocus}>
+      <a href={`#${id}`} draggable={false} id={id} tabIndex={0} onClick={e => e.preventDefault()} onFocus={handleFocus}>
         <CardLabel title={props.title} />
         {image && <img data-src={image} loading='eager' draggable="false" alt={title} />}
         {price && <StyledPrice>{price}</StyledPrice>}

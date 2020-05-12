@@ -8,6 +8,7 @@ export type ThemeType = {
   borderColor: string;
   fontFamily: string;
   detailBorderRadius: string;
+  timingFunction: string; 
 }
 
 const size = {
@@ -46,7 +47,8 @@ const theme: ThemeType = {
   lightYellow: '#F7F6E1',
   borderColor: '#D9D1A1',
   fontFamily: 'Humming, Calibri, arial',
-  detailBorderRadius: '22% 22% 22% 22% / 40% 40% 40% 40%'
+  detailBorderRadius: '22% 22% 22% 22% / 40% 40% 40% 40%',
+  timingFunction
 }
 
 export default theme

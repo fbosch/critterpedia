@@ -106,13 +106,13 @@ function SearchBar(props) {
   const handleSubmit = useCallback(e => {
     console.log('submit')
     e.preventDefault()
-  }, [searchRef])
+  }, [])
 
   const handleSearchButtonClick = useCallback(e => {
     const searchInput = searchRef.current as HTMLElement
     e.preventDefault()
     if (document.activeElement !== searchInput) {
-      searchInput.focus()
+      window.requestAnimationFrame(() => searchInput.focus())
     }
   }, [])
 
