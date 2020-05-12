@@ -112,7 +112,7 @@ function SearchBar(props) {
     const searchInput = searchRef.current as HTMLElement
     e.preventDefault()
     if (document.activeElement !== searchInput) {
-      window.requestAnimationFrame(() => searchInput.focus())
+      searchInput.focus()
     }
   }, [])
 
@@ -120,8 +120,7 @@ function SearchBar(props) {
     <StyledForm onSubmit={handleSubmit} noValidate>
       <StyledInput type='search' id='search-critterpedia' name='search-critterpedia' ref={searchRef} minLength={1} required autoComplete="off" tabIndex={0} />
       <StyledButton onClick={handleSearchButtonClick} type='submit' onFocus={handleSearchButtonClick}>
-        <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71 71"><path fillRule="evenodd" clipRule="evenodd" d="M30 60c16.569 0 30-13.431 30-30C60 13.431 46.569 0 30 0 13.431 0 0 13.431 0 30c0 16.569 13.431 30 30 30zm0-7c12.703 0 23-10.297 23-23S42.703 7 30 7 7 17.297 7 30s10.297 23 23 23z" fill="currentColor"/><path d="M51 43.5l19.991 16.178L59.678 70.99 43 51.5l8-8zM23 43c-1.757 1.757-3.5 2-6.818.511C14.23 41.56 13.5 39.5 15 37c1.757-1.757 3.5-2 6.646.612C23.6 39.565 25 41 23 43zM20.5 24c0 5 0 8.5-4 10-3.866 0-5-4-4.5-10 0-4.694 7-12 11.5-10.5 6.5 3.5-3 5.806-3 10.5z" fill="currentColor"/></svg>
-      </StyledButton>
+      <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71 71"><path fill-rule="evenodd" clip-rule="evenodd" d="M30 60a30 30 0 100-60 30 30 0 000 60zm0-7a23 23 0 100-46 23 23 0 000 46z" fill="currentColor"/><path d="M51 44l20 16-11 11-17-19 8-8zM23 43c-2 2-3 2-7 1-2-2-2-4-1-7 2-2 4-2 7 1 2 2 3 3 1 5zM21 24c0 5 0 9-4 10-4 0-5-4-5-10 0-5 7-12 12-10 6 3-3 5-3 10z" fill="currentColor"/></svg>      </StyledButton>
     </StyledForm>
   )
 }

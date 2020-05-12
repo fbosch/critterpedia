@@ -10,23 +10,11 @@ import theme from '../theme'
 import GlobalStyle from '../components/GlobalStyle'
 import SiteLayout from '../components/SiteLayout'
 
-function loadBrowserPlugins() {
-  require('vh-check')
-  require('intersection-observer')
+if (process.browser) {
   require('../polyfills')
 }
 
 export default class extends App {
-
-  componentDidMount() {
-    if (process.browser) {
-      if (document.readyState === 'complete') {
-        loadBrowserPlugins()
-      } else {
-        document.addEventListener('DOMContentLoaded', loadBrowserPlugins)
-      }
-    }
-  }
 
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {}

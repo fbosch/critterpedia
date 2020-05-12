@@ -22,7 +22,7 @@ export default createGlobalStyle`
             background: ${props => props.theme.orangeAccent};
             background-image: url('/assets/images/logo.svg');
             background-repeat: no-repeat;
-            background-position: center calc(50% - 2.5vh);
+            background-position: center calc(50% - 2vh);
             background-size: 22%;
             z-index: 99;
             position: fixed;

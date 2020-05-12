@@ -8,10 +8,14 @@ import lazyLoad from '../utils/lazyLoad'
 const StyledContainer = styled.div`
   font-size: 3rem;
   height: auto;
-  top: calc(var(--vh, 1vh) * 3);
+  top: calc(var(--vh, 1vh) * 5);
   overflow-x: scroll;
   overflow-y: hidden;
   position: relative;
+
+  ${standalone} {
+  top: calc(var(--vh, 1vh) * 4);
+  }
 
   ol {
     margin: 0;
@@ -25,7 +29,7 @@ const StyledContainer = styled.div`
     grid-template-columns: auto;
     padding: calc(var(--vh, 1vh) * 5) 0 calc(var(--vh, 1vh) * 3.5) calc(6vw + env(safe-area-inset-left));
     ${ios} {
-      grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 10));
+      grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 11));
       ${standalone} {
         grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 12));
       }

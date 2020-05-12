@@ -69,10 +69,6 @@ const StyledCard = styled.li`
   height: 100%;
   width: calc(var(--vh, 1vh) * 15);
   position: relative;
-  background-image: url("data:image/svg+xml;base64,${getFallback}");
-  background-repeat: no-repeat;
-  background-size: 20%;
-  background-position: center;
   scroll-snap-align: center;
   cursor: pointer;
   position: relative;
@@ -86,6 +82,10 @@ const StyledCard = styled.li`
     height: 100%;
     width: 100%;
     padding: calc(var(--vh, 1vh));
+    background-image: url("data:image/svg+xml;base64,${getFallback}");
+    background-repeat: no-repeat;
+    background-size: 20%;
+    background-position: center;
 
     &:after {
       content: '';
@@ -134,6 +134,7 @@ const StyledCard = styled.li`
   }
 
   a:focus {
+    background-image: none;
     img {
       transform: scale(1.1) translateY(-20%);
       @media ${device.tablet} {
