@@ -64,6 +64,7 @@ function CardGrid(props) {
     const container: HTMLElement = listRef.current
     const target = event.target as HTMLElement
     if (event.deltaX) return
+    console.log(event)
     if (container.contains(target)) {
        window.requestAnimationFrame(() => container.scrollTo({
         top: 0,
