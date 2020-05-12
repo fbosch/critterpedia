@@ -9,42 +9,41 @@ export default createGlobalStyle`
     max-height: 100%;
     background-color: ${getBodyBackground};
     ${standalone} {
-
-    &.js {
-        body {
-          transition: background 500ms linear;
-          background-color: ${props => props.theme.orangeAccent};
-        }
-        &:after {
-          content: '';
-          display: block;
-          height: 100%;
-          width: 100%;
-          background: ${props => props.theme.orangeAccent};
-          background-image: url('/assets/images/logo.svg');
-          background-repeat: no-repeat;
-          background-position: center calc(50% - 2.5vh);
-          background-size: 22%;
-          z-index: 99;
-          position: fixed;
-          top: 0;
-          left: 0;
-          transition: opacity 300ms ease-out 500ms, background-color 500ms linear, background-size 350ms ${props => props.theme.timingFunction}, z-index 0ms linear 500ms;
-        }
-
-        &.loaded {
+      &.js {
           body {
-            background-color: ${getBodyBackground};
+            transition: background 500ms linear;
+            background-color: ${props => props.theme.orangeAccent};
           }
           &:after {
-            background-color: ${getBodyBackground};
-            background-size: 25%;
-            opacity: 0;
-            z-index: -1;
+            content: '';
+            display: block;
+            height: 100%;
+            width: 100%;
+            background: ${props => props.theme.orangeAccent};
+            background-image: url('/assets/images/logo.svg');
+            background-repeat: no-repeat;
+            background-position: center calc(50% - 2.5vh);
+            background-size: 22%;
+            z-index: 99;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transition: opacity 300ms ease-out 300ms, background-color 500ms linear, background-size 500ms linear 150ms, z-index 0ms linear 500ms;
+          }
+
+          &.loaded {
+            body {
+              background-color: ${getBodyBackground};
+            }
+            &:after {
+              background-color: ${getBodyBackground};
+              background-size: 30%;
+              opacity: 0;
+              z-index: -1;
+            }
           }
         }
       }
-    }
   }
   body {
     min-width: 100vw;
