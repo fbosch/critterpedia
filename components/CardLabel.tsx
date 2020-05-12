@@ -21,7 +21,6 @@ const StyledShadow = styled.span`
 `
 
 const StyledCardLabel = styled.label`
-    visibility: hidden;
     position: absolute;
     transition: opacity 200ms linear, transform 300ms linear 30ms;
     transform: rotate(1deg) translateY(-10%);

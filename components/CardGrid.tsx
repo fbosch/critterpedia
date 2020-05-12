@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { useRef, useCallback, useEffect } from 'react'
 import { ios, standalone } from '../theme'
 import debounce from 'lodash.debounce'
+import throttle from 'lodash.throttle'
 import lazyLoad from '../utils/lazyLoad'
 
 const StyledContainer = styled.div`
@@ -33,57 +34,50 @@ const StyledContainer = styled.div`
 `
 const isSmoothScrollSupported = process.browser && 'scrollBehavior' in document.documentElement.style;
 
-function focusCard(event) {
-  const target: HTMLElement = event.target as HTMLElement
-  if (!target) return
-  const node = target.tagName === 'A' ? target.parentElement : target
-  const id = node.getAttribute('id')
-  if (node) {
-    node.removeAttribute('id')
-    node.focus()
-    node.scrollIntoView({
-      behavior: "smooth",
-      inline: "center"
-    })
-    node.setAttribute('id', id)
-  }
-}
-
-const debouncedCardFocus = debounce(focusCard, 50)
-
 function CardGrid(props) {
-  const listRef = useRef()
+  const listRef = useRef<HTMLElement>()
 
-  const handleCardFocus = useCallback(event => {
-    event.persist()
-    debouncedCardFocus(event)
+  const focusCard = useCallback(event => {
+    const target: HTMLElement = event.target as HTMLElement
+    if (target) {
+      event.preventDefault()
+      const id = target.getAttribute('id')
+      target.removeAttribute('id')
+      window.requestAnimationFrame(() => {
+        target.scrollIntoView({
+          behavior: "smooth",
+          inline: "center"
+        })
+        target.focus()
+        target.setAttribute('id', id)
+      })
+    }
   }, [])
 
+  const debouncedCardFocus = useRef(debounce(focusCard, 250, { leading: true, maxWait: 500 }))
+  const handleCardFocus = useCallback(event => {
+    event.persist()
+    debouncedCardFocus.current(event)
+  }, [])
 
-  const handleHorizontalScroll = useCallback(e => {
+  const handleHorizontalScroll = useCallback(event => {
     const container: HTMLElement = listRef.current
-    if (container) {
-      document.body.addEventListener('wheel', e => {
-        const target = e.target as HTMLElement
-        if (e.deltaX) return
-        if (container.contains(target)) {
-           window.requestAnimationFrame(() => container.scrollTo({
-            top: 0,
-            left: container.scrollLeft + (e.deltaY * 4),
-            behavior: 'smooth'
-          }))
-        } else {
-          return
-        }
-      })
+    const target = event.target as HTMLElement
+    if (event.deltaX) return
+    if (container.contains(target)) {
+       window.requestAnimationFrame(() => container.scrollTo({
+        top: 0,
+        left: container.scrollLeft + (event.deltaY * 4),
+        behavior: 'smooth'
+      }))
     }
   }, [listRef])
 
-  const debouncedScrollHandler = useRef(debounce(handleHorizontalScroll, 50, { leading: true  }))
+  const throttleScrollHandler = useRef(throttle(handleHorizontalScroll, 100, { leading: true }))
 
   useEffect(() => {
     const container: HTMLElement = listRef.current
-    const handler = debouncedScrollHandler.current
+    const handler = throttleScrollHandler.current
     document.addEventListener('mousewheel', handler, true)
     if (window.location.hash) {
       const focusTarget = document.getElementById(window.location.hash.replace('#', ''))
@@ -100,10 +94,10 @@ function CardGrid(props) {
     return () => {
       document.removeEventListener('mousewheel', handler, true)
     }
-  }, [listRef])
+  }, [listRef, handleHorizontalScroll])
 
   return (
-    <StyledContainer onFocus={handleCardFocus}>
+    <StyledContainer onFocus={isSmoothScrollSupported ? handleCardFocus : null}>
       <ol {...props} ref={listRef} />
     </StyledContainer>
   )

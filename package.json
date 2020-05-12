@@ -17,6 +17,7 @@
     "intersection-observer": "^0.10.0",
     "lodash": "^4.17.15",
     "lodash.debounce": "^4.0.8",
+    "lodash.throttle": "^4.1.1",
     "modern-normalize": "^0.6.0",
     "next-page-transitions": "^1.0.0-beta.2",
     "react": "^16.13.1",

@@ -35,7 +35,6 @@ const StyledCard = styled.li`
   align-items: center;
   height: 100%;
   width: calc(var(--vh, 1vh) * 15);
-  padding: calc(var(--vh, 1vh));
   position: relative;
   background-image: url("data:image/svg+xml;base64,${getFallback}");
   background-repeat: no-repeat;
@@ -46,26 +45,57 @@ const StyledCard = styled.li`
   position: relative;
   -webkit-tap-highlight-color: transparent;
 
+  label {
+    opacity: 0;
+    z-index: -1;
+  }
+
   a {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     width: 100%;
-    padding: 0;
+    padding: calc(var(--vh, 1vh));
+
+    &:after {
+      content: '';
+      position: absolute;
+      height: 92%;
+      width: 92%;
+      border: 2px solid ${props => props.theme.darkGrayAccent};
+      display: block;
+      top: 50%;
+      left: 50%;
+      opacity: 0;
+      transition: opacity 200ms linear;
+      transform: translate(-50%, -50%);
+    }
+
+    &:before {
+      content: '';
+      width: calc(100% + 2px);
+      height: calc(100% + 2px);
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      border: 2px solid ${props => props.theme.borderColor};
+      position: absolute;
+    }
+
   }
 
   &:last-of-type img+span {
     display: block;
   }
 
-  :focus {
+  a:focus {
     img {
       transform: scale(1.1);
     }
     label {
-      visibility: visible;
       opacity: 1;
+      z-index: 3;
       transform: rotate(-2deg) translateY(0%);
     }
   }
@@ -91,7 +121,7 @@ const StyledCard = styled.li`
     }
   }
 
-  &:focus {
+  a:focus {
     outline: none;
     &:hover:after {
       opacity: 0.6;
@@ -100,37 +130,26 @@ const StyledCard = styled.li`
       opacity: 0.4;
     }
   }
-
-  &:after {
-    content: '';
-    position: absolute;
-    height: 92%;
-    width: 92%;
-    border: 2px solid ${props => props.theme.darkGrayAccent};
-    display: block;
-    top: 50%;
-    left: 50%;
-    opacity: 0;
-    transition: opacity 200ms linear;
-    transform: translate(-50%, -50%);
-  }
-
-  &:before {
-    content: '';
-    width: calc(100% + 2px);
-    height: calc(100% + 2px);
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    border: 2px solid ${props => props.theme.borderColor};
-    position: absolute;
-  }
 `
+
+function handleFocus(event) {
+  const target: HTMLElement = event.currentTarget as HTMLElement
+  if (target) {
+    window.requestAnimationFrame(() => {
+      const id = target.getAttribute('href')
+      console.log(target)
+      console.log(id)
+      if (window.location.hash !== id) {
+        window.location.hash = id
+      }
+    })
+  }
+}
 
 function CardEntry(props: GridCardProps) {
   return (
-    <StyledCard {...props} id={props.id} tabIndex={0}>
-      <a href={'#' + props.id} draggable={false}>
+    <StyledCard {...props}>
+      <a href={'#' + props.id} draggable={false} id={props.id} tabIndex={0} onClick={e => e.preventDefault()} onFocus={handleFocus}>
         {props.title && (
           <CardLabel title={props.title}>
             {props.title}
