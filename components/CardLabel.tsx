@@ -75,10 +75,10 @@ const StyledCardLabel = styled.label`
 `
 
 function CardLabel(props) {
-
+  if (!props.title) return null
   return (
     <StyledCardLabel data-name={props.title}>
-      {props.children}
+      {props.title}
       <StyledShadow />
     </StyledCardLabel>
   )

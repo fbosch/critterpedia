@@ -143,16 +143,13 @@ function handleFocus(event) {
 }
 
 function CardEntry(props: GridCardProps) {
+  const { id, title, image, showSpacer } = props
   return (
     <StyledCard {...props}>
-      <a href={'#' + props.id} draggable={false} id={props.id} tabIndex={0} onClick={e => e.preventDefault()} onFocus={handleFocus}>
-        {props.title && (
-          <CardLabel title={props.title}>
-            {props.title}
-          </CardLabel>
-        )}
-        {props.image && <img data-src={props.image} loading='lazy' draggable="false" alt={props.title} />}
-        {props.showSpacer && <StyledSpacer />}
+      <a href={'#' + id} draggable={false} id={id} tabIndex={0} onClick={e => e.preventDefault()} onFocus={handleFocus}>
+        <CardLabel title={props.title} />
+        {image && <img data-src={image} loading='lazy' draggable="false" alt={title} />}
+        {showSpacer && <StyledSpacer />}
       </a>
     </StyledCard>
   )
