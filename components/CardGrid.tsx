@@ -7,7 +7,7 @@ import lazyLoad from '../utils/lazyLoad'
 
 const StyledContainer = styled.div`
   font-size: 3rem;
-  height: 100%;
+  height: auto;
   top: calc(var(--vh, 1vh) * 5);
   overflow-x: scroll;
   overflow-y: hidden;
@@ -33,6 +33,8 @@ const StyledContainer = styled.div`
   }
 `
 const isSmoothScrollSupported = process.browser && 'scrollBehavior' in document.documentElement.style;
+const isFirefox = process.browser && /^((?!chrome|android).)*firefox/i.test(navigator.userAgent)
+const isSafari = process.browser && /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
 
 function CardGrid(props) {
   const listRef = useRef<HTMLElement>()
@@ -54,7 +56,7 @@ function CardGrid(props) {
     }
   }, [])
 
-  const debouncedCardFocus = useRef(debounce(focusCard, 250, { leading: true }))
+  const debouncedCardFocus = useRef(debounce(focusCard, 100, { leading: true }))
   const handleCardFocus = useCallback(event => {
     event.persist()
     debouncedCardFocus.current(event)
@@ -64,17 +66,18 @@ function CardGrid(props) {
     const container: HTMLElement = listRef.current
     const target = event.target as HTMLElement
     if (event.deltaX) return
-    console.log(event)
-    if (container.contains(target)) {
-       window.requestAnimationFrame(() => container.scrollTo({
-        top: 0,
-        left: container.scrollLeft + (event.deltaY * 4),
-        behavior: 'smooth'
-      }))
+    const modifier = isFirefox ? 60 : isSafari ? 0.8 : 5
+    event.preventDefault()
+    if (container && container.contains(target)) {
+        window.requestAnimationFrame(() => container.scrollTo({
+          top: 0,
+          left: container.scrollLeft + (event.deltaY * modifier),
+          behavior: 'smooth'
+        }))
     }
-  }, [listRef])
+  }, [])
 
-  const throttleScrollHandler = useRef(throttle(handleHorizontalScroll, 100, { leading: true }))
+  const throttleScrollHandler = useRef(throttle(handleHorizontalScroll, 33, { leading: true, maxWait: 100 }))
 
   useLayoutEffect(() => {
     if (window.location.hash) {
@@ -89,19 +92,19 @@ function CardGrid(props) {
   useEffect(() => {
     const container: HTMLElement = listRef.current
     const handler = throttleScrollHandler.current
-    document.addEventListener('mousewheel', handler, true)
+    document.body.addEventListener('wheel', handler, true)
     if (container) {
       const targets = container.querySelectorAll('img[data-src]')
       const imageObservers = Array.from(targets).map(lazyLoad)
       return () => {
         imageObservers.forEach(io => io.disconnect())
-        document.removeEventListener('mousewheel', handler, true)
+        document.body.removeEventListener('wheel', handler)
       }
     }
     return () => {
-      document.removeEventListener('mousewheel', handler, true)
+      document.body.removeEventListener('wheel', handler)
     }
-  }, [listRef, handleHorizontalScroll])
+  }, [handleHorizontalScroll])
 
   return (
     <StyledContainer onFocus={isSmoothScrollSupported ? handleCardFocus : null}>

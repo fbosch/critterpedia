@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { device } from '../theme'
 
 const StyledShadow = styled.span`
   &:before, &:after {
@@ -22,14 +21,10 @@ const StyledShadow = styled.span`
 
 const StyledCardLabel = styled.label`
     position: absolute;
-    transition: opacity 200ms linear, transform 300ms linear 30ms;
-    transform: rotate(1deg) translateY(-10%);
     min-height: 0.7em;
     min-width: 2.5em;
-    top: -37%;
     color: #3D392D;
     font-style: italic;
-    font-size: 1.5em;
     z-index: 10;
     white-space: nowrap;
     display: block;
@@ -38,9 +33,6 @@ const StyledCardLabel = styled.label`
     z-index: 5;
     opacity: 1;
 
-    @media ${device.tablet} {
-      font-size: 1.2em;
-    }
 
     &:before {
       content: '';

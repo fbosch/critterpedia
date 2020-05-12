@@ -84,15 +84,23 @@ const StyledCard = styled.li`
   }
 
   label {
+    top: -42%;
     opacity: 0;
     z-index: -1;
     transform: rotate(1deg) translateY(-5%);
     transition: opacity 150ms linear, transform 200ms linear 30ms, z-index 0ms linear 400ms;
+    font-size: 1.3em;
+    @media ${device.tablet} {
+      font-size: 1.1em;
+    }
+    @media ${device.tablet} {
+      top: -30%;
+    }
   }
 
   a:focus {
     img {
-      transform: scale(1.1);
+      transform: scale(1.15);
     }
     label {
       opacity: 1;
@@ -106,7 +114,7 @@ const StyledCard = styled.li`
     user-select: none;
     z-index: 2;
     width: 5vmax;
-    max-width: 50%;
+    max-width: 55%;
     will-change: opacity;
     image-rendering: optimizeQuality;
     image-rendering: smooth;
@@ -115,7 +123,7 @@ const StyledCard = styled.li`
     background: radial-gradient(rgba(233, 227, 169, 1) 30%,rgba(233, 227, 169, 0) 70%);
 
     @media ${device.tablet} {
-      font-size: 1.2em;
+      width: 6vmax;
     }
 
     &[src]:not([data-src]) {
