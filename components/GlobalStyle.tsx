@@ -29,7 +29,7 @@ export default createGlobalStyle`
           position: fixed;
           top: 0;
           left: 0;
-          transition: opacity 300ms ease-out 500ms, background-color 500ms linear, background-size 350ms ${props => props.theme.timingFunction};
+          transition: opacity 300ms ease-out 500ms, background-color 500ms linear, background-size 350ms ${props => props.theme.timingFunction}, z-index 0ms linear 500ms;
         }
 
         &.loaded {
@@ -40,6 +40,7 @@ export default createGlobalStyle`
             background-color: ${getBodyBackground};
             background-size: 25%;
             opacity: 0;
+            z-index: -1;
           }
         }
       }
