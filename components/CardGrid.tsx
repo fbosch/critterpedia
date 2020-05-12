@@ -36,22 +36,20 @@ const isSmoothScrollSupported = process.browser && 'scrollBehavior' in document.
 function focusCard(event) {
   const target: HTMLElement = event.target as HTMLElement
   if (!target) return
-  const node = target.closest('li')
+  const node = target.tagName === 'A' ? target.parentElement : target
   const id = node.getAttribute('id')
-  if (node && window.location.hash !== id) {
+  if (node) {
     node.removeAttribute('id')
-    window.requestAnimationFrame(() => {
-      node.scrollIntoView({
-        behavior: "smooth",
-        inline: "center"
-      })
-      node.focus()
-      node.setAttribute('id', id)
+    node.focus()
+    node.scrollIntoView({
+      behavior: "smooth",
+      inline: "center"
     })
+    node.setAttribute('id', id)
   }
 }
 
-const debouncedCardFocus = debounce(focusCard, 50, { leading: true, trailing: false })
+const debouncedCardFocus = debounce(focusCard, 50)
 
 function CardGrid(props) {
   const listRef = useRef()
@@ -81,7 +79,7 @@ function CardGrid(props) {
     }
   }, [listRef])
 
-  const debouncedScrollHandler = useRef(debounce(handleHorizontalScroll, 500, { leading: true,  }))
+  const debouncedScrollHandler = useRef(debounce(handleHorizontalScroll, 50, { leading: true  }))
 
   useEffect(() => {
     const container: HTMLElement = listRef.current
