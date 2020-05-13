@@ -160,6 +160,7 @@ const StyledCard = styled.li`
     will-change: opacity;
     image-rendering: optimizeQuality;
     image-rendering: smooth;
+    image-rendering: -webkit-optimize-contrast;
     opacity: 0;
     transition: transform 250ms cubic-bezier(0,.5,.5,1), background 300ms linear;
     background: radial-gradient(rgba(233, 227, 169, 1) 30%,rgba(233, 227, 169, 0) 70%);
