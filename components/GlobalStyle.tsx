@@ -5,6 +5,8 @@ export default createGlobalStyle`
   html {
     position: static;
     overflow-y: hidden;
+    margin: 0;
+    padding: 0;
     height: 100%;
     max-height: 100%;
     background-color: ${getBodyBackground};
@@ -17,12 +19,12 @@ export default createGlobalStyle`
           &:after {
             content: '';
             display: block;
-            height: 100%;
+            height: 100vh;
             width: 100%;
             background: ${props => props.theme.orangeAccent};
             background-image: url('/assets/images/logo.svg');
             background-repeat: no-repeat;
-            background-position: center calc(50% - 2.2vh);
+            background-position: center calc(50% - 2.4vh);
             background-size: 22%;
             z-index: 99;
             position: fixed;

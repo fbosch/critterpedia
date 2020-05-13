@@ -33,9 +33,9 @@ const StyledContainer = styled.div`
     grid-template-columns: auto;
     padding: calc(var(--vh, 1vh) * 5) 0 calc(var(--vh, 1vh) * 3.5) calc(6vw + env(safe-area-inset-left));
     ${ios} {
-      grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 11));
+      grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 10.5));
       ${standalone} {
-        grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 12.5));
+        grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 12));
       }
     }
   }

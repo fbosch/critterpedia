@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const StyledForm = styled.form`
   width: auto;
   height: auto;
-  position: relative;
+  position: absolute;
 `
 
 const StyledButton = styled.button`
@@ -28,6 +28,7 @@ const StyledButton = styled.button`
   border-radius: 100%;
   background-color: transparent;
   -webkit-tap-highlight-color: transparent;
+  will-change: transform, background-color, color, right;
   transition: transform 250ms ${timingFunction} 50ms, background-color 150ms ${timingFunction} 30ms, color 250ms ${timingFunction}, right 200ms ${timingFunction};
   &:focus {
     outline: none;

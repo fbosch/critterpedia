@@ -1,7 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import Link from './ActiveLink'
-import border from '../public/assets/images/border.png'
 
 const overlap = '-20%'
 
@@ -10,16 +9,7 @@ const StyledHeader = styled.header`
   width: 100%;
   position: relative;
   grid-area: header;
-  &:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 8px;
-    background-repeat: repeat-x;
-    background-image: url(${border});
-    background-size: 100% 7px;
-    opacity: 0.8;
-  }
+  border-bottom: 2px solid ${props => props.theme.borderColor};
 `
 
 const StyledNavItem = styled.li`
@@ -53,7 +43,7 @@ const StyledNavItem = styled.li`
     border-radius: ${props => props.theme.detailBorderRadius};
     letter-spacing: .02em;
     font-size: 1.1em;
-    color: ${props => props.theme.grayAccent};  
+    color: ${props => props.theme.grayAccent};
     position: absolute;
     top: 7%;
     left: 50%;

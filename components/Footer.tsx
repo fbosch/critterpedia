@@ -8,20 +8,12 @@ const StyledContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 `
 
 const StyledFooter = styled.footer`
   grid-area: footer;
-  &:before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 8px;
-    background-repeat: repeat-x;
-    background-image: url(${border});
-    background-size: 100% 7px;
-    opacity: 0.8;
-  }
+  border-top: 2px solid ${props => props.theme.borderColor};
 `
 
 function Footer(props) {

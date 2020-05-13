@@ -8,7 +8,7 @@ export type ThemeType = {
   borderColor: string;
   fontFamily: string;
   detailBorderRadius: string;
-  timingFunction: string; 
+  timingFunction: string;
 }
 
 const size = {

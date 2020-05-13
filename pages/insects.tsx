@@ -11,8 +11,6 @@ function Card(props) {
   )
 }
 
-console.log(bugs)
-
 const insectCollection = bugs.map((creature, index) =>
   <Card
     key={creature.id}

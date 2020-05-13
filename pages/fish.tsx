@@ -11,8 +11,6 @@ function Card(props) {
   )
 }
 
-console.log(fish)
-
 const fishCollection = fish.map((creature, index) =>
   <Card
     key={creature.id}
