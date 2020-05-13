@@ -33,6 +33,7 @@ export const device = {
 }
 
 export const ios = `@supports (-webkit-touch-callout: none)`
+export const isChrome = `@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm)`
 export const standalone = `@media all and (display-mode: standalone)`
 export const timingFunction = `cubic-bezier(0,.5,.5,1)`
 

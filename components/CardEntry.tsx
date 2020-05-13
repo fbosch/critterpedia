@@ -1,6 +1,6 @@
 import React, { useRef, useCallback } from 'react'
 import styled from 'styled-components'
-import { ThemeType, device, standalone } from '../theme'
+import { ThemeType, device, standalone, isChrome } from '../theme'
 import CardLabel from './CardLabel'
 
 type GridCardProps = {
@@ -155,15 +155,18 @@ const StyledCard = styled.li`
     transform-origin: center;
     user-select: none;
     z-index: 2;
-    width: 5vmax;
-    max-width: 60%;
+    width: 6vmax;
+    max-width: 65%;
     will-change: opacity;
-    image-rendering: optimizeQuality;
-    image-rendering: smooth;
-    image-rendering: -webkit-optimize-contrast;
     opacity: 0;
     transition: transform 250ms cubic-bezier(0,.5,.5,1), background 300ms linear;
     background: radial-gradient(rgba(233, 227, 169, 1) 30%,rgba(233, 227, 169, 0) 70%);
+    image-rendering: optimizeQuality;
+    image-rendering: smooth;
+
+    ${isChrome} {
+      image-rendering: -webkit-optimize-contrast;
+    }
 
     ${standalone} {
       width: 7vmax;
