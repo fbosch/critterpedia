@@ -16,10 +16,9 @@ type GridCardProps = {
 const getFallback = (props: GridCardProps) => props.fallback(props.theme.borderColor)
 
 const StyledSpacer = styled.span`
-  display: none;
   height: 100%;
   left: 100%;
-  width: calc(70% + env(safe-area-inset-left));
+  width: calc(50% + env(safe-area-inset-left));
   position: absolute;
   scroll-snap-align: start;
   z-index: -1;
@@ -206,7 +205,6 @@ function handleFocus(event) {
 
 function CardEntry(props: GridCardProps) {
   const { id, title, image, showSpacer, price, ...rest } = props
-  console.log(props)
   return (
     <StyledCard {...rest}>
       <a href={`#${id}`} draggable={false} id={id} tabIndex={0} onClick={e => e.preventDefault()} onFocus={handleFocus}>

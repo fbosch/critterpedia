@@ -11,12 +11,15 @@ function Card(props) {
   )
 }
 
-const insectCollection = bugs.map((insect, index) =>
+console.log(bugs)
+
+const insectCollection = bugs.map((creature, index) =>
   <Card
-    key={insect.id}
-    id={insect.id}
-    {...insect}
-    title={insect.name} image={`./assets/images/bugs/icons/${insect.id}.png`}
+    key={creature.id}
+    id={creature.id}
+    {...creature}
+    title={creature.name}
+    image={`./assets/images/bugs/icons/${creature.id}.png`}
     showSpacer={index === bugs.length - 1} />
 )
 
