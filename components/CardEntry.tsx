@@ -73,6 +73,14 @@ const StyledCard = styled.li`
   position: relative;
   -webkit-tap-highlight-color: transparent;
 
+  noscript {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   a {
     cursor: pointer;
     display: flex;
@@ -139,7 +147,7 @@ const StyledCard = styled.li`
       @media ${device.tablet} {
         transform: scale(1.1) translateY(-10%);
       }
-      + span {
+      + span, noscript + span {
         opacity: 1;
       }
     }
