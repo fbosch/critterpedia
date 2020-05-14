@@ -49,7 +49,7 @@ export default class extends Document {
           <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
           <meta name="msapplication-TileColor" content="#F8CC63" />
           <meta name="theme-color" content="#F8CC63" />
-          <meta name="viewport" content="intial-scale=1,viewport-fit=cover,width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+          <meta name="viewport" content="initial-scale=1,viewport-fit=cover,width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <link rel="apple-touch-startup-image" href="/launch.png" />

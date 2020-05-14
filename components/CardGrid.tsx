@@ -13,10 +13,6 @@ const StyledContainer = styled.div`
   overflow-y: hidden;
   position: relative;
 
-  ${ios} {
-
-  }
-
   ${standalone} {
   top: calc(var(--vh, 1vh) * 4);
   }
