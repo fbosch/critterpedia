@@ -41,6 +41,11 @@ const StyledPrice = styled.span`
   overflow: hidden;
   letter-spacing: .06em;
   z-index: 4;
+
+  a:focus & {
+    opacity: 1;
+  }
+
   &:before {
     content: "";
     display: inline-block;
@@ -146,9 +151,6 @@ const StyledCard = styled.li`
       transform: scale(1.1) translateY(-20%);
       @media ${device.tablet} {
         transform: scale(1.1) translateY(-10%);
-      }
-      + span, noscript + span {
-        opacity: 1;
       }
     }
     label {
