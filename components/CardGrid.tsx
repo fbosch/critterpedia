@@ -45,12 +45,13 @@ function CardGrid(props) {
       event.preventDefault()
       const id = target.getAttribute('id')
       target.removeAttribute('id')
-      target.scrollIntoView({
-        behavior: 'smooth',
-        inline: 'center',
+      window.requestAnimationFrame(() => {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          inline: 'center',
+        })
+        window.requestAnimationFrame(() => target.setAttribute('id', id))
       })
-      target.focus()
-      target.setAttribute('id', id)
     }
   }, [])
 

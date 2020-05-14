@@ -1,71 +1,9 @@
-import React, { useCallback } from 'react'
-import Link from 'next/link'
 import styled from 'styled-components'
-import { ThemeType, device, standalone, isChrome } from '../theme'
-import CardLabel from './CardLabel'
+import { device, isChrome, standalone } from '../../theme'
 
-export type CardEntryProps = {
-  fallback?: Function
-  theme?: ThemeType
-  image?: string
-  title?: string
-  id?: string
-  price?: number
-  showSpacer?: boolean
-  group?: 'insects' | 'fish'
-}
+const getFallback = (props) => props.fallback(props.theme.borderColor)
 
-const getFallback = (props: CardEntryProps) => props.fallback(props.theme.borderColor)
-
-const StyledSpacer = styled.span`
-  height: 100%;
-  left: 100%;
-  width: calc(50% + env(safe-area-inset-left));
-  position: absolute;
-  scroll-snap-align: start;
-  z-index: -1;
-  pointer-events: none;
-`
-
-const StyledPrice = styled.span`
-  color: ${(props) => props.theme.darkGrayAccent};
-  font-size: 1.1em;
-  position: absolute;
-  bottom: 10%;
-  width: auto;
-  opacity: 0;
-  display: flex;
-  background-color: rgba(247, 246, 225, 0.7);
-  padding: 0.5em 0.8em;
-  border-radius: ${(props) => props.theme.detailBorderRadius};
-  transition: opacity 200ms linear;
-  text-shadow: 0px 0px 0.3em rgba(247, 246, 225, 1);
-  overflow: hidden;
-  letter-spacing: 0.06em;
-  z-index: 4;
-
-  a:focus & {
-    opacity: 1;
-  }
-
-  &:before {
-    content: '';
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    margin-right: 0.25em;
-    opacity: 0.8;
-    background-image: url('/assets/images/bells.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  @media ${device.tablet} {
-    left: 10%;
-    font-size: 0.8em;
-  }
-`
-
-const StyledCard = styled.li`
+export default styled.li`
   touch-action: manipulation;
   font-size: 1.2vh;
   user-select: none;
@@ -209,47 +147,3 @@ const StyledCard = styled.li`
     }
   }
 `
-
-function CardEntry(props: CardEntryProps) {
-  const { id, title, image, showSpacer, price, group, ...rest } = props
-
-  const handleFocus = useCallback(
-    (event: React.FocusEvent) => {
-      if (window.location.hash !== id)
-        window.requestAnimationFrame(() => {
-          window.location.hash = id
-        })
-    },
-    [id]
-  )
-
-  const handleClick = useCallback(
-    (event: React.MouseEvent) => {
-      if (window.location.hash?.replace('#', '') === id) return
-      event.preventDefault()
-    },
-    [id]
-  )
-
-  return (
-    <StyledCard {...rest}>
-      <Link href={`/${group}/[id]`} as={`/${group}/${id}`}>
-        <a draggable={false} id={id} tabIndex={0} onClick={handleClick} onFocus={handleFocus}>
-          <CardLabel title={props.title} />
-          {image && (
-            <>
-              <noscript>
-                <img src={image} loading='lazy' draggable='false' alt={title} />
-              </noscript>
-              <img data-src={image} loading='eager' draggable='false' alt={title} />
-            </>
-          )}
-          {price && <StyledPrice>{price}</StyledPrice>}
-          {showSpacer && <StyledSpacer />}
-        </a>
-      </Link>
-    </StyledCard>
-  )
-}
-
-export default CardEntry

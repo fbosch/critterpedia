@@ -1,6 +1,6 @@
 import CardEntry from '../../components/CardEntry'
 import CardGrid from '../../components/CardGrid'
-import fish from '../../data/fish.json'
+import fishes from '../../public/data/fishes.json'
 import btoa from '../../utils/btoa'
 
 const fishSVG = (color: string) =>
@@ -12,7 +12,7 @@ const fishSVG = (color: string) =>
       '"/></svg>'
   )
 
-const fishCollection = fish.map((creature, index) => (
+const fishCollection = fishes.map((creature, index) => (
   <CardEntry
     group='fish'
     fallback={fishSVG}
@@ -21,12 +21,12 @@ const fishCollection = fish.map((creature, index) => (
     {...creature}
     title={creature.name}
     image={`./assets/images/fish/icons/${creature.id}.png`}
-    showSpacer={index === fish.length - 1}
+    showSpacer={index === fishes.length - 1}
   />
 ))
 
-function FishPage(props) {
+function FishesPage(props) {
   return <CardGrid>{fishCollection}</CardGrid>
 }
 
-export default FishPage
+export default FishesPage

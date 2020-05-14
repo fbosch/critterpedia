@@ -17,6 +17,7 @@
     "fastclick": "^1.0.6",
     "intersection-observer": "^0.10.0",
     "is-in-view": "^1.0.1",
+    "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.15",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",

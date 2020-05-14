@@ -1,6 +1,6 @@
 import CardEntry from '../../components/CardEntry'
 import btoa from '../../utils/btoa'
-import bugs from '../../data/bugs.json'
+import bugs from '../../public/data/bugs.json'
 import CardGrid from '../../components/CardGrid'
 
 const insectSVG = (color) =>
