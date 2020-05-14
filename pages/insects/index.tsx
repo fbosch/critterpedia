@@ -1,7 +1,7 @@
-import CardEntry from '../components/CardEntry'
-import btoa from '../utils/btoa'
-import bugs from '../data/bugs.json'
-import CardGrid from '../components/CardGrid'
+import CardEntry from '../../components/CardEntry'
+import btoa from '../../utils/btoa'
+import bugs from '../../data/bugs.json'
+import CardGrid from '../../components/CardGrid'
 
 const insectSVG = (color) =>
   btoa(
@@ -21,7 +21,7 @@ const insectSVG = (color) =>
 const insectCollection = bugs.map((creature, index) => (
   <CardEntry
     fallback={insectSVG}
-    type='insect'
+    group='insects'
     key={creature.id}
     id={creature.id}
     {...creature}

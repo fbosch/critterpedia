@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from 'react'
+import React, { useCallback } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import { ThemeType, device, standalone, isChrome } from '../theme'
@@ -12,11 +12,10 @@ export type CardEntryProps = {
   id?: string
   price?: number
   showSpacer?: boolean
-  type?: 'insect' | 'fish'
+  group?: 'insects' | 'fish'
 }
 
-const getFallback = (props: CardEntryProps) =>
-  props.fallback(props.theme.borderColor)
+const getFallback = (props: CardEntryProps) => props.fallback(props.theme.borderColor)
 
 const StyledSpacer = styled.span`
   height: 100%;
@@ -211,36 +210,38 @@ const StyledCard = styled.li`
   }
 `
 
-function handleFocus(event) {
-  const target: HTMLElement = event.currentTarget as HTMLElement
-  if (target) {
-    window.requestAnimationFrame(() => {
-      const id = target.getAttribute('href')
-      if (window.location.hash !== id) window.location.hash = id
-    })
-  }
-}
-
 function CardEntry(props: CardEntryProps) {
-  const { id, title, image, showSpacer, price, type, ...rest } = props
+  const { id, title, image, showSpacer, price, group, ...rest } = props
+
+  const handleFocus = useCallback(
+    (event: React.FocusEvent) => {
+      if (window.location.hash !== id)
+        window.requestAnimationFrame(() => {
+          window.location.hash = id
+        })
+    },
+    [id]
+  )
+
+  const handleClick = useCallback(
+    (event: React.MouseEvent) => {
+      if (window.location.hash?.replace('#', '') === id) return
+      event.preventDefault()
+    },
+    [id]
+  )
+
   return (
     <StyledCard {...rest}>
-      <Link href={`${type}/[type]`} as={`${type}/${id}`}>
-        <a draggable={false} id={id} tabIndex={0} onFocus={handleFocus}>
+      <Link href={`/${group}/[id]`} as={`/${group}/${id}`}>
+        <a draggable={false} id={id} tabIndex={0} onClick={handleClick} onFocus={handleFocus}>
           <CardLabel title={props.title} />
           {image && (
             <>
               <noscript>
                 <img src={image} loading='lazy' draggable='false' alt={title} />
               </noscript>
-              {process.browser && (
-                <img
-                  data-src={image}
-                  loading='eager'
-                  draggable='false'
-                  alt={title}
-                />
-              )}
+              <img data-src={image} loading='eager' draggable='false' alt={title} />
             </>
           )}
           {price && <StyledPrice>{price}</StyledPrice>}

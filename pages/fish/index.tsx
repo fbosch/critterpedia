@@ -1,7 +1,7 @@
-import CardEntry from '../components/CardEntry'
-import CardGrid from '../components/CardGrid'
-import fish from '../data/fish.json'
-import btoa from '../utils/btoa'
+import CardEntry from '../../components/CardEntry'
+import CardGrid from '../../components/CardGrid'
+import fish from '../../data/fish.json'
+import btoa from '../../utils/btoa'
 
 const fishSVG = (color: string) =>
   btoa(
@@ -14,7 +14,7 @@ const fishSVG = (color: string) =>
 
 const fishCollection = fish.map((creature, index) => (
   <CardEntry
-    type='fish'
+    group='fish'
     fallback={fishSVG}
     key={creature.id}
     id={creature.id}

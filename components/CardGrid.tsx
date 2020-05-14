@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { useRef, useCallback, useEffect, useLayoutEffect } from 'react'
+import { useRef, useCallback, useEffect } from 'react'
 import { ios, standalone } from '../theme'
 import debounce from 'lodash.debounce'
 import throttle from 'lodash.throttle'
@@ -8,7 +8,7 @@ import lazyLoad from '../utils/lazyLoad'
 const StyledContainer = styled.div`
   font-size: 3rem;
   height: auto;
-  transform: translateY(var(--vh, 1vh) * 4);
+  margin-top: 3vh;
   overflow-x: scroll;
   overflow-y: hidden;
   position: relative;
@@ -23,8 +23,7 @@ const StyledContainer = styled.div`
     grid-auto-flow: column;
     grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 12));
     grid-template-columns: auto;
-    padding: calc(var(--vh, 1vh) * 5) 0 calc(var(--vh, 1vh) * 3.5)
-      calc(6vw + env(safe-area-inset-left));
+    padding: calc(var(--vh, 1vh) * 5) 0 calc(var(--vh, 1vh) * 3.5) calc(6vw + env(safe-area-inset-left));
     ${ios} {
       grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 10.5));
       ${standalone} {
@@ -33,12 +32,9 @@ const StyledContainer = styled.div`
     }
   }
 `
-const isFirefox =
-  process.browser && /^((?!chrome|android).)*firefox/i.test(navigator.userAgent)
-const isSafari =
-  process.browser && /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
-const isSmoothScrollSupported =
-  process.browser && 'scrollBehavior' in document.documentElement.style
+const isFirefox = process.browser && /^((?!chrome|android).)*firefox/i.test(navigator.userAgent)
+const isSafari = process.browser && /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+const isSmoothScrollSupported = process.browser && 'scrollBehavior' in document.documentElement.style
 
 function CardGrid(props) {
   const listRef = useRef<HTMLElement>()
@@ -49,14 +45,12 @@ function CardGrid(props) {
       event.preventDefault()
       const id = target.getAttribute('id')
       target.removeAttribute('id')
-      window.requestAnimationFrame(() => {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          inline: 'center',
-        })
-        target.focus()
-        target.setAttribute('id', id)
+      target.scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center',
       })
+      target.focus()
+      target.setAttribute('id', id)
     }
   }, [])
 
@@ -83,19 +77,16 @@ function CardGrid(props) {
     }
   }, [])
 
-  const throttleScrollHandler = useRef(
-    throttle(handleHorizontalScroll, 33, { leading: true, maxWait: 100 })
-  )
+  const throttleScrollHandler = useRef(throttle(handleHorizontalScroll, 33, { leading: true, maxWait: 100 }))
 
-  useLayoutEffect(() => {
+  // TODO: Improve router integration with grid
+  useEffect(() => {
     if (window.location.hash) {
-      const focusInitial = window.setInterval(() => {
-        const focusTarget = document.getElementById(
-          window.location.hash.replace('#', '')
-        )
-        if (focusTarget) window.requestAnimationFrame(() => focusTarget.focus())
-        window.clearInterval(focusInitial)
-      }, 300)
+      const target = document.getElementById(window.location.hash.replace('#', ''))
+      if (target) {
+        target.scrollIntoView({ inline: 'center' })
+        target.focus()
+      }
     }
   }, [])
 

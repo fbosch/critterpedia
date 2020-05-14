@@ -63,7 +63,7 @@ export default createGlobalStyle`
 
   @font-face {
     font-family: Humming;
-    font-display: swap;
+    font-display: fallback;
     src: url("./assets/fonts/humming.otf") format("opentype");
   }
 
@@ -84,16 +84,18 @@ export default createGlobalStyle`
 
   .page-transition-enter {
 		opacity: 0;
+    will-change: opacity;
 	}
 	.page-transition-enter-active {
 		opacity: 1;
-		transition: opacity 100ms linear;
+		transition: opacity 200ms ${(props) => props.theme.timingFunction};
 	}
 	.page-transition-exit {
 		opacity: 1;
+    will-change: opacity;
 	}
 	.page-transition-exit-active {
 		opacity: 0;
-		transition: opacity 100ms linear;
+		transition: opacity 250ms ${(props) => props.theme.timingFunction};
 	}
 `

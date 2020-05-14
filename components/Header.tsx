@@ -156,11 +156,7 @@ function Header(props) {
               <Link href='/insects' activeClassName='active'>
                 <a id='insects' draggable='false'>
                   <span>Insects</span>
-                  <svg
-                    fill='currentColor'
-                    xmlns='http://www.w3.org/2000/svg'
-                    viewBox='0 0 58 51'
-                  >
+                  <svg fill='currentColor' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 58 51'>
                     <path
                       d='M29.5 18c5.865 7.217 5.406 19.168.258 23.613S11.304 39.806 5.439 32.59C-.426 25.372-2.06 12.995 3.087 8.55S23.635 10.783 29.5 18z'
                       fill='currentColor'
@@ -193,11 +189,7 @@ function Header(props) {
               <Link href='/fish' activeClassName='active'>
                 <a id='fish' draggable='false'>
                   <span>Fish</span>
-                  <svg
-                    viewBox='0 0 79 46'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
+                  <svg viewBox='0 0 79 46' fill='none' xmlns='http://www.w3.org/2000/svg'>
                     <path
                       fillRule='evenodd'
                       clipRule='evenodd'
@@ -219,11 +211,7 @@ function Header(props) {
           </StyledBackground>
         </StyledNavigation>
       </StyledHeader>
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        version='1.1'
-        style={{ position: 'absolute' }}
-      >
+      <svg xmlns='http://www.w3.org/2000/svg' version='1.1' style={{ position: 'absolute' }}>
         <defs>
           <filter id='goo'>
             <feGaussianBlur in='SourceGraphic' stdDeviation='5' result='blur' />

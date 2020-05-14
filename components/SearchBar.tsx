@@ -19,34 +19,33 @@ const StyledButton = styled.button`
   right: 50%;
   top: 50%;
   transform: translate(50%, -50%);
-  height: calc(var(--vh, 1vh) * 4);
-  width: calc(var(--vh, 1vh) * 4);
-  max-width: 55px;
-  max-height: 55px;
+  height: 5vh;
+  width: 5vh;
+  max-width: 60px;
+  max-height: 60px;
   min-height: 35px;
   min-width: 35px;
   border-radius: 100%;
   background-color: transparent;
   -webkit-tap-highlight-color: transparent;
   will-change: transform, background-color, color, right;
-  transition: transform 250ms ${timingFunction} 50ms,
-    background-color 150ms ${timingFunction} 30ms, color 250ms ${timingFunction},
-    right 200ms ${timingFunction};
+  transition: transform 250ms ${timingFunction} 50ms, background-color 150ms ${timingFunction} 30ms,
+    color 250ms ${timingFunction}, right 200ms ${timingFunction};
   &:focus {
     outline: none;
   }
   @media ${device.laptop} {
     svg {
-      max-height: 65px;
-      max-width: 65px;
+      max-height: inherit;
+      max-width: inherit;
       min-height: 50px;
       min-width: 50px;
     }
   }
   svg {
     padding: 10px;
-    height: 100%;
-    width: 100%;
+    height: inherit;
+    width: inherit;
     min-height: 40px;
     min-width: 40px;
     top: 50%;
@@ -73,10 +72,8 @@ const StyledInput = styled.input`
   letter-spacing: 0.05em;
   color: ${(props) => props.theme.darkGrayAccent};
   border: 2px solid transparent;
-  transition: border 250ms ${timingFunction}, width 250ms ${timingFunction},
-    padding 300ms ${timingFunction} 50ms;
-  box-shadow: 0px 11px 20px -20px rgba(185, 177, 127, 0.5),
-    0 6px 6px rgba(237, 227, 179, 0.6);
+  transition: border 250ms ${timingFunction}, width 250ms ${timingFunction}, padding 300ms ${timingFunction} 50ms;
+  box-shadow: 0px 11px 20px -20px rgba(185, 177, 127, 0.5), 0 6px 6px rgba(237, 227, 179, 0.6);
   @media ${device.desktop} {
     min-height: unset;
     min-width: unset;
@@ -96,7 +93,7 @@ const StyledInput = styled.input`
     + button {
       color: white;
       background-color: ${(props) => props.theme.orangeAccent};
-      transform: translate(-30%, -50%);
+      transform: translate(calc(15px - 50%), -50%);
       right: 0%;
       top: 50%;
 
@@ -135,15 +132,11 @@ function SearchBar(props) {
         autoComplete='off'
         tabIndex={0}
       />
-      <StyledButton
-        onClick={handleSearchButtonClick}
-        type='submit'
-        onFocus={handleSearchButtonClick}
-      >
+      <StyledButton onClick={handleSearchButtonClick} type='submit' onFocus={handleSearchButtonClick}>
         <svg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 71 71'>
           <path
-            fill-rule='evenodd'
-            clip-rule='evenodd'
+            fillRule='evenodd'
+            clipRule='evenodd'
             d='M30 60a30 30 0 100-60 30 30 0 000 60zm0-7a23 23 0 100-46 23 23 0 000 46z'
             fill='currentColor'
           />

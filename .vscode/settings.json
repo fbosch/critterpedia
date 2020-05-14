@@ -4,5 +4,6 @@
   },
   "prettier.jsxSingleQuote": true,
   "prettier.singleQuote": true,
-  "prettier.semi": false
+  "prettier.semi": false,
+  "prettier.printWidth": 120
 }

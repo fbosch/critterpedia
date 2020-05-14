@@ -9,7 +9,7 @@ const StyledContainer = styled.div`
   position: relative;
   display: grid;
   min-width: 100vw;
-  min-height: calc(var(--vh, 1vh) * 100);
+  min-height: 100vh;
   grid-template-rows: auto repeat(1, 1fr) calc(var(--vh, 1vh) * 15);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
@@ -18,7 +18,7 @@ const StyledContainer = styled.div`
     'content content content'
     'footer footer footer';
   ${ios} {
-    min-height: calc(var(--vh, 1vh) * 85);
+    min-height: 87vh;
     grid-template-rows: auto repeat(1, 1fr) calc(var(--vh, 1vh) * 13);
     ${standalone} {
       height: calc(calc(var(--vh, 1vh) * 99));

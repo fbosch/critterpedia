@@ -1,12 +1,6 @@
 import * as React from 'react'
 
-import Document, {
-  DocumentContext,
-  Head,
-  Html,
-  Main,
-  NextScript,
-} from 'next/document'
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
 const loadedScript = `
@@ -15,9 +9,7 @@ const loadedScript = `
   window.addEventListener("load", function(){ document.documentElement.classList.add("loaded") })
 `
 
-const PageLoadScript = () => (
-  <script dangerouslySetInnerHTML={{ __html: loadedScript }} />
-)
+const PageLoadScript = () => <script dangerouslySetInnerHTML={{ __html: loadedScript }} />
 
 export default class extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -26,8 +18,7 @@ export default class extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
+          enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
         })
       const initialProps = await Document.getInitialProps(ctx)
       return {
@@ -47,40 +38,15 @@ export default class extends Document {
     return (
       <Html lang='en' className='no-js'>
         <Head>
-          <link
-            rel='preload'
-            href='assets/fonts/humming.otf'
-            as='font'
-            type='font/otf'
-          />
+          <link rel='preload' href='assets/fonts/humming.otf' as='font' type='font/otf' />
           <title>Critterpedia</title>
-          <meta
-            name='description'
-            content='An overview of all fish and bugs in Animal Crossing: New Horizons'
-          />
-          <link
-            rel='apple-touch-icon'
-            sizes='180x180'
-            href='/apple-touch-icon.png'
-          />
-          <link
-            rel='icon'
-            type='image/png'
-            sizes='32x32'
-            href='/favicon-32x32.png'
-          />
-          <link
-            rel='icon'
-            type='image/png'
-            sizes='16x16'
-            href='/favicon-16x16.png'
-          />
+          <meta name='description' content='An overview of all fish and bugs in Animal Crossing: New Horizons' />
+          <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
+          <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
+          <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
           <link rel='manifest' href='/site.webmanifest' />
           <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#74735f' />
-          <meta
-            name='apple-mobile-web-app-status-bar-style'
-            content='black-translucent'
-          />
+          <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
           <meta name='msapplication-TileColor' content='#F8CC63' />
           <meta name='theme-color' content='#F8CC63' />
           <meta
