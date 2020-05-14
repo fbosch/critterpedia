@@ -214,7 +214,14 @@ function CardEntry(props: GridCardProps) {
     <StyledCard {...rest}>
       <a href={`#${id}`} draggable={false} id={id} tabIndex={0} onClick={e => e.preventDefault()} onFocus={handleFocus}>
         <CardLabel title={props.title} />
-        {image && <img data-src={image} src={process.browser === false ? image : null} loading='eager' draggable="false" alt={title} />}
+        {image && (
+          <>
+            <noscript>
+              <img src={image} loading='lazy' draggable="false" alt={title} />
+            </noscript>
+            {process.browser && <img data-src={image} loading='eager' draggable="false" alt={title} />}
+          </>
+        )}
         {price && <StyledPrice>{price}</StyledPrice>}
         {showSpacer && <StyledSpacer />}
       </a>
