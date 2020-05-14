@@ -13,7 +13,7 @@ const StyledContainer = styled.div`
 
 const StyledFooter = styled.footer`
   grid-area: footer;
-  border-top: 2px solid ${props => props.theme.borderColor};
+  border-top: 2px solid ${(props) => props.theme.borderColor};
 `
 
 function Footer(props) {

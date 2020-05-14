@@ -3,7 +3,6 @@ import { getFontFamily, getBodyBackground, ios, standalone } from '../theme'
 
 export default createGlobalStyle`
   html {
-    position: static;
     overflow-y: hidden;
     margin: 0;
     padding: 0;
@@ -14,14 +13,14 @@ export default createGlobalStyle`
       &.js {
           body {
             transition: background 500ms linear;
-            background-color: ${props => props.theme.orangeAccent};
+            background-color: ${(props) => props.theme.orangeAccent};
           }
           &:after {
             content: '';
             display: block;
             height: 100vh;
             width: 100%;
-            background: ${props => props.theme.orangeAccent};
+            background: ${(props) => props.theme.orangeAccent};
             background-image: url('/assets/images/logo.svg');
             background-repeat: no-repeat;
             background-position: center calc(50% - 2.4vh);

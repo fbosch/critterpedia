@@ -15,7 +15,6 @@ if (process.browser) {
 }
 
 export default class extends App {
-
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {}
 
@@ -32,7 +31,11 @@ export default class extends App {
         <RouterContextProvider>
           <GlobalStyle />
           <SiteLayout route={router.route}>
-            <PageTransition timeout={300} classNames="page-transition" skipInitialTransition>
+            <PageTransition
+              timeout={300}
+              classNames='page-transition'
+              skipInitialTransition
+            >
               <Component {...pageProps} key={router.route} />
             </PageTransition>
           </SiteLayout>

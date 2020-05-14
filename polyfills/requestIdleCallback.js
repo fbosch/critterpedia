@@ -7,7 +7,7 @@ window.requestIdleCallback =
         didTimeout: false,
         timeRemaining: function () {
           return Math.max(0, 50 - (Date.now() - start))
-        }
+        },
       })
     }, 1)
   }

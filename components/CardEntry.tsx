@@ -1,19 +1,22 @@
 import React, { useRef, useCallback } from 'react'
+import Link from 'next/link'
 import styled from 'styled-components'
 import { ThemeType, device, standalone, isChrome } from '../theme'
 import CardLabel from './CardLabel'
 
 type GridCardProps = {
-  fallback?: Function;
-  theme?: ThemeType,
-  image?: string,
-  title?: string,
-  id?: string,
-  price?: number,
+  fallback?: Function
+  theme?: ThemeType
+  image?: string
+  title?: string
+  id?: string
+  price?: number
   showSpacer?: boolean
+  type: 'insect' | 'fish'
 }
 
-const getFallback = (props: GridCardProps) => props.fallback(props.theme.borderColor)
+const getFallback = (props: GridCardProps) =>
+  props.fallback(props.theme.borderColor)
 
 const StyledSpacer = styled.span`
   height: 100%;
@@ -26,7 +29,7 @@ const StyledSpacer = styled.span`
 `
 
 const StyledPrice = styled.span`
-  color: ${props => props.theme.darkGrayAccent};
+  color: ${(props) => props.theme.darkGrayAccent};
   font-size: 1.1em;
   position: absolute;
   bottom: 10%;
@@ -34,12 +37,12 @@ const StyledPrice = styled.span`
   opacity: 0;
   display: flex;
   background-color: rgba(247, 246, 225, 0.7);
-  padding: .5em .8em;
-  border-radius: ${props => props.theme.detailBorderRadius};
+  padding: 0.5em 0.8em;
+  border-radius: ${(props) => props.theme.detailBorderRadius};
   transition: opacity 200ms linear;
   text-shadow: 0px 0px 0.3em rgba(247, 246, 225, 1);
   overflow: hidden;
-  letter-spacing: .06em;
+  letter-spacing: 0.06em;
   z-index: 4;
 
   a:focus & {
@@ -47,7 +50,7 @@ const StyledPrice = styled.span`
   }
 
   &:before {
-    content: "";
+    content: '';
     display: inline-block;
     width: 1em;
     height: 1em;
@@ -59,7 +62,7 @@ const StyledPrice = styled.span`
   }
   @media ${device.tablet} {
     left: 10%;
-    font-size: .8em;
+    font-size: 0.8em;
   }
 `
 
@@ -104,7 +107,7 @@ const StyledCard = styled.li`
       position: absolute;
       height: 92%;
       width: 92%;
-      border: 2px solid ${props => props.theme.darkGrayAccent};
+      border: 2px solid ${(props) => props.theme.darkGrayAccent};
       display: block;
       top: 50%;
       left: 50%;
@@ -120,7 +123,7 @@ const StyledCard = styled.li`
       transform: translate(-50%, -50%);
       top: 50%;
       left: 50%;
-      border: 2px solid ${props => props.theme.borderColor};
+      border: 2px solid ${(props) => props.theme.borderColor};
       position: absolute;
     }
 
@@ -219,25 +222,33 @@ function handleFocus(event) {
 }
 
 function CardEntry(props: GridCardProps) {
-  const { id, title, image, showSpacer, price, ...rest } = props
+  const { id, title, image, showSpacer, price, type, ...rest } = props
   return (
     <StyledCard {...rest}>
-      <a href={`#${id}`} draggable={false} id={id} tabIndex={0} onClick={e => e.preventDefault()} onFocus={handleFocus}>
-        <CardLabel title={props.title} />
-        {image && (
-          <>
-            <noscript>
-              <img src={image} loading='lazy' draggable="false" alt={title} />
-            </noscript>
-            {process.browser && <img data-src={image} loading='eager' draggable="false" alt={title} />}
-          </>
-        )}
-        {price && <StyledPrice>{price}</StyledPrice>}
-        {showSpacer && <StyledSpacer />}
-      </a>
+      <Link href={`${type}/[type]`} as={`${type}/${id}`}>
+        <a draggable={false} id={id} tabIndex={0} onFocus={handleFocus}>
+          <CardLabel title={props.title} />
+          {image && (
+            <>
+              <noscript>
+                <img src={image} loading='lazy' draggable='false' alt={title} />
+              </noscript>
+              {process.browser && (
+                <img
+                  data-src={image}
+                  loading='eager'
+                  draggable='false'
+                  alt={title}
+                />
+              )}
+            </>
+          )}
+          {price && <StyledPrice>{price}</StyledPrice>}
+          {showSpacer && <StyledSpacer />}
+        </a>
+      </Link>
     </StyledCard>
   )
-
 }
 
 export default CardEntry
