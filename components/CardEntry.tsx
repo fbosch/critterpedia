@@ -163,6 +163,7 @@ const StyledCard = styled.li`
     background: radial-gradient(rgba(233, 227, 169, 1) 30%,rgba(233, 227, 169, 0) 70%);
     image-rendering: optimizeQuality;
     image-rendering: smooth;
+    will-change: transform, opacity, background;
 
     ${isChrome} {
       image-rendering: -webkit-optimize-contrast;
