@@ -12,13 +12,10 @@ const fishSVG = (color: string) =>
       '"/></svg>'
   )
 
-function Card(props) {
-  return <CardEntry fallback={fishSVG} {...props} />
-}
-
 const fishCollection = fish.map((creature, index) => (
-  <Card
+  <CardEntry
     type='fish'
+    fallback={fishSVG}
     key={creature.id}
     id={creature.id}
     {...creature}

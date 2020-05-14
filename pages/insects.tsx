@@ -18,12 +18,9 @@ const insectSVG = (color) =>
       '"/></svg>'
   )
 
-function Card(props) {
-  return <CardEntry fallback={insectSVG} {...props} />
-}
-
 const insectCollection = bugs.map((creature, index) => (
-  <Card
+  <CardEntry
+    fallback={insectSVG}
     type='insect'
     key={creature.id}
     id={creature.id}

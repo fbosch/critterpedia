@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { ThemeType, device, standalone, isChrome } from '../theme'
 import CardLabel from './CardLabel'
 
-type GridCardProps = {
+export type CardEntryProps = {
   fallback?: Function
   theme?: ThemeType
   image?: string
@@ -12,10 +12,10 @@ type GridCardProps = {
   id?: string
   price?: number
   showSpacer?: boolean
-  type: 'insect' | 'fish'
+  type?: 'insect' | 'fish'
 }
 
-const getFallback = (props: GridCardProps) =>
+const getFallback = (props: CardEntryProps) =>
   props.fallback(props.theme.borderColor)
 
 const StyledSpacer = styled.span`
@@ -221,7 +221,7 @@ function handleFocus(event) {
   }
 }
 
-function CardEntry(props: GridCardProps) {
+function CardEntry(props: CardEntryProps) {
   const { id, title, image, showSpacer, price, type, ...rest } = props
   return (
     <StyledCard {...rest}>
