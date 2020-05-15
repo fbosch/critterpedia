@@ -1,5 +1,5 @@
 import './closest'
 import './requestAnimationFrame'
 import './requestIdleCallback'
-import 'fastclick'
+// import 'fastclick'
 import 'intersection-observer'

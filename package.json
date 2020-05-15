@@ -10,6 +10,7 @@
     "build": "next build",
     "start": "next",
     "export": "next build && next export",
+    "analyze": "cross-env ANALYZE=true npm run build",
     "precommit": "standard --fix"
   },
   "dependencies": {

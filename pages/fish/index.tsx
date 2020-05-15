@@ -1,7 +1,12 @@
 import CardEntry from '../../components/CardEntry'
 import CardGrid from '../../components/CardGrid'
-import fishes from '../../public/data/fishes.json'
 import btoa from '../../utils/btoa'
+
+export async function getStaticProps() {
+  const fishes = await require('../../public/data/fishes.json')
+  const parsedFishes = fishes.map((fish) => ({ id: fish.id, name: fish.name, price: fish.price }))
+  return { props: { fishes: parsedFishes } }
+}
 
 const fishSVG = (color: string) =>
   btoa(
@@ -12,20 +17,20 @@ const fishSVG = (color: string) =>
       '"/></svg>'
   )
 
-const fishCollection = fishes.map((creature, index) => (
-  <CardEntry
-    group='fish'
-    fallback={fishSVG}
-    key={creature.id}
-    id={creature.id}
-    {...creature}
-    title={creature.name}
-    image={`./assets/images/fish/icons/${creature.id}.png`}
-    showSpacer={index === fishes.length - 1}
-  />
-))
+function FishesPage({ fishes }) {
+  const fishCollection = fishes.map((creature, index) => (
+    <CardEntry
+      group='fish'
+      fallback={fishSVG}
+      key={creature.id}
+      id={creature.id}
+      {...creature}
+      title={creature.name}
+      image={`./assets/images/fish/icons/${creature.id}.png`}
+      showSpacer={index === fishes.length - 1}
+    />
+  ))
 
-function FishesPage(props) {
   return <CardGrid>{fishCollection}</CardGrid>
 }
 

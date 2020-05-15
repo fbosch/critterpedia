@@ -1,7 +1,12 @@
 import CardEntry from '../../components/CardEntry'
 import btoa from '../../utils/btoa'
-import bugs from '../../public/data/bugs.json'
 import CardGrid from '../../components/CardGrid'
+
+export async function getStaticProps() {
+  const insects = await require('../../public/data/bugs.json')
+  const parsedInsects = insects.map((insect) => ({ id: insect.id, name: insect.name, price: insect.price }))
+  return { props: { insects: parsedInsects } }
+}
 
 const insectSVG = (color) =>
   btoa(
@@ -18,20 +23,19 @@ const insectSVG = (color) =>
       '"/></svg>'
   )
 
-const insectCollection = bugs.map((creature, index) => (
-  <CardEntry
-    fallback={insectSVG}
-    group='insects'
-    key={creature.id}
-    id={creature.id}
-    {...creature}
-    title={creature.name}
-    image={`./assets/images/bugs/icons/${creature.id}.png`}
-    showSpacer={index === bugs.length - 1}
-  />
-))
-
-function InsectsPage(props) {
+function InsectsPage({ insects }) {
+  const insectCollection = insects.map((creature, index) => (
+    <CardEntry
+      fallback={insectSVG}
+      group='insects'
+      key={creature.id}
+      id={creature.id}
+      {...creature}
+      title={creature.name}
+      image={`./assets/images/bugs/icons/${creature.id}.png`}
+      showSpacer={index === insects.length - 1}
+    />
+  ))
   return <CardGrid>{insectCollection}</CardGrid>
 }
 
