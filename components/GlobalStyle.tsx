@@ -63,7 +63,7 @@ export default createGlobalStyle`
 
   @font-face {
     font-family: Humming;
-    font-display: fallback;
+    font-display: swap;
     src: url("./assets/fonts/humming.otf") format("opentype");
   }
 
