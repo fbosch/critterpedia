@@ -88,13 +88,15 @@ export default createGlobalStyle`
 	}
 	.page-transition-enter-active {
 		opacity: 1;
-		transition: opacity 200ms ${(props) => props.theme.timingFunction};
+		transition: opacity 200ms ${(props) => props.theme.timingFunction} 50ms;
 	}
 	.page-transition-exit {
+    pointer-events: none;
 		opacity: 1;
     will-change: opacity;
 	}
 	.page-transition-exit-active {
+    pointer-events: none;
 		opacity: 0;
 		transition: opacity 250ms ${(props) => props.theme.timingFunction};
 	}

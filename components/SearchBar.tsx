@@ -93,7 +93,7 @@ const StyledInput = styled.input`
     + button {
       color: white;
       background-color: ${(props) => props.theme.orangeAccent};
-      transform: translate(calc(15px - 50%), -50%);
+      transform: translate(calc(1.3vh - 50%), -50%);
       right: 0%;
       top: 50%;
 

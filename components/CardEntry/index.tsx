@@ -18,7 +18,6 @@ export type CardEntryProps = {
 function CardEntry(props: CardEntryProps) {
   const { id, title, image, showSpacer, price, group, ...rest } = props
 
-  // TODO: Move to grid component
   const handleFocus = useCallback(
     (event: React.FocusEvent) => {
       event.preventDefault()
