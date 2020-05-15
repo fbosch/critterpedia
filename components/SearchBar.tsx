@@ -6,6 +6,29 @@ const StyledForm = styled.form`
   width: auto;
   height: auto;
   position: absolute;
+
+  &:not(:hover) input:not(:valid) + button {
+    pointer-events: none;
+  }
+
+  input:valid,
+  &:hover input {
+    width: 70vw;
+    padding: 3vh 6vh 3vh 3vh;
+    border-color: ${(props) => props.theme.lightYellow};
+
+    & + button {
+      color: white;
+      background-color: ${(props) => props.theme.orangeAccent};
+      transform: translate(calc(1.3vh - 50%), -50%);
+      right: 0%;
+      top: 50%;
+
+      svg {
+        transform: scale(0.8) translate(-50%, -50%);
+      }
+    }
+  }
 `
 
 const StyledButton = styled.button`
@@ -26,14 +49,12 @@ const StyledButton = styled.button`
   min-height: 35px;
   min-width: 35px;
   border-radius: 100%;
+  outline: none;
   background-color: transparent;
   -webkit-tap-highlight-color: transparent;
   will-change: transform, background-color, color, right;
   transition: transform 250ms ${timingFunction} 50ms, background-color 150ms ${timingFunction} 30ms,
     color 250ms ${timingFunction}, right 200ms ${timingFunction};
-  &:focus {
-    outline: none;
-  }
   @media ${device.laptop} {
     svg {
       max-height: inherit;
@@ -70,6 +91,7 @@ const StyledInput = styled.input`
   border-radius: 10vh;
   font-size: 1.2em;
   letter-spacing: 0.05em;
+  outline: none;
   color: ${(props) => props.theme.darkGrayAccent};
   border: 2px solid transparent;
   transition: border 250ms ${timingFunction}, width 250ms ${timingFunction}, padding 300ms ${timingFunction} 50ms;
@@ -83,46 +105,13 @@ const StyledInput = styled.input`
   &::-webkit-clear-button {
     display: none;
   }
-
-  &:focus,
-  &:valid {
-    width: 70vw;
-    outline: none;
-    padding: 3vh 6vh 3vh 3vh;
-    border-color: ${(props) => props.theme.lightYellow};
-    + button {
-      color: white;
-      background-color: ${(props) => props.theme.orangeAccent};
-      transform: translate(calc(1.3vh - 50%), -50%);
-      right: 0%;
-      top: 50%;
-
-      svg {
-        transform: scale(0.8) translate(-50%, -50%);
-      }
-    }
-  }
 `
 
 function SearchBar(props) {
   const searchRef = useRef()
 
-  const handleSubmit = useCallback((event: React.FormEvent) => {
-    console.log('submit')
-    console.log(event)
-    // e.preventDefault()
-  }, [])
-
-  const handleSearchButtonClick = useCallback((e) => {
-    const searchInput = searchRef.current as HTMLElement
-    e.preventDefault()
-    if (document.activeElement !== searchInput) {
-      searchInput.focus()
-    }
-  }, [])
-
   return (
-    <StyledForm noValidate action='/search' onSubmit={handleSubmit}>
+    <StyledForm action=''>
       <StyledInput
         type='search'
         id='search'
@@ -133,7 +122,7 @@ function SearchBar(props) {
         autoComplete='off'
         tabIndex={0}
       />
-      <StyledButton onClick={handleSearchButtonClick} type='submit' onFocus={handleSearchButtonClick}>
+      <StyledButton type='button'>
         <svg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 71 71'>
           <path
             fillRule='evenodd'
