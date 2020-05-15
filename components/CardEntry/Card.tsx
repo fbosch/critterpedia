@@ -21,6 +21,7 @@ export default styled.li`
   noscript {
     height: 100%;
     width: 100%;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
