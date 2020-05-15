@@ -107,9 +107,10 @@ const StyledInput = styled.input`
 function SearchBar(props) {
   const searchRef = useRef()
 
-  const handleSubmit = useCallback((e) => {
+  const handleSubmit = useCallback((event: React.FormEvent) => {
     console.log('submit')
-    e.preventDefault()
+    console.log(event)
+    // e.preventDefault()
   }, [])
 
   const handleSearchButtonClick = useCallback((e) => {
@@ -121,11 +122,11 @@ function SearchBar(props) {
   }, [])
 
   return (
-    <StyledForm onSubmit={handleSubmit} noValidate>
+    <StyledForm noValidate action='/search' onSubmit={handleSubmit}>
       <StyledInput
         type='search'
-        id='search-critterpedia'
-        name='search-critterpedia'
+        id='search'
+        name='search'
         ref={searchRef}
         minLength={1}
         required

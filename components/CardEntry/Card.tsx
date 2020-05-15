@@ -71,6 +71,7 @@ export default styled.li`
   }
 
   label {
+    will-change: opacity, transform;
     top: -42%;
     opacity: 0;
     z-index: -1;
@@ -88,10 +89,9 @@ export default styled.li`
   a:focus {
     background-image: none;
     img {
-      backface-visibility: hidden;
-      transform: scale(1.05) translateY(-18%) translateZ(0);
+      transform: translateY(-18%) scale(1.1);
       @media ${device.tablet} {
-        transform: scale(1.05) translateY(-8%) translateZ(0);
+        transform: translateY(-8%) scale(1.1);
       }
     }
     label {
@@ -108,11 +108,11 @@ export default styled.li`
     z-index: 2;
     width: 6vmax;
     max-width: 65%;
-    will-change: opacity;
+    will-change: transform;
     opacity: 0;
     transition: transform 250ms cubic-bezier(0,.5,.5,1), background 300ms linear;
     background: radial-gradient(rgba(233, 227, 169, 1) 30%,rgba(233, 227, 169, 0) 70%);
-    image-rendering: optimizeQuality;
+    image-rendering: high-quality;
     image-rendering: smooth;
     will-change: transform, opacity, background;
 
