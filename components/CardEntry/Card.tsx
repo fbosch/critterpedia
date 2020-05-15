@@ -88,9 +88,10 @@ export default styled.li`
   a:focus {
     background-image: none;
     img {
-      transform: scale(1.1) translateY(-20%);
+      backface-visibility: hidden;
+      transform: scale(1.05) translateY(-18%) translateZ(0);
       @media ${device.tablet} {
-        transform: scale(1.1) translateY(-10%);
+        transform: scale(1.05) translateY(-8%) translateZ(0);
       }
     }
     label {

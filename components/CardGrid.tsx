@@ -39,28 +39,6 @@ const isSmoothScrollSupported = process.browser && 'scrollBehavior' in document.
 function CardGrid(props) {
   const listRef = useRef<HTMLElement>()
 
-  const focusCard = useCallback((event) => {
-    const target: HTMLElement = event.target as HTMLElement
-    if (target) {
-      event.preventDefault()
-      const id = target.getAttribute('id')
-      target.removeAttribute('id')
-      window.requestAnimationFrame(() => {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          inline: 'center',
-        })
-        window.requestAnimationFrame(() => target.setAttribute('id', id))
-      })
-    }
-  }, [])
-
-  const debouncedCardFocus = useRef(debounce(focusCard, 100))
-  const handleCardFocus = useCallback((event) => {
-    event.persist()
-    debouncedCardFocus.current(event)
-  }, [])
-
   const handleHorizontalScroll = useCallback((event) => {
     const container: HTMLElement = listRef.current
     const target = event.target as HTMLElement
@@ -109,7 +87,7 @@ function CardGrid(props) {
   }, [handleHorizontalScroll])
 
   return (
-    <StyledContainer onFocus={isSmoothScrollSupported ? handleCardFocus : null}>
+    <StyledContainer>
       <ol {...props} ref={listRef} />
     </StyledContainer>
   )

@@ -23,10 +23,21 @@ function CardEntry(props: CardEntryProps) {
     (event: React.FocusEvent) => {
       event.preventDefault()
       if (window.location.hash !== id) {
-        const defferedHashChange = window.setInterval(() => {
-          window.location.hash = id
-          window.clearInterval(defferedHashChange)
-        }, 500)
+        const target = event.currentTarget
+        target.removeAttribute('id')
+        window.requestAnimationFrame(() => {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            inline: 'center',
+          })
+          const defferedHashChange = window.setInterval(() => {
+            window.clearInterval(defferedHashChange)
+            window.requestAnimationFrame(() => {
+              window.location.hash = id
+              target.setAttribute('id', id)
+            })
+          }, 250)
+        })
       }
     },
     [id]
