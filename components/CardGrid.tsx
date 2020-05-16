@@ -9,8 +9,7 @@ const StyledContainer = styled.div`
   font-size: 3rem;
   height: auto;
   margin-top: 3vh;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  overflow-x: hidden;
   position: relative;
 
   ol {
@@ -21,13 +20,13 @@ const StyledContainer = styled.div`
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x proximity;
     grid-auto-flow: column;
-    grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 12));
-    grid-template-columns: auto;
-    padding: calc(var(--vh, 1vh) * 5) 0 calc(var(--vh, 1vh) * 3.5) calc(6vw + env(safe-area-inset-left));
+    grid-template-rows: repeat(5, 12vh);
+    grid-template-columns: repeat(auto-fill, 15vh);
+    padding: 5vh 0 3.5vh calc(6vw + env(safe-area-inset-left));
     ${ios} {
-      grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 10.5));
+      grid-template-rows: repeat(5, 10.5vh);
       ${standalone} {
-        grid-template-rows: repeat(5, calc(var(--vh, 1vh) * 12));
+        grid-template-rows: repeat(5, 12vh);
       }
     }
   }
@@ -43,7 +42,6 @@ function CardGrid(props) {
     const target = event.target as HTMLElement
     if (event.deltaX) return
     const modifier = isFirefox ? 60 : isSafari ? 0.8 : 5
-    event.preventDefault()
     if (container && container.contains(target)) {
       window.requestAnimationFrame(() =>
         container.scrollTo({

@@ -1,11 +1,13 @@
 import CardEntry from '../../components/CardEntry'
+import { useMemo } from 'react'
 import btoa from '../../utils/btoa'
 import CardGrid from '../../components/CardGrid'
+import { useRouter } from '../../hooks/useRouter'
+import search from '../../utils/search'
 
 export async function getStaticProps() {
   const insects = await require('../../public/data/bugs.json')
-  const parsedInsects = insects.map((insect) => ({ id: insect.id, name: insect.name, price: insect.price }))
-  return { props: { insects: parsedInsects } }
+  return { props: { insects } }
 }
 
 const insectSVG = (color) =>
@@ -24,19 +26,27 @@ const insectSVG = (color) =>
   )
 
 function InsectsPage({ insects }) {
-  const insectCollection = insects.map((creature, index) => (
-    <CardEntry
-      fallback={insectSVG}
-      group='insects'
-      key={creature.id}
-      id={creature.id}
-      {...creature}
-      title={creature.name}
-      image={`./assets/images/bugs/icons/${creature.id}.png`}
-      showSpacer={index === insects.length - 1}
-    />
-  ))
-  return <CardGrid>{insectCollection}</CardGrid>
+  const router = useRouter()
+
+  const insectCollection = useMemo(() => {
+    let parsedInsects = insects
+    if (router?.query?.search) parsedInsects = search(insects, router.query.search)
+    parsedInsects = parsedInsects.map((insect) => ({ id: insect.id, name: insect.name, price: insect.price }))
+    return parsedInsects.map((creature, index) => (
+      <CardEntry
+        fallback={insectSVG}
+        group='insects'
+        key={creature.id}
+        id={creature.id}
+        {...creature}
+        title={creature.name}
+        image={`./assets/images/bugs/icons/${creature.id}.png`}
+        showSpacer={index === insects.length - 1}
+      />
+    ))
+  }, [insects])
+
+  return <CardGrid key={insectCollection.length}>{insectCollection}</CardGrid>
 }
 
 export default InsectsPage

@@ -1,11 +1,12 @@
 import CardEntry from '../../components/CardEntry'
 import CardGrid from '../../components/CardGrid'
+import { useRouter } from '../../hooks/useRouter'
+import search from '../../utils/search'
 import btoa from '../../utils/btoa'
 
 export async function getStaticProps() {
-  const fishes = await require('../../public/data/fishes.json')
-  const parsedFishes = fishes.map((fish) => ({ id: fish.id, name: fish.name, price: fish.price }))
-  return { props: { fishes: parsedFishes } }
+  let fishes = await require('../../public/data/fishes.json')
+  return { props: { fishes } }
 }
 
 const fishSVG = (color: string) =>
@@ -18,7 +19,16 @@ const fishSVG = (color: string) =>
   )
 
 function FishesPage({ fishes }) {
-  const fishCollection = fishes.map((creature, index) => (
+  const router = useRouter()
+  let parsedFishes = fishes
+
+  if (router?.query?.search) {
+    parsedFishes = search(fishes, router.query.search)
+  }
+
+  parsedFishes = parsedFishes.map((fish) => ({ id: fish.id, name: fish.name, price: fish.price }))
+
+  const fishCollection = parsedFishes.map((creature, index) => (
     <CardEntry
       group='fish'
       fallback={fishSVG}
@@ -31,7 +41,7 @@ function FishesPage({ fishes }) {
     />
   ))
 
-  return <CardGrid>{fishCollection}</CardGrid>
+  return <CardGrid key={fishCollection.length}>{fishCollection}</CardGrid>
 }
 
 export default FishesPage

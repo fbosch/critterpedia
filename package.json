@@ -15,7 +15,10 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "fast-memoize": "^2.5.2",
     "fastclick": "^1.0.6",
+    "form-serialize": "^0.7.2",
+    "fuse.js": "^6.0.0",
     "intersection-observer": "^0.10.0",
     "is-in-view": "^1.0.1",
     "isomorphic-fetch": "^2.2.1",

@@ -1,6 +1,9 @@
-import React, { useRef, useCallback } from 'react'
+import React, { useRef, useCallback, useMemo, FormEvent } from 'react'
 import { timingFunction, device } from '../theme'
+import debounce from 'lodash.debounce'
+import serialize from 'form-serialize'
 import styled from 'styled-components'
+import { useRouter } from 'next/router'
 
 const StyledForm = styled.form`
   width: auto;
@@ -12,6 +15,7 @@ const StyledForm = styled.form`
   }
 
   input:valid,
+  input:focus,
   &:hover input {
     width: 70vw;
     padding: 3vh 6vh 3vh 3vh;
@@ -109,17 +113,57 @@ const StyledInput = styled.input`
 
 function SearchBar(props) {
   const searchRef = useRef()
+  const router = useRouter()
+
+  const handleSearch = useCallback(
+    (event: FormEvent) => {
+      const form: HTMLFormElement = event.target as HTMLFormElement
+      const query = serialize(form, { hash: true })
+      event.preventDefault()
+      router.push({
+        pathname: router.pathname,
+        query,
+      })
+    },
+    [router]
+  )
+
+  const handleSearchRouting = useCallback(
+    (value) => {
+      if (value === '') {
+        router.push({ pathname: router.route })
+      } else {
+        router.push({ pathname: router.route, query: { search: value } })
+      }
+    },
+    [router]
+  )
+
+  const debouncedSearch = useMemo(() => debounce(handleSearchRouting, 250, { maxWait: 500 }), [handleSearchRouting])
+  const handleInputChange = useCallback(
+    (event) => {
+      if (event.target.value === '') {
+        handleSearchRouting('')
+      } else {
+        debouncedSearch(event.target?.value ?? '')
+      }
+    },
+    [router, handleSearchRouting]
+  )
 
   return (
-    <StyledForm action=''>
+    <StyledForm action={`/${router.pathname?.split('/')[1]}`} noValidate onSubmit={handleSearch}>
       <StyledInput
         type='search'
         id='search'
         name='search'
+        onInput={handleInputChange}
+        defaultValue={router.query?.search}
         ref={searchRef}
         minLength={1}
         required
         autoComplete='off'
+        onReset={() => router.push({ pathname: router.pathname })}
         tabIndex={0}
       />
       <StyledButton type='submit'>

@@ -11,7 +11,7 @@ export default styled.li`
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: calc(var(--vh, 1vh) * 15);
+  width: 15vh;
   position: relative;
   scroll-snap-align: center;
   cursor: pointer;

@@ -5,7 +5,7 @@ import Link from './ActiveLink'
 const overlap = '-20%'
 
 const StyledHeader = styled.header`
-  height: calc(var(--vh, 1vh) * 10);
+  height: 10vh;
   width: 100%;
   position: relative;
   grid-area: header;
@@ -13,7 +13,7 @@ const StyledHeader = styled.header`
 `
 
 const StyledNavItem = styled.li`
-  font-size: calc(var(--vh, 1vh) * 1.5);
+  font-size: 1.5vh;
   width: 6em;
   height: 6em;
   padding: 5px;
