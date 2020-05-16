@@ -108,7 +108,7 @@ export default styled.li`
     user-select: none;
     z-index: 2;
     width: 6vmax;
-    max-width: 65%;
+    max-width: 55%;
     will-change: transform;
     opacity: 0;
     transition: transform 250ms cubic-bezier(0,.5,.5,1), background 300ms linear;
