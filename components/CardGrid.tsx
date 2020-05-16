@@ -19,8 +19,6 @@ const StyledContainer = styled.section`
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x proximity;
-    scroll-snap-align: center;
-    /* scroll-behavior: smooth; */
     &.is-dragging {
       cursor: move;
       scroll-snap-type: none;
@@ -48,63 +46,78 @@ function CardGrid(props) {
   const listRef = useRef<HTMLElement>()
   const mouseDownRef = useRef<Boolean>(false)
   const dragMovingRef = useRef<Boolean>(false)
+  const holdDownRef = useRef<any>(false)
+  const draggingRemoveRef = useRef<any>()
   const clientPositionRef = useRef<any>({ clientX: 0, startX: 0 })
 
   const handleMouseDown = useCallback((event) => {
-    console.log('mouse down')
     const list = listRef.current
-    mouseDownRef.current = true
-    clientPositionRef.current = {
-      startX: event.pageX - list.offsetLeft,
-      clientX: list.scrollLeft,
+    window.cancelAnimationFrame(draggingRemoveRef.current)
+    if (dragMovingRef.current) return
+    if (mouseDownRef.current === false) {
+      clientPositionRef.current = {
+        startX: event.pageX - list.offsetLeft,
+        clientX: list.scrollLeft,
+      }
+      holdDownRef.current = window.setTimeout(() => {
+        mouseDownRef.current = true
+      }, 33)
     }
   }, [])
 
   const handleMouseUp = useCallback((event) => {
-    if (mouseDownRef.current) {
+    window.clearTimeout(holdDownRef.current)
+    if (mouseDownRef.current || dragMovingRef.current) {
       event.preventDefault()
       mouseDownRef.current = false
-      dragMovingRef.current = false
       const list = listRef.current
-      window.requestAnimationFrame(() => {
+      draggingRemoveRef.current = window.requestAnimationFrame(() => {
+        dragMovingRef.current = false
         list.classList.remove('is-dragging')
+
+        // list.scrollBy({ left: 100, behavior: 'smooth' })
+        // window.setTimeout(() => {
+        // }, 700)
       })
     }
   }, [])
 
   const handleMouseMove = useCallback((event) => {
-    if (mouseDownRef.current) {
-      event.preventDefault()
+    if (mouseDownRef.current === true) {
       const list = listRef.current
-      if (dragMovingRef.current === false) {
+      window.cancelAnimationFrame(draggingRemoveRef.current)
+      if (dragMovingRef.current === false && mouseDownRef.current === true) {
+        dragMovingRef.current = true
         list.classList.add('is-dragging')
       }
-      dragMovingRef.current = true
       const previousPosition = clientPositionRef.current
       const clientX = event.pageX - list.offsetLeft
-      const walk = (clientX - previousPosition.startX) * 1.2
+      const walk = (clientX - previousPosition.startX) * 1
 
       list.scrollLeft = previousPosition.clientX - walk
       clientPositionRef.current = {
         startX: event.pageX - list.offsetLeft,
         clientX: list.scrollLeft,
       }
+      event.preventDefault()
     }
   }, [])
 
   const handleHorizontalScroll = useCallback((event) => {
+    if (dragMovingRef.current === true) {
+      event.preventDefault()
+      return
+    }
     const list: HTMLElement = listRef.current
     const target = event.target as HTMLElement
     if (event.deltaX) return
     const modifier = isFirefox ? 60 : isSafari ? 0.8 : 5
     if (list && list.contains(target)) {
-      window.requestAnimationFrame(() =>
-        list.scrollTo({
-          top: 0,
-          left: list.scrollLeft + event.deltaY * modifier,
-          behavior: 'smooth',
-        })
-      )
+      list.scrollTo({
+        top: 0,
+        left: list.scrollLeft + event.deltaY * modifier,
+        behavior: 'smooth',
+      })
     }
   }, [])
 
@@ -122,14 +135,23 @@ function CardGrid(props) {
   }, [])
 
   useEffect(() => {
-    const container: HTMLElement = listRef.current
+    const list: HTMLElement = listRef.current
     const handler = throttleScrollHandler.current
     document.body.addEventListener('wheel', handler, true)
-    if (container) {
-      const targets = container.querySelectorAll('img[data-src]')
+    if (list) {
+      const targets = list.querySelectorAll('img[data-src]')
       const imageObservers = Array.from(targets).map(lazyLoad)
+      // const intersectionObservers = Array.from(list.children).map((childNode) => {
+      //   const io = new IntersectionObserver((entries, observer) => {
+      //     const visibleEntries = entries.filter((entry) => entry.isIntersecting).map((entry) => entry.target)
+      //     console.log(visibleEntries)
+      //   })
+      //   io.observe(childNode)
+      //   return io
+      // })
       return () => {
         imageObservers.forEach((io) => io.disconnect())
+        // intersectionObservers.forEach((io) => io.disconnect())
         document.body.removeEventListener('wheel', handler)
       }
     }

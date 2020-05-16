@@ -31,7 +31,9 @@ function InsectsPage({ insects }) {
 
   const insectCollection = useMemo(() => {
     let parsedInsects = insects
-    if (router?.query?.search) parsedInsects = search(insects, router.query.search)
+    if (router?.query?.search?.length > 2) {
+      parsedInsects = search(insects, router.query.search)
+    }
     parsedInsects = parsedInsects.map((insect) => ({ id: insect.id, name: insect.name, price: insect.price }))
     return parsedInsects.map((creature, index) => (
       <CardEntry

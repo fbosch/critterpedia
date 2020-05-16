@@ -6738,11 +6738,6 @@ is-glob@^4.0.0, is-glob@^4.0.1, is-glob@~4.0.1:
   dependencies:
     is-extglob "^2.1.1"
 
-is-in-view@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/is-in-view/-/is-in-view-1.0.1.tgz#af6c99aa03cdbc18d6313fa47082ead2a6988029"
-  integrity sha1-r2yZqgPNvBjWMT+kcILq0qaYgCk=
-
 is-installed-globally@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/is-installed-globally/-/is-installed-globally-0.1.0.tgz#0dfd98f5a9111716dd535dda6492f67bf3d25a80"

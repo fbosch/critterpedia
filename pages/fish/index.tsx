@@ -25,7 +25,7 @@ function FishesPage({ fishes }) {
 
   const fishCollection = useMemo(() => {
     let parsedFishes = fishes
-    if (router?.query?.search) {
+    if (router?.query?.search?.length > 2) {
       parsedFishes = search(fishes, router.query.search)
     }
     parsedFishes = parsedFishes.map((fish) => ({ id: fish.id, name: fish.name, price: fish.price }))
