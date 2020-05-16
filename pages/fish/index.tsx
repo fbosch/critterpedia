@@ -5,11 +5,8 @@ import { useMemo } from 'react'
 import search from '../../utils/search'
 import btoa from '../../utils/btoa'
 
-export async function getServerSideProps({ query }) {
+export async function getStaticProps() {
   let fishes = await require('../../public/data/fishes.json')
-  if (query?.search) {
-    fishes = search(fishes, query.search)
-  }
   return { props: { fishes } }
 }
 
