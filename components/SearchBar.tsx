@@ -1,6 +1,6 @@
 import React, { useRef, useCallback, useMemo, FormEvent } from 'react'
 import { timingFunction, device } from '../theme'
-import debounce from 'lodash.debounce'
+import throttle from 'lodash.throttle'
 import serialize from 'form-serialize'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
@@ -130,22 +130,23 @@ function SearchBar(props) {
 
   const handleSearchRouting = useCallback(
     (value) => {
+      const pathname = '/' + router.pathname.split('/')[1]
       if (value === '') {
-        router.push({ pathname: router.route })
+        router.push({ pathname })
       } else {
-        router.push({ pathname: router.route, query: { search: value } })
+        router.push({ pathname, query: { search: value } })
       }
     },
-    [router]
+    [router.pathname]
   )
 
-  const debouncedSearch = useMemo(() => debounce(handleSearchRouting, 250, { maxWait: 500 }), [handleSearchRouting])
+  const throttledSearch = useMemo(() => throttle(handleSearchRouting, 350, { maxWait: 1500 }), [handleSearchRouting])
   const handleInputChange = useCallback(
     (event) => {
-      if (event.target.value === '') {
+      if (event.target.value === '' || event.target.value === undefined) {
         handleSearchRouting('')
       } else {
-        debouncedSearch(event.target?.value ?? '')
+        throttledSearch(event.target?.value ?? '')
       }
     },
     [router, handleSearchRouting]

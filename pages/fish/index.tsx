@@ -1,6 +1,7 @@
 import CardEntry from '../../components/CardEntry'
 import CardGrid from '../../components/CardGrid'
 import { useRouter } from '../../hooks/useRouter'
+import { useMemo } from 'react'
 import search from '../../utils/search'
 import btoa from '../../utils/btoa'
 
@@ -20,26 +21,26 @@ const fishSVG = (color: string) =>
 
 function FishesPage({ fishes }) {
   const router = useRouter()
-  let parsedFishes = fishes
 
-  if (router?.query?.search) {
-    parsedFishes = search(fishes, router.query.search)
-  }
-
-  parsedFishes = parsedFishes.map((fish) => ({ id: fish.id, name: fish.name, price: fish.price }))
-
-  const fishCollection = parsedFishes.map((creature, index) => (
-    <CardEntry
-      group='fish'
-      fallback={fishSVG}
-      key={creature.id}
-      id={creature.id}
-      {...creature}
-      title={creature.name}
-      image={`./assets/images/fish/icons/${creature.id}.png`}
-      showSpacer={index === fishes.length - 1}
-    />
-  ))
+  const fishCollection = useMemo(() => {
+    let parsedFishes = fishes
+    if (router?.query?.search) {
+      parsedFishes = search(fishes, router.query.search)
+    }
+    parsedFishes = parsedFishes.map((fish) => ({ id: fish.id, name: fish.name, price: fish.price }))
+    return parsedFishes.map((creature, index) => (
+      <CardEntry
+        group='fish'
+        fallback={fishSVG}
+        key={creature.id}
+        id={creature.id}
+        {...creature}
+        title={creature.name}
+        image={`./assets/images/fish/icons/${creature.id}.png`}
+        showSpacer={index === fishes.length - 1}
+      />
+    ))
+  }, [fishes, router.query])
 
   return <CardGrid key={fishCollection.length}>{fishCollection}</CardGrid>
 }

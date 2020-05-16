@@ -44,7 +44,7 @@ function InsectsPage({ insects }) {
         showSpacer={index === insects.length - 1}
       />
     ))
-  }, [insects])
+  }, [insects, router.query])
 
   return <CardGrid key={insectCollection.length}>{insectCollection}</CardGrid>
 }
