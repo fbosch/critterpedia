@@ -9,6 +9,10 @@ const StyledContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+
+  .no-js & {
+    display: none;
+  }
 `
 
 const StyledFooter = styled.footer`

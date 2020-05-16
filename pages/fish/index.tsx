@@ -3,6 +3,7 @@ import CardGrid from '../../components/CardGrid'
 import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 import search from '../../utils/search'
+import Head from 'next/head'
 import btoa from '../../utils/btoa'
 
 export async function getStaticProps() {
@@ -42,7 +43,15 @@ function FishesPage({ fishes }) {
     ))
   }, [fishes, router.query])
 
-  return <CardGrid key={fishCollection.length}>{fishCollection}</CardGrid>
+  return (
+    <>
+      <Head>
+        <title>Fish</title>
+        <meta name='description' content='An overview of all fish in Animal Crossing: New Horizons' />
+      </Head>
+      <CardGrid key={fishCollection.length}>{fishCollection}</CardGrid>
+    </>
+  )
 }
 
 export default FishesPage

@@ -23,6 +23,10 @@ const StyledContainer = styled.div`
     grid-template-rows: repeat(5, 12vh);
     grid-template-columns: repeat(auto-fill, 15vh);
     padding: 5vh 0 3.5vh calc(6vw + env(safe-area-inset-left));
+
+    .no-js & {
+      grid-template-rows: repeat(6, 12vh);
+    }
     ${ios} {
       grid-template-rows: repeat(5, 10.5vh);
       ${standalone} {

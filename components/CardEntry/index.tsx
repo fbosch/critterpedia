@@ -53,7 +53,15 @@ function CardEntry(props: CardEntryProps) {
   return (
     <Card {...rest}>
       <Link href={`/${group}/[id]`} as={`/${group}/${id}`}>
-        <a draggable={false} id={id} tabIndex={0} onClick={handleClick} onFocus={handleFocus}>
+        <a
+          draggable={false}
+          id={id}
+          tabIndex={0}
+          onClick={handleClick}
+          onFocus={handleFocus}
+          aria-label={title}
+          title={title}
+        >
           <CardLabel title={props.title} />
           {image && (
             <>

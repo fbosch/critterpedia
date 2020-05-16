@@ -87,7 +87,7 @@ export default styled.li`
     }
   }
 
-  a:focus {
+  a:focus, a:active {
     background-image: none;
     img {
       transform: translateY(-18%) scale(1.1);
@@ -139,7 +139,7 @@ export default styled.li`
     }
   }
 
-  a:focus {
+  a:focus, a:active {
     outline: none;
     &:hover:after {
       opacity: 0.6;

@@ -3,6 +3,7 @@ import { useMemo } from 'react'
 import btoa from '../../utils/btoa'
 import CardGrid from '../../components/CardGrid'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 import search from '../../utils/search'
 
 export async function getStaticProps() {
@@ -46,7 +47,15 @@ function InsectsPage({ insects }) {
     ))
   }, [insects, router.query])
 
-  return <CardGrid key={insectCollection.length}>{insectCollection}</CardGrid>
+  return (
+    <>
+      <Head>
+        <title>Insects</title>
+        <meta name='description' content='An overview of all insects in Animal Crossing: New Horizons' />
+      </Head>
+      <CardGrid key={insectCollection.length}>{insectCollection}</CardGrid>
+    </>
+  )
 }
 
 export default InsectsPage

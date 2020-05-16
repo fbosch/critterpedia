@@ -24,6 +24,13 @@ const StyledContainer = styled.div`
       height: 99vh;
     }
   }
+
+  .no-js & {
+    grid-template-rows: auto repeat(1, 1fr);
+    grid-template-areas:
+      'header header header'
+      'content content content';
+  }
 `
 
 const StyledMain = styled.main`
