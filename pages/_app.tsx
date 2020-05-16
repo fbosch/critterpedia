@@ -1,14 +1,18 @@
 import 'modern-normalize'
 
-import * as React from 'react'
+import React, { createContext } from 'react'
 
 import App from 'next/app'
 import { ThemeProvider } from 'styled-components'
-import { RouterContextProvider } from '../hooks/useRouter'
+import { withRouter } from 'next/router'
 import { PageTransition } from 'next-page-transitions'
 import theme from '../theme'
 import GlobalStyle from '../components/GlobalStyle'
 import SiteLayout from '../components/SiteLayout'
+
+const Context = createContext(undefined)
+const Provider = ({ router, children }) => <Context.Provider value={router}>{children}</Context.Provider>
+export const RouterContextProvider = withRouter(Provider)
 
 if (process.browser) {
   require('../polyfills')

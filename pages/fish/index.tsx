@@ -1,6 +1,6 @@
 import CardEntry from '../../components/CardEntry'
 import CardGrid from '../../components/CardGrid'
-import { useRouter } from '../../hooks/useRouter'
+import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 import search from '../../utils/search'
 import btoa from '../../utils/btoa'
@@ -20,7 +20,7 @@ const fishSVG = (color: string) =>
   )
 
 function FishesPage({ fishes }) {
-  const router = useRouter()
+  const router: any = useRouter()
 
   const fishCollection = useMemo(() => {
     let parsedFishes = fishes

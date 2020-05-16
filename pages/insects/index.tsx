@@ -2,7 +2,7 @@ import CardEntry from '../../components/CardEntry'
 import { useMemo } from 'react'
 import btoa from '../../utils/btoa'
 import CardGrid from '../../components/CardGrid'
-import { useRouter } from '../../hooks/useRouter'
+import { useRouter } from 'next/router'
 import search from '../../utils/search'
 
 export async function getStaticProps() {
@@ -26,7 +26,7 @@ const insectSVG = (color) =>
   )
 
 function InsectsPage({ insects }) {
-  const router = useRouter()
+  const router: any = useRouter()
 
   const insectCollection = useMemo(() => {
     let parsedInsects = insects
