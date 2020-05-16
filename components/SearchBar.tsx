@@ -149,7 +149,7 @@ function SearchBar(props) {
     [router.pathname]
   )
 
-  const throttledSearch = useMemo(() => throttle(handleSearchRouting, 350, { maxWait: 1500 }), [handleSearchRouting])
+  const throttledSearch = useMemo(() => throttle(handleSearchRouting, 350), [handleSearchRouting])
   const handleInputChange = useCallback(
     (event) => {
       if (event.target.value === '' || event.target.value === undefined) {
