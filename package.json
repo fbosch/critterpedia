@@ -29,6 +29,7 @@
     "next-page-transitions": "^1.0.0-beta.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-scroll-box": "^0.3.5",
     "styled-components": "^5.1.0",
     "vh-check": "^2.0.5"
   },

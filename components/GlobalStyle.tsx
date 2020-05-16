@@ -64,7 +64,7 @@ export default createGlobalStyle`
   @font-face {
     font-family: Humming;
     font-display: swap;
-    src: url("./assets/fonts/humming.otf") format("opentype");
+    src: url("/assets/fonts/humming.otf") format("opentype");
   }
 
   main {

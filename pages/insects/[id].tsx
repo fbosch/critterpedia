@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import Head from 'next/head'
+import CreaturePage from '../../components/CreaturePage'
 
 async function fetchBugs() {
   const bugs = await require('../../public/data/bugs.json')
@@ -21,17 +21,7 @@ export async function getStaticProps({ params }) {
 const Fish = ({ info }) => {
   const router = useRouter()
   const { id } = router.query
-
-  return (
-    <>
-      <Head>
-        <title>{info.name} • Insects • Critterpedia </title>
-      </Head>
-      <p>
-        {id} {JSON.stringify(info)}{' '}
-      </p>
-    </>
-  )
+  return <CreaturePage {...info} key={id} group='insects' />
 }
 
 export default Fish

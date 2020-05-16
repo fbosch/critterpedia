@@ -71,7 +71,7 @@ function CardEntry(props: CardEntryProps) {
               <img data-src={image} loading='eager' draggable='false' alt={title} />
             </>
           )}
-          {price && <Price>{price}</Price>}
+          {price && <Price aria-label='price'>{price}</Price>}
           {showSpacer && <Spacer />}
         </a>
       </Link>

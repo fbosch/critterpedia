@@ -14,7 +14,6 @@ export default styled.li`
   width: 15vh;
   position: relative;
   scroll-snap-align: center;
-  cursor: pointer;
   position: relative;
   -webkit-tap-highlight-color: transparent;
 
@@ -28,7 +27,9 @@ export default styled.li`
   }
 
   a {
-    cursor: pointer;
+    .is-dragging & {
+      cursor: move;
+    }
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,12 +41,16 @@ export default styled.li`
     background-size: 20%;
     background-position: center;
 
+    .is-dragging & {
+      pointer-events: none;
+    }
+
     &:after {
       content: '';
       position: absolute;
       height: 92%;
       width: 92%;
-      border: 2px solid ${(props) => props.theme.darkGrayAccent};
+      border: 2px dashed ${(props) => props.theme.darkGrayAccent};
       display: block;
       top: 50%;
       left: 50%;
@@ -71,7 +76,7 @@ export default styled.li`
     display: block;
   }
 
-  label {
+  span:first-of-type {
     will-change: opacity, transform;
     top: -42%;
     opacity: 0;
@@ -79,11 +84,17 @@ export default styled.li`
     transform: rotate(1deg) translateY(-5%);
     transition: opacity 150ms linear, transform 200ms linear 30ms, z-index 0ms linear 400ms;
     font-size: 1.3em;
+    &:after {
+      z-index: 2;
+    }
     @media ${device.tablet} {
       font-size: 1.1em;
     }
     @media ${device.tablet} {
       top: -30%;
+    }
+    > span {
+      z-index: -2;
     }
   }
 
@@ -95,9 +106,9 @@ export default styled.li`
         transform: translateY(-8%) scale(1.1);
       }
     }
-    label {
+    span:first-of-type {
       opacity: 1;
-      z-index: 3;
+      z-index: 5;
       transform: rotate(-2deg) translateY(0%);
       transition: opacity 250ms linear, transform 300ms linear 0ms, z-index 0ms linear 0ms;
     }

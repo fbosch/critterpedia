@@ -41,7 +41,7 @@ function InsectsPage({ insects }) {
         id={creature.id}
         {...creature}
         title={creature.name}
-        image={`./assets/images/bugs/icons/${creature.id}.png`}
+        image={`./assets/images/insects/icons/${creature.id}.png`}
         showSpacer={index === insects.length - 1}
       />
     ))

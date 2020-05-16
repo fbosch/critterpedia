@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { useRef, useCallback, useEffect } from 'react'
+import { useRef, useCallback, useEffect, useMemo } from 'react'
 import { ios, standalone } from '../theme'
-import debounce from 'lodash.debounce'
 import throttle from 'lodash.throttle'
+import debounce from 'lodash.debounce'
 import lazyLoad from '../utils/lazyLoad'
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.section`
   font-size: 3rem;
   height: auto;
   margin-top: 3vh;
@@ -19,6 +19,12 @@ const StyledContainer = styled.div`
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x proximity;
+    scroll-snap-align: center;
+    /* scroll-behavior: smooth; */
+    &.is-dragging {
+      cursor: move;
+      scroll-snap-type: none;
+    }
     grid-auto-flow: column;
     grid-template-rows: repeat(5, 12vh);
     grid-template-columns: repeat(auto-fill, 15vh);
@@ -40,17 +46,62 @@ const isSafari = process.browser && /^((?!chrome|android).)*safari/i.test(naviga
 
 function CardGrid(props) {
   const listRef = useRef<HTMLElement>()
+  const mouseDownRef = useRef<Boolean>(false)
+  const dragMovingRef = useRef<Boolean>(false)
+  const clientPositionRef = useRef<any>({ clientX: 0, startX: 0 })
+
+  const handleMouseDown = useCallback((event) => {
+    console.log('mouse down')
+    const list = listRef.current
+    mouseDownRef.current = true
+    clientPositionRef.current = {
+      startX: event.pageX - list.offsetLeft,
+      clientX: list.scrollLeft,
+    }
+  }, [])
+
+  const handleMouseUp = useCallback((event) => {
+    if (mouseDownRef.current) {
+      event.preventDefault()
+      mouseDownRef.current = false
+      dragMovingRef.current = false
+      const list = listRef.current
+      window.requestAnimationFrame(() => {
+        list.classList.remove('is-dragging')
+      })
+    }
+  }, [])
+
+  const handleMouseMove = useCallback((event) => {
+    if (mouseDownRef.current) {
+      event.preventDefault()
+      const list = listRef.current
+      if (dragMovingRef.current === false) {
+        list.classList.add('is-dragging')
+      }
+      dragMovingRef.current = true
+      const previousPosition = clientPositionRef.current
+      const clientX = event.pageX - list.offsetLeft
+      const walk = (clientX - previousPosition.startX) * 1.2
+
+      list.scrollLeft = previousPosition.clientX - walk
+      clientPositionRef.current = {
+        startX: event.pageX - list.offsetLeft,
+        clientX: list.scrollLeft,
+      }
+    }
+  }, [])
 
   const handleHorizontalScroll = useCallback((event) => {
-    const container: HTMLElement = listRef.current
+    const list: HTMLElement = listRef.current
     const target = event.target as HTMLElement
     if (event.deltaX) return
     const modifier = isFirefox ? 60 : isSafari ? 0.8 : 5
-    if (container && container.contains(target)) {
+    if (list && list.contains(target)) {
       window.requestAnimationFrame(() =>
-        container.scrollTo({
+        list.scrollTo({
           top: 0,
-          left: container.scrollLeft + event.deltaY * modifier,
+          left: list.scrollLeft + event.deltaY * modifier,
           behavior: 'smooth',
         })
       )
@@ -88,8 +139,15 @@ function CardGrid(props) {
   }, [handleHorizontalScroll])
 
   return (
-    <StyledContainer>
-      <ol {...props} ref={listRef} />
+    <StyledContainer
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
+      onMouseMove={handleMouseMove}
+    >
+      <ol {...props} ref={listRef}>
+        {props.children}
+      </ol>
     </StyledContainer>
   )
 }
