@@ -14,6 +14,18 @@ const StyledForm = styled.form`
     pointer-events: none;
   }
 
+  label {
+    position: absolute;
+    top: 50%;
+    left: 3.2vh;
+    font-size: 1.2em;
+    opacity: 0;
+    transform: translateY(-50%);
+    will-change: opacity;
+    transition: opacity 250ms linear 100ms;
+    color: ${(props) => props.theme.darkGrayAccent};
+  }
+
   input:valid,
   input:focus,
   &:hover input {
@@ -22,7 +34,15 @@ const StyledForm = styled.form`
     border-color: ${(props) => props.theme.lightYellow};
     transition-delay: 150ms;
 
-    & + button {
+    &:not(:valid) ~ label {
+      opacity: 0.4;
+      transition: opacity 250ms linear 200ms;
+    }
+    &:valid ~ label {
+      transition: opacity 100ms linear;
+    }
+
+    & ~ button {
       color: white;
       background-color: ${(props) => props.theme.orangeAccent};
       transform: translate(calc(1.3vh - 50%), -50%);
@@ -181,7 +201,8 @@ function SearchBar(props) {
         onReset={() => router.push({ pathname: router.pathname })}
         tabIndex={0}
       />
-      <StyledButton type='submit'>
+      <label htmlFor='search'>Search</label>
+      <StyledButton type='submit' aria-label='search'>
         <svg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 71 71'>
           <path
             fillRule='evenodd'

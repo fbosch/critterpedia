@@ -1,14 +1,13 @@
-
 export type ThemeType = {
-  bodyBackground: string;
-  orangeAccent: string;
-  grayAccent: string;
-  darkGrayAccent: string;
-  lightYellow: string;
-  borderColor: string;
-  fontFamily: string;
-  detailBorderRadius: string;
-  timingFunction: string;
+  bodyBackground: string
+  orangeAccent: string
+  grayAccent: string
+  darkGrayAccent: string
+  lightYellow: string
+  borderColor: string
+  fontFamily: string
+  detailBorderRadius: string
+  timingFunction: string
 }
 
 const size = {
@@ -18,7 +17,7 @@ const size = {
   tablet: '768px',
   laptop: '1024px',
   laptopL: '1440px',
-  desktop: '2560px'
+  desktop: '2560px',
 }
 
 export const device = {
@@ -29,7 +28,7 @@ export const device = {
   laptop: `(min-width: ${size.laptop})`,
   laptopL: `(min-width: ${size.laptopL})`,
   desktop: `(min-width: ${size.desktop})`,
-  desktopL: `(min-width: ${size.desktop})`
+  desktopL: `(min-width: ${size.desktop})`,
 }
 
 export const ios = `@supports (-webkit-touch-callout: none)`
@@ -43,13 +42,13 @@ export const getBodyBackground = ({ theme: ThemeType }) => theme.bodyBackground
 const theme: ThemeType = {
   bodyBackground: '#EFE9BC',
   orangeAccent: '#F8CC63',
-  grayAccent: '#90837A',
+  grayAccent: '#7d756f',
   darkGrayAccent: '#757261',
   lightYellow: '#F7F6E1',
   borderColor: '#D9D1A1',
   fontFamily: 'Humming, Calibri, arial',
   detailBorderRadius: '22% 22% 22% 22% / 40% 40% 40% 40%',
-  timingFunction
+  timingFunction,
 }
 
 export default theme

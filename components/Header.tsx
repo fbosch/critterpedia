@@ -150,8 +150,8 @@ function Header(props) {
   return (
     <>
       <StyledHeader>
-        <StyledNavigation>
-          <StyledList role='navigation'>
+        <StyledNavigation role='navigation'>
+          <StyledList>
             <StyledNavItem>
               <Link href='/insects' activeClassName='active'>
                 <a id='insects' draggable='false'>
