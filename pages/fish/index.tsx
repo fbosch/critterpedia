@@ -46,7 +46,7 @@ function FishesPage({ fishes }) {
   return (
     <>
       <Head>
-        <title>Fish</title>
+        <title>Fish • Critterpedia</title>
         <meta name='description' content='An overview of all fish in Animal Crossing: New Horizons' />
       </Head>
       <CardGrid key={fishCollection.length}>{fishCollection}</CardGrid>

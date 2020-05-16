@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 
 function HomePage() {
   const router = useRouter()
@@ -8,7 +9,14 @@ function HomePage() {
       router.replace('/insects')
     }
   }, [router])
-  return null
+  return (
+    <>
+      <Head>
+        <title>Critterpedia</title>
+        <meta name='description' content='An overview of all fish and bugs in Animal Crossing: New Horizons' />
+      </Head>
+    </>
+  )
 }
 
 export default HomePage

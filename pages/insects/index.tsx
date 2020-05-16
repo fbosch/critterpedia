@@ -50,7 +50,7 @@ function InsectsPage({ insects }) {
   return (
     <>
       <Head>
-        <title>Insects</title>
+        <title>Insects • Critterpedia</title>
         <meta name='description' content='An overview of all insects in Animal Crossing: New Horizons' />
       </Head>
       <CardGrid key={insectCollection.length}>{insectCollection}</CardGrid>

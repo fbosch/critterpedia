@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 
 async function fetchFishes() {
   const fishes = await require('../../public/data/fishes.json')
@@ -22,9 +23,14 @@ const Fish = ({ info }) => {
   const { id } = router.query
 
   return (
-    <p>
-      {id} {JSON.stringify(info)}{' '}
-    </p>
+    <>
+      <Head>
+        <title>{info.name} • Fish • Critterpedia </title>
+      </Head>
+      <p>
+        {id} {JSON.stringify(info)}{' '}
+      </p>
+    </>
   )
 }
 

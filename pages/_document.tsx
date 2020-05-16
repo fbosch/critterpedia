@@ -39,8 +39,6 @@ export default class extends Document {
       <Html lang='en' className='no-js'>
         <Head>
           <link rel='preload' href='assets/fonts/humming.otf' as='font' type='font/otf' />
-          <title>Critterpedia</title>
-          <meta name='description' content='An overview of all fish and bugs in Animal Crossing: New Horizons' />
           <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
           <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
           <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
