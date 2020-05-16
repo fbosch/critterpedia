@@ -5,8 +5,11 @@ import CardGrid from '../../components/CardGrid'
 import { useRouter } from 'next/router'
 import search from '../../utils/search'
 
-export async function getStaticProps() {
-  const insects = await require('../../public/data/bugs.json')
+export async function getServerSideProps({ query }) {
+  let insects = await require('../../public/data/bugs.json')
+  if (query?.search) {
+    insects = search(insects, query.search)
+  }
   return { props: { insects } }
 }
 
