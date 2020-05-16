@@ -20,6 +20,7 @@ const StyledForm = styled.form`
     width: 70vw;
     padding: 3vh 6vh 3vh 3vh;
     border-color: ${(props) => props.theme.lightYellow};
+    transition-delay: 150ms;
 
     & + button {
       color: white;
@@ -27,7 +28,7 @@ const StyledForm = styled.form`
       transform: translate(calc(1.3vh - 50%), -50%);
       right: 0%;
       top: 50%;
-
+      transition-delay: 150ms;
       svg {
         transform: scale(0.8) translate(-50%, -50%);
       }
@@ -57,8 +58,9 @@ const StyledButton = styled.button`
   background-color: transparent;
   -webkit-tap-highlight-color: transparent;
   will-change: transform, background-color, color, right;
-  transition: transform 250ms ${timingFunction} 50ms, background-color 150ms ${timingFunction} 30ms,
-    color 250ms ${timingFunction}, right 200ms ${timingFunction};
+  transition: transform 250ms ${timingFunction}, background-color 150ms ${timingFunction}, color 250ms ${timingFunction},
+    right 200ms ${timingFunction};
+  transition-delay: 400ms;
   @media ${device.laptop} {
     svg {
       max-height: inherit;
@@ -79,6 +81,7 @@ const StyledButton = styled.button`
     transform-origin: 0 0;
     transform: scale(1) translate(-50%, -50%);
     transition: transform 200ms ${timingFunction} 50ms;
+    transition-delay: inherit;
   }
 `
 
@@ -98,7 +101,8 @@ const StyledInput = styled.input`
   outline: none;
   color: ${(props) => props.theme.darkGrayAccent};
   border: 2px solid transparent;
-  transition: border 250ms ${timingFunction}, width 250ms ${timingFunction}, padding 300ms ${timingFunction} 50ms;
+  transition: border 250ms ${timingFunction}, width 250ms ${timingFunction}, padding 300ms ${timingFunction};
+  transition-delay: 400ms;
   box-shadow: 0px 11px 20px -20px rgba(185, 177, 127, 0.5), 0 6px 6px rgba(237, 227, 179, 0.6);
   @media ${device.desktop} {
     min-height: unset;
@@ -112,8 +116,13 @@ const StyledInput = styled.input`
 `
 
 function SearchBar(props) {
-  const searchRef = useRef()
+  const searchRef = useRef<HTMLInputElement>()
   const router = useRouter()
+
+  const handleClickForm = useCallback((event) => {
+    const input: HTMLInputElement = searchRef.current
+    if (document.activeElement !== input) window.requestAnimationFrame(() => input.focus())
+  }, [])
 
   const handleSearch = useCallback(
     (event: FormEvent) => {
@@ -153,7 +162,12 @@ function SearchBar(props) {
   )
 
   return (
-    <StyledForm action={`/${router.pathname?.split('/')[1]}`} noValidate onSubmit={handleSearch}>
+    <StyledForm
+      action={`/${router.pathname?.split('/')[1]}`}
+      noValidate
+      onSubmit={handleSearch}
+      onClick={handleClickForm}
+    >
       <StyledInput
         type='search'
         id='search'
