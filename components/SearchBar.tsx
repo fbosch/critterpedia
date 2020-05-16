@@ -34,7 +34,7 @@ const StyledForm = styled.form`
     border-color: ${(props) => props.theme.lightYellow};
     transition-delay: 150ms;
 
-    &:not(:valid) ~ label {
+    &:not(:valid):not(:focus) ~ label {
       opacity: 0.4;
       transition: opacity 250ms linear 200ms;
     }
