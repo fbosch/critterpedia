@@ -705,8 +705,8 @@
     "id": "coelacanth",
     "name": "Coelacanth",
     "price": 15000,
-    "location": "Sea",
-    "time": "Sea (Rainy Days)",
+    "location": "Sea (Rainy Days)",
+    "time": "All Day",
     "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
     "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   }
