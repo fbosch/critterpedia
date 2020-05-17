@@ -43,7 +43,7 @@ const CritterSection = styled.section`
         border-right: 2px solid ${(props) => props.theme.borderColor};
       }
       picture img {
-        height: 30%;
+        /* width: 50%; */
       }
     }
   }
@@ -55,13 +55,14 @@ const CritterSection = styled.section`
     border: 2px solid ${(props) => props.theme.borderColor};
     border-top: none;
     img {
-      height: 50%;
       left: 50%;
       top: 50%;
+      max-width: 90%;
+      width: auto;
+      /* width: 100%; */
       position: relative;
       transform: translate(-50%, -50%);
       object-position: center;
-      object-fit: contain;
       filter: url(#drop-shadow);
       -webkit-filter: drop-shadow(0 0.5em 0.2em #c6bd94);
     }
