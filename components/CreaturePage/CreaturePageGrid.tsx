@@ -5,25 +5,23 @@ const CreatureSection = styled.section`
   display: block;
   /* background: red; */
   display: grid;
-  grid-template-columns: 100vw;
+  grid-template-columns: 100%;
   grid-template-rows: 10vh 30vh 20vh 10vh;
   height: 100%;
-  font-size: 1rem;
-  margin-top: 3vh;
+  font-size: 1.5vh;
+  margin-top: 5vh;
+  padding: 0 15vw;
   grid-template-areas:
     'header header'
     'picture picture'
     'season time'
     'location donation';
-  /* > * {
-    border: 1px solid red;
-    border: 2px solid ${(props) => props.theme.borderColor};
-  } */
 
   picture {
     grid-area: picture;
     image-rendering: smooth;
     img {
+      height: 50%;
       left: 50%;
       top: 50%;
       position: relative;

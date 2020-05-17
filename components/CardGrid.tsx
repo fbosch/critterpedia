@@ -8,7 +8,7 @@ import lazyLoad from '../utils/lazyLoad'
 const StyledContainer = styled.section`
   font-size: 3rem;
   height: auto;
-  margin-top: 3vh;
+  margin-top: 2.5vh;
   overflow-x: hidden;
   position: relative;
 
@@ -121,7 +121,7 @@ function CardGrid(props) {
     }
   }, [])
 
-  const throttleScrollHandler = useRef(throttle(handleHorizontalScroll, 33, { leading: true, maxWait: 100 }))
+  const throttleScrollHandler = useRef(throttle(handleHorizontalScroll, 100, { leading: true }))
 
   // TODO: Improve router integration with grid
   useEffect(() => {

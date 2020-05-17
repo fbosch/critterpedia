@@ -4,6 +4,7 @@ import CardLabel from '../CardLabel'
 import Card from './Card'
 import Spacer from './Spacer'
 import Price from './Price'
+import { useRouter } from 'next/router'
 
 export type CardEntryProps = {
   fallback?: Function
@@ -16,6 +17,7 @@ export type CardEntryProps = {
 }
 
 function CardEntry(props: CardEntryProps) {
+  const router = useRouter()
   const { id, title, image, showSpacer, price, group, ...rest } = props
 
   const handleFocus = useCallback(
@@ -50,6 +52,12 @@ function CardEntry(props: CardEntryProps) {
     [id]
   )
 
+  const handleDoubleClick = useCallback(() => {
+    event.preventDefault()
+    router.push({ pathname: `/${group}/${id}` })
+    return
+  }, [id, group])
+
   return (
     <Card {...rest}>
       <Link href={`/${group}/[id]`} as={`/${group}/${id}`}>
@@ -57,6 +65,7 @@ function CardEntry(props: CardEntryProps) {
           draggable={false}
           id={id}
           tabIndex={0}
+          onDoubleClick={handleDoubleClick}
           onClick={handleClick}
           onFocus={handleFocus}
           aria-label={title}
