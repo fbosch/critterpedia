@@ -7,11 +7,13 @@ const CreatureSection = styled.section`
   /* background: red; */
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 10vh 30vh 20vh 10vh;
+  grid-template-rows: 5vh 15vh 20vh 15vh;
   height: 100%;
   font-size: 1.5vh;
   margin-top: 5vh;
   padding: 0 15vw;
+  grid-column-gap: 5vw;
+  grid-row-gap: 2vh;
   grid-template-areas:
     'header header'
     'picture picture'
@@ -20,6 +22,7 @@ const CreatureSection = styled.section`
     'location donation';
 
   @media ${device.tablet} {
+    grid-template-rows: 5vh 30vh 15vh 5vh;
     grid-template-areas:
       'header header'
       'picture picture'

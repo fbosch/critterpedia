@@ -30,7 +30,7 @@ export default function Time({ time }) {
     }
   }, [])
   return (
-    <TimeContainer title={time.toUpperCase()}>
+    <TimeContainer title={time.charAt(0).toUpperCase() + time.slice(1)}>
       <SectionHeader>
         <h2>Current Active Hours</h2>
       </SectionHeader>

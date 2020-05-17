@@ -6,9 +6,9 @@ const hoursInADay = Array.from(Array(24)).map((_, index) => index)
 function getHourLabel(hour) {
   switch (hour) {
     case 0:
-      return '12 AM'
+      return '12AM'
     case 12:
-      return '12 PM'
+      return '12PM'
     default:
       return hour <= 12 ? hour + 'AM' : hour - 12 + 'PM'
   }
@@ -21,16 +21,14 @@ const ActiveHourMarker = styled.div`
   position: absolute;
   bottom: 0;
   z-index: 0;
-  transform: translateY(calc(100% - 0.3em));
+  transform: translateY(50%);
   background: ${(props) => props.theme.yellowGreen};
 `
 
 const TimeRangeContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 30%;
-  display: flex;
-  align-items: flex-start;
+  height: 40%;
 `
 
 const StyledTimeList = styled.ol`
@@ -38,7 +36,7 @@ const StyledTimeList = styled.ol`
   width: 100%;
   height: 100%;
   padding: 0;
-  margin: 5% 1vw 0 1vw 0;
+  margin: 5% 5% 0 5% 0;
   font-family: 'Helvetica Neue';
   font-weight: 500;
   border-bottom: 2px solid ${(props) => props.theme.grayText};
@@ -66,7 +64,7 @@ const StyledTimeList = styled.ol`
       bottom: 40%;
       transform: translateX(-50%);
       position: absolute;
-      opacity: 0.7;
+      opacity: 0.6;
     }
 
     &:not(:first-of-type):not(:last-of-type) {
@@ -86,6 +84,7 @@ const StyledTimeList = styled.ol`
         bottom: 12%;
         height: 100%;
         border-radius: 0;
+        opacity: 0.8;
         transform: translateX(0);
       }
     }
@@ -151,7 +150,7 @@ const CurrentTimeIndicator = styled.div`
   color: ${(props) => props.theme.redHighlight};
   background: currentColor;
   width: 4px;
-  bottom: 0;
+  bottom: 5%;
   transform: translateY(65%);
   z-index: 6;
   position: absolute;
@@ -202,11 +201,10 @@ export default function TimeRange({ time, currentTime }) {
         .map(getMilitaryHours),
     [time]
   )
-  console.log(parsedTime)
   return (
     <TimeRangeContainer>
       {currentTime && <CurrentTimeIndicator style={{ left: `calc(4.16% * ${currentTime})` }} />}
-      {parsedTime.flatMap((time: Array<any>) => {
+      {parsedTime.map((time: Array<any>) => {
         if (time[1] < time[0]) {
           return [
             <ActiveHourMarker key={time.join() + '1'} style={{ width: `calc(4.16% * ${time[1]})` }} />,
@@ -225,7 +223,7 @@ export default function TimeRange({ time, currentTime }) {
       })}
       <StyledTimeList>
         {hoursInADay.map((hour) => (
-          <li key={hour} data-hour={getHourLabel(hour)} title={getHourLabel(hour + 1)}></li>
+          <li key={hour} title={getHourLabel(hour + 1)}></li>
         ))}
       </StyledTimeList>
     </TimeRangeContainer>

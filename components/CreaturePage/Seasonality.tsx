@@ -13,14 +13,13 @@ const SeasonContainer = styled.section`
 
 const SeasonTable = styled.table`
   width: 100%;
-  max-width: 30vw;
   border: 2px solid ${(props) => props.theme.borderColor};
   border-collapse: collapse;
 
   td {
     color: ${(props) => props.theme.grayText};
     font-size: 1.2em;
-    line-height: 2.1em;
+    line-height: 2.5em;
     padding-left: 0.5em;
     border-right: 2px solid ${(props) => props.theme.borderColor};
     border-bottom: 2px solid ${(props) => props.theme.borderColor};
@@ -33,7 +32,7 @@ const SeasonTable = styled.table`
       &:after {
         content: '';
         border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-        box-shadow: 0px 1px 10px -3px ${(props) => props.theme.redHighlight};
+        box-shadow: 0px 1px 10px -8px ${(props) => props.theme.redHighlight};
         border: 3px solid #d25233;
         opacity: 0.7;
         height: 100%;
@@ -69,7 +68,6 @@ export default function Seasonality(props) {
     ?.split(',')
     .map((month: string) => month.trim())
   const currentMonth = new Date().getMonth() + 1
-  console.log(currentMonth)
   const isActive = (month: string) => activeMonths.includes(month)
   const getMonthAttributes = (month, monthNumber) => ({
     ['aria-label']: month,
