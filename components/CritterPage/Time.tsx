@@ -3,7 +3,7 @@ import SectionHeader from './SectionHeader'
 import TimeRange from './TimeRange'
 import { useState, useEffect, useCallback } from 'react'
 
-const TimeContainer = styled.section`
+const TimeContainer = styled.div`
   grid-area: time;
   display: flex;
   justify-content: start;

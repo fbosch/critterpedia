@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import SectionHeader from './SectionHeader'
 
-const SeasonContainer = styled.section`
+const SeasonContainer = styled.div`
   grid-area: season;
   display: flex;
   justify-content: start;

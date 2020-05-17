@@ -1,13 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
+import Location from './Location'
 import CardLabel from '../CardLabel'
 import Head from 'next/head'
-import CreatePageGrid from './CreaturePageGrid'
+import CritterPageGrid from './CritterPageGrid'
 import Seasonality from './Seasonality'
 import Time from './Time'
 
 export default function CreaturePage(props) {
-  const { id, name, group, northern, time } = props
+  const { id, name, group, northern, time, location, vertical } = props
   const season = northern
   return (
     <>
@@ -16,7 +16,7 @@ export default function CreaturePage(props) {
           {name} • {group.charAt(0).toUpperCase() + group.slice(1)} • Critterpedia
         </title>
       </Head>
-      <CreatePageGrid>
+      <CritterPageGrid vertical={vertical}>
         <header>
           <h1>
             <CardLabel title={name} />
@@ -27,7 +27,8 @@ export default function CreaturePage(props) {
         </picture>
         <Seasonality season={season} />
         <Time time={time} />
-      </CreatePageGrid>
+        <Location location={location} />
+      </CritterPageGrid>
     </>
   )
 }

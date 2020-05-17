@@ -16,7 +16,7 @@ function getHourLabel(hour) {
 
 const ActiveHourMarker = styled.div`
   width: 100%;
-  height: 25%;
+  height: 1.3em;
   border-radius: 10px;
   position: absolute;
   bottom: 0;
@@ -28,7 +28,8 @@ const ActiveHourMarker = styled.div`
 const TimeRangeContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 40%;
+  height: 25%;
+  top: 10%;
 `
 
 const StyledTimeList = styled.ol`
@@ -36,7 +37,6 @@ const StyledTimeList = styled.ol`
   width: 100%;
   height: 100%;
   padding: 0;
-  margin: 5% 5% 0 5% 0;
   font-family: 'Helvetica Neue';
   font-weight: 500;
   border-bottom: 2px solid ${(props) => props.theme.grayText};
@@ -52,7 +52,7 @@ const StyledTimeList = styled.ol`
     position: relative;
     text-align: center;
     line-height: 1em;
-    width: 4.4%;
+    width: 4.16%;
 
     &:after {
       content: '';
@@ -151,7 +151,7 @@ const CurrentTimeIndicator = styled.div`
   background: currentColor;
   width: 4px;
   bottom: 5%;
-  transform: translateY(65%);
+  transform: translateY(70%);
   z-index: 6;
   position: absolute;
   transition: left 100ms linear;
@@ -210,7 +210,10 @@ export default function TimeRange({ time, currentTime }) {
             <ActiveHourMarker key={time.join() + '1'} style={{ width: `calc(4.16% * ${time[1]})` }} />,
             <ActiveHourMarker
               key={time.join() + '2'}
-              style={{ width: `calc(4.16% * ${time[1] - 1})`, left: `calc(4.16% * ${time[0]})` }}
+              style={{
+                width: `calc(4.16% * ${24 - time[0]})`,
+                left: `calc(4.16% * ${time[0]})`,
+              }}
             />,
           ]
         }

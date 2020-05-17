@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import CreaturePage from '../../components/CreaturePage'
+import CritterPage from '../../components/CritterPage'
 
 async function fetchFishes() {
   const fishes = await require('../../public/data/fishes.json')
@@ -21,7 +21,7 @@ export async function getStaticProps({ params }) {
 const Fish = ({ info }) => {
   const router = useRouter()
   const { id } = router.query
-  return <CreaturePage {...info} key={id} group='fish' />
+  return <CritterPage {...info} key={id} group='fish' />
 }
 
 export default Fish

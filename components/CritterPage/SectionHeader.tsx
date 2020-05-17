@@ -11,7 +11,8 @@ export default styled.header`
     font-family: 'Helvetica Neue';
     font-weight: 500;
     font-size: 1.4em;
-    transform: skew(-5deg);
+    transform: skew(-7deg);
+    font-style: italic;
     white-space: nowrap;
     &:after {
       content: '';
