@@ -15,13 +15,15 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const fishes = await fetchFishes()
   const info = fishes.find(({ id }) => id === params.id)
-  return { props: { info } }
+  const index = fishes.indexOf(info)
+  const neighbours = { prev: fishes[index - 1]?.id ?? null, next: fishes[index + 1]?.id ?? null }
+  return { props: { info, neighbours } }
 }
 
-const Fish = ({ info }) => {
+const Fish = ({ info, neighbours }) => {
   const router = useRouter()
   const { id } = router.query
-  return <CritterPage {...info} key={id} group='fish' />
+  return <CritterPage {...info} key={id} group='fish' neighbours={neighbours} />
 }
 
 export default Fish

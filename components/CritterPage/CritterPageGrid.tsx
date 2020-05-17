@@ -15,6 +15,7 @@ const CritterSection = styled.section`
   grid-row-gap: 2vh;
   grid-template-rows: 5vh 15vh 20vh 15vh;
   grid-template-areas:
+    'nav nav'
     'header header'
     'picture picture'
     'season season'
@@ -22,16 +23,18 @@ const CritterSection = styled.section`
     'location location';
 
   @media ${device.laptop} {
-    grid-template-rows: 5vh 30vh 20vh 0vh;
+    grid-template-rows: 1vh 2vh 28vh 20vh;
     grid-template-areas:
+      'nav nav'
       'header header'
       'picture picture'
       'season time'
       'location donation';
     &.vertical {
       grid-row-gap: 0vh;
-      grid-template-rows: 25vh 25vh 7vh 5vh;
+      grid-template-rows: 1vh 25vh 25vh 7vh 5vh;
       grid-template-areas:
+        'nav nav'
         'picture season'
         'picture time'
         'header location'
