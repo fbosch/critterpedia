@@ -103,7 +103,7 @@ export default styled.li`
     border: 2px dashed ${(props) => props.theme.darkGrayAccent};
   }
 
-   a:focus, a:active {
+   a:focus, a:hover, a:active {
     background-image: none;
     outline: none;
     &:after {

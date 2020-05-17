@@ -33,10 +33,8 @@ function CardEntry(props: CardEntryProps) {
           })
           const defferedHashChange = window.setInterval(() => {
             window.clearInterval(defferedHashChange)
-            window.requestAnimationFrame(() => {
-              window.location.hash = id
-              target.setAttribute('id', id)
-            })
+            window.location.hash = id
+            target.setAttribute('id', id)
           }, 250)
         })
       }
@@ -44,13 +42,13 @@ function CardEntry(props: CardEntryProps) {
     [id]
   )
 
-  const handleClick = useCallback(
-    (event: React.MouseEvent) => {
-      if (window.location.hash?.replace('#', '') === id) return
-      event.preventDefault()
-    },
-    [id]
-  )
+  // const handleClick = useCallback(
+  //   (event: React.MouseEvent) => {
+  //     if (window.location.hash?.replace('#', '') === id) return
+  //     event.preventDefault()
+  //   },
+  //   [id]
+  // )
 
   const handleDoubleClick = useCallback(() => {
     event.preventDefault()
@@ -66,7 +64,6 @@ function CardEntry(props: CardEntryProps) {
           id={id}
           tabIndex={0}
           onDoubleClick={handleDoubleClick}
-          onClick={handleClick}
           onFocus={handleFocus}
           aria-label={title}
           title={title}

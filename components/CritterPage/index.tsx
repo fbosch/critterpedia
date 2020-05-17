@@ -25,14 +25,14 @@ function Navigation({ neighbours, group }) {
   return (
     <StyledNavigation>
       {neighbours.prev ? (
-        <Link href={`/${group}/${neighbours.prev}`}>
+        <Link href={`/${group}/[id]`} as={`/${group}/${neighbours.prev}`}>
           <a>Previous</a>
         </Link>
       ) : (
         <span />
       )}
       {neighbours.next ? (
-        <Link href={`/${group}/${neighbours.next}`}>
+        <Link href={`/${group}/[id]`} as={`/${group}/${neighbours.next}`}>
           <a>Next</a>
         </Link>
       ) : (

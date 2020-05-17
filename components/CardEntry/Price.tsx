@@ -18,7 +18,8 @@ export default styled.span`
   letter-spacing: 0.06em;
   z-index: 4;
 
-  a:focus & {
+  a:focus &,
+  a:hover & {
     opacity: 1;
   }
 

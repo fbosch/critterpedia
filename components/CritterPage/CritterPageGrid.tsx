@@ -15,7 +15,6 @@ const CritterSection = styled.section`
   grid-row-gap: 2vh;
   grid-template-rows: 5vh 15vh 20vh 15vh;
   grid-template-areas:
-    'nav nav'
     'header header'
     'picture picture'
     'season season'
