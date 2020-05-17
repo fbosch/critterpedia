@@ -5,7 +5,7 @@
     "price": 160,
     "location": "Above Flowers",
     "time": "4am - 7pm",
-    "season": "April, December, Februrary, January, June, March, May, November, October, September"
+    "northern": "April, December, Februrary, January, June, March, May, November, October, September"
   },
   {
     "id": "yellowbutterfly",
@@ -13,7 +13,7 @@
     "price": 160,
     "location": "Flying",
     "time": "4am - 7pm",
-    "season": "April, June, March, May, October, September"
+    "northern": "April, June, March, May, October, September"
   },
   {
     "id": "tigerbutterfly",
@@ -21,7 +21,7 @@
     "price": 240,
     "location": "Flying",
     "time": "4am - 7pm",
-    "season": "March, April, May, June, July, August, September"
+    "northern": "March, April, May, June, July, August, September"
   },
   {
     "id": "peacockbutterfly",
@@ -29,7 +29,7 @@
     "price": 2500,
     "location": "Above Purple, Black and Blue Flowers",
     "time": "4am - 7pm",
-    "season": "April, June, March, May"
+    "northern": "April, June, March, May"
   },
   {
     "id": "commonbluebottle",
@@ -37,7 +37,7 @@
     "price": 300,
     "location": "Flying",
     "time": "4am - 7pm",
-    "season": "April, July, June, May"
+    "northern": "April, July, June, May"
   },
   {
     "id": "paperkitebutterfly",
@@ -45,7 +45,7 @@
     "price": 1000,
     "location": "Flying",
     "time": "8am - 7pm",
-    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
   },
   {
     "id": "greatpurpleemperor",
@@ -53,7 +53,7 @@
     "price": 3000,
     "location": "Flying",
     "time": "4am - 7pm",
-    "season": "August, July, June, May"
+    "northern": "August, July, June, May"
   },
   {
     "id": "monarchbutterfly",
@@ -61,7 +61,7 @@
     "price": 140,
     "location": "Flying",
     "time": "4am - 7pm",
-    "season": "November, October, September"
+    "northern": "November, October, September"
   },
   {
     "id": "emperorbutterfly",
@@ -69,7 +69,7 @@
     "price": 4000,
     "location": "Flying",
     "time": "5pm - 8am",
-    "season": "August, December, Februrary, January, July, June, March, September"
+    "northern": "August, December, Februrary, January, July, June, March, September"
   },
   {
     "id": "agriasbutterfly",
@@ -77,7 +77,7 @@
     "price": 3000,
     "location": "Flying",
     "time": "8am - 5pm",
-    "season": "April, August, July, June, May, September"
+    "northern": "April, August, July, June, May, September"
   },
   {
     "id": "rajahbrookesbirdwing",
@@ -85,7 +85,7 @@
     "price": 2500,
     "location": "Above Flowers",
     "time": "8am - 5pm",
-    "season": "April, August, December, Februrary, January, July, June, May, September"
+    "northern": "April, August, December, Februrary, January, July, June, May, September"
   },
   {
     "id": "queenalexandrasbirdwing",
@@ -93,7 +93,7 @@
     "price": 4000,
     "location": "Flying",
     "time": "8am - 4pm",
-    "season": "August, July, June, May, September"
+    "northern": "August, July, June, May, September"
   },
   {
     "id": "moth",
@@ -101,7 +101,7 @@
     "price": 130,
     "location": "Flying Around Light",
     "time": "7pm  - 4am",
-    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
   },
   {
     "id": "atlasmoth",
@@ -109,7 +109,7 @@
     "price": 3000,
     "location": "On Trees",
     "time": "7pm - 4am",
-    "season": "April, August, July, June, May, September"
+    "northern": "April, August, July, June, May, September"
   },
   {
     "id": "madagascansunsetmoth",
@@ -117,7 +117,7 @@
     "price": 2500,
     "location": "Flying",
     "time": "8am - 4pm",
-    "season": "April, August, July, June, May, September"
+    "northern": "April, August, July, June, May, September"
   },
   {
     "id": "longlocust",
@@ -125,7 +125,7 @@
     "price": 200,
     "location": "On The Ground",
     "time": "8am - 7pm",
-    "season": "April, August, July, June, May, November, October, September"
+    "northern": "April, August, July, June, May, November, October, September"
   },
   {
     "id": "migratorylocust",
@@ -133,7 +133,7 @@
     "price": 600,
     "location": "On The Ground",
     "time": "8am - 7pm",
-    "season": "August, November, October, September"
+    "northern": "August, November, October, September"
   },
   {
     "id": "ricegrasshopper",
@@ -141,7 +141,7 @@
     "price": 160,
     "location": "On The Ground",
     "time": "8am - 7pm",
-    "season": "August, November, October, September"
+    "northern": "August, November, October, September"
   },
   {
     "id": "grasshopper",
@@ -149,7 +149,7 @@
     "price": 160,
     "location": "On The Ground",
     "time": "8am - 5pm",
-    "season": "August, July, September"
+    "northern": "August, July, September"
   },
   {
     "id": "cricket",
@@ -157,7 +157,7 @@
     "price": 130,
     "location": "On The Ground",
     "time": "5pm - 8am",
-    "season": "November, October, September"
+    "northern": "November, October, September"
   },
   {
     "id": "bellcricket",
@@ -165,7 +165,7 @@
     "price": 430,
     "location": "On The Ground",
     "time": "5pm - 8am",
-    "season": "October, September"
+    "northern": "October, September"
   },
   {
     "id": "mantis",
@@ -173,7 +173,7 @@
     "price": 430,
     "location": "On Flowers",
     "time": "8am - 5pm",
-    "season": "April, August, July, June, March, May, November, October, September"
+    "northern": "April, August, July, June, March, May, November, October, September"
   },
   {
     "id": "orchidmantis",
@@ -181,7 +181,7 @@
     "price": 2400,
     "location": "On Flowers (White)",
     "time": "8am - 5pm",
-    "season": "April, August, July, June, March, May, November, October, September"
+    "northern": "April, August, July, June, March, May, November, October, September"
   },
   {
     "id": "honeybee",
@@ -189,7 +189,7 @@
     "price": 200,
     "location": "Above Flowers",
     "time": "8am - 5pm",
-    "season": "April, July, June, March, May"
+    "northern": "April, July, June, March, May"
   },
   {
     "id": "wasp",
@@ -197,7 +197,7 @@
     "price": 2500,
     "location": "Shaking Trees",
     "time": "All Day",
-    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
   },
   {
     "id": "browncicada",
@@ -205,7 +205,7 @@
     "price": 250,
     "location": "On Trees",
     "time": "8am - 5pm",
-    "season": "August, July"
+    "northern": "August, July"
   },
   {
     "id": "robustcicada",
@@ -213,7 +213,7 @@
     "price": 300,
     "location": "On Trees",
     "time": "8am - 5pm",
-    "season": "August, July"
+    "northern": "August, July"
   },
   {
     "id": "giantcicada",
@@ -221,7 +221,7 @@
     "price": 500,
     "location": "On Trees",
     "time": "8am - 5pm",
-    "season": "August, July"
+    "northern": "August, July"
   },
   {
     "id": "walkercicada",
@@ -229,7 +229,7 @@
     "price": 400,
     "location": "On Trees",
     "time": "8am - 4pm",
-    "season": "August, September"
+    "northern": "August, September"
   },
   {
     "id": "eveningcicada",
@@ -237,7 +237,7 @@
     "price": 550,
     "location": "On Trees",
     "time": "4am - 8am & 4pm - 7pm",
-    "season": "August, July"
+    "northern": "August, July"
   },
   {
     "id": "cicadashell",
@@ -245,7 +245,7 @@
     "price": 10,
     "location": "On Trees",
     "time": "All Day",
-    "season": "August, July"
+    "northern": "August, July"
   },
   {
     "id": "reddragonfly",
@@ -253,7 +253,7 @@
     "price": 180,
     "location": "Flying",
     "time": "8am - 7pm",
-    "season": "October, September"
+    "northern": "October, September"
   },
   {
     "id": "darnerdragonfly",
@@ -261,7 +261,7 @@
     "price": 230,
     "location": "Flying",
     "time": "8am - 5pm",
-    "season": "April, August, July, June, May, October, September"
+    "northern": "April, August, July, June, May, October, September"
   },
   {
     "id": "bandeddragonfly",
@@ -269,7 +269,7 @@
     "price": 4500,
     "location": "Flying",
     "time": "8am - 5pm",
-    "season": "August, July, June, May, September"
+    "northern": "August, July, June, May, September"
   },
   {
     "id": "damselfly",
@@ -277,7 +277,7 @@
     "price": 500,
     "location": "Flying",
     "time": "All Day",
-    "season": "December, Februrary, January, November"
+    "northern": "December, Februrary, January, November"
   },
   {
     "id": "firefly",
@@ -285,7 +285,7 @@
     "price": 300,
     "location": "Flying",
     "time": "7pm - 4pm",
-    "season": "June"
+    "northern": "June"
   },
   {
     "id": "molecricket",
@@ -293,7 +293,7 @@
     "price": 500,
     "location": "Undeground",
     "time": "All Day",
-    "season": "December, Februrary, January, March, May, November"
+    "northern": "December, Februrary, January, March, May, November"
   },
   {
     "id": "pondskater",
@@ -301,7 +301,7 @@
     "price": 130,
     "location": "On Ponds and Rivers",
     "time": "8am - 7pm",
-    "season": "August, July, June, May, September"
+    "northern": "August, July, June, May, September"
   },
   {
     "id": "divingbeetle",
@@ -309,7 +309,7 @@
     "price": 800,
     "location": "On Ponds and Rivers",
     "time": "8am - 7pm",
-    "season": "August, July, June, May, September"
+    "northern": "August, July, June, May, September"
   },
   {
     "id": "giantwaterbug",
@@ -317,7 +317,7 @@
     "price": 2000,
     "location": "On Ponds and Rivers",
     "time": "7pm - 8am",
-    "season": "April, August, July, June, May, September"
+    "northern": "April, August, July, June, May, September"
   },
   {
     "id": "stinkbug",
@@ -325,7 +325,7 @@
     "price": 120,
     "location": "On Flowers",
     "time": "All Day",
-    "season": "April, August, July, June, March, May, September"
+    "northern": "April, August, July, June, March, May, September"
   },
   {
     "id": "manfacedstinkbug",
@@ -333,7 +333,7 @@
     "price": 1000,
     "location": "On Flowers",
     "time": "7pm - 8am",
-    "season": "April, August, July, June, March, May, September"
+    "northern": "April, August, July, June, March, May, September"
   },
   {
     "id": "ladybug",
@@ -341,7 +341,7 @@
     "price": 200,
     "location": "On Flowers",
     "time": "8am - 5pm",
-    "season": "April, June, March, May, October"
+    "northern": "April, June, March, May, October"
   },
   {
     "id": "tigerbeetle",
@@ -349,7 +349,7 @@
     "price": 1500,
     "location": "Flying",
     "time": "All Day",
-    "season": "April, August, Februrary, July, June, March, May, September"
+    "northern": "April, August, Februrary, July, June, March, May, September"
   },
   {
     "id": "jewelbeetle",
@@ -357,7 +357,7 @@
     "price": 2400,
     "location": "On Tree Stumps",
     "time": "All Day",
-    "season": "April, August, July, June, May"
+    "northern": "April, August, July, June, May"
   },
   {
     "id": "citruslonghornedbeetle",
@@ -365,7 +365,7 @@
     "price": 350,
     "location": "On Tree Stumps",
     "time": "All Day",
-    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
   },
   {
     "id": "rosaliabatesibeetle",
@@ -373,7 +373,7 @@
     "price": 3000,
     "location": "On Tree Stumps",
     "time": "All Day",
-    "season": "August, July, June, May, September"
+    "northern": "August, July, June, May, September"
   },
   {
     "id": "blueweevilbeetle",
@@ -381,7 +381,7 @@
     "price": 800,
     "location": "On Trees",
     "time": "All Day",
-    "season": "August, July"
+    "northern": "August, July"
   },
   {
     "id": "violinbeetle",
@@ -389,7 +389,7 @@
     "price": 450,
     "location": "On Trees",
     "time": "All Day",
-    "season": "June, May, October, September"
+    "northern": "June, May, October, September"
   },
   {
     "id": "dungbeetle",
@@ -397,7 +397,7 @@
     "price": 3000,
     "location": "On The Ground (Rolling Snowballs)",
     "time": "All Day",
-    "season": "December, Februrary, January"
+    "northern": "December, Februrary, January"
   },
   {
     "id": "earthboringdungbeetle",
@@ -405,7 +405,7 @@
     "price": 300,
     "location": "On The Ground",
     "time": "All Day",
-    "season": "August, July, September"
+    "northern": "August, July, September"
   },
   {
     "id": "scarabbeetle",
@@ -413,7 +413,7 @@
     "price": 10000,
     "location": "On Trees",
     "time": "11pm - 8am",
-    "season": "August, July"
+    "northern": "August, July"
   },
   {
     "id": "dronebeetle",
@@ -421,7 +421,7 @@
     "price": 200,
     "location": "On Trees",
     "time": "All Day",
-    "season": "August, July, June"
+    "northern": "August, July, June"
   },
   {
     "id": "goliathbeetle",
@@ -429,7 +429,7 @@
     "price": 8000,
     "location": "On Trees (Coconut)",
     "time": "5pm - 8am",
-    "season": "August, July, June, September"
+    "northern": "August, July, June, September"
   },
   {
     "id": "sawstag",
@@ -437,7 +437,7 @@
     "price": 2000,
     "location": "On Trees",
     "time": "All Day",
-    "season": "August, July"
+    "northern": "August, July"
   },
   {
     "id": "miyamastag",
@@ -445,7 +445,7 @@
     "price": 1000,
     "location": "On Trees",
     "time": "All Day",
-    "season": "August, July"
+    "northern": "August, July"
   },
   {
     "id": "giantstag",
@@ -453,7 +453,7 @@
     "price": 10000,
     "location": "On Trees",
     "time": "11pm - 8am",
-    "season": "August, July"
+    "northern": "August, July"
   },
   {
     "id": "rainbowstag",
@@ -461,7 +461,7 @@
     "price": 6000,
     "location": "On Trees",
     "time": "7pm - 8am",
-    "season": "August, July, June, September"
+    "northern": "August, July, June, September"
   },
   {
     "id": "cyclommatusstag",
@@ -469,7 +469,7 @@
     "price": 8000,
     "location": "On Trees",
     "time": "5pm - 8am",
-    "season": "August, July"
+    "northern": "August, July"
   },
   {
     "id": "goldenstag",
@@ -477,7 +477,7 @@
     "price": 12000,
     "location": "On Trees",
     "time": "5pm - 8am",
-    "season": "August, July"
+    "northern": "August, July"
   },
   {
     "id": "giraffestag",
@@ -485,7 +485,7 @@
     "price": 12000,
     "location": "On Trees",
     "time": "5pm - 8am",
-    "season": "August, July"
+    "northern": "August, July"
   },
   {
     "id": "horneddynastid",
@@ -493,7 +493,7 @@
     "price": 1350,
     "location": "On Trees",
     "time": "5pm - 8am",
-    "season": "August, July"
+    "northern": "August, July"
   },
   {
     "id": "hornedatlas",
@@ -501,7 +501,7 @@
     "price": 8000,
     "location": "On Trees",
     "time": "5pm - 8am",
-    "season": "August, July"
+    "northern": "August, July"
   },
   {
     "id": "hornedelephant",
@@ -509,7 +509,7 @@
     "price": 8000,
     "location": "On Trees",
     "time": "5pm - 8am",
-    "season": "August, July"
+    "northern": "August, July"
   },
   {
     "id": "hornedhercules",
@@ -517,7 +517,7 @@
     "price": 12000,
     "location": "On Trees",
     "time": "5pm - 8am",
-    "season": "August, July"
+    "northern": "August, July"
   },
   {
     "id": "walkingstick",
@@ -525,7 +525,7 @@
     "price": 600,
     "location": "On Trees",
     "time": "4am - 8am & 5pm - 7pm",
-    "season": "August, July, November, October, September"
+    "northern": "August, July, November, October, September"
   },
   {
     "id": "walkingleaf",
@@ -533,7 +533,7 @@
     "price": 600,
     "location": "On The Ground (Beneath Trees)",
     "time": "All Day",
-    "season": "August, July, September"
+    "northern": "August, July, September"
   },
   {
     "id": "bagworm",
@@ -541,7 +541,7 @@
     "price": 600,
     "location": "Shaking Trees",
     "time": "All Day",
-    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
   },
   {
     "id": "ant",
@@ -549,7 +549,7 @@
     "price": 80,
     "location": "On Rotten Turnips and Fruit",
     "time": "All Day",
-    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
   },
   {
     "id": "hermitcrab",
@@ -557,7 +557,7 @@
     "price": 1000,
     "location": "On Beach",
     "time": "7pm - 8am",
-    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
   },
   {
     "id": "wharfroach",
@@ -565,7 +565,7 @@
     "price": 200,
     "location": "On Beach (Rocks)",
     "time": "All Day",
-    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
   },
   {
     "id": "fly",
@@ -573,7 +573,7 @@
     "price": 60,
     "location": "On Rotten Food and Garbage",
     "time": "All Day",
-    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
   },
   {
     "id": "mosquito",
@@ -581,7 +581,7 @@
     "price": 130,
     "location": "Flying",
     "time": "5pm - 4am",
-    "season": "August, July, June, September"
+    "northern": "August, July, June, September"
   },
   {
     "id": "flea",
@@ -589,7 +589,7 @@
     "price": 70,
     "location": "On Flea-infested Villager",
     "time": "All Day",
-    "season": "April, August, July, June, May, November, October, September"
+    "northern": "April, August, July, June, May, November, October, September"
   },
   {
     "id": "snail",
@@ -597,7 +597,7 @@
     "price": 250,
     "location": "On Rocks (Rain)",
     "time": "All Day",
-    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
   },
   {
     "id": "pillbug",
@@ -605,7 +605,7 @@
     "price": 250,
     "location": "Hitting Rocks",
     "time": "11pm - 4pm",
-    "season": "April, December, Februrary, January, June, March, May, November, October, September"
+    "northern": "April, December, Februrary, January, June, March, May, November, October, September"
   },
   {
     "id": "centipede",
@@ -613,7 +613,7 @@
     "price": 300,
     "location": "Hitting Rocks",
     "time": "5pm - 11pm",
-    "season": "April, December, Februrary, January, June, March, May, November, October, September"
+    "northern": "April, December, Februrary, January, June, March, May, November, October, September"
   },
   {
     "id": "spider",
@@ -621,7 +621,7 @@
     "price": 480,
     "location": "Shaking Trees",
     "time": "7pm - 8am",
-    "season": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, Februrary, January, July, June, March, May, November, October, September"
   },
   {
     "id": "tarantula",
@@ -629,7 +629,7 @@
     "price": 8000,
     "location": "On The Ground",
     "time": "7pm - 4am",
-    "season": "April, December, Februrary, January, March, November"
+    "northern": "April, December, Februrary, January, March, November"
   },
   {
     "id": "scorpion",
@@ -637,6 +637,6 @@
     "price": 8000,
     "location": "On The Ground",
     "time": "7pm - 4am",
-    "season": "August, July, June, May, October, September"
+    "northern": "August, July, June, May, October, September"
   }
 ]

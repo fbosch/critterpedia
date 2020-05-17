@@ -2,6 +2,10 @@ import { createGlobalStyle } from 'styled-components'
 import { getFontFamily, getBodyBackground, ios, standalone } from '../theme'
 
 export default createGlobalStyle`
+  ::selection {
+    background: ${(props) => props.theme.greenHighlight};
+  }
+
   html {
     overflow-y: hidden;
     margin: 0;

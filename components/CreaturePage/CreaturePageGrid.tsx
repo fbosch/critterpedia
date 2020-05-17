@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import { device } from '../../theme'
 
 const CreatureSection = styled.section`
   display: block;
   /* background: red; */
   display: grid;
-  grid-template-columns: 100%;
+  grid-template-columns: 50% 50%;
   grid-template-rows: 10vh 30vh 20vh 10vh;
   height: 100%;
   font-size: 1.5vh;
@@ -14,10 +15,20 @@ const CreatureSection = styled.section`
   grid-template-areas:
     'header header'
     'picture picture'
-    'season time'
+    'season season'
+    'time time'
     'location donation';
 
+  @media ${device.tablet} {
+    grid-template-areas:
+      'header header'
+      'picture picture'
+      'season time'
+      'location donation';
+  }
+
   picture {
+    user-select: none;
     grid-area: picture;
     image-rendering: smooth;
     img {
@@ -33,7 +44,7 @@ const CreatureSection = styled.section`
     }
   }
 
-  header {
+  > header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,7 +52,7 @@ const CreatureSection = styled.section`
     width: 100%;
     height: 10vh;
     font-size: 0.8em;
-    grid-area: 'header';
+    grid-area: header;
     h1 span {
       position: static;
     }

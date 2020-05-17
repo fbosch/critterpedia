@@ -3,6 +3,11 @@ export type ThemeType = {
   orangeAccent: string
   grayAccent: string
   darkGrayAccent: string
+  yellowGreen: string
+  greenHighlight: string
+  greenText: string
+  grayText: string
+  redHighlight: string
   lightYellow: string
   borderColor: string
   fontFamily: string
@@ -44,9 +49,14 @@ const theme: ThemeType = {
   orangeAccent: '#F8CC63',
   grayAccent: '#7d756f',
   darkGrayAccent: '#757261',
+  greenHighlight: '#ddd992',
+  greenText: '#415303',
+  grayText: '#525236',
+  redHighlight: '#D25233',
   lightYellow: '#F7F6E1',
+  yellowGreen: '#CBBB0E',
   borderColor: '#D9D1A1',
-  fontFamily: 'Humming, Calibri, arial',
+  fontFamily: 'Humming, "Helvetica Neue", Calibri, arial',
   detailBorderRadius: '22% 22% 22% 22% / 40% 40% 40% 40%',
   timingFunction,
 }

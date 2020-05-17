@@ -5,8 +5,8 @@
     "price": 900,
     "location": "River",
     "time": "All Day",
-    "north": "December, February, January, March, November",
-    "south": "August, July, June, May, September"
+    "northern": "December, February, January, March, November",
+    "southern": "August, July, June, May, September"
   },
   {
     "id": "palechub",
@@ -14,8 +14,8 @@
     "price": 160,
     "location": "River",
     "time": "9am - 4pm",
-    "north": "April, August, December, February, January, July, June, March, May, November, October, September",
-    "south": "April, August, December, February, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
+    "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   },
   {
     "id": "cruciancarp",
@@ -23,8 +23,8 @@
     "price": 160,
     "location": "River",
     "time": "All Day",
-    "north": "April, August, December, February, January, July, June, March, May, November, October, September",
-    "south": "April, August, December, February, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
+    "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   },
   {
     "id": "dace",
@@ -32,8 +32,8 @@
     "price": 240,
     "location": "River",
     "time": "4pm - 9am",
-    "north": "April, August, December, February, January, July, June, March, May, November, October, September",
-    "south": "April, August, December, February, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
+    "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   },
   {
     "id": "carp",
@@ -41,8 +41,8 @@
     "price": 300,
     "location": "Pond",
     "time": "All Day",
-    "north": "April, August, December, February, January, July, June, March, May, November, October, September",
-    "south": "April, August, December, February, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
+    "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   },
   {
     "id": "koi",
@@ -50,8 +50,8 @@
     "price": 4000,
     "location": "Pond",
     "time": "4pm - 9am",
-    "north": "April, August, December, February, January, July, June, March, May, November, October, September",
-    "south": "April, August, December, February, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
+    "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   },
   {
     "id": "goldfish",
@@ -59,8 +59,8 @@
     "price": 1300,
     "location": "Pond",
     "time": "All Day",
-    "north": "April, August, December, February, January, July, June, March, May, November, October, September",
-    "south": "April, August, December, February, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
+    "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   },
   {
     "id": "popeyedgoldfish",
@@ -68,8 +68,8 @@
     "price": 1300,
     "location": "Pond",
     "time": "9am - 4pm",
-    "north": "April, August, December, February, January, July, June, March, May, November, October, September",
-    "south": "April, August, December, February, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
+    "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   },
   {
     "id": "ranchugoldfish",
@@ -77,8 +77,8 @@
     "price": 4500,
     "location": "Pond",
     "time": "9am - 4pm",
-    "north": "April, August, December, February, January, July, June, March, May, November, October, September",
-    "south": "April, August, December, February, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
+    "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   },
   {
     "id": "killifish",
@@ -86,8 +86,8 @@
     "price": 300,
     "location": "Pond",
     "time": "All Day",
-    "north": "April, August, July, June, May",
-    "south": "December, February, January, November, October"
+    "northern": "April, August, July, June, May",
+    "southern": "December, February, January, November, October"
   },
   {
     "id": "crawfish",
@@ -95,8 +95,8 @@
     "price": 200,
     "location": "Pond",
     "time": "All Day",
-    "north": "April, August, July, June, May, September",
-    "south": "December, February, January, March, November, October"
+    "northern": "April, August, July, June, May, September",
+    "southern": "December, February, January, March, November, October"
   },
   {
     "id": "softshelledturtle",
@@ -104,8 +104,8 @@
     "price": 3750,
     "location": "River",
     "time": "4pm - 9am",
-    "north": "August, September",
-    "south": "February, March"
+    "northern": "August, September",
+    "southern": "February, March"
   },
   {
     "id": "snappingturtle",
@@ -113,8 +113,8 @@
     "price": 5000,
     "location": "River",
     "time": "9pm - 4am",
-    "north": "April, August, July, June, May, October, September",
-    "south": "April, December, February, January, March, November, October"
+    "northern": "April, August, July, June, May, October, September",
+    "southern": "April, December, February, January, March, November, October"
   },
   {
     "id": "tadpole",
@@ -122,8 +122,8 @@
     "price": 120,
     "location": "Pond",
     "time": "All Day",
-    "north": "April, July, June, March, May",
-    "south": "December, January, November, October, September"
+    "northern": "April, July, June, March, May",
+    "southern": "December, January, November, October, September"
   },
   {
     "id": "frog",
@@ -131,8 +131,8 @@
     "price": 120,
     "location": "Pond",
     "time": "All Day",
-    "north": "August, July, June, May",
-    "south": "December, February, January, November"
+    "northern": "August, July, June, May",
+    "southern": "December, February, January, November"
   },
   {
     "id": "freshwatergoby",
@@ -140,8 +140,8 @@
     "price": 400,
     "location": "River",
     "time": "4pm - 9am",
-    "north": "April, August, December, February, January, July, June, March, May, November, October, September",
-    "south": "April, August, December, February, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
+    "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   },
   {
     "id": "loach",
@@ -149,8 +149,8 @@
     "price": 400,
     "location": "River",
     "time": "All Day",
-    "north": "April, March, May",
-    "south": "November, October, September"
+    "northern": "April, March, May",
+    "southern": "November, October, September"
   },
   {
     "id": "catfish",
@@ -158,8 +158,8 @@
     "price": 800,
     "location": "Pond",
     "time": "4pm - 9am",
-    "north": "August, July, June, May, October, September",
-    "south": "April, December, February, January, March, November"
+    "northern": "August, July, June, May, October, September",
+    "southern": "April, December, February, January, March, November"
   },
   {
     "id": "giantsnakehead",
@@ -167,8 +167,8 @@
     "price": 5500,
     "location": "Pond",
     "time": "9am - 4pm",
-    "north": "August, July, June",
-    "south": "December, February, January"
+    "northern": "August, July, June",
+    "southern": "December, February, January"
   },
   {
     "id": "bluegill",
@@ -176,8 +176,8 @@
     "price": 180,
     "location": "River",
     "time": "9am - 4pm",
-    "north": "April, August, December, February, January, July, June, March, May, November, October, September",
-    "south": "April, August, December, February, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
+    "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   },
   {
     "id": "yellowperch",
@@ -185,8 +185,8 @@
     "price": 300,
     "location": "River",
     "time": "All Day",
-    "north": "December, February, January, March, November, October",
-    "south": "April, August, July, June, May, September"
+    "northern": "December, February, January, March, November, October",
+    "southern": "April, August, July, June, May, September"
   },
   {
     "id": "blackbass",
@@ -194,8 +194,8 @@
     "price": 400,
     "location": "River",
     "time": "All Day",
-    "north": "April, August, December, February, January, July, June, March, May, November, October, September",
-    "south": "April, August, December, February, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
+    "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   },
   {
     "id": "tilapia",
@@ -203,8 +203,8 @@
     "price": 800,
     "location": "River",
     "time": "All Day",
-    "north": "August, July, June, October, September",
-    "south": "April, December, February, January, March"
+    "northern": "August, July, June, October, September",
+    "southern": "April, December, February, January, March"
   },
   {
     "id": "pike",
@@ -212,8 +212,8 @@
     "price": 1800,
     "location": "River",
     "time": "All Day",
-    "north": "December, November, October, September",
-    "south": "April, June, March, May"
+    "northern": "December, November, October, September",
+    "southern": "April, June, March, May"
   },
   {
     "id": "pondsmelt",
@@ -221,8 +221,8 @@
     "price": 500,
     "location": "River",
     "time": "All Day",
-    "north": "December, February, January",
-    "south": "August, July, June"
+    "northern": "December, February, January",
+    "southern": "August, July, June"
   },
   {
     "id": "sweetfish",
@@ -230,8 +230,8 @@
     "price": 900,
     "location": "River",
     "time": "All Day",
-    "north": "August, July, September",
-    "south": "December, February, January, March"
+    "northern": "August, July, September",
+    "southern": "December, February, January, March"
   },
   {
     "id": "cherrysalmon",
@@ -239,8 +239,8 @@
     "price": 1000,
     "location": "River (Clifftop)",
     "time": "4pm - 9am",
-    "north": "April, June, March, May, November, October, September",
-    "south": "April, December, March, May, November, October, September"
+    "northern": "April, June, March, May, November, October, September",
+    "southern": "April, December, March, May, November, October, September"
   },
   {
     "id": "char",
@@ -248,8 +248,8 @@
     "price": 3800,
     "location": "River (Clifftop)",
     "time": "4pm - 9am",
-    "north": "April, June, March, May, November, October, September",
-    "south": "April, December, March, May, November, October, September"
+    "northern": "April, June, March, May, November, October, September",
+    "southern": "April, December, March, May, November, October, September"
   },
   {
     "id": "goldentrout",
@@ -257,8 +257,8 @@
     "price": 15000,
     "location": "River (Clifftop)",
     "time": "4pm - 9am",
-    "north": "April, March, May, November, October, September",
-    "south": "April, March, May, November, October, September"
+    "northern": "April, March, May, November, October, September",
+    "southern": "April, March, May, November, October, September"
   },
   {
     "id": "stringfish",
@@ -266,8 +266,8 @@
     "price": 15000,
     "location": "River (Clifftop)",
     "time": "4pm - 9am",
-    "north": "December, February, January, March",
-    "south": "August, July, June, September"
+    "northern": "December, February, January, March",
+    "southern": "August, July, June, September"
   },
   {
     "id": "salmon",
@@ -275,8 +275,8 @@
     "price": 700,
     "location": "River (Mouth)",
     "time": "All Day",
-    "north": "September",
-    "south": "March"
+    "northern": "September",
+    "southern": "March"
   },
   {
     "id": "kingsalmon",
@@ -284,8 +284,8 @@
     "price": 1800,
     "location": "River (Mouth)",
     "time": "All Day",
-    "north": "September",
-    "south": "March"
+    "northern": "September",
+    "southern": "March"
   },
   {
     "id": "mittencrab",
@@ -293,8 +293,8 @@
     "price": 2000,
     "location": "River",
     "time": "4pm - 9am",
-    "north": "November, October, September",
-    "south": "April, March, May"
+    "northern": "November, October, September",
+    "southern": "April, March, May"
   },
   {
     "id": "guppy",
@@ -302,8 +302,8 @@
     "price": 1300,
     "location": "River",
     "time": "9am - 4pm",
-    "north": "April, August, July, June, May, November, October, September",
-    "south": "April, February, January, March, May, November, October"
+    "northern": "April, August, July, June, May, November, October, September",
+    "southern": "April, February, January, March, May, November, October"
   },
   {
     "id": "nibblefish",
@@ -311,8 +311,8 @@
     "price": 1500,
     "location": "River",
     "time": "9am - 4pm",
-    "north": "August, July, June, May, September",
-    "south": "December, February, January, March, November"
+    "northern": "August, July, June, May, September",
+    "southern": "December, February, January, March, November"
   },
   {
     "id": "angelfish",
@@ -320,8 +320,8 @@
     "price": 3000,
     "location": "River",
     "time": "4pm - 9am",
-    "north": "August, July, June, May, October, September",
-    "south": "April, December, February, January, March, November"
+    "northern": "August, July, June, May, October, September",
+    "southern": "April, December, February, January, March, November"
   },
   {
     "id": "betta",
@@ -329,8 +329,8 @@
     "price": 2500,
     "location": "River",
     "time": "9am - 4pm",
-    "north": "August, July, June, May, October, September",
-    "south": "December, February, January, March, November"
+    "northern": "August, July, June, May, October, September",
+    "southern": "December, February, January, March, November"
   },
   {
     "id": "neontetra",
@@ -338,8 +338,8 @@
     "price": 500,
     "location": "River",
     "time": "9am - 4pm",
-    "north": "April, August, July, June, May, November, October, September",
-    "south": "April, December, February, January, March, May, November, October"
+    "northern": "April, August, July, June, May, November, October, September",
+    "southern": "April, December, February, January, March, May, November, October"
   },
   {
     "id": "rainbowfish",
@@ -347,8 +347,8 @@
     "price": 800,
     "location": "River",
     "time": "9am - 4pm",
-    "north": "August, July, June, May, October, September",
-    "south": "April, December, February, January, March, November"
+    "northern": "August, July, June, May, October, September",
+    "southern": "April, December, February, January, March, November"
   },
   {
     "id": "piranha",
@@ -356,8 +356,8 @@
     "price": 2500,
     "location": "River",
     "time": "9am - 4pm & 9pm - 4am",
-    "north": "August, July, June, September",
-    "south": "December, February, January, March"
+    "northern": "August, July, June, September",
+    "southern": "December, February, January, March"
   },
   {
     "id": "arowana",
@@ -365,8 +365,8 @@
     "price": 10000,
     "location": "River",
     "time": "4pm - 9am",
-    "north": "August, July, June, September",
-    "south": "December, February, January, March"
+    "northern": "August, July, June, September",
+    "southern": "December, February, January, March"
   },
   {
     "id": "dorado",
@@ -374,8 +374,8 @@
     "price": 6000,
     "location": "Pond",
     "time": "4pm - 9am",
-    "north": "August, July, June, September",
-    "south": "December, February, January, March"
+    "northern": "August, July, June, September",
+    "southern": "December, February, January, March"
   },
   {
     "id": "arapaima",
@@ -383,8 +383,8 @@
     "price": 10000,
     "location": "River",
     "time": "4pm - 9am",
-    "north": "August, July, June, September",
-    "south": "April, December, February, January, March"
+    "northern": "August, July, June, September",
+    "southern": "April, December, February, January, March"
   },
   {
     "id": "saddledbichir",
@@ -392,8 +392,8 @@
     "price": 4000,
     "location": "River",
     "time": "9pm - 4am",
-    "north": "August, July, June, September",
-    "south": "December, February, January, March"
+    "northern": "August, July, June, September",
+    "southern": "December, February, January, March"
   },
   {
     "id": "sturgeon",
@@ -401,8 +401,8 @@
     "price": 10000,
     "location": "River (Mouth)",
     "time": "All Day",
-    "north": "December, February, January, March, November, October, September",
-    "south": "April, August, July, June, March, May, September"
+    "northern": "December, February, January, March, November, October, September",
+    "southern": "April, August, July, June, March, May, September"
   },
   {
     "id": "seabutterfly",
@@ -410,8 +410,8 @@
     "price": 1000,
     "location": "Sea",
     "time": "All Day",
-    "north": "December, February, January, March",
-    "south": "August, July, June, September"
+    "northern": "December, February, January, March",
+    "southern": "August, July, June, September"
   },
   {
     "id": "seahorse",
@@ -419,8 +419,8 @@
     "price": 1100,
     "location": "Sea",
     "time": "All Day",
-    "north": "April, August, July, June, May, November, October, September",
-    "south": "April, February, January, March, May, November, October"
+    "northern": "April, August, July, June, May, November, October, September",
+    "southern": "April, February, January, March, May, November, October"
   },
   {
     "id": "clownfish",
@@ -428,8 +428,8 @@
     "price": 650,
     "location": "Sea",
     "time": "All Day",
-    "north": "April, August, July, June, May, September",
-    "south": "December, February, January, March, November, October"
+    "northern": "April, August, July, June, May, September",
+    "southern": "December, February, January, March, November, October"
   },
   {
     "id": "surgeonfish",
@@ -437,8 +437,8 @@
     "price": 1000,
     "location": "Sea",
     "time": "All Day",
-    "north": "April, August, July, June, May, September",
-    "south": "December, February, January, March, November, October"
+    "northern": "April, August, July, June, May, September",
+    "southern": "December, February, January, March, November, October"
   },
   {
     "id": "butterflyfish",
@@ -446,8 +446,8 @@
     "price": 1000,
     "location": "Sea",
     "time": "All Day",
-    "north": "April, August, July, June, May, September",
-    "south": "December, February, January, March, November, October"
+    "northern": "April, August, July, June, May, September",
+    "southern": "December, February, January, March, November, October"
   },
   {
     "id": "napoleonfish",
@@ -455,8 +455,8 @@
     "price": 10000,
     "location": "Sea",
     "time": "4am - 9pm",
-    "north": "August, July",
-    "south": "February, January"
+    "northern": "August, July",
+    "southern": "February, January"
   },
   {
     "id": "zebraturkeyfish",
@@ -464,8 +464,8 @@
     "price": 500,
     "location": "Sea",
     "time": "All Day",
-    "north": "April, August, July, June, May, November, October, September",
-    "south": "April, December, February, January, March, May, November, October"
+    "northern": "April, August, July, June, May, November, October, September",
+    "southern": "April, December, February, January, March, May, November, October"
   },
   {
     "id": "blowfish",
@@ -473,8 +473,8 @@
     "price": 5000,
     "location": "Sea",
     "time": "9pm - 4am",
-    "north": "December, February, January, November",
-    "south": "August, July, June, May"
+    "northern": "December, February, January, November",
+    "southern": "August, July, June, May"
   },
   {
     "id": "pufferfish",
@@ -482,8 +482,8 @@
     "price": 250,
     "location": "Sea",
     "time": "All Day",
-    "north": "August, July, September",
-    "south": "February, January, March"
+    "northern": "August, July, September",
+    "southern": "February, January, March"
   },
   {
     "id": "anchovy",
@@ -491,8 +491,8 @@
     "price": 200,
     "location": "Sea",
     "time": "4am - 9pm",
-    "north": "April, August, December, February, January, July, June, March, May, November, October, September",
-    "south": "April, August, December, February, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
+    "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   },
   {
     "id": "horsemackerel",
@@ -500,8 +500,8 @@
     "price": 150,
     "location": "Sea",
     "time": "All Day",
-    "north": "April, August, December, February, January, July, June, March, May, November, October, September",
-    "south": "April, August, December, February, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
+    "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   },
   {
     "id": "barredknifejaw",
@@ -509,8 +509,8 @@
     "price": 5000,
     "location": "Sea",
     "time": "All Day",
-    "north": "April, August, July, June, March, May, November, October, September",
-    "south": "April, December, February, January, March, May, November, October, September"
+    "northern": "April, August, July, June, March, May, November, October, September",
+    "southern": "April, December, February, January, March, May, November, October, September"
   },
   {
     "id": "seabass",
@@ -518,8 +518,8 @@
     "price": 400,
     "location": "Sea",
     "time": "All Day",
-    "north": "April, August, December, February, January, July, June, March, May, November, October, September",
-    "south": "April, August, December, February, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
+    "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   },
   {
     "id": "redsnapper",
@@ -527,8 +527,8 @@
     "price": 3000,
     "location": "Sea",
     "time": "All Day",
-    "north": "April, August, December, February, January, July, June, March, May, November, October, September",
-    "south": "April, August, December, February, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
+    "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   },
   {
     "id": "dab",
@@ -536,8 +536,8 @@
     "price": 300,
     "location": "Sea",
     "time": "All Day",
-    "north": "April, December, February, January, March, November, October",
-    "south": "August, October, September"
+    "northern": "April, December, February, January, March, November, October",
+    "southern": "August, October, September"
   },
   {
     "id": "oliveflounder",
@@ -545,8 +545,8 @@
     "price": 800,
     "location": "Sea",
     "time": "All Day",
-    "north": "April, August, December, February, January, July, June, March, May, November, October, September",
-    "south": "April, August, December, February, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
+    "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   },
   {
     "id": "squid",
@@ -554,8 +554,8 @@
     "price": 500,
     "location": "Sea",
     "time": "All Day",
-    "north": "April, August, December, February, January, July, June, March, May",
-    "south": "August, December, February, January, July, June, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May",
+    "southern": "August, December, February, January, July, June, November, October, September"
   },
   {
     "id": "morayeel",
@@ -563,8 +563,8 @@
     "price": 2000,
     "location": "Sea",
     "time": "All Day",
-    "north": "August, October, September",
-    "south": "April, February, March"
+    "northern": "August, October, September",
+    "southern": "April, February, March"
   },
   {
     "id": "ribboneel",
@@ -572,8 +572,8 @@
     "price": 600,
     "location": "Sea",
     "time": "All Day",
-    "north": "August, July, June, October, September",
-    "south": "April, December, February, January, March"
+    "northern": "August, July, June, October, September",
+    "southern": "April, December, February, January, March"
   },
   {
     "id": "tuna",
@@ -581,8 +581,8 @@
     "price": 7000,
     "location": "Pier",
     "time": "All Day",
-    "north": "April, December, February, January, March, November",
-    "south": "August, July, June, May, October, September"
+    "northern": "April, December, February, January, March, November",
+    "southern": "August, July, June, May, October, September"
   },
   {
     "id": "bluemarlin",
@@ -590,8 +590,8 @@
     "price": 10000,
     "location": "Pier",
     "time": "All Day",
-    "north": "April, August, December, February, January, July, March, November, September",
-    "south": "August, February, January, July, June, March, May, October, September"
+    "northern": "April, August, December, February, January, July, March, November, September",
+    "southern": "August, February, January, July, June, March, May, October, September"
   },
   {
     "id": "gianttrevally",
@@ -599,8 +599,8 @@
     "price": 4500,
     "location": "Pier",
     "time": "All Day",
-    "north": "August, July, June, May, September",
-    "south": "December, February, January, March, November"
+    "northern": "August, July, June, May, September",
+    "southern": "December, February, January, March, November"
   },
   {
     "id": "mahimahi",
@@ -608,8 +608,8 @@
     "price": 6000,
     "location": "Pier",
     "time": "All Day",
-    "north": "August, June, May, October, September",
-    "south": "April, December, February, January, March, November"
+    "northern": "August, June, May, October, September",
+    "southern": "April, December, February, January, March, November"
   },
   {
     "id": "oceansunfish",
@@ -617,8 +617,8 @@
     "price": 4000,
     "location": "Sea",
     "time": "4am - 9pm",
-    "north": "August, July, September",
-    "south": "February, January, March"
+    "northern": "August, July, September",
+    "southern": "February, January, March"
   },
   {
     "id": "ray",
@@ -626,8 +626,8 @@
     "price": 3000,
     "location": "Sea",
     "time": "4am - 9pm",
-    "north": "August, November, October, September",
-    "south": "April, February, March, May"
+    "northern": "August, November, October, September",
+    "southern": "April, February, March, May"
   },
   {
     "id": "sawshark",
@@ -635,8 +635,8 @@
     "price": 12000,
     "location": "Sea",
     "time": "4pm - 9am",
-    "north": "August, July, June, September",
-    "south": "December, February, January, March"
+    "northern": "August, July, June, September",
+    "southern": "December, February, January, March"
   },
   {
     "id": "hammerheadshark",
@@ -644,8 +644,8 @@
     "price": 8000,
     "location": "Sea",
     "time": "4pm - 9am",
-    "north": "August, July, June, September",
-    "south": "December, February, January, March"
+    "northern": "August, July, June, September",
+    "southern": "December, February, January, March"
   },
   {
     "id": "greatwhiteshark",
@@ -653,8 +653,8 @@
     "price": 15000,
     "location": "Sea",
     "time": "4pm - 9am",
-    "north": "August, July, June, September",
-    "south": "December, February, January, March"
+    "northern": "August, July, June, September",
+    "southern": "December, February, January, March"
   },
   {
     "id": "whaleshark",
@@ -662,8 +662,8 @@
     "price": 13000,
     "location": "Sea",
     "time": "All Day",
-    "north": "August, July, June, September",
-    "south": "December, February, January, March"
+    "northern": "August, July, June, September",
+    "southern": "December, February, January, March"
   },
   {
     "id": "suckerfish",
@@ -671,8 +671,8 @@
     "price": 1500,
     "location": "Sea",
     "time": "All Day",
-    "north": "August, July, June, September",
-    "south": "December, February, January, March"
+    "northern": "August, July, June, September",
+    "southern": "December, February, January, March"
   },
   {
     "id": "footballfish",
@@ -680,8 +680,8 @@
     "price": 2500,
     "location": "Sea",
     "time": "4pm - 9am",
-    "north": "December, February, January, March, November",
-    "south": "August, July, June, May, September"
+    "northern": "December, February, January, March, November",
+    "southern": "August, July, June, May, September"
   },
   {
     "id": "oarfish",
@@ -689,8 +689,8 @@
     "price": 9000,
     "location": "Sea",
     "time": "All Day",
-    "north": "April, December, February, January, March, May",
-    "south": "August, July, June, November, October, September"
+    "northern": "April, December, February, January, March, May",
+    "southern": "August, July, June, November, October, September"
   },
   {
     "id": "barreleye",
@@ -698,8 +698,8 @@
     "price": 15000,
     "location": "Sea",
     "time": "9pm - 4am",
-    "north": "April, August, December, February, January, July, June, March, May, November, October, September",
-    "south": "April, August, December, February, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
+    "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   },
   {
     "id": "coelacanth",
@@ -707,7 +707,7 @@
     "price": 15000,
     "location": "Sea",
     "time": "Sea (Rainy Days)",
-    "north": "April, August, December, February, January, July, June, March, May, November, October, September",
-    "south": "April, August, December, February, January, July, June, March, May, November, October, September"
+    "northern": "April, August, December, February, January, July, June, March, May, November, October, September",
+    "southern": "April, August, December, February, January, July, June, March, May, November, October, September"
   }
 ]
