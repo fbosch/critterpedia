@@ -8,11 +8,11 @@ const CritterSection = styled.section`
   display: grid;
   grid-template-columns: 50% 50%;
   height: 100%;
-  font-size: 1.2vmax;
+  font-size: 1.1vh;
   padding-top: 3vh;
-  width: 75%;
-  max-width: 800px;
+  width: 70%;
   margin: 0 auto;
+  max-width: 300px;
   grid-row-gap: 2vh;
   grid-template-rows: 5vh 20vh 15vh 12vh 5vh 2vh;
   grid-template-areas:
@@ -23,8 +23,13 @@ const CritterSection = styled.section`
     'location location'
     'nav nav';
 
-  @media ${device.mobileL} {
+  /* @media ${device.tablet} {
     font-size: 1.3vmin;
+  } */
+
+  @media ${device.tablet} {
+    font-size: 1.3vmin;
+    max-width: 800px;
     grid-template-rows: 2vh 2vh 28vh 20vh;
     grid-column-gap: 5vw;
     grid-template-areas:
@@ -33,6 +38,12 @@ const CritterSection = styled.section`
       'picture picture'
       'season time'
       'location donation';
+
+    picture img {
+      max-height: 100%;
+      top: 50%;
+    }
+
     &.vertical {
       grid-row-gap: 0vh;
       grid-template-rows: 5vh 25vh 20vh 5vh 5vh;
@@ -61,8 +72,8 @@ const CritterSection = styled.section`
       animation: fadeIn 400ms ${(props) => props.theme.timingFunction} 150ms;
       animation-fill-mode: forwards;
       left: 50%;
-      top: 50%;
-      max-height: 100%;
+      top: 65%;
+      max-height: 145%;
       max-width: 100%;
       width: auto;
       /* width: 100%; */

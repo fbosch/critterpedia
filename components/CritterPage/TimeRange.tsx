@@ -88,7 +88,8 @@ const StyledTimeList = styled.ol`
       position: absolute;
       transform: translate(-40%, -110%);
       font-size: 1.3em;
-      line-height: 1em;
+      line-height: 1.1em;
+      text-align: left;
     }
 
     &:nth-of-type(3n) {

@@ -25,7 +25,7 @@ const SeasonTable = styled.table`
     color: ${(props) => props.theme.grayText};
     font-size: 1.3em;
     /* line-height: 2.5em; */
-    padding-left: 1em;
+    padding-left: 5%;
     border-right: 2px solid ${(props) => props.theme.borderColor};
     border-bottom: 2px solid ${(props) => props.theme.borderColor};
     position: relative;
