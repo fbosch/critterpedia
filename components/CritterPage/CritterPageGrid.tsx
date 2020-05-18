@@ -56,10 +56,10 @@ const CritterSection = styled.section`
     grid-area: picture;
     image-rendering: smooth;
     border-top: none;
-    opacity: 0;
-    animation: fadeIn 400ms ${(props) => props.theme.timingFunction} 150ms;
-    animation-fill-mode: forwards;
     img {
+      opacity: 0;
+      animation: fadeIn 400ms ${(props) => props.theme.timingFunction} 150ms;
+      animation-fill-mode: forwards;
       left: 50%;
       top: 50%;
       max-height: 100%;
@@ -83,10 +83,10 @@ const CritterSection = styled.section`
     height: 12vh;
     font-size: 1em;
     grid-area: header;
-    opacity: 0;
-    animation: fadeIn 400ms ${(props) => props.theme.timingFunction} 150ms;
-    animation-fill-mode: forwards;
     h1 span {
+      opacity: 0;
+      animation: fadeIn 400ms ${(props) => props.theme.timingFunction} 150ms;
+      animation-fill-mode: forwards;
       position: static;
     }
   }

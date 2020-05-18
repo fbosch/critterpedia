@@ -18,11 +18,17 @@ export type CardEntryProps = {
 
 function CardEntry(props: CardEntryProps) {
   const { id, title, image, showSpacer, price, group, ...rest } = props
-
+  const handleFocus = useCallback(
+    (event: React.FocusEvent) => {
+      event.preventDefault()
+      if (window.location.hash !== id) window.location.hash = id
+    },
+    [id]
+  )
   return (
     <Card {...rest}>
       <Link href={`/${group}/[id]`} as={`/${group}/${id}`}>
-        <a draggable={false} id={id} tabIndex={0} aria-label={title} title={title}>
+        <a draggable={false} id={id} tabIndex={0} aria-label={title} title={title} onFocus={handleFocus}>
           <CardLabel title={props.title} />
           {image && (
             <>

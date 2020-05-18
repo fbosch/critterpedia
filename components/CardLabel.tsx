@@ -29,7 +29,7 @@ const StyledShadow = styled.span`
     width: 30%;
     content: ' ';
     left: 10%;
-    z-index: -2;
+    z-index: -3;
     transform-origin: top right;
     transform: skew(-4deg) rotate(-8deg);
     box-shadow: 0 1.6em 5px 10px rgba(173, 165, 118, 0.5);
@@ -87,7 +87,7 @@ const StyledCardLabel = styled.span`
     background: #ecead3;
     width: calc(100% - 5px);
     height: 100%;
-    z-index: -2;
+    z-index: 1;
   }
 `
 
