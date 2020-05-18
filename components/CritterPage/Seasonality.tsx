@@ -8,19 +8,24 @@ const SeasonContainer = styled.div`
   flex-flow: column;
   align-items: start;
   font-style: italic;
-  font-size: 1.5vh;
+  font-size: 1em;
 `
 
 const SeasonTable = styled.table`
   width: 100%;
+  height: 70%;
+  max-height: 17vh;
+  font-size: 1em;
   border: 2px solid ${(props) => props.theme.borderColor};
   border-collapse: collapse;
-
+  table-layout: fixed;
   td {
+    transition: opacity 200ms linear;
+    opacity: 0.5;
     color: ${(props) => props.theme.grayText};
-    font-size: 1.2em;
-    line-height: 2.5em;
-    padding-left: 0.5em;
+    font-size: 1.3em;
+    /* line-height: 2.5em; */
+    padding-left: 1em;
     border-right: 2px solid ${(props) => props.theme.borderColor};
     border-bottom: 2px solid ${(props) => props.theme.borderColor};
     position: relative;
@@ -44,8 +49,10 @@ const SeasonTable = styled.table`
       }
     }
     &[data-active='true'] {
+      opacity: 1;
       &:before {
         content: '';
+        opacity: 0;
         top: 50%;
         left: 50%;
         display: block;
@@ -56,49 +63,47 @@ const SeasonTable = styled.table`
         position: absolute;
         z-index: -1;
         border-radius: 10% 10% 10% 10% / 20% 20% 20% 20%;
+        animation: fadeIn 400ms ${(props) => props.theme.timingFunction} 150ms;
+        animation-fill-mode: forwards;
       }
     }
   }
 `
 
 export default function Seasonality(props) {
-  const { season } = props
-  const activeMonths = season
-    ?.toLowerCase()
-    ?.split(',')
-    .map((month: string) => month.trim())
-  const currentMonth = new Date().getMonth() + 1
+  const { activeMonths, months, currentMonth } = props
   const isActive = (month: string) => activeMonths.includes(month)
-  const getMonthAttributes = (month, monthNumber) => ({
+  const getMonthAttributes = (month) => ({
     ['aria-label']: month,
-    ['data-active']: isActive(month),
-    ['data-current']: monthNumber === currentMonth,
-    title: month.charAt(0).toUpperCase() + month.slice(1),
+    ['data-active']: isActive(months[month]),
+    ['data-current']: months[month] === currentMonth,
+    key: months[month],
+    title: months[month].charAt(0).toUpperCase() + months[month].slice(1),
   })
   return (
     <SeasonContainer>
       <SectionHeader>
         <h2>Seasonality</h2>
       </SectionHeader>
-      <SeasonTable>
+      <SeasonTable key={activeMonths.join()}>
         <tbody>
           <tr>
-            <td {...getMonthAttributes('january', 1)}>Jan.</td>
-            <td {...getMonthAttributes('februrary', 2)}>Feb.</td>
-            <td {...getMonthAttributes('march', 3)}>Mar.</td>
-            <td {...getMonthAttributes('april', 4)}>Apr.</td>
+            <td {...getMonthAttributes(1)}>Jan.</td>
+            <td {...getMonthAttributes(2)}>Feb.</td>
+            <td {...getMonthAttributes(3)}>Mar.</td>
+            <td {...getMonthAttributes(4)}>Apr.</td>
           </tr>
           <tr>
-            <td {...getMonthAttributes('may', 5)}>May.</td>
-            <td {...getMonthAttributes('june', 6)}>June</td>
-            <td {...getMonthAttributes('july', 7)}>July</td>
-            <td {...getMonthAttributes('august', 8)}>Aug.</td>
+            <td {...getMonthAttributes(5)}>May.</td>
+            <td {...getMonthAttributes(6)}>June</td>
+            <td {...getMonthAttributes(7)}>July</td>
+            <td {...getMonthAttributes(8)}>Aug.</td>
           </tr>
           <tr>
-            <td {...getMonthAttributes('september', 9)}>Sept.</td>
-            <td {...getMonthAttributes('october', 10)}>Oct.</td>
-            <td {...getMonthAttributes('november', 11)}>Nov.</td>
-            <td {...getMonthAttributes('december', 12)}>Dec.</td>
+            <td {...getMonthAttributes(9)}>Sept.</td>
+            <td {...getMonthAttributes(10)}>Oct.</td>
+            <td {...getMonthAttributes(11)}>Nov.</td>
+            <td {...getMonthAttributes(12)}>Dec.</td>
           </tr>
         </tbody>
       </SeasonTable>

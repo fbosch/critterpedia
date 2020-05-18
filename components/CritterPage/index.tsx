@@ -42,9 +42,31 @@ function Navigation({ neighbours, group }) {
   )
 }
 
+const months = {
+  1: 'january',
+  2: 'february',
+  3: 'march',
+  4: 'april',
+  5: 'may',
+  6: 'june',
+  7: 'july',
+  8: 'august',
+  9: 'september',
+  10: 'october',
+  11: 'november',
+  12: 'december',
+}
+
 export default function CreaturePage(props) {
   const { id, name, group, northern, time, location, neighbours, vertical } = props
   const season = northern
+  const activeMonths = season
+    ?.toLowerCase()
+    ?.split(',')
+    .map((month: string) => month.trim())
+
+  const currentMonth = months[new Date().getMonth() + 1]
+  const isCurrentlyActive = activeMonths.includes(currentMonth)
   return (
     <>
       <Head>
@@ -62,8 +84,8 @@ export default function CreaturePage(props) {
         <picture>
           <img src={`/assets/images/${group}/photos/${id}.png`} loading='lazy' />
         </picture>
-        <Seasonality season={season} />
-        <Time time={time} />
+        <Seasonality months={months} activeMonths={activeMonths} currentMonth={currentMonth} />
+        <Time time={time} disabled={isCurrentlyActive === false} />
         <Location location={location} />
       </CritterPageGrid>
     </>

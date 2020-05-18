@@ -211,7 +211,7 @@ function Header(props) {
           </StyledBackground>
         </StyledNavigation>
       </StyledHeader>
-      <svg xmlns='http://www.w3.org/2000/svg' version='1.1' style={{ position: 'absolute' }}>
+      <svg xmlns='http://www.w3.org/2000/svg' version='1.1' style={{ position: 'absolute', zIndex: -10 }}>
         <defs>
           <filter id='goo'>
             <feGaussianBlur in='SourceGraphic' stdDeviation='5' result='blur' />

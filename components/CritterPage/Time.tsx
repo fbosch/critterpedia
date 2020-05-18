@@ -9,11 +9,11 @@ const TimeContainer = styled.div`
   justify-content: start;
   flex-flow: column;
   align-items: start;
-  font-size: 1.5vh;
+  font-size: 1em;
   position: relative;
 `
 
-export default function Time({ time }) {
+export default function Time({ time, disabled }) {
   const [currentTime, setCurrentTime] = useState<number>()
   const getCurrentTime = useCallback(() => {
     const now = new Date()
@@ -30,11 +30,11 @@ export default function Time({ time }) {
     }
   }, [])
   return (
-    <TimeContainer title={time.charAt(0).toUpperCase() + time.slice(1)}>
+    <TimeContainer title={disabled ? null : time.charAt(0).toUpperCase() + time.slice(1)}>
       <SectionHeader>
         <h2>Current Active Hours</h2>
       </SectionHeader>
-      <TimeRange time={time} currentTime={currentTime} />
+      <TimeRange time={time} currentTime={currentTime} disabled={disabled} />
     </TimeContainer>
   )
 }

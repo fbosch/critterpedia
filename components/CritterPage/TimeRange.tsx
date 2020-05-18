@@ -15,35 +15,47 @@ function getHourLabel(hour) {
 }
 
 const ActiveHourMarker = styled.div`
+  opacity: 0;
   width: 100%;
   height: 1.3em;
   border-radius: 10px;
   position: absolute;
   bottom: 0;
   z-index: 0;
-  transform: translateY(50%);
+  transform: translateY(-30%);
   background: ${(props) => props.theme.yellowGreen};
+  animation: fadeIn 400ms ${(props) => props.theme.timingFunction} 150ms;
+  animation-fill-mode: forwards;
 `
 
 const TimeRangeContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 25%;
-  top: 10%;
+  height: 50%;
 `
 
 const StyledTimeList = styled.ol`
   list-style-type: none;
   width: 100%;
   height: 100%;
+  max-height: 8vh;
   padding: 0;
+  margin: 0;
+  bottom: 0;
   font-family: 'Helvetica Neue';
   font-weight: 500;
   border-bottom: 2px solid ${(props) => props.theme.grayText};
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  position: absolute;
   z-index: 4;
+  opacity: 1;
+  transition: opacity 400ms linear 200ms;
+
+  &.disabled {
+    opacity: 0.3;
+  }
 
   li {
     height: 30%;
@@ -51,7 +63,6 @@ const StyledTimeList = styled.ol`
     /* border-left: 1px solid currentColor; */
     position: relative;
     text-align: center;
-    line-height: 1em;
     width: 4.16%;
 
     &:after {
@@ -76,6 +87,8 @@ const StyledTimeList = styled.ol`
       left: 50%;
       position: absolute;
       transform: translate(-40%, -110%);
+      font-size: 1.3em;
+      line-height: 1em;
     }
 
     &:nth-of-type(3n) {
@@ -128,7 +141,6 @@ const StyledTimeList = styled.ol`
 
     &:first-of-type {
       height: 50%;
-
       border-left: 2px solid currentColor;
       &:after {
         bottom: 25%;
@@ -146,16 +158,15 @@ const StyledTimeList = styled.ol`
 
 const CurrentTimeIndicator = styled.div`
   display: block;
-  height: 50%;
+  height: 2em;
   color: ${(props) => props.theme.redHighlight};
   background: currentColor;
   width: 4px;
-  bottom: 5%;
-  transform: translateY(70%);
+  bottom: 0;
   z-index: 6;
   position: absolute;
   transition: left 100ms linear;
-  box-shadow: 0px 0px 5px -2px ${(props) => props.theme.redHighlight};
+  box-shadow: 0px 0px 7px -1px ${(props) => props.theme.redHighlight};
   &:before,
   &:after {
     display: block;
@@ -192,7 +203,7 @@ function getMilitaryHours(hours: Array<string>): Array<number> {
   return parsedHours
 }
 
-export default function TimeRange({ time, currentTime }) {
+export default function TimeRange({ time, currentTime, disabled = false }) {
   const parsedTime: Array<Array<Number>> = useMemo(
     () =>
       time
@@ -204,27 +215,28 @@ export default function TimeRange({ time, currentTime }) {
   return (
     <TimeRangeContainer>
       {currentTime && <CurrentTimeIndicator style={{ left: `calc(4.16% * ${currentTime})` }} />}
-      {parsedTime.map((time: Array<any>) => {
-        if (time[1] < time[0]) {
+      {disabled === false &&
+        parsedTime.map((time: Array<any>) => {
+          if (time[1] < time[0]) {
+            return [
+              <ActiveHourMarker key={time.join() + '1'} style={{ width: `calc(4.16% * ${time[1]})` }} />,
+              <ActiveHourMarker
+                key={time.join() + '2'}
+                style={{
+                  width: `calc(4.16% * ${24 - time[0]})`,
+                  left: `calc(4.16% * ${time[0]})`,
+                }}
+              />,
+            ]
+          }
           return [
-            <ActiveHourMarker key={time.join() + '1'} style={{ width: `calc(4.16% * ${time[1]})` }} />,
             <ActiveHourMarker
-              key={time.join() + '2'}
-              style={{
-                width: `calc(4.16% * ${24 - time[0]})`,
-                left: `calc(4.16% * ${time[0]})`,
-              }}
+              key={time.join()}
+              style={{ width: `calc(4.16% * ${time[1] - time[0]})`, left: `calc(4.16% * ${time[0]})` }}
             />,
           ]
-        }
-        return [
-          <ActiveHourMarker
-            key={time.join()}
-            style={{ width: `calc(4.16% * ${time[1] - time[0]})`, left: `calc(4.16% * ${time[0]})` }}
-          />,
-        ]
-      })}
-      <StyledTimeList>
+        })}
+      <StyledTimeList className={disabled && 'disabled'}>
         {hoursInADay.map((hour) => (
           <li key={hour} title={getHourLabel(hour + 1)}></li>
         ))}

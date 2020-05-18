@@ -5,10 +5,12 @@ const StyledLocation = styled.div`
   grid-area: location;
   display: flex;
   font-style: italic;
-  line-height: 1.5em;
+  line-height: 1em;
+  align-items: center;
   span {
     left: 5%;
     position: relative;
+    font-size: 1.2em;
     color: ${(props) => props.theme.grayAccent};
   }
 `

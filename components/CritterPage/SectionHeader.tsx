@@ -4,12 +4,9 @@ export default styled.header`
   h2 {
     letter-spacing: 0.04em;
     padding: 0;
-    margin: 0 0 0.5em 0;
     color: ${(props) => props.theme.greenText};
     z-index: 1;
     position: relative;
-    font-family: 'Helvetica Neue';
-    font-weight: 500;
     font-size: 1.4em;
     transform: skew(-7deg);
     font-style: italic;

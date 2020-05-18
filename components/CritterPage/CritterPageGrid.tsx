@@ -8,21 +8,25 @@ const CritterSection = styled.section`
   display: grid;
   grid-template-columns: 50% 50%;
   height: 100%;
-  font-size: 1.5vh;
-  margin-top: 5vh;
-  padding: 0 15vw;
-  grid-column-gap: 5vw;
+  font-size: 1.2vmax;
+  padding-top: 3vh;
+  width: 75%;
+  max-width: 800px;
+  margin: 0 auto;
   grid-row-gap: 2vh;
-  grid-template-rows: 5vh 15vh 20vh 15vh;
+  grid-template-rows: 5vh 20vh 15vh 12vh 5vh 2vh;
   grid-template-areas:
     'header header'
     'picture picture'
     'season season'
     'time time'
-    'location location';
+    'location location'
+    'nav nav';
 
-  @media ${device.laptop} {
-    grid-template-rows: 1vh 2vh 28vh 20vh;
+  @media ${device.mobileL} {
+    font-size: 1.3vmin;
+    grid-template-rows: 2vh 2vh 28vh 20vh;
+    grid-column-gap: 5vw;
     grid-template-areas:
       'nav nav'
       'header header'
@@ -31,21 +35,18 @@ const CritterSection = styled.section`
       'location donation';
     &.vertical {
       grid-row-gap: 0vh;
-      grid-template-rows: 1vh 25vh 25vh 7vh 5vh;
+      grid-template-rows: 5vh 25vh 20vh 5vh 5vh;
       grid-template-areas:
         'nav nav'
         'picture season'
         'picture time'
-        'header location'
-        '. donation';
+        'picture location'
+        'header donation';
 
       picture,
       > header {
         border: none;
         border-right: 2px solid ${(props) => props.theme.borderColor};
-      }
-      picture img {
-        /* width: 50%; */
       }
     }
   }
@@ -54,33 +55,37 @@ const CritterSection = styled.section`
     user-select: none;
     grid-area: picture;
     image-rendering: smooth;
-    border: 2px solid ${(props) => props.theme.borderColor};
     border-top: none;
+    opacity: 0;
+    animation: fadeIn 400ms ${(props) => props.theme.timingFunction} 150ms;
+    animation-fill-mode: forwards;
     img {
       left: 50%;
       top: 50%;
-      max-width: 90%;
+      max-height: 100%;
+      max-width: 100%;
       width: auto;
       /* width: 100%; */
       position: relative;
       transform: translate(-50%, -50%);
       object-position: center;
       filter: url(#drop-shadow);
-      -webkit-filter: drop-shadow(0 0.5em 0.2em #c6bd94);
+      -webkit-filter: drop-shadow(0 0.7em 0.3em #c6bd94);
     }
   }
 
   > header {
-    border: 2px solid ${(props) => props.theme.borderColor};
-    border-bottom: none;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     width: 100%;
     height: 12vh;
-    font-size: 0.8em;
+    font-size: 1em;
     grid-area: header;
+    opacity: 0;
+    animation: fadeIn 400ms ${(props) => props.theme.timingFunction} 150ms;
+    animation-fill-mode: forwards;
     h1 span {
       position: static;
     }
@@ -93,8 +98,8 @@ function CritterPageGrid({ vertical, children }) {
       <CritterSection className={vertical && 'vertical'}>{children}</CritterSection>
       <svg height='0' xmlns='http://www.w3.org/2000/svg' style={{ position: 'absolute' }}>
         <filter id='drop-shadow'>
-          <feGaussianBlur in='SourceAlpha' stdDeviation='5' />
-          <feOffset dx='0' dy='10' result='offsetblur' />
+          <feGaussianBlur in='SourceAlpha' stdDeviation='1' />
+          <feOffset dx='0' dy='5' result='offsetblur' />
           <feFlood floodColor='#c6bd94' />
           <feComposite in2='offsetblur' operator='in' />
           <feMerge>
