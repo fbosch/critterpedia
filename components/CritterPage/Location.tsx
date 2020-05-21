@@ -5,7 +5,7 @@ const StyledLocation = styled.div`
   grid-area: location;
   display: flex;
   font-style: italic;
-  line-height: 1em;
+  line-height: 1.7em;
   align-items: center;
   span {
     left: 5%;

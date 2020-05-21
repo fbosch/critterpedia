@@ -14,26 +14,47 @@ const SeasonContainer = styled.div`
 const SeasonTable = styled.table`
   width: 100%;
   height: 70%;
-  max-height: 17vh;
+  max-height: 15vh;
   font-size: 1em;
   border: 2px solid ${(props) => props.theme.borderColor};
   border-collapse: collapse;
-  table-layout: fixed;
+  display: block;
+  tbody {
+    display: grid;
+    grid-template-rows: repeat(3, 33%);
+    grid-template-columns: repeat(1, 100%);
+    flex-flow: row;
+    width: 100%;
+    height: 100%;
+  }
+  tr {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    &:not(:last-of-type) {
+      border-bottom: 2px solid ${(props) => props.theme.borderColor};
+    }
+  }
   td {
+    height: 100%;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: opacity 200ms linear;
     opacity: 0.5;
     color: ${(props) => props.theme.grayText};
     font-size: 1.3em;
-    /* line-height: 2.5em; */
-    padding-left: 5%;
-    border-right: 2px solid ${(props) => props.theme.borderColor};
-    border-bottom: 2px solid ${(props) => props.theme.borderColor};
     position: relative;
     font-weight: 600;
     z-index: 1;
+    &:not(:last-of-type) {
+      border-right: 2px solid ${(props) => props.theme.borderColor};
+    }
 
     &[data-current='true'] {
-      /* border: 3px solid red; */
       &:after {
         content: '';
         border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
@@ -52,7 +73,6 @@ const SeasonTable = styled.table`
       opacity: 1;
       &:before {
         content: '';
-        opacity: 0;
         top: 50%;
         left: 50%;
         display: block;
@@ -63,8 +83,6 @@ const SeasonTable = styled.table`
         position: absolute;
         z-index: -1;
         border-radius: 10% 10% 10% 10% / 20% 20% 20% 20%;
-        animation: fadeIn 400ms ${(props) => props.theme.timingFunction} 150ms;
-        animation-fill-mode: forwards;
       }
     }
   }

@@ -13,7 +13,7 @@ const CritterSection = styled.section`
   width: 70%;
   margin: 0 auto;
   max-width: 300px;
-  grid-row-gap: 2vh;
+  grid-row-gap: 1.6vh;
   grid-template-rows: 5vh 20vh 15vh 12vh 5vh 2vh;
   grid-template-areas:
     'header header'
@@ -28,7 +28,7 @@ const CritterSection = styled.section`
   } */
 
   @media ${device.tablet} {
-    font-size: 1.3vmin;
+    font-size: 1.1vmin;
     max-width: 800px;
     grid-template-rows: 2vh 2vh 28vh 20vh;
     grid-column-gap: 5vw;
@@ -68,13 +68,10 @@ const CritterSection = styled.section`
     image-rendering: smooth;
     border-top: none;
     img {
-      opacity: 0;
-      animation: fadeIn 400ms ${(props) => props.theme.timingFunction} 150ms;
-      animation-fill-mode: forwards;
       left: 50%;
-      top: 65%;
-      max-height: 145%;
-      max-width: 100%;
+      top: 60%;
+      max-height: 130%;
+      max-width: 90%;
       width: auto;
       /* width: 100%; */
       position: relative;
@@ -94,10 +91,8 @@ const CritterSection = styled.section`
     height: 12vh;
     font-size: 1em;
     grid-area: header;
+    z-index: 5;
     h1 span {
-      opacity: 0;
-      animation: fadeIn 400ms ${(props) => props.theme.timingFunction} 150ms;
-      animation-fill-mode: forwards;
       position: static;
     }
   }

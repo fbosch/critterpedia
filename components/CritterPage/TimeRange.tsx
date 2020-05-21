@@ -15,17 +15,14 @@ function getHourLabel(hour) {
 }
 
 const ActiveHourMarker = styled.div`
-  opacity: 0;
   width: 100%;
   height: 1.3em;
   border-radius: 10px;
   position: absolute;
   bottom: 0;
   z-index: 0;
-  transform: translateY(-30%);
+  transform: translateY(-22%);
   background: ${(props) => props.theme.yellowGreen};
-  animation: fadeIn 400ms ${(props) => props.theme.timingFunction} 150ms;
-  animation-fill-mode: forwards;
 `
 
 const TimeRangeContainer = styled.div`
@@ -38,7 +35,7 @@ const StyledTimeList = styled.ol`
   list-style-type: none;
   width: 100%;
   height: 100%;
-  max-height: 8vh;
+  max-height: 65px;
   padding: 0;
   margin: 0;
   bottom: 0;
@@ -51,7 +48,6 @@ const StyledTimeList = styled.ol`
   position: absolute;
   z-index: 4;
   opacity: 1;
-  transition: opacity 400ms linear 200ms;
 
   &.disabled {
     opacity: 0.3;
