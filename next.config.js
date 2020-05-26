@@ -1,7 +1,7 @@
-const withOffline = require("next-offline");
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true",
-});
+const withOffline = require('next-offline')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
 
 module.exports = withBundleAnalyzer(
   withOffline({
@@ -9,13 +9,13 @@ module.exports = withBundleAnalyzer(
       runtimeCaching: [
         {
           urlPattern: /\.(png|jpg|gif|svg|eot|ttf|otf|woff|woff2)$/,
-          handler: "CacheFirst",
+          handler: 'CacheFirst',
         },
         {
           urlPattern: /^https?.*/,
-          handler: "NetworkFirst",
+          handler: 'NetworkFirst',
           options: {
-            cacheName: "offlineCache",
+            cacheName: 'offlineCache',
             expiration: {
               maxEntries: 200,
             },
@@ -27,13 +27,13 @@ module.exports = withBundleAnalyzer(
       config.module.rules.push({
         test: /\.(png|jpg|gif|svg|eot|ttf|otf|woff|woff2)$/,
         use: {
-          loader: "url-loader",
+          loader: 'url-loader',
           options: {
             limit: 100000,
           },
         },
-      });
-      return config;
+      })
+      return config
     },
   })
-);
+)

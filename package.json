@@ -10,7 +10,7 @@
     "build": "next build",
     "start": "next",
     "lint": "eslint --ignore-path .gitignore .",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json)\"",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(ts|js|json)\"",
     "export": "next build && next export",
     "analyze": "cross-env ANALYZE=true npm run build",
     "precommit": "standard --fix"
