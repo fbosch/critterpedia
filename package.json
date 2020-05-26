@@ -15,7 +15,7 @@
     "check-format": "npm run prettier -- --list-different",
     "validate": "npm run check-types && npm run check-format && npm run lint",
     "export": "npm run build && next export",
-    "build": "npm run check-format && npm run lint && next build",
+    "build": "next build",
     "analyze": "cross-env ANALYZE=true npm run build",
     "precommit": "standard --fix"
   },
@@ -58,6 +58,7 @@
     "eslint-plugin-react": "^7.20.0",
     "file-loader": "^6.0.0",
     "husky": "^4.2.5",
+    "lint-staged": "^10.2.6",
     "netlify-cli": "^2.51.0",
     "netlify-plugin-cache-nextjs": "^1.4.0",
     "next": "^9.4.2",
