@@ -24,13 +24,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 type Props = {
   info: Critter
-  neighbours: Critter[]
+  neighbours: { prev: Critter; next: Critter }
 }
 
 const Fish = ({ info, neighbours }: Props): JSX.Element => {
   const router = useRouter()
   const { id } = router.query
-  return <CritterPage {...info} key={id} group='fish' neighbours={neighbours} />
+  return <CritterPage {...info} key={id.toString()} group='fish' neighbours={neighbours} />
 }
 
 export default Fish

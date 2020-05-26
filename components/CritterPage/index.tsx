@@ -7,7 +7,7 @@ import CritterPageGrid from './CritterPageGrid'
 import Seasonality from './Seasonality'
 import Time from './Time'
 
-const months = {
+const months: Months = {
   1: 'january',
   2: 'february',
   3: 'march',
@@ -26,6 +26,7 @@ type Props = Critter & {
   vertical?: boolean
   group?: string
   neighbours: { prev: Critter; next: Critter }
+  key?: string | number
 }
 
 export default function CreaturePage(props: Props): React.ReactElement {

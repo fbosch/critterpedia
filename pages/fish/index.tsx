@@ -55,7 +55,7 @@ function FishesPage({ fishes }: Props): JSX.Element {
         <title>Fish • Critterpedia</title>
         <meta name='description' content='An overview of all fish in Animal Crossing: New Horizons' />
       </Head>
-      <CardGrid key={fishCollection.length}>{fishCollection}</CardGrid>
+      <CardGrid key={fishCollection.length.toString()}>{fishCollection}</CardGrid>
     </>
   )
 }

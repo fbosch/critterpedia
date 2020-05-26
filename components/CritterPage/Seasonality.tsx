@@ -92,13 +92,22 @@ const SeasonTable = styled.table`
 type Props = {
   activeMonths: string[]
   currentMonth: string
-  months: string[]
+  months: Months
 }
+
+// TODO: Convert data attributes to classNames
+// type MonthAttributes = {
+//   title: string
+//   key: string
+//   'aria-label'?: number
+//   'data-active'?: boolean
+//   'data-current'?: boolean
+// }
 
 export default function Seasonality(props: Props): JSX.Element {
   const { activeMonths, months, currentMonth } = props
   const isActive = (month: string) => activeMonths.includes(month)
-  const getMonthAttributes = (month) => ({
+  const getMonthAttributes = (month: number): any => ({
     ['aria-label']: month,
     ['data-active']: isActive(months[month]),
     ['data-current']: months[month] === currentMonth,
