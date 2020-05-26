@@ -48,6 +48,7 @@
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "eslint": "^7.1.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-react": "^7.20.0",
     "file-loader": "^6.0.0",
     "netlify-cli": "^2.51.0",
