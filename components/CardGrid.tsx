@@ -1,8 +1,8 @@
+import * as React from 'react'
 import styled from 'styled-components'
-import { useRef, useCallback, useEffect, useMemo } from 'react'
+import { useRef, useCallback, useEffect } from 'react'
 import { ios, standalone } from '../theme'
 import throttle from 'lodash.throttle'
-import debounce from 'lodash.debounce'
 import lazyLoad from '../utils/lazyLoad'
 
 const StyledContainer = styled.section`
@@ -42,13 +42,17 @@ const StyledContainer = styled.section`
 const isFirefox = process.browser && /^((?!chrome|android).)*firefox/i.test(navigator.userAgent)
 const isSafari = process.browser && /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
 
-function CardGrid(props) {
-  const listRef = useRef<HTMLElement>()
-  const mouseDownRef = useRef<Boolean>(false)
-  const dragMovingRef = useRef<Boolean>(false)
-  const holdDownRef = useRef<any>(false)
-  const draggingRemoveRef = useRef<any>()
-  const clientPositionRef = useRef<any>({ clientX: 0, startX: 0 })
+type Props = {
+  children: React.ReactChildren | JSX.Element | JSX.Element[]
+}
+
+function CardGrid(props: Props): JSX.Element {
+  const listRef = useRef<HTMLOListElement>()
+  const mouseDownRef = useRef<boolean>(false)
+  const dragMovingRef = useRef<boolean>(false)
+  const holdDownRef = useRef<number>()
+  const draggingRemoveRef = useRef<number>()
+  const clientPositionRef = useRef<{ clientX: number; startX: number }>({ clientX: 0, startX: 0 })
 
   const handleMouseDown = useCallback((event) => {
     const list = listRef.current

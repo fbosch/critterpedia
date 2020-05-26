@@ -19,7 +19,7 @@ if (process.browser) {
 }
 
 export default class extends App {
-  static async getStaticProps({ Component, router, ctx }) {
+  static async getStaticProps({ Component, ctx }): Promise<{ pageProps }> {
     let pageProps = {}
 
     if (Component.getInitialProps) {
@@ -28,7 +28,7 @@ export default class extends App {
 
     return { pageProps }
   }
-  render() {
+  render(): JSX.Element {
     const { Component, router, pageProps } = this.props
     return (
       <ThemeProvider theme={theme}>

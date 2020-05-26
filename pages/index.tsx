@@ -1,8 +1,8 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 
-function HomePage() {
+function HomePage(): JSX.Element {
   const router = useRouter()
   useEffect(() => {
     if (router.pathname === '/') {

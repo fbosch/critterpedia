@@ -1,4 +1,4 @@
-export default function btoa(str: any) {
+export default function btoa(str: Buffer | string): string {
   let buffer: Buffer
 
   if (str instanceof Buffer) {

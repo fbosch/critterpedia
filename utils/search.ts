@@ -1,7 +1,7 @@
 import Fuse from 'fuse.js'
 import memoize from 'fast-memoize'
 
-const config: Fuse.IFuseOptions<Object> = {
+const config: Fuse.IFuseOptions<Critter> = {
   keys: ['id', 'name', 'price', 'location'],
   shouldSort: true,
   includeMatches: true,
@@ -9,9 +9,9 @@ const config: Fuse.IFuseOptions<Object> = {
   distance: 100,
 }
 
-function search(collection: Array<Object>, query: string) {
+function searchCritter(collection: Array<Critter>, query: string) {
   const fuse = new Fuse(collection, config)
   return fuse.search(query).map((result) => result.item)
 }
 
-export default memoize(search)
+export default memoize(searchCritter)

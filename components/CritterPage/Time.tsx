@@ -1,3 +1,4 @@
+import * as React from 'react'
 import styled from 'styled-components'
 import SectionHeader from './SectionHeader'
 import TimeRange from './TimeRange'
@@ -13,7 +14,12 @@ const TimeContainer = styled.div`
   position: relative;
 `
 
-export default function Time({ time, disabled }) {
+type Props = {
+  disabled?: boolean
+  time: string
+}
+
+export default function Time({ time, disabled }: Props): JSX.Element {
   const [currentTime, setCurrentTime] = useState<number>()
   const getCurrentTime = useCallback(() => {
     const now = new Date()

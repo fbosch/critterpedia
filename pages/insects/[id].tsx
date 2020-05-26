@@ -1,4 +1,6 @@
+import * as React from 'react'
 import { useRouter } from 'next/router'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import CritterPage from '../../components/CritterPage'
 
 async function fetchBugs() {
@@ -6,13 +8,13 @@ async function fetchBugs() {
   return bugs
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const bugs = await fetchBugs()
   const paths = bugs.map(({ id }) => ({ params: { id } }))
   return { paths, fallback: false }
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const bugs = await fetchBugs()
   const info = bugs.find(({ id }) => id === params.id)
   const index = bugs.indexOf(info)
@@ -20,7 +22,12 @@ export async function getStaticProps({ params }) {
   return { props: { info, neighbours } }
 }
 
-const Fish = ({ info, neighbours }) => {
+type Props = {
+  info: Critter
+  neighbours: Critter[]
+}
+
+const Fish = ({ info, neighbours }: Props): JSX.Element => {
   const router = useRouter()
   const { id } = router.query
   return <CritterPage {...info} key={id} group='insects' neighbours={neighbours} vertical />

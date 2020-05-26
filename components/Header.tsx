@@ -146,7 +146,7 @@ const StyledBackground = styled.div`
   }
 `
 
-function Header(props) {
+function Header(): JSX.Element {
   return (
     <>
       <StyledHeader>

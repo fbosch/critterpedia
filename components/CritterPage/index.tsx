@@ -22,7 +22,13 @@ const months = {
   12: 'december',
 }
 
-export default function CreaturePage(props) {
+type Props = Critter & {
+  vertical?: boolean
+  group?: string
+  neighbours: { prev: Critter; next: Critter }
+}
+
+export default function CreaturePage(props: Props): React.ReactElement {
   const { id, name, group, northern, time, location, neighbours, vertical } = props
   const season = northern
   const activeMonths = season

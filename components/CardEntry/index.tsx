@@ -4,10 +4,9 @@ import CardLabel from '../CardLabel'
 import Card from './Card'
 import Spacer from './Spacer'
 import Price from './Price'
-import { useRouter } from 'next/router'
 
 export type CardEntryProps = {
-  fallback?: Function
+  fallback?: (color: string) => string
   image?: string
   title?: string
   id?: string
@@ -16,7 +15,7 @@ export type CardEntryProps = {
   group?: 'insects' | 'fish'
 }
 
-function CardEntry(props: CardEntryProps) {
+function CardEntry(props: CardEntryProps): JSX.Element {
   const { id, title, image, showSpacer, price, group, ...rest } = props
   const handleFocus = useCallback(
     (event: React.FocusEvent) => {

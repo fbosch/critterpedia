@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
+import Document, { DocumentContext, Head, Html, Main, NextScript, DocumentInitialProps } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
 const loadedScript = `
@@ -12,7 +12,7 @@ const loadedScript = `
 const PageLoadScript = () => <script dangerouslySetInnerHTML={{ __html: loadedScript }} />
 
 export default class extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
+  static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
     const sheet = new ServerStyleSheet()
     const originalRenderPage = ctx.renderPage
     try {
@@ -34,7 +34,8 @@ export default class extends Document {
       sheet.seal()
     }
   }
-  render() {
+
+  render(): JSX.Element {
     return (
       <Html lang='en' className='no-js'>
         <Head>
@@ -51,7 +52,7 @@ export default class extends Document {
             name='viewport'
             content='initial-scale=1,viewport-fit=cover,width=device-width,minimum-scale=1.0,maximum-scale=5.0'
           />
-          <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+          <meta httpEquiv='X-UA-Compatible' content='ie=edge' />
           <meta name='apple-mobile-web-app-capable' content='yes' />
           <link rel='apple-touch-startup-image' href='/launch.png' />
           <link

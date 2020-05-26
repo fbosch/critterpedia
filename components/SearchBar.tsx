@@ -135,11 +135,11 @@ const StyledInput = styled.input`
   }
 `
 
-function SearchBar(props) {
+function SearchBar(): JSX.Element {
   const searchRef = useRef<HTMLInputElement>()
   const router = useRouter()
 
-  const handleClickForm = useCallback((event) => {
+  const handleClickForm = useCallback(() => {
     const input: HTMLInputElement = searchRef.current
     if (document.activeElement !== input) window.requestAnimationFrame(() => input.focus())
   }, [])

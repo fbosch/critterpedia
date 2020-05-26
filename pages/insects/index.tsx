@@ -1,17 +1,19 @@
+import * as React from 'react'
 import CardEntry from '../../components/CardEntry'
 import { useMemo } from 'react'
 import btoa from '../../utils/btoa'
 import CardGrid from '../../components/CardGrid'
-import { useRouter } from 'next/router'
+import { useRouter, NextRouter } from 'next/router'
 import Head from 'next/head'
-import search from '../../utils/search'
+import searchCritter from '../../utils/search'
+import { GetStaticProps } from 'next'
 
-export async function getStaticProps() {
-  let insects = await require('../../public/data/bugs.json')
+export const getStaticProps: GetStaticProps = async () => {
+  const insects = await require('../../public/data/bugs.json')
   return { props: { insects } }
 }
 
-const insectSVG = (color) =>
+const insectSVG = (color: string): string =>
   btoa(
     '<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58 51"><path d="M29 17.5c5.865 7.217 5.906 19.668.758 24.113S11.304 39.806 5.439 32.59C-.426 25.372-2.06 12.995 3.087 8.55S23.135 10.283 29 17.5z" fill="' +
       color +
@@ -26,13 +28,17 @@ const insectSVG = (color) =>
       '"/></svg>'
   )
 
-function InsectsPage({ insects }) {
-  const router: any = useRouter()
+type Props = {
+  insects: Critter[]
+}
 
-  const insectCollection = useMemo(() => {
+function InsectsPage({ insects }: Props): JSX.Element {
+  const router: NextRouter = useRouter()
+
+  const insectCollection: JSX.Element[] = useMemo(() => {
     let parsedInsects = insects
     if (router?.query?.search?.length > 2) {
-      parsedInsects = search(insects, router.query.search)
+      parsedInsects = searchCritter(insects, router.query.search as string)
     }
     parsedInsects = parsedInsects.map((insect) => ({ id: insect.id, name: insect.name, price: insect.price }))
     return parsedInsects.map((creature, index) => (

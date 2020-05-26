@@ -4,7 +4,7 @@ declare module '*.jpeg'
 declare module '*.svg'
 declare module '*.gif'
 
-type RequestIdleCallbackHandle = any
+type RequestIdleCallbackHandle = function
 type RequestIdleCallbackOptions = {
   timeout: number
 }

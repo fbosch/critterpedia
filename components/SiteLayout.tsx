@@ -38,11 +38,11 @@ const StyledMain = styled.main`
 `
 
 type SiteLayoutProps = {
-  children?: any
+  children?: React.ReactChildren | JSX.Element | JSX.Element[]
   route?: string
 }
 
-function SiteLayout(props: SiteLayoutProps) {
+function SiteLayout(props: SiteLayoutProps): React.ReactElement {
   const { children } = props
 
   return (

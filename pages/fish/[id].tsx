@@ -1,18 +1,20 @@
+import * as React from 'react'
 import { useRouter } from 'next/router'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import CritterPage from '../../components/CritterPage'
 
-async function fetchFishes() {
+async function fetchFishes(): Promise<Critter[]> {
   const fishes = await require('../../public/data/fishes.json')
   return fishes
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const fishes = await fetchFishes()
   const paths = fishes.map(({ id }) => ({ params: { id } }))
   return { paths, fallback: false }
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const fishes = await fetchFishes()
   const info = fishes.find(({ id }) => id === params.id)
   const index = fishes.indexOf(info)
@@ -20,7 +22,12 @@ export async function getStaticProps({ params }) {
   return { props: { info, neighbours } }
 }
 
-const Fish = ({ info, neighbours }) => {
+type Props = {
+  info: Critter
+  neighbours: Critter[]
+}
+
+const Fish = ({ info, neighbours }: Props): JSX.Element => {
   const router = useRouter()
   const { id } = router.query
   return <CritterPage {...info} key={id} group='fish' neighbours={neighbours} />

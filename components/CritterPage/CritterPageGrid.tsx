@@ -102,7 +102,12 @@ const CritterSection = styled.section`
   }
 `
 
-function CritterPageGrid({ vertical, children }) {
+type Props = {
+  children: React.ReactChildren | JSX.Element | JSX.Element[]
+  vertical?: boolean
+}
+
+function CritterPageGrid({ vertical, children }: Props): JSX.Element {
   return (
     <>
       <CritterSection className={vertical && 'vertical'}>{children}</CritterSection>

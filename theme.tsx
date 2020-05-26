@@ -1,4 +1,4 @@
-export type ThemeType = {
+export type Theme = {
   bodyBackground: string
   orangeAccent: string
   grayAccent: string
@@ -41,10 +41,10 @@ export const isChrome = `@media screen and (-webkit-min-device-pixel-ratio:0) an
 export const standalone = `@media all and (display-mode: standalone)`
 export const timingFunction = `cubic-bezier(0,.5,.5,1)`
 
-export const getFontFamily = ({ theme: ThemeType }) => theme.fontFamily
-export const getBodyBackground = ({ theme: ThemeType }) => theme.bodyBackground
+export const getFontFamily = ({ theme }): string => theme.fontFamily
+export const getBodyBackground = ({ theme }): string => theme.bodyBackground
 
-const theme: ThemeType = {
+const theme: Theme = {
   bodyBackground: '#EFE9BC',
   orangeAccent: '#F8CC63',
   grayAccent: '#7d756f',

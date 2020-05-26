@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { device } from '../../theme'
+import { device, Theme } from '../../theme'
 
 export default styled.span`
-  color: ${(props) => props.theme.darkGrayAccent};
+  color: ${(props: { theme: Theme }): string => props.theme.darkGrayAccent};
   font-size: 1.1em;
   position: absolute;
   bottom: 10%;
@@ -11,7 +11,7 @@ export default styled.span`
   display: flex;
   background-color: rgba(247, 246, 225, 0.7);
   padding: 0.5em 0.8em;
-  border-radius: ${(props) => props.theme.detailBorderRadius};
+  border-radius: ${(props: { theme: Theme }): string => props.theme.detailBorderRadius};
   transition: opacity 200ms linear;
   text-shadow: 0px 0px 0.3em rgba(247, 246, 225, 1);
   overflow: hidden;

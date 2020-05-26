@@ -1,9 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
-import { getFontFamily, getBodyBackground, ios, standalone } from '../theme'
+import { getFontFamily, getBodyBackground, ios, standalone, Theme } from '../theme'
 
 export default createGlobalStyle`
   ::selection {
-    background: ${(props) => props.theme.greenHighlight};
+    background: ${(props: { theme: Theme }): string => props.theme.greenHighlight};
   }
 
   html {
@@ -17,14 +17,14 @@ export default createGlobalStyle`
       &.js {
           body {
             transition: background 500ms linear;
-            background-color: ${(props) => props.theme.orangeAccent};
+            background-color: ${(props: { theme: Theme }): string => props.theme.orangeAccent};
           }
           &:after {
             content: '';
             display: block;
             height: 100vh;
             width: 100%;
-            background: ${(props) => props.theme.orangeAccent};
+            background: ${(props: { theme: Theme }): string => props.theme.orangeAccent};
             background-image: url('./assets/images/logo.svg');
             background-repeat: no-repeat;
             background-position: center calc(50% - 2.4vh);
@@ -92,7 +92,7 @@ export default createGlobalStyle`
 	}
 	.page-transition-enter-active {
 		opacity: 1;
-		transition: opacity 200ms ${(props) => props.theme.timingFunction} 50ms;
+		transition: opacity 200ms ${(props: { theme: Theme }): string => props.theme.timingFunction} 50ms;
 	}
 	.page-transition-exit {
     pointer-events: none;
@@ -102,6 +102,6 @@ export default createGlobalStyle`
 	.page-transition-exit-active {
     pointer-events: none;
 		opacity: 0;
-		transition: opacity 250ms ${(props) => props.theme.timingFunction};
+		transition: opacity 250ms ${(props: { theme: Theme }): string => props.theme.timingFunction};
 	}
 `

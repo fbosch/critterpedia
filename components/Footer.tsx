@@ -1,5 +1,5 @@
+import * as React from 'react'
 import styled from 'styled-components'
-import border from '../public/assets/images/border.png'
 import SearchBar from './SearchBar'
 
 const StyledContainer = styled.div`
@@ -20,7 +20,7 @@ const StyledFooter = styled.footer`
   border-top: 2px solid ${(props) => props.theme.borderColor};
 `
 
-function Footer(props) {
+function Footer(): JSX.Element {
   return (
     <StyledFooter>
       <StyledContainer>

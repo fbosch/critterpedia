@@ -1,10 +1,11 @@
 import styled from 'styled-components'
+import { Theme } from '../../theme'
 
 export default styled.header`
   h2 {
     letter-spacing: 0.04em;
     padding: 0;
-    color: ${(props) => props.theme.greenText};
+    color: ${(props: { theme: Theme }): string => props.theme.greenText};
     z-index: 1;
     position: relative;
     font-size: 1.4em;
@@ -13,7 +14,7 @@ export default styled.header`
     white-space: nowrap;
     &:after {
       content: '';
-      background: ${(props) => props.theme.greenHighlight};
+      background: ${(props: { theme: Theme }): string => props.theme.greenHighlight};
       width: 100%;
       height: 100%;
       top: 0;

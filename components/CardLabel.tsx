@@ -92,7 +92,11 @@ const StyledCardLabel = styled.span`
   }
 `
 
-function CardLabel(props) {
+type Props = {
+  title: string
+}
+
+function CardLabel(props: Props): JSX.Element {
   if (!props.title) return null
   return (
     <StyledCardLabel data-name={props.title}>

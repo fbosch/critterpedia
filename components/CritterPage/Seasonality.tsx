@@ -1,3 +1,4 @@
+import * as React from 'react'
 import styled from 'styled-components'
 import SectionHeader from './SectionHeader'
 
@@ -88,7 +89,13 @@ const SeasonTable = styled.table`
   }
 `
 
-export default function Seasonality(props) {
+type Props = {
+  activeMonths: string[]
+  currentMonth: string
+  months: string[]
+}
+
+export default function Seasonality(props: Props): JSX.Element {
   const { activeMonths, months, currentMonth } = props
   const isActive = (month: string) => activeMonths.includes(month)
   const getMonthAttributes = (month) => ({

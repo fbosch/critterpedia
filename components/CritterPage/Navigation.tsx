@@ -1,3 +1,4 @@
+import * as React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 
@@ -14,7 +15,12 @@ const StyledNavigation = styled.nav`
   }
 `
 
-export default function Navigation({ neighbours, group }) {
+type Props = {
+  group: string
+  neighbours: { prev: Critter; next: Critter }
+}
+
+export default function Navigation({ neighbours, group }: Props): JSX.Element {
   return (
     <StyledNavigation>
       {neighbours.prev ? (

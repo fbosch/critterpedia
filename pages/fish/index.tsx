@@ -1,17 +1,19 @@
+import * as React from 'react'
 import CardEntry from '../../components/CardEntry'
 import CardGrid from '../../components/CardGrid'
-import { useRouter } from 'next/router'
+import { useRouter, NextRouter } from 'next/router'
 import { useMemo } from 'react'
-import search from '../../utils/search'
+import { GetStaticProps } from 'next'
+import searchCritter from '../../utils/search'
 import Head from 'next/head'
 import btoa from '../../utils/btoa'
 
-export async function getStaticProps() {
-  let fishes = await require('../../public/data/fishes.json')
+export const getStaticProps: GetStaticProps = async () => {
+  const fishes = await require('../../public/data/fishes.json')
   return { props: { fishes } }
 }
 
-const fishSVG = (color: string) =>
+const fishSVG = (color: string): string =>
   btoa(
     '<svg width="79" height="46" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clipRule="evenodd" d="M31.5 46C48.897 46 63 33.203 63 20.5S48.897.5 31.5.5s-31 7.297-31 20S14.103 46 31.5 46zM12.43 24.213c3 .48 5.857-1.782 6.38-5.054.525-3.272-1.402-6.808-4.401-7.289-3-.48-5.935 2.276-6.46 5.548-.524 3.272 1.482 6.314 4.482 6.795z" fill="' +
       color +
@@ -20,13 +22,17 @@ const fishSVG = (color: string) =>
       '"/></svg>'
   )
 
-function FishesPage({ fishes }) {
-  const router: any = useRouter()
+type Props = {
+  fishes: Array<Critter>
+}
 
-  const fishCollection = useMemo(() => {
+function FishesPage({ fishes }: Props): JSX.Element {
+  const router: NextRouter = useRouter()
+
+  const fishCollection: JSX.Element[] = useMemo(() => {
     let parsedFishes = fishes
     if (router?.query?.search?.length > 2) {
-      parsedFishes = search(fishes, router.query.search)
+      parsedFishes = searchCritter(fishes, router.query.search as string)
     }
     parsedFishes = parsedFishes.map((fish) => ({ id: fish.id, name: fish.name, price: fish.price }))
     return parsedFishes.map((creature, index) => (

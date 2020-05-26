@@ -1,7 +1,8 @@
 import styled from 'styled-components'
-import { device, isChrome, standalone } from '../../theme'
+import { device, isChrome, standalone, Theme } from '../../theme'
 
-const getFallback = (props) => props.fallback(props.theme.borderColor)
+const getFallback = (props: { theme: Theme; fallback: (color: string) => string }) =>
+  props.fallback(props.theme.borderColor)
 
 export default styled.li`
   touch-action: manipulation;
@@ -56,7 +57,7 @@ export default styled.li`
       opacity: 0;
       transition: opacity 200ms linear;
       transform: translate(-50%, -50%);
-      border: 2px solid ${(props) => props.theme.darkGrayAccent};
+      border: 2px solid ${(props: { theme: Theme }): string => props.theme.darkGrayAccent};
     }
 
     &:before {
@@ -66,7 +67,7 @@ export default styled.li`
       transform: translate(-50%, -50%);
       top: 50%;
       left: 50%;
-      border: 2px solid ${(props) => props.theme.borderColor};
+      border: 2px solid ${(props: { theme: Theme }): string => props.theme.borderColor};
       position: absolute;
     }
 
@@ -100,7 +101,7 @@ export default styled.li`
 
   a:hover:after {
     opacity: 0.6;
-    border: 2px dashed ${(props) => props.theme.darkGrayAccent};
+    border: 2px dashed ${(props: { theme: Theme }): string => props.theme.darkGrayAccent};
   }
 
    a:focus, a:hover, a:active {

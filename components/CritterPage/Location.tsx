@@ -1,3 +1,4 @@
+import * as React from 'react'
 import styled from 'styled-components'
 import SectionHeader from './SectionHeader'
 
@@ -15,7 +16,11 @@ const StyledLocation = styled.div`
   }
 `
 
-export default function Location({ location }) {
+type Props = {
+  location?: string
+}
+
+export default function Location({ location }: Props): JSX.Element {
   return (
     <StyledLocation>
       <SectionHeader>

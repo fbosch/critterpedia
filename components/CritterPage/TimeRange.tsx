@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 
 const hoursInADay = Array.from(Array(24)).map((_, index) => index)
 
@@ -200,8 +200,14 @@ function getMilitaryHours(hours: Array<string>): Array<number> {
   return parsedHours
 }
 
-export default function TimeRange({ time, currentTime, disabled = false }) {
-  const parsedTime: Array<Array<Number>> = useMemo(
+type Props = {
+  time: string
+  currentTime: number
+  disabled?: boolean
+}
+
+export default function TimeRange({ time, currentTime, disabled = false }: Props): JSX.Element {
+  const parsedTime: Array<number[]> = useMemo(
     () =>
       time
         .split('&')
@@ -213,7 +219,7 @@ export default function TimeRange({ time, currentTime, disabled = false }) {
     <TimeRangeContainer>
       {currentTime && <CurrentTimeIndicator style={{ left: `calc(4.16% * ${currentTime})` }} />}
       {disabled === false &&
-        parsedTime.map((time: Array<any>) => {
+        parsedTime.map((time: Array<number>) => {
           if (time[1] < time[0]) {
             return [
               <ActiveHourMarker key={time.join() + '1'} style={{ width: `calc(4.16% * ${time[1]})` }} />,

@@ -1,4 +1,4 @@
-export default function lazyLoad(target: HTMLImageElement) {
+export default function lazyLoad(target: HTMLImageElement): IntersectionObserver {
   const io = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
