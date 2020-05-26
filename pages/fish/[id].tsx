@@ -30,7 +30,7 @@ type Props = {
 const Fish = ({ info, neighbours }: Props): JSX.Element => {
   const router = useRouter()
   const { id } = router.query
-  return <CritterPage {...info} key={id.toString()} group='fish' neighbours={neighbours} />
+  return <CritterPage {...info} key={id as string} group='fish' neighbours={neighbours} />
 }
 
 export default Fish

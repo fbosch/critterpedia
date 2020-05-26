@@ -44,7 +44,7 @@ const isSafari = process.browser && /^((?!chrome|android).)*safari/i.test(naviga
 
 type Props = {
   children: React.ReactChildren | JSX.Element | JSX.Element[]
-  key?: string
+  key?: string | number
 }
 
 function CardGrid(props: Props): JSX.Element {
