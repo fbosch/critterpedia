@@ -54,6 +54,10 @@ const CritterSection = styled.section`
         'picture location'
         'header donation';
 
+      picture img {
+        top: 50%;
+      }
+
       picture,
       > header {
         border: none;

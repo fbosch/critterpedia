@@ -43,6 +43,7 @@ const StyledShadow = styled.span`
 `
 
 const StyledCardLabel = styled.span`
+  overflow: visible;
   position: absolute;
   min-height: 0.7em;
   min-width: 2em;
