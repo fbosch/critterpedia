@@ -42,24 +42,16 @@ type SiteLayoutProps = {
   route?: string
 }
 
-let quicklink
 async function quicklinks() {
   if (process.browser) {
-    if (!quicklink) {
-      quicklink = await import('quicklink')
-      window.requestAnimationFrame(() => quicklink.listen())
-    } else {
-      window.requestAnimationFrame(() => {
-        quicklink.prefetch()
-        console.info('prefetch')
-      })
-    }
+    const quicklink = await import('quicklink')
+    quicklink.listen()
   }
 }
 
 function SiteLayout(props: SiteLayoutProps): React.ReactElement {
-  const { children, route } = props
-  useEffect(() => void quicklinks(), [route])
+  const { children } = props
+  useEffect(() => void quicklinks(), [])
   return (
     <StyledContainer>
       <Header />

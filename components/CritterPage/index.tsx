@@ -54,7 +54,7 @@ export default function CreaturePage(props: Props): React.ReactElement {
           </h1>
         </header>
         <picture>
-          <img src={`../../assets/images/${group}/photos/${id}.png`} loading='eager' />
+          <img src={`../assets/images/${group}/photos/${id}.png`} loading='eager' />
         </picture>
         <Seasonality months={months} activeMonths={activeMonths} currentMonth={currentMonth} />
         <Time time={time} disabled={isCurrentlyActive === false} />
