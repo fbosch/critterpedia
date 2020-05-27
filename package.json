@@ -32,6 +32,7 @@
     "lodash.throttle": "^4.1.1",
     "modern-normalize": "^0.6.0",
     "next-page-transitions": "^1.0.0-beta.2",
+    "quicklink": "^2.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scroll-box": "^0.3.5",

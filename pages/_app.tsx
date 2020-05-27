@@ -34,9 +34,9 @@ export default class extends App {
       <ThemeProvider theme={theme}>
         <RouterContextProvider>
           <GlobalStyle />
-          <SiteLayout route={router.route}>
+          <SiteLayout route={router.asPath}>
             <PageTransition timeout={300} classNames='page-transition' skipInitialTransition>
-              <Component {...pageProps} key={router.route} />
+              <Component {...pageProps} key={router.asPath} />
             </PageTransition>
           </SiteLayout>
         </RouterContextProvider>

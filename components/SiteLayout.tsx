@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import Header from './Header'
 import Footer from './Footer'
@@ -42,9 +42,24 @@ type SiteLayoutProps = {
   route?: string
 }
 
-function SiteLayout(props: SiteLayoutProps): React.ReactElement {
-  const { children } = props
+let quicklink
+async function quicklinks() {
+  if (process.browser) {
+    if (!quicklink) {
+      quicklink = await import('quicklink')
+      window.requestAnimationFrame(() => quicklink.listen())
+    } else {
+      window.requestAnimationFrame(() => {
+        quicklink.prefetch()
+        console.info('prefetch')
+      })
+    }
+  }
+}
 
+function SiteLayout(props: SiteLayoutProps): React.ReactElement {
+  const { children, route } = props
+  useEffect(() => void quicklinks(), [route])
   return (
     <StyledContainer>
       <Header />
