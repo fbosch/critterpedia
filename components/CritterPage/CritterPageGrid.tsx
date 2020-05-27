@@ -71,14 +71,15 @@ const CritterSection = styled.section`
     grid-area: picture;
     image-rendering: smooth;
     border-top: none;
+    position: relative;
     img {
       left: 50%;
-      top: 60%;
+      top: 50%;
       max-height: 130%;
       max-width: 90%;
       width: auto;
       /* width: 100%; */
-      position: relative;
+      position: absolute;
       transform: translate(-50%, -50%);
       object-position: center;
       filter: url(#drop-shadow);

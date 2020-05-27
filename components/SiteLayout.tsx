@@ -43,7 +43,7 @@ type SiteLayoutProps = {
 }
 
 async function quicklinks() {
-  if (process.browser) {
+  if (process.browser && process.env.NODE_ENV === 'production') {
     const quicklink = await import('quicklink')
     quicklink.listen()
   }

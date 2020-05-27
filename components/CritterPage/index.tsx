@@ -29,6 +29,15 @@ type Props = Critter & {
   key?: string | number
 }
 
+function getTrace(group, id) {
+  try {
+    const trace = require(`../../public/assets/images/${group}/photos/${id}.png?trace`)?.trace
+    return trace
+  } catch (e) {
+    return
+  }
+}
+
 export default function CreaturePage(props: Props): React.ReactElement {
   const { id, name, group, northern, time, location, neighbours, vertical } = props
   const season = northern
@@ -39,6 +48,7 @@ export default function CreaturePage(props: Props): React.ReactElement {
 
   const currentMonth = months[new Date().getMonth() + 1]
   const isCurrentlyActive = activeMonths.includes(currentMonth)
+  const trace = getTrace(group, id)
   return (
     <>
       <Head>
@@ -54,7 +64,8 @@ export default function CreaturePage(props: Props): React.ReactElement {
           </h1>
         </header>
         <picture>
-          <img src={`../assets/images/${group}/photos/${id}.png`} loading='eager' />
+          {trace && <img src={trace} />}
+          <img src={`../assets/images/${group}/photos/${id}.png`} loading='lazy' />
         </picture>
         <Seasonality months={months} activeMonths={activeMonths} currentMonth={currentMonth} />
         <Time time={time} disabled={isCurrentlyActive === false} />

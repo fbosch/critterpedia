@@ -1,8 +1,15 @@
 const withOffline = require('next-offline')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.env.ANALYZE === 'true' })
 const withPlugins = require('next-compose-plugins')
+const withOptimizedImages = require('next-optimized-images')
 
-const plugins = [withOffline, withBundleAnalyzer]
+const imageOptions = {
+  imagesPublicPath: '/public/assets/images',
+  imagesOutputPath: '/assets/images',
+  optimizeImagesInDev: true,
+}
+
+const plugins = [withOffline, [withOptimizedImages, imageOptions], withBundleAnalyzer]
 
 module.exports = withPlugins(plugins, {
   workboxOpts: {
@@ -30,7 +37,7 @@ module.exports = withPlugins(plugins, {
     })
     config.module.rules.push({
       test: /\.(jpe?g|png)$/i,
-      loaders: ['file-loader', 'webp-loader?{quality: 50}'],
+      loaders: ['file-loader', 'webp-loader'],
     })
     return config
   },
