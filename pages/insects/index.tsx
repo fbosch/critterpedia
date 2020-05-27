@@ -13,6 +13,8 @@ export const getStaticProps: GetStaticProps = async () => {
   return { props: { insects } }
 }
 
+import(`../../public/assets/images/insects/icons/orchidmantis.png`)
+
 const insectSVG = (color: string): string =>
   btoa(
     '<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58 51"><path d="M29 17.5c5.865 7.217 5.906 19.668.758 24.113S11.304 39.806 5.439 32.59C-.426 25.372-2.06 12.995 3.087 8.55S23.135 10.283 29 17.5z" fill="' +
@@ -41,18 +43,20 @@ function InsectsPage({ insects }: Props): JSX.Element {
       parsedInsects = searchCritter(insects, router.query.search as string)
     }
     parsedInsects = parsedInsects.map((insect) => ({ id: insect.id, name: insect.name, price: insect.price }))
-    return parsedInsects.map((creature, index) => (
-      <CardEntry
-        fallback={insectSVG}
-        group='insects'
-        key={creature.id}
-        id={creature.id}
-        {...creature}
-        title={creature.name}
-        image={`./assets/images/insects/icons/${creature.id}.png`}
-        showSpacer={index === insects.length - 1}
-      />
-    ))
+    return parsedInsects.map((creature, index) => {
+      return (
+        <CardEntry
+          fallback={insectSVG}
+          group='insects'
+          key={creature.id}
+          id={creature.id}
+          {...creature}
+          title={creature.name}
+          image={`/assets/images/insects/icons/${creature.id}.png`}
+          showSpacer={index === insects.length - 1}
+        />
+      )
+    })
   }, [insects, router.query])
 
   return (

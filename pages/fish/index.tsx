@@ -43,7 +43,7 @@ function FishesPage({ fishes }: Props): JSX.Element {
         id={creature.id}
         {...creature}
         title={creature.name}
-        image={`./assets/images/fish/icons/${creature.id}.png`}
+        image={`/assets/images/fish/icons/${creature.id}.png`}
         showSpacer={index === fishes.length - 1}
       />
     ))

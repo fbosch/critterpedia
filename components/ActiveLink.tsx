@@ -10,7 +10,7 @@ type Props = {
 
 const ActiveLink = ({ router, children, ...props }) => {
   const child = Children.only(children)
-  const { href, ...rest } = props as Props
+  const { href, activeClassName, ...rest } = props as Props
 
   let className = child.props.className || ''
   if (router.pathname.startsWith(props.href) && props.activeClassName) {

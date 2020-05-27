@@ -24,6 +24,7 @@ function CardEntry(props: CardEntryProps): JSX.Element {
     },
     [id]
   )
+
   return (
     <Card {...rest}>
       <Link href={`/${group}/[id]`} as={`/${group}/${id}`}>

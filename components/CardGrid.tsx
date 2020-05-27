@@ -79,10 +79,6 @@ function CardGrid(props: Props): JSX.Element {
       draggingRemoveRef.current = window.requestAnimationFrame(() => {
         dragMovingRef.current = false
         list.classList.remove('is-dragging')
-
-        // list.scrollBy({ left: 100, behavior: 'smooth' })
-        // window.setTimeout(() => {
-        // }, 700)
       })
     }
   }, [])
