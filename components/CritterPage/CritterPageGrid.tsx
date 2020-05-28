@@ -78,12 +78,13 @@ const CritterSection = styled.section`
       max-height: 130%;
       max-width: 90%;
       width: auto;
-      /* width: 100%; */
       position: absolute;
       transform: translate(-50%, -50%);
       object-position: center;
-      filter: url(#drop-shadow);
-      -webkit-filter: drop-shadow(0 0.7em 0.3em #c6bd94);
+      &:last-of-type {
+        filter: url(#drop-shadow);
+        -webkit-filter: drop-shadow(0 0.7em 0.3em #c6bd94);
+      }
     }
   }
 

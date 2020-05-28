@@ -30,11 +30,13 @@ type Props = Critter & {
 }
 
 function getTrace(group, id) {
-  try {
-    const trace = require(`../../public/assets/images/${group}/photos/${id}.png?trace`)?.trace
-    return trace
-  } catch (e) {
-    return
+  if (process.env.NODE_ENV === 'production') {
+    try {
+      const trace = require(`../../public/assets/images/${group}/photos/${id}.png?trace`)?.trace
+      return trace
+    } catch (e) {
+      return null
+    }
   }
 }
 

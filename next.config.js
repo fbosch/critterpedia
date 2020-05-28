@@ -6,7 +6,6 @@ const withOptimizedImages = require('next-optimized-images')
 const imageOptions = {
   imagesPublicPath: '/public/assets/images',
   imagesOutputPath: '/assets/images',
-  optimizeImagesInDev: true,
 }
 
 const plugins = [withOffline, [withOptimizedImages, imageOptions], withBundleAnalyzer]
@@ -35,10 +34,10 @@ module.exports = withPlugins(plugins, {
       test: /\.(gif|svg|eot|ttf|otf|woff|woff2)$/,
       loader: 'file-loader',
     })
-    config.module.rules.push({
-      test: /\.(jpe?g|png)$/i,
-      loaders: ['file-loader', 'webp-loader'],
-    })
+    // config.module.rules.push({
+    //   test: /\.(jpe?g|png)$/i,
+    //   loaders: ['file-loader', 'webp-loader'],
+    // })
     return config
   },
 })
